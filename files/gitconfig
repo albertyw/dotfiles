@@ -1,30 +1,31 @@
-[alias]
-  amend   = commit --amend
-  br	= branch
-  cdiff	= diff --cached
-  cm	= commit -m
-  ci	= commit -v
-  co	= checkout
-  dump	= cat-file -p
-  hist	= log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  lg	= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  st	= status
-  type	= cat-file -t
-  unstage = reset HEAD
-
 [core]
-  excludesfile = ~/.gitignore
+	editor = vi
+	excludesfile = ~/.gitignore
 
 [user]
-  name = Harry Schwartz
-  email = hrs@ginkgobioworks.com
+	name = Albert Wang
+	email = albertyw@mit.edu
 
 [color]
-  ui = true
+	ui = true
 
 [push]
-  default = current
+	default = current
 
-[include]
-  # for creds
-  path = ~/.gitconfig.local
+[alias]
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+[log]
+        date = local
+
+[merge]
+        ff = false
+
+[branch]
+        autosetuprebase = always
+
+[diff]
+        tool = vimdiff
+
+[difftool]
+        prompt = false
