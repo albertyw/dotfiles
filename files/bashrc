@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### Adjusting the PATH
-conf_dot_home_path=$HOME/.bin
+conf_dot_home_path=$HOME/.dotfiles/bin
 export PATH=/usr/local/bin:$PATH:$conf_dot_home_path
 
 ### Setting variables
@@ -19,22 +19,4 @@ alias egrep='egrep --color=auto'
 alias tree='tree -A'
 alias oports="echo 'User:      Command:   Port:'; echo '----------------------------' ; lsof -i 4 -P -n | grep -i 'listen' | awk '{print \$3, \$1, \$9}' | sed 's/ [a-z0-9\.\*]*:/ /' | sort -k 3 -n |xargs printf '%-10s %-10s %-10s\n' | uniq"
 
-### Adjust prompt
-GIT_PS1_SHOWDIRTYSTATE=true
-
-# __git_ps1 reports "((unknown))" in directories with broken git repositories;
-# unfortunately, pre-commit hooks are generally kept in an empty git repo in $HOME,
-# resulting in unneeded grossness.
-__quiet_git_ps1() {
-    local b="$(__git_ps1)"
-    if [ "$b" != " ((unknown))" ]; then
-        echo -n "$b"
-    fi
-}
-
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-
-PS1='\[\e[1;31m\]\u@\h \w [\w$(__quiet_git_ps1)] \$ \[\e[0m\]'
+PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
