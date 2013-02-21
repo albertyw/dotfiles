@@ -2,12 +2,15 @@
 
 ### Adjusting the PATH
 conf_dot_home_path=$HOME/.dotfiles/bin
-export PATH=/usr/local/bin:$PATH:$conf_dot_home_path
+export PATH=/usr/local/bin:$PATH:$conf_dot_home_path:/sbin
 
 ### Setting variables
 export DISPLAY=:0.0
-export EDITOR="emacsclient -nw -c -a ''"
+export EDITOR=vim
 export LANG="en_US"
+export LC_ALL=C
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
 export LC_ALL=C
 
 ### Assorted aliases
@@ -18,5 +21,6 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias tree='tree -A'
 alias oports="echo 'User:      Command:   Port:'; echo '----------------------------' ; lsof -i 4 -P -n | grep -i 'listen' | awk '{print \$3, \$1, \$9}' | sed 's/ [a-z0-9\.\*]*:/ /' | sort -k 3 -n |xargs printf '%-10s %-10s %-10s\n' | uniq"
+alias rspec='rspec -f p --color'
 
 PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
