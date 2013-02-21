@@ -2,6 +2,11 @@
 
 dotfiles=$HOME/.dotfiles/files/
 
+if [ -f $HOME/.bash_profile ] && [ ! -L $HOME/.bash_profile] ; then
+    mv $HOME/.bash_profile $HOME/.bash_profile~
+    ln -s $dotfiles/bash_profile $HOME/.bash_profile
+fi
+
 if [ -f $HOME/.bashrc ] && [ ! -L $HOME/.bashrc ] ; then
     mv $HOME/.bashrc $HOME/.bashrc~
     ln -s $dotfiles/bashrc $HOME/.bashrc
