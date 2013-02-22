@@ -21,6 +21,6 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias tree='tree -A'
 alias oports="echo 'User:      Command:   Port:'; echo '----------------------------' ; lsof -i 4 -P -n | grep -i 'listen' | awk '{print \$3, \$1, \$9}' | sed 's/ [a-z0-9\.\*]*:/ /' | sort -k 3 -n |xargs printf '%-10s %-10s %-10s\n' | uniq"
-alias rspec='rspec -f p --color'
+alias rspec='rspec -f p -c -p'
 
 PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
