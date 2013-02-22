@@ -1,0 +1,16 @@
+" settings for vim
+syntax on
+set background=dark
+set ruler
+set nowrap
+set number
+if has("terminfo")
+let &t_Co=8
+let &t_Sf="\e[3%p1%dm"
+let &t_Sb="\e[4%p1%dm"
+else
+let &t_Co=8
+let &t_Sf="\e[3%dm"
+let &t_Sb="\e[4%dm"
+endif
+

@@ -42,3 +42,7 @@ if [ -f $HOME/.sudo_as_admin_successful ] && [ ! -L $HOME/.sudo_as_admin_success
 fi
 ln -s $dotfiles/sudo_as_admin_successful $HOME/.sudo_as_admin_successful
 
+if [ -f $HOME/.vimrc ] && [ ! -L $HOME/.vimrc ]; then
+    mv $HOME/.vimrc $HOME/.vimrc~
+fi
+ln -s $dotfiles/vimrc $HOME/.vimrc
