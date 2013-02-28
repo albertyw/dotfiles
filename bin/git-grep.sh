@@ -1,6 +1,6 @@
 #!/bin/bash
 repos=( 'db' 'scripts' 'tools' 'common' 'ui' 'cam' );
-cd /home/albertyw/limsnew/
+cd /home/vagrant/limsnew/
 for i in ${repos[@]}; do
     echo -e "\033[44m**$i**\033[0m\n"
     cd $i
