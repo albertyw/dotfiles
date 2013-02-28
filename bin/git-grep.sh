@@ -7,4 +7,3 @@ for i in ${repos[@]}; do
     echo -e "$(git grep --color --line-number $1)"
     cd ..
 done
-cd -
