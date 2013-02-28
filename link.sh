@@ -20,7 +20,9 @@ ln -s $dotfiles/forward $HOME/.forward
 if [ -f $HOME/.git ] && [ ! -L $HOME/.git ]; then
     mv $HOME/.git $HOME/.git~
 fi
-ln -s $dotfiles/git $HOME/.git
+if [ ! -L $HOME/.git ]; then
+    ln -s $dotfiles/git $HOME/.git
+fi
 
 if [ -f $HOME/.gitconfig ] && [ ! -L $HOME/.gitconfig ]; then
     mv $HOME/.gitconfig $HOME/.gitconfig~
