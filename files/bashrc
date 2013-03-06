@@ -11,6 +11,7 @@ export LANG="en_US"
 export LC_ALL=C
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
+export TERM=xterm
 
 ### Assorted aliases
 alias path="echo $PATH | tr ':' '\n'"
@@ -18,7 +19,6 @@ alias ls='ls --color'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias tree='tree -A'
 alias oports="echo 'User:      Command:   Port:'; echo '----------------------------' ; lsof -i 4 -P -n | grep -i 'listen' | awk '{print \$3, \$1, \$9}' | sed 's/ [a-z0-9\.\*]*:/ /' | sort -k 3 -n |xargs printf '%-10s %-10s %-10s\n' | uniq"
 alias rspec='rspec -f p -c -p'
 alias gg='git-grep.sh'
