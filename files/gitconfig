@@ -29,3 +29,6 @@
 
 [difftool]
         prompt = false
+
+[include]
+        path = .gitconfig_local
