@@ -12,11 +12,6 @@ if [ -f $HOME/.bashrc ] && [ ! -L $HOME/.bashrc ] ; then
 fi
 ln -s $dotfiles/bashrc $HOME/.bashrc
 
-if [ -f $HOME/.forward ] && [ ! -L $HOME/.foward ]; then
-    mv $HOME/.forward $HOME/.forward~
-fi
-ln -s $dotfiles/forward $HOME/.forward
-
 if [ -f $HOME/.git ] && [ ! -L $HOME/.git ]; then
     mv $HOME/.git $HOME/.git~
 fi
