@@ -1,6 +1,7 @@
 [core]
 	editor = vi
 	excludesfile = ~/.gitignore
+	templatedir = ~/.git
 
 [user]
 	name = Albert Wang
