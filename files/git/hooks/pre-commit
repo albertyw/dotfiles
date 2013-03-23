@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Remove the trailing whitespaces from the files to be committed.
 
 if git rev-parse --verify HEAD >/dev/null 2>&1
