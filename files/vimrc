@@ -14,3 +14,4 @@ let &t_Sf="\e[3%dm"
 let &t_Sb="\e[4%dm"
 endif
 
+au BufRead,BufNewFile *.dj setfiletype htmldjango
