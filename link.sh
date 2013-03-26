@@ -12,10 +12,10 @@ if [ -f $HOME/.bashrc ] && [ ! -L $HOME/.bashrc ] ; then
 fi
 ln -s $dotfiles/bashrc $HOME/.bashrc
 
-if [ -f $HOME/.git ] && [ ! -L $HOME/.git ]; then
+if [ -d $HOME/.git ] && [ ! -L $HOME/.git ]; then
     mv $HOME/.git $HOME/.git~
 fi
-if [ ! -L $HOME/.git ]; then
+if [ ! -d $HOME/.git ]; then
     ln -s $dotfiles/git $HOME/.git
 fi
 
@@ -38,6 +38,13 @@ if [ -f $HOME/.sudo_as_admin_successful ] && [ ! -L $HOME/.sudo_as_admin_success
     mv $HOME/.sudo_as_admin_successful $HOME/.sudo_as_admin_successful~
 fi
 ln -s $dotfiles/sudo_as_admin_successful $HOME/.sudo_as_admin_successful
+
+if [ -d $HOME/.vim ] && [ ! -L $HOME/.vim ]; then
+    mv $HOME/.vim $HOME/.vim~
+fi
+if [ ! -d $HOME/.vim ]; then
+    ln -s $dotfiles/vim $HOME/.vim
+fi
 
 if [ -f $HOME/.vimrc ] && [ ! -L $HOME/.vimrc ]; then
     mv $HOME/.vimrc $HOME/.vimrc~
