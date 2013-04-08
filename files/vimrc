@@ -15,3 +15,5 @@ let &t_Sb="\e[4%dm"
 endif
 
 au BufRead,BufNewFile *.dj setfiletype htmldjango
+
+set hlsearch
