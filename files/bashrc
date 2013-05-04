@@ -26,3 +26,15 @@ alias diff='vimdiff'
 
 PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
+
+cd ~/.dotfiles
+git fetch
+git diff master..origin
+diffoutput=$(git diff HEAD..origin)
+if [ "$diffoutput" != "" ] ; then
+    echo 'YOUR DOTFILES ARE OUT OF DATE';
+fi
+changes=$(git diff)
+if [ "$changes" != "" ]; then
+    echo 'YOU HAVE UNCOMMITTED CHANGES';
+fi
