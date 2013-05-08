@@ -1,9 +1,11 @@
 #!/bin/bash
 repos=( 'db' 'scripts' 'tools' 'common' 'ui' 'cam' );
 cd /home/vagrant/lims/
-for i in ${repos[@]}; do
+#!/bin/bash
+for i in */.git; do
     echo -e "\033[44m**$i**\033[0m\n"
-    cd $i
-    echo -e "$(git grep --color --line-number $1)"
+    cd `dirname $i`
+    git grep --color --line-number "$@"
+    echo ""
     cd ..
 done
