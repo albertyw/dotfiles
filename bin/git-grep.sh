@@ -5,7 +5,7 @@ cd /home/vagrant/lims/
 for i in */.git; do
     echo -e "\033[44m**$i**\033[0m\n"
     cd `dirname $i`
-    git grep --color --line-number "$@"
+    echo -e "$(git grep --color --line-number "$@")"
     echo ""
     cd ..
 done
