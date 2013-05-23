@@ -17,3 +17,5 @@ endif
 au BufRead,BufNewFile *.dj setfiletype htmldjango
 
 set hlsearch
+
+:filetype plugin on
