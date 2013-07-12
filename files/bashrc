@@ -29,5 +29,5 @@ PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
-~/.dotfiles/bin/check-git-updates.sh &
-disown $!
+~/.dotfiles/bin/check-git-updates.sh | grep "YOU" &
+disown
