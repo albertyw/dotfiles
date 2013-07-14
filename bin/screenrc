@@ -1,0 +1,11 @@
+startup_message off
+
+screen -t htop htop
+split
+focus
+
+screen -t iftop iftop
+split
+focus
+
+screen -t iotop iotop

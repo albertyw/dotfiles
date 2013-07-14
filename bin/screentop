@@ -1,0 +1,1 @@
+sudo screen -c ~/.dotfiles/bin/screenrc
