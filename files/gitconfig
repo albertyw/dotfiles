@@ -3,6 +3,9 @@
 	excludesfile = ~/.gitignore
 	templatedir = ~/.git
 
+[init]
+	templatedir = ~/.git
+
 [user]
 	name = Albert Wang
 	email = albertyw@mit.edu
