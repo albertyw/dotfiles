@@ -26,6 +26,7 @@ alias gg='git-grep.sh'
 alias dirdiff='dirdiff.sh'
 alias fucking='sudo'
 alias gimme='chmod 777 $1; chown $USER $1; chgrp $USER $1'
+alias commands='cat $HOME/.dotfiles/files/commands'
 
 PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
