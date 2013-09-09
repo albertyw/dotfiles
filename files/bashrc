@@ -25,7 +25,7 @@ alias cpu="ps aux | sort -b -k 3 | tail -n 30"
 alias gg='git-grep.sh'
 alias dirdiff='dirdiff.sh'
 alias fucking='sudo'
-alias gimme='chmod 777 $1; chown $USER $1; chgrp $USER $1'
+alias gimme='chmod -R 777 $1; chown -R $USER $1; chgrp -R $USER $1'
 alias commands='cat $HOME/.dotfiles/files/commands'
 
 PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
