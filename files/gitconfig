@@ -1,44 +1,56 @@
+# Core
 [core]
-	editor = vi
-	excludesfile = ~/.gitignore
-	templatedir = ~/.git
+  editor = vi
+  excludesfile = ~/.gitignore
+  templatedir = ~/.git
 
 [init]
-	templatedir = ~/.git
+  templatedir = ~/.git
 
 [user]
-	name = Albert Wang
-	email = albertyw@mit.edu
+  name = Albert Wang
+  email = albertyw@mit.edu
 
-[color]
-	ui = true
-[color "grep"]
-	filename = magenta
-        match = bold red
-        linenumber = bold blue
-[color "diff"]
-	meta = bold cyan
+  
+# Git command Configuration
 [grep]
-        linenumber = true
+  linenumber = true
+
 [push]
-	default = current
+  default = current
 
 [alias]
-        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-        todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE
-        logf = log --follow
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE
+  logf = log --follow
 
 [log]
-        date = local
+  date = local
 
+  
+# Branching/Merging
 [branch]
-        autosetuprebase = always
+  autosetuprebase = always
 
 [diff]
-        tool = vimdiff
+  tool = vimdiff
 
 [difftool]
-        prompt = false
+  prompt = false
+
+  
+# Colors
+[color]
+  ui = true
+
+[color "grep"]
+  filename = magenta
+  match = bold red
+  linenumber = bold blue
+
+[color "diff"]
+  meta = bold cyan
+
 
 [include]
-        path = .gitconfig_local
+  path = .gitconfig_local
