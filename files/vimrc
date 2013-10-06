@@ -6,17 +6,24 @@ set nowrap
 set number
 set enc=utf-8
 if has("terminfo")
-let &t_Co=8
-let &t_Sf="\e[3%p1%dm"
-let &t_Sb="\e[4%p1%dm"
+  let &t_Co=8
+  let &t_Sf="\e[3%p1%dm"
+  let &t_Sb="\e[4%p1%dm"
 else
-let &t_Co=8
-let &t_Sf="\e[3%dm"
-let &t_Sb="\e[4%dm"
+  let &t_Co=8
+  let &t_Sf="\e[3%dm"
+  let &t_Sb="\e[4%dm"
 endif
 
 au BufRead,BufNewFile *.dj setfiletype htmldjango
 
 set hlsearch
+set modeline
 
-:filetype plugin on
+set expandtab
+set tabstop=4
+set autoindent
+set shiftwidth=4
+
+filetype on
+filetype plugin indent on
