@@ -26,6 +26,7 @@ alias gg='git-grep.sh'
 alias dirdiff='dirdiff.sh'
 alias fucking='sudo'
 alias commands='cat $HOME/.dotfiles/files/commands'
+alias lookup='$HOME/.dotfiles/bin/lookup.sh'
 
 PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
