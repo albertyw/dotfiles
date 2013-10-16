@@ -16,6 +16,7 @@ else
 endif
 
 au BufRead,BufNewFile *.dj setfiletype htmldjango
+au BufRead,BufNewFile *.hamlc set ft=haml
 
 set hlsearch
 set modeline
