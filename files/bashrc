@@ -12,6 +12,7 @@ export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export TERM=xterm
 export HISTCONTROL=ignorespace
+PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
 
 ### Assorted aliases
 alias path="echo $PATH | tr ':' '\n'"
@@ -29,7 +30,8 @@ alias commands='cat $HOME/.dotfiles/files/commands'
 alias lookup='$HOME/.dotfiles/bin/lookup.sh'
 alias hardware='hardware.sh'
 
-PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
+### Sourcing other scripts
+source $HOME/.dotfiles/bin/git-completion.sh
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
