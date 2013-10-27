@@ -33,6 +33,7 @@ alias hardware='hardware.sh'
 ### Sourcing other scripts
 source $HOME/.dotfiles/bin/git-completion.sh
 source $HOME/.dotfiles/bin/npm-completion.sh
+source $HOME/.dotfiles/bin/rake-completion.sh
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
