@@ -20,10 +20,11 @@
   default = current
 
 [alias]
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lg   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE
   logf = log --follow
-  size = count-objects -vH 
+  size = count-objects -vH
+  loc  = !git ls-files | xargs cat | wc -l
 
 [log]
   date = local
