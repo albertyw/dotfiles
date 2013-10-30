@@ -24,7 +24,7 @@
   todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE
   logf = log --follow
   size = count-objects -vH
-  loc  = !git ls-files | xargs cat | wc -l
+  loc  = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
 
 [log]
   date = local
