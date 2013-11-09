@@ -34,6 +34,7 @@ alias hardware='hardware.sh'
 source $HOME/.dotfiles/bin/git-completion.sh
 source $HOME/.dotfiles/bin/npm-completion.sh
 source $HOME/.dotfiles/bin/rake-completion.sh
+source $HOME/.dotfiles/bin/django-completion.sh
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
