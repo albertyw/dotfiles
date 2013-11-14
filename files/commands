@@ -16,3 +16,7 @@ chkrootkit
 top
 iotop
 iftop
+
+#MySQL Dump/Load
+mysqldump -h localhost -u user --password databasename > filename
+mysql -h localhost -u user --password databasename < filename
