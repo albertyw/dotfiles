@@ -5,6 +5,5 @@ if [ "$domain" = "" ]; then
   exit
 fi
 nslookup $domain
-traceroute $domain
 whois $domain
-
+traceroute $domain
