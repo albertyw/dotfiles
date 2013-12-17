@@ -13,10 +13,11 @@ export LANG=en_US.UTF-8
 export TERM=xterm
 export HISTCONTROL=ignorespace
 PS1='\[\e[1;31m\]\u@\h \w \$ \[\e[0m\]'
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 ### Assorted aliases
 alias path="echo $PATH | tr ':' '\n'"
-alias ls='ls --color'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
