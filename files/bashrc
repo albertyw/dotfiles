@@ -31,6 +31,9 @@ alias fucking='sudo'
 alias commands='cat $HOME/.dotfiles/files/commands'
 alias lookup='$HOME/.dotfiles/bin/lookup.sh'
 alias hardware='hardware.sh'
+if [[ $(uname) == Linux ]]; then
+    alias ls='ls --color=always'
+fi
 
 ### Sourcing other scripts
 source $HOME/.dotfiles/bin/git-completion.sh
