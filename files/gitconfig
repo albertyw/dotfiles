@@ -21,7 +21,7 @@
 
 [alias]
   lg   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE
+  todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE -e FIX-ME
   logf = log --follow
   size = count-objects -vH
   loc  = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
