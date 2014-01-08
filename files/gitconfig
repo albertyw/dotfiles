@@ -26,6 +26,7 @@
   size = count-objects -vH
   loc  = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
   users = shortlog -sn
+  pygrep = !git grep $1 -- `git ls-files | grep -v migrations | grep py`
 
 [log]
   date = local
