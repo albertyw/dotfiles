@@ -42,6 +42,8 @@
 [difftool]
   prompt = false
 
+[merge]
+  conflictstyle = diff3
   
 # Colors
 [color]
@@ -58,3 +60,4 @@
 
 [include]
   path = .gitconfig_local
+
