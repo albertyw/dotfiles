@@ -28,6 +28,7 @@
   users = shortlog -sn
   pygrep = !git grep $1 -- `git ls-files | grep -v migrations | grep py`
   cherrypick = cherry-pick
+  blame = blame -wMC
 
 [log]
   date = local
