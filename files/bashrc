@@ -30,7 +30,7 @@ alias fucking='sudo'
 alias commands='cat $HOME/.dotfiles/files/commands'
 alias lookup='$HOME/.dotfiles/bin/lookup.sh'
 alias hardware='hardware.sh'
-alias rsync='rsync -vazr'
+alias rsync='rsync -vazhP'
 if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
 fi
