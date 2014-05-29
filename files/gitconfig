@@ -62,6 +62,7 @@
 
 
 [include]
+  # REQUIRES GIT 1.7.10+
   path = .gitconfig_local
 
 [rerere]
