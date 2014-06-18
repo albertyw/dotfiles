@@ -31,6 +31,7 @@ alias commands='cat $HOME/.dotfiles/files/commands'
 alias lookup='$HOME/.dotfiles/bin/lookup.sh'
 alias hardware='hardware.sh'
 alias rsync='rsync -vazhP'
+alias alert='echo -e "\a"'
 if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
 fi
