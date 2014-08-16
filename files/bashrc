@@ -42,6 +42,7 @@ source $HOME/.dotfiles/bin/npm-completion.sh
 source $HOME/.dotfiles/bin/rake-completion.sh
 source $HOME/.dotfiles/bin/django-completion.sh
 [[ -r /usr/local/bin/virtualenvwrapper.sh ]] && . /usr/local/bin/virtualenvwrapper.sh
+[[ -r /usr/local/share/chruby/chruby.sh ]] && . /usr/local/share/chruby/chruby.sh
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
