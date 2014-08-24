@@ -18,3 +18,10 @@ for f in `exec git diff-index --cached --check $against -- | sed '/^[-+]/d' | cu
     fi
     git add $f
 done
+
+# pep8 files
+hash pep8 2>/dev/null || { echo "pep8 not installed; not verifying python files"; exit 0; }
+FILES=($(git diff --cached --name-status | grep -v ^D | awk '$1 $2 { print $2}' | grep -e .py$))
+for FILE in ${FILES[*]}; do
+    git diff --cached ${FILE} | pep8 --diff || { exit $?; }
+done
