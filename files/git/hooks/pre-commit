@@ -9,6 +9,7 @@ else
     against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
 
+IFS=$'\n' # Only split on newlines, not spaces
 for f in `exec git diff-index --cached --check $against -- | sed '/^[-+]/d' | cut -d: -f1 | uniq` ; do
     echo "* Removed whitespace: $f"
     if [[ $(uname) == Darwin ]]; then
