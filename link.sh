@@ -29,11 +29,6 @@ if [ -f $HOME/.gitignore ] && [ ! -L $HOME/.gitignore ]; then
 fi
 ln -s $dotfiles/gitignore $HOME/.gitignore
 
-if [ -f $HOME/.rspec ] && [ ! -L $HOME/.rspec ]; then
-    mv $HOME/.rspec $HOME/.rspec~
-fi
-ln -s $dotfiles/rspec $HOME/.rspec
-
 if [ -f $HOME/.selected_editor ] && [ ! -L $HOME/.selected_editor ]; then
     mv $HOME/.selected_editor $HOME/.selected_editor~
 fi
