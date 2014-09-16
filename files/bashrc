@@ -2,6 +2,7 @@
 
 ### Adjusting the PATH
 conf_dot_home_path=$HOME/.dotfiles/bin
+export PATH="/usr/local/heroku/bin:$PATH"
 export PATH=/usr/local/bin:$PATH:$conf_dot_home_path:/sbin
 
 ### Setting variables
