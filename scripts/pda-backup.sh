@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Prereqs
-sudo apt-get install davfs2 s3cmd
+sudo apt-get install davfs2 s3cmd zip
 mkdir egnyte
 mkdir egnyte-local
 
 # Download data
 sudo mount.davfs http://webdav-pda.egnyte.com/pda-egnyte egnyte -o ro
-sudo cp egnyte/Shared/PDA/* egnyte-local/
+screen cp -rv egnyte/Shared/PDA/* egnyte-local/
 
 # Upload data
 file="`date +"PDA %Y-%m-%d %H:%M:00 (Full)"`"
