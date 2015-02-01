@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Prereqs
-sudo apt-get install davfs2 s3cmd zip iftop htop
+sudo apt-get install iftop htop iotop
+sudo apt-get install davfs2 s3cmd zip
 
 # Set up scratch disk
 sudo mkfs -t ext4 /dev/xvdb
