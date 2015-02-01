@@ -1,7 +1,14 @@
 #!/bin/bash
 
 # Prereqs
-sudo apt-get install davfs2 s3cmd zip
+sudo apt-get install davfs2 s3cmd zip iftop htop
+
+# Set up scratch disk
+sudo mkfs -t ext4 /dev/xvdb
+mkdir scratch
+sudo mount /dev/xvdb scratch
+cd scratch
+sudo chmod 777 .
 mkdir egnyte
 mkdir egnyte-local
 
