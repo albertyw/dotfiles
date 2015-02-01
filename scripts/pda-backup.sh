@@ -15,7 +15,7 @@ mkdir egnyte-local
 
 # Download data
 sudo mount.davfs http://webdav-pda.egnyte.com/pda-egnyte egnyte -o ro
-screen cp -rv egnyte/Shared/PDA/* egnyte-local/
+screen cp -rvn egnyte/Shared/PDA/* egnyte-local/
 
 # Upload data
 file="`date +"PDA %Y-%m-%d %H:%M:00 (Full)"`"
