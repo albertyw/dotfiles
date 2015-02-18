@@ -35,6 +35,7 @@ alias hardware='hardware.sh'
 alias rsync='rsync -vazhP'
 alias alert='echo -e "\a"'
 alias diff='icdiff'
+alias rspec='xvfb-run -a bundle exec rspec'
 if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
 fi
