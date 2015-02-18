@@ -45,10 +45,7 @@ source $HOME/.dotfiles/bin/npm-completion.sh
 source $HOME/.dotfiles/bin/rake-completion.sh
 source $HOME/.dotfiles/bin/django-completion.sh
 [[ -r /usr/local/bin/virtualenvwrapper.sh ]] && . /usr/local/bin/virtualenvwrapper.sh
-if [[ -r /usr/local/share/chruby/chruby.sh ]]; then
-    . /usr/local/share/chruby/chruby.sh
-    chruby ruby-2.1.2
-fi
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
