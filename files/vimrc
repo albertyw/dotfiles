@@ -1,4 +1,6 @@
 " settings for vim
+call pathogen#infect()
+
 syntax on
 set background=dark
 set ruler
