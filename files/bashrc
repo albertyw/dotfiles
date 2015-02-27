@@ -47,6 +47,8 @@ source $HOME/.dotfiles/bin/rake-completion.sh
 source $HOME/.dotfiles/bin/django-completion.sh
 [[ -r /usr/local/bin/virtualenvwrapper.sh ]] && . /usr/local/bin/virtualenvwrapper.sh
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="/usr/local/heroku/bin:$PATH"
+
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
