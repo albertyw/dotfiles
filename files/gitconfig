@@ -30,6 +30,7 @@
   cherrypick = cherry-pick
   blames = blame -wMC
   branches = branch -vv
+  find = !git ls-files | grep
 
 [log]
   date = local
