@@ -20,7 +20,7 @@ screen cp -rvn egnyte/Shared/PDA/* egnyte-local/
 # Upload data
 file="`date +"PDA %Y-%m-%d %H:%M:00 (Full)"`"
 zip -r "$file" egnyte-local/*
-s3cmd put "$file" s3://pharmadataassociates-backups/
+s3cmd put --multipart-chunk-size-mb=100 "$file" s3://pharmadataassociates-backups/
 rm "$file"
 
 # Compute stats
