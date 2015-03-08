@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Prereqs
+sudo apt-get update
 sudo apt-get install iftop htop iotop
 sudo apt-get install davfs2 s3cmd zip
 
