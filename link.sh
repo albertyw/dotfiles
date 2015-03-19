@@ -2,6 +2,11 @@
 
 dotfiles=$HOME/.dotfiles/files/
 
+if [ -f $HOME/.atom ] && [ ! -L $HOME/.atom ] ; then
+    mv $HOME/.atom $HOME/.atom~
+fi
+ln -s $dotfiles/atom $HOME/.atom
+
 if [ -f $HOME/.bash_profile ] && [ ! -L $HOME/.bash_profile ] ; then
     mv $HOME/.bash_profile $HOME/.bash_profile~
 fi

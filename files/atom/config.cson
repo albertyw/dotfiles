@@ -1,0 +1,21 @@
+"*":
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    autoIndentOnPaste: false
+  core:
+    themes: [
+      "atom-light-ui"
+      "one-light-syntax"
+    ]
+    destroyEmptyPanes: false
+  "highlight-line": {}
+  "highlight-selected":
+    lightTheme: true
+    highlightBackground: true
+  linter: {}
+  "exception-reporting":
+    userId: "fcc1a21d-dbff-6e2b-5500-a44f4b54834c"
+  welcome:
+    showOnStartup: false
