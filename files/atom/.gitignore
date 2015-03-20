@@ -3,3 +3,6 @@ compile-cache
 dev
 .npm
 .node-gyp
+
+# Read from packages.txt
+packages
