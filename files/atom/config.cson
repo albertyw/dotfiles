@@ -6,8 +6,8 @@
     autoIndentOnPaste: false
   core:
     themes: [
-      "atom-light-ui"
-      "one-light-syntax"
+      "one-light-ui"
+      "fizzy"
     ]
     destroyEmptyPanes: false
   "highlight-line": {}
