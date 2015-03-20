@@ -7,7 +7,7 @@
   core:
     themes: [
       "one-light-ui"
-      "fizzy"
+      "one-light-syntax"
     ]
     destroyEmptyPanes: false
   "highlight-line": {}
