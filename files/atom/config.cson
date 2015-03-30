@@ -1,23 +1,20 @@
 "*":
   editor:
     invisibles: {}
-    showIndentGuide: true
-    showInvisibles: true
     autoIndentOnPaste: false
+    showIndentGuide: true
   core:
     themes: [
       "one-light-ui"
       "one-light-syntax"
     ]
     destroyEmptyPanes: false
-    ignoredNames: [
-      ".git .bundle"
-    ]
     projectHome: "/home/albertyw/Desktop/vagrant/console"
     disabledPackages: [
       "welcome"
     ]
-  "highlight-line": {}
+  "highlight-line":
+    enableBackgroundColor: false
   "highlight-selected":
     lightTheme: true
     highlightBackground: true
@@ -27,3 +24,6 @@
   welcome:
     showOnStartup: false
   "find-and-replace": {}
+  "bracket-matcher":
+    autocompleteSmartQuotes: false
+    autocompleteBrackets: false
