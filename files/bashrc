@@ -36,6 +36,8 @@ alias rsync='rsync -vazhP'
 alias alert='echo -e "\a"'
 alias diff='icdiff'
 alias tree='tree -C'
+function geoip { curl "ipinfo.io/$1"; }
+export -f geoip
 alias rspec='xvfb-run -a bundle exec rspec'
 if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
