@@ -13,4 +13,5 @@ sudo apt-get install git
 
 # Python/pip/virtualenvwrapper
 curl https://bootstrap.pypa.io/get-pip.py | sudo python
+curl https://bootstrap.pypa.io/get-pip.py | sudo python3
 sudo pip install virtualenvwrapper
