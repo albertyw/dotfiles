@@ -24,5 +24,5 @@ s3cmd put --multipart-chunk-size-mb=100 "$file" s3://pharmadataassociates-backup
 rm "$file"
 
 # Compute stats
-find egnyte-local > files
+find egnyte-local | wc -l > files
 du -hs egnyte-local > size
