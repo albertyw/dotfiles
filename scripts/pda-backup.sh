@@ -2,6 +2,7 @@
 
 # Prereqs
 sudo apt-get update
+sudo apt-get upgrade -y
 sudo apt-get install -y iftop htop iotop davfs2 s3cmd zip
 
 # Set up scratch disk
