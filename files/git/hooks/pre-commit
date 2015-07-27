@@ -1,5 +1,5 @@
 #!/bin/bash
-# Remove the trailing whitespaces from the files to be committed.
+
 
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
@@ -11,11 +11,24 @@ fi
 
 IFS=$'\n' # Only split on newlines, not spaces
 for f in `exec git diff-index --cached --check $against -- | sed '/^[-+]/d' | cut -d: -f1 | uniq` ; do
+
+    # Remove trailing whitespace
     echo "* Removed whitespace: $f"
     if [[ $(uname) == Darwin ]]; then
         sed -i '' -E 's/[[:space:]]*$//' $f
     else
         sed -i 's/[[:space:]]*$//' $f
+    fi
+    git add $f
+done
+
+files=$(git diff-index --name-status --cached HEAD | grep -v ^D | cut -c3-)
+for f in $files
+do
+    # Add linebreak to end of file if it doesn't have one
+    if [ "$(tail -c1 $f)" != '\n' ]
+    then
+        echo >> $f
     fi
     git add $f
 done
