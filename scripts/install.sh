@@ -6,6 +6,11 @@ sudo apt-get install finger whois tree traceroute
 sudo apt-get install vim zip
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
+# Unattended upgrades
+sudo apt-get install -y unattended-upgrades
+echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-Upgrade \"1\";\n" > /tmp/20auto-upgrades
+sudo mv /tmp/20auto-upgrades /etc/apt/apt.conf.d/
+
 # git
 sudo apt-add-repository ppa:git-core/ppa
 sudo apt-get update
