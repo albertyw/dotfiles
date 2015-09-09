@@ -18,6 +18,9 @@ mkdir egnyte-local
 sudo mount.davfs http://webdav-pda.egnyte.com/pda-egnyte egnyte -o ro
 screen cp -rvn egnyte/Shared/PDA/* egnyte-local/
 
+# Download website
+git clone git@github.com:albertyw/pharmadataassociates egnyte-local/pharmadataassociates.com
+
 # Upload data
 file="`date +"PDA %Y-%m-%d %H:%M:00 (Full)"`"
 zip -r "$file" egnyte-local/*
