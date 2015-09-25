@@ -26,7 +26,7 @@ files=$(git diff-index --name-status --cached HEAD | grep -v ^D | cut -c3-)
 for f in $files
 do
     # Add linebreak to end of file if it doesn't have one
-    if [ "$(tail -c1 $f)" != '\n' ]
+    if [ "$(tail -c 1 $f)" != "" ]
     then
         echo >> $f
     fi
