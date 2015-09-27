@@ -23,8 +23,8 @@ git clone git@github.com:albertyw/pharmadataassociates egnyte-local/pharmadataas
 
 # Upload data
 file="`date +"PDA %Y-%m-%d %H:%M:00 (Full)"`"
-zip -r "$file" egnyte-local/*
-s3cmd put --multipart-chunk-size-mb=100 "$file" s3://pharmadataassociates-backups/
+screen zip -r "$file" egnyte-local/*
+screen s3cmd put --multipart-chunk-size-mb=100 "$file" s3://pharmadataassociates-backups/
 rm "$file"
 
 # Compute stats
