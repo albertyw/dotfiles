@@ -34,6 +34,11 @@ if [ -f $HOME/.gitignore ] && [ ! -L $HOME/.gitignore ]; then
 fi
 ln -s $dotfiles/gitignore $HOME/.gitignore
 
+if [ -f $HOME/.irbrc ] && [ ! -L $HOME/.irbrc ]; then
+    mv $HOME/.irbrc $HOME/.irbrc~
+fi
+ln -s $dotfiles/irbrc $HOME/.irbrc
+
 if [ -f $HOME/.selected_editor ] && [ ! -L $HOME/.selected_editor ]; then
     mv $HOME/.selected_editor $HOME/.selected_editor~
 fi
