@@ -61,5 +61,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
-~/.dotfiles/scripts/check-git-updates.sh | grep "YOU" &
+~/.dotfiles/scripts/check-git-updates.sh &
 disown
