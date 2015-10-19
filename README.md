@@ -11,6 +11,6 @@ Setup
 ```shell
 git clone git@github.com:albertyw/dotfiles.git .dotfiles
 cd .dotfiles
-./link.sh
+scripts/link.sh
 scripts/install.sh
 ```
