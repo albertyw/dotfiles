@@ -21,6 +21,4 @@ sudo apt-get update
 sudo apt-get install git
 
 # Python/pip/virtualenvwrapper
-curl https://bootstrap.pypa.io/get-pip.py | sudo python
-curl https://bootstrap.pypa.io/get-pip.py | sudo python3
-sudo pip install virtualenvwrapper
+curl -sL https://raw.githubusercontent.com/brainsik/virtualenv-burrito/master/virtualenv-burrito.sh | $SHELL
