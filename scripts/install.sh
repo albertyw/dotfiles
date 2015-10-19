@@ -4,7 +4,11 @@ sudo apt-get update
 sudo apt-get install iotop iftop htop
 sudo apt-get install finger whois tree traceroute
 sudo apt-get install vim zip
+
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+cd ~/.dotfiles
+git checkout files/bashrc # Seriously, WTF is heroku doing modifying my personal files?
+cd -
 
 # Unattended upgrades
 sudo apt-get install -y unattended-upgrades
