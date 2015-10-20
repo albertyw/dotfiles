@@ -16,7 +16,7 @@ echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-U
 sudo mv /tmp/20auto-upgrades /etc/apt/apt.conf.d/
 
 # git
-sudo apt-add-repository ppa:git-core/ppa
+sudo apt-add-repository -y ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get install git
 
