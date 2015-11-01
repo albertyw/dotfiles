@@ -27,3 +27,7 @@ curl -sL https://raw.githubusercontent.com/brainsik/virtualenv-burrito/master/vi
 # gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 # curl -sSL https://get.rvm.io | bash -s stable --ruby
 # sudo apt-get install ruby-dev # Fixes mkmf errors
+
+# Node.js
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+sudo apt-get install nodejs
