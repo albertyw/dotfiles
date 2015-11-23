@@ -49,6 +49,7 @@ alias rspec='xvfb-run -a bundle exec rspec'
 if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
 fi
+alias serve="python -m SimpleHTTPServer"
 
 ### Sourcing other scripts
 source $HOME/.dotfiles/bin/git-completion.sh
