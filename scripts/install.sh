@@ -15,6 +15,10 @@ sudo apt-get install -y unattended-upgrades
 echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-Upgrade \"1\";\n" > /tmp/20auto-upgrades
 sudo mv /tmp/20auto-upgrades /etc/apt/apt.conf.d/
 
+# Set time zone
+echo "America/Los_Angeles" | sudo tee /etc/timezone
+sudo dpkg-reconfigure --frontend noninteractive tzdata
+
 # git
 sudo apt-add-repository -y ppa:git-core/ppa
 sudo apt-get update
