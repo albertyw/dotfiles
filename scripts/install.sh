@@ -24,9 +24,6 @@ sudo apt-add-repository -y ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get install git
 
-# Python/pip/virtualenvwrapper
-curl -sL https://raw.githubusercontent.com/brainsik/virtualenv-burrito/master/virtualenv-burrito.sh | $SHELL
-
 # RVM (takes a long time)
 # gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 # curl -sSL https://get.rvm.io | bash -s stable --ruby
@@ -36,3 +33,8 @@ curl -sL https://raw.githubusercontent.com/brainsik/virtualenv-burrito/master/vi
 # Node.js
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 sudo apt-get install nodejs
+
+# Python/pip/virtualenvwrapper
+curl https://bootstrap.pypa.io/get-pip.py | sudo python
+curl https://bootstrap.pypa.io/get-pip.py | sudo python3
+sudo pip install virtualenvwrapper
