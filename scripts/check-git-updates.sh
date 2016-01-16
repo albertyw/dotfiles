@@ -1,7 +1,7 @@
 # Check if there are updates to this dotfiles repo
 cd ~/.dotfiles
 git fetch
-diffoutput=$(git diff HEAD..origin)
+diffoutput=$(git diff HEAD..FETCH_HEAD)
 if [ "$diffoutput" != "" ] ; then
     echo 'YOUR DOTFILES ARE OUT OF DATE';
 fi
@@ -14,7 +14,7 @@ fi
 if [ -d ~/.ssh/.git ]; then
     cd ~/.ssh
     git fetch
-    diffoutput=$(git diff HEAD..origin)
+    diffoutput=$(git diff HEAD..FETCH_HEAD)
     if [ "$diffoutput" != "" ] ; then
         echo 'YOUR SSH IS OUT OF DATE';
     fi
