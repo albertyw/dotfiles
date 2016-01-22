@@ -5,14 +5,17 @@ set -e
 dotfiles=$HOME/.dotfiles/files/
 
 move () {
+    if [ -z $2 ] ; then
+        $2=$1
+    fi
     echo $1
-    if [ -L $HOME/.$1 ] ; then
+    if [ -L $HOME/.$2 ] ; then
         return 0
     fi
-    if [ -f $HOME/.$1 ] || [ -d $HOME/.$1 ] ; then
-        mv $HOME/.$1 $HOME/.$1~
+    if [ -f $HOME/.$2 ] || [ -d $HOME/.$2 ] ; then
+        mv $HOME/.$2 $HOME/.$2~
     fi
-    ln -s $dotfiles/$1 $HOME/.$1
+    ln -s $dotfiles/$1 $HOME/.$2
 }
 
 move atom
@@ -27,5 +30,5 @@ move sudo_as_admin_successful
 move vim
 move vimrc
 if [[ `hostname` == *"uber"* ]] ; then
-    move gitconfig_local
+    move gitconfig_uber gitconfig_local
 fi
