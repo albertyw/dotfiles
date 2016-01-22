@@ -26,4 +26,6 @@ move selected_editor
 move sudo_as_admin_successful
 move vim
 move vimrc
-#move gitconfig_local
+if [[ `hostname` == *"uber"* ]] ; then
+    move gitconfig_local
+fi
