@@ -31,4 +31,5 @@ move vim
 move vimrc
 if [[ `hostname` == *"uber"* ]] ; then
     move gitconfig_uber gitconfig_local
+    move bashrc_uber bashrc_local
 fi
