@@ -6,7 +6,7 @@ mkdir github
 cd github
 
 mkvirtualenv backup
-pip install git+git://github.com/albertyw/python-github-backup.git#egg=github-backup
+pip install git+git://github.com/josegonzalez/python-github-backup.git#egg=github-backup
 
 token=''
 
@@ -22,6 +22,5 @@ github-backup --username albertyw --token $token --private --all --prefer-ssh --
 
 mkdir almlab
 github-backup --username albertyw --token $token --private --all --prefer-ssh --output almlab --organization almlab
-
 
 rmvirtualenv backup
