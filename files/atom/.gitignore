@@ -3,6 +3,7 @@ compile-cache
 dev
 .npm
 .node-gyp
+blob-store
 
 # Read from packages.txt
 packages

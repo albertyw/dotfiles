@@ -1,29 +1,29 @@
 "*":
-  editor:
-    invisibles: {}
-    autoIndentOnPaste: false
-    showIndentGuide: true
+  "bracket-matcher":
+    autocompleteBrackets: false
+    autocompleteSmartQuotes: false
   core:
+    destroyEmptyPanes: false
+    disabledPackages: [
+      "welcome"
+    ]
+    projectHome: "/home/albertyw/Desktop/vagrant/console"
     themes: [
       "one-light-ui"
       "one-light-syntax"
     ]
-    destroyEmptyPanes: false
-    projectHome: "/home/albertyw/Desktop/vagrant/console"
-    disabledPackages: [
-      "welcome"
-    ]
+  editor:
+    autoIndentOnPaste: false
+    invisibles: {}
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "fcc1a21d-dbff-6e2b-5500-a44f4b54834c"
+  "find-and-replace": {}
   "highlight-line":
     enableBackgroundColor: false
   "highlight-selected":
-    lightTheme: true
     highlightBackground: true
+    lightTheme: true
   linter: {}
-  "exception-reporting":
-    userId: "fcc1a21d-dbff-6e2b-5500-a44f4b54834c"
   welcome:
     showOnStartup: false
-  "find-and-replace": {}
-  "bracket-matcher":
-    autocompleteSmartQuotes: false
-    autocompleteBrackets: false
