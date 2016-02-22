@@ -35,6 +35,7 @@ curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 sudo apt-get install nodejs
 
 # Python/pip/virtualenvwrapper
-curl https://bootstrap.pypa.io/get-pip.py | sudo python
+curl https://bootstrap.pypa.io/get-pip.py | sudo python2
 curl https://bootstrap.pypa.io/get-pip.py | sudo python3
-sudo pip install virtualenvwrapper
+sudo pip2 install virtualenvwrapper
+sudo pip3 install virtualenvwrapper
