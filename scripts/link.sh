@@ -6,16 +6,18 @@ dotfiles=$HOME/.dotfiles/files/
 
 move () {
     if [ -z $2 ] ; then
-        $2=$1
+        dest=$1
+    else
+        dest=$2
     fi
     echo $1
-    if [ -L $HOME/.$2 ] ; then
+    if [ -L $HOME/.$dest ] ; then
         return 0
     fi
-    if [ -f $HOME/.$2 ] || [ -d $HOME/.$2 ] ; then
-        mv $HOME/.$2 $HOME/.$2~
+    if [ -f $HOME/.$dest ] || [ -d $HOME/.$dest ] ; then
+        mv $HOME/.$dest $HOME/.$dest~
     fi
-    ln -s $dotfiles/$1 $HOME/.$2
+    ln -s $dotfiles/$1 $HOME/.$dest
 }
 
 move atom
