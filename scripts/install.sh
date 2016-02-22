@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update
+sudo apt-get upgrade -y
 sudo apt-get install iotop iftop htop
 sudo apt-get install finger whois tree traceroute
 sudo apt-get install vim zip
