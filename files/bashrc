@@ -52,6 +52,7 @@ if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
 fi
 alias serve="python -m SimpleHTTPServer"
+alias gosymlink="cd -P \`pwd\`"
 
 ### Sourcing other scripts
 source $HOME/.dotfiles/bin/git-completion.sh
