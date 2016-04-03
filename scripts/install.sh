@@ -5,6 +5,7 @@ sudo apt-get upgrade -y
 sudo apt-get install iotop iftop htop
 sudo apt-get install finger whois tree traceroute
 sudo apt-get install vim zip
+sudo apt-get install jq
 
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 cd ~/.dotfiles
