@@ -53,6 +53,7 @@ if [[ $(uname) == Linux ]]; then
 fi
 alias serve="python -m SimpleHTTPServer"
 alias gosymlink="cd -P \`pwd\`"
+alias portgrep="ngrep -d any port"
 
 ### Sourcing other scripts
 source $HOME/.dotfiles/bin/git-completion.sh
