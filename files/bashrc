@@ -55,6 +55,13 @@ alias serve="python -m SimpleHTTPServer"
 alias gosymlink="cd -P \`pwd\`"
 alias portgrep="ngrep -d any port"
 
+function setuptunnel() {
+    localport=$1
+    remoteport=$2
+    remotehost=$3
+    ssh -fN -L $localport:localhost:$remoteport $remotehost
+}
+
 ### Sourcing other scripts
 source $HOME/.dotfiles/bin/git-completion.sh
 source $HOME/.dotfiles/bin/npm-completion.sh
