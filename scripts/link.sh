@@ -38,3 +38,4 @@ fi
 
 . ~/.bashrc
 . ~/.bash_profile
+reset
