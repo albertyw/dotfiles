@@ -54,6 +54,7 @@ fi
 alias serve="python -m SimpleHTTPServer"
 alias gosymlink="cd -P \`pwd\`"
 alias portgrep="ngrep -d any port"
+alias portlist="netstat -lntup"
 
 function setuptunnel() {
     localport=$1
