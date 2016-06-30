@@ -50,8 +50,8 @@ if [[ $(uname) == Linux ]]; then
 fi
 alias serve="python -m SimpleHTTPServer"
 alias gosymlink="cd -P \`pwd\`"
-alias portgrep="ngrep -d any port"
-alias portlist="netstat -lntup"
+alias portgrep="sudo ngrep -d any port"
+alias portlist="sudo netstat -lntup"
 
 function setuptunnel() {
     localport=$1
