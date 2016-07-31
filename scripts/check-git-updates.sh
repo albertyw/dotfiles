@@ -9,6 +9,10 @@ changes=$(git diff)
 if [ "$changes" != "" ]; then
     echo 'YOU HAVE UNCOMMITTED CHANGES';
 fi
+changes=$(git ls-files --others --exclude-standard)
+if [ "$changes" != "" ]; then
+    echo 'YOU HAVE UNCOMMITTED FILES';
+fi
 
 # Check if there are updates to ssh
 if [ -d ~/.ssh/.git ]; then
@@ -21,5 +25,9 @@ if [ -d ~/.ssh/.git ]; then
     changes=$(git diff)
     if [ "$changes" != "" ]; then
         echo 'YOU HAVE UNCOMMITTED SSH CHANGES';
+    fi
+    changes=$(git ls-files --others --exclude-standard)
+    if [ "$changes" != "" ]; then
+        echo 'YOU HAVE UNCOMMITTED FILES';
     fi
 fi
