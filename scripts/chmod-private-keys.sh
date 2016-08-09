@@ -1,6 +1,19 @@
 #!/bin/bash
 
-find ~/.ssh | grep _rsa$ | xargs chmod 600
-find ~/.ssh | grep .pem | xargs chmod 600
-find ~/.ssh | grep s3cfg | xargs chmod 600
-find ~/.ssh | grep p12 | xargs chmod 600
+secure_secret_files () {
+    if [ -n "$1" ]; then
+        chmod 600 $1
+    fi
+}
+
+secretfiles=$(find ~/.ssh | grep _rsa$)
+secure_secret_files $secretfiles
+
+secretfiles=$(find ~/.ssh | grep .pem)
+secure_secret_files $secretfiles
+
+secretfiles=$(find ~/.ssh | grep s3cfg)
+secure_secret_files $secretfiles
+
+secretfiles=$(find ~/.ssh | grep p12)
+secure_secret_files $secretfiles
