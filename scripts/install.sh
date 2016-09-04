@@ -50,10 +50,11 @@ sudo apt-get update
 sudo apt-get install golang
 
 # Go Glide
-wget https://github.com/Masterminds/glide/releases/download/0.10.1/glide-0.10.1-linux-amd64.tar.gz
-tar xvf glide-0.10.1-linux-amd64.tar.gz
+wget https://github.com/Masterminds/glide/releases/download/v0.12.1/glide-v0.12.1-linux-amd64.tar.gz
+tar xvf glide-v0.12.1-linux-amd64.tar.gz
 mv linux-amd64/glide ~/.dotfiles/bin
 rm -r linux-amd64
+rm glide-v0.12.1-linux-amd64.tar.gz
 
 # Go Tools
 go get -u github.com/golang/lint/golint
