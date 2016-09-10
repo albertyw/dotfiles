@@ -16,4 +16,7 @@ case "$1" in
         echo $DIR
         sshfs -o follow_symlinks -o reconnect -o cache=no $VM:/home/albertyw/ $DIR
         ;;
+    *)
+        echo $"Usage: $0 {start|stop|mount}"
+        exit 1
 esac
