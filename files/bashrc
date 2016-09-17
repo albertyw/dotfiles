@@ -27,7 +27,7 @@ reset='\[\e[0m\]'
 PS1="$blue\u$red@\[$yellow\h$red \w \$ $reset"
 
 ### Assorted aliases
-alias path="echo $PATH | tr ':' '\n'"
+function path() { echo $PATH | tr ':' '\n'; }
 alias grep='grep --color=auto'
 alias oports="echo 'User:      Command:   Port:'; echo '----------------------------' ; lsof -i 4 -P -n | grep -i 'listen' | awk '{print \$3, \$1, \$9}' | sed 's/ [a-z0-9\.\*]*:/ /' | sort -k 3 -n |xargs printf '%-10s %-10s %-10s\n' | uniq"
 alias mem="ps aux | sed -n 1p && ps aux | sort -b -k 4 | tail -n 30"
