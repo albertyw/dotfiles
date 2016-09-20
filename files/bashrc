@@ -9,7 +9,7 @@ export PATH=/usr/local/git/bin:$PATH
 ### Setting variables
 export EDITOR=vim
 export LANG="en_US"
-export LC_ALL=C
+export LC_ALL=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export TERM=xterm
