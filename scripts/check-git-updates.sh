@@ -16,6 +16,7 @@ check () {
     changes=$(git diff HEAD..FETCH_HEAD)
     if [ "$changes" != "" ] ; then
         git pull --quiet
+        ~/.dotfiles/scripts/chmod-private-keys.sh
         echo 'Dotfiles updated'
     fi
 }
