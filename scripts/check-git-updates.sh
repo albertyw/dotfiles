@@ -15,8 +15,8 @@ check () {
     
     changes=$(git diff HEAD..FETCH_HEAD)
     if [ "$changes" != "" ] ; then
-        echo 'YOUR DOTFILES ARE OUT OF DATE';
         git pull --quiet
+        echo 'Dotfiles updated'
     fi
 }
 
