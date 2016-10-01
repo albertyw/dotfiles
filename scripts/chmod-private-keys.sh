@@ -6,7 +6,7 @@ secure_secret_files () {
     fi
 }
 
-secretfiles=$(find ~/.ssh | grep _rsa$)
+secretfiles=$(find ~/.ssh | grep id_.*$)
 secure_secret_files $secretfiles
 
 secretfiles=$(find ~/.ssh | grep .pem)
