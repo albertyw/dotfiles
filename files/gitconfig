@@ -67,3 +67,7 @@
 
 [rerere]
   enabled = true
+
+[submodule]
+  # Requires git 2.9.0+
+  fetchJobs = 0
