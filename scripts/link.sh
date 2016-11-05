@@ -20,7 +20,6 @@ move () {
     ln -s $dotfiles/$1 $HOME/.$dest
 }
 
-move atom
 move bash_profile
 move bashrc
 move git
