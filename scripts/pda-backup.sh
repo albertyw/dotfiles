@@ -16,7 +16,7 @@ mkdir egnyte-local
 
 # Download data
 sudo mount.davfs pda.egnyte.com/webdav egnyte -o ro
-screen cp -rvn egnyte/Shared/PDA/* egnyte-local/
+screen rsync -rv egnyte/Shared/PDA/* egnyte-local/
 
 # Download website
 git clone git@github.com:albertyw/pharmadataassociates egnyte-local/pharmadataassociates.com
