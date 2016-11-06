@@ -1,3 +1,6 @@
 [submodule "files/vim/bundle/puppet-syntax-vim"]
 	path = files/vim/bundle/puppet-syntax-vim
 	url = git@github.com:puppetlabs/puppet-syntax-vim.git
+[submodule "files/vim/bundle/vim-json"]
+	path = files/vim/bundle/vim-json
+	url = git@github.com:elzr/vim-json.git
