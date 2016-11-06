@@ -10,3 +10,6 @@
 [submodule "files/vim/bundle/vim-less"]
 	path = files/vim/bundle/vim-less
 	url = git@github.com:groenewege/vim-less.git
+[submodule "files/vim/bundle/vim-slim"]
+	path = files/vim/bundle/vim-slim
+	url = git@github.com:slim-template/vim-slim.git
