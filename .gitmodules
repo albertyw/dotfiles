@@ -4,3 +4,6 @@
 [submodule "files/vim/bundle/vim-json"]
 	path = files/vim/bundle/vim-json
 	url = git@github.com:elzr/vim-json.git
+[submodule "files/vim/bundle/vim-go"]
+	path = files/vim/bundle/vim-go
+	url = git@github.com:fatih/vim-go.git
