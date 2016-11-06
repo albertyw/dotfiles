@@ -7,3 +7,6 @@
 [submodule "files/vim/bundle/vim-go"]
 	path = files/vim/bundle/vim-go
 	url = git@github.com:fatih/vim-go.git
+[submodule "files/vim/bundle/vim-less"]
+	path = files/vim/bundle/vim-less
+	url = git@github.com:groenewege/vim-less.git
