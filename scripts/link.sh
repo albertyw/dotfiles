@@ -20,6 +20,9 @@ move () {
     ln -s $dotfiles/$1 $HOME/.$dest
 }
 
+git submodule init
+git submodule update --recursive
+
 move bash_profile
 move bashrc
 move git
