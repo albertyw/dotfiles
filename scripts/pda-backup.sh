@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# EC2 Instance
+# t2.small
+# 500 GB EBS Cold HDD Volume
+
 # Prereqs
 sudo apt-get update
 sudo apt-get upgrade -y
