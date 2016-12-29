@@ -3,6 +3,8 @@
   editor = vi
   excludesfile = ~/.gitignore
   templatedir = ~/.git
+  trustctime = false
+  precomposeunicode = false
 
 [init]
   templatedir = ~/.git
@@ -42,6 +44,7 @@
 [diff]
   tool = vimdiff
   compactionHeuristic = true
+  renames = copies
 
 [difftool]
   prompt = false
@@ -51,6 +54,7 @@
 
 [merge]
   conflictstyle = diff3
+  log = true
   
 # Colors
 [color]
