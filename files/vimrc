@@ -7,6 +7,11 @@ set ruler
 set nowrap
 set number
 set enc=utf-8
+
+" Show invisible characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+
 if has("terminfo")
   let &t_Co=8
   let &t_Sf="\e[3%p1%dm"
