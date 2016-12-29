@@ -8,6 +8,10 @@ set nowrap
 set number
 set enc=utf-8
 
+" Highlight current line
+set cursorLine
+hi CursorLine cterm=NONE ctermbg=DarkBlue
+
 " Show invisible characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
@@ -32,6 +36,7 @@ set expandtab
 set tabstop=4
 set autoindent
 set shiftwidth=4
+set noerrorbells
 
 filetype on
 filetype plugin indent on
