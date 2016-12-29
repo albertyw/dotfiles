@@ -15,7 +15,7 @@ test.dendr.io
 "
 
 hosts=""
-hosts="$hosts $LOCAL_MACHINES"
+# hosts="$hosts $LOCAL_MACHINES"
 hosts="$hosts $REMOTE_MACHINES"
 
 for server in $hosts; do
