@@ -9,7 +9,7 @@ set number
 set enc=utf-8
 
 " Highlight current line
-set cursorLine
+set cursorline
 hi CursorLine cterm=NONE ctermbg=DarkBlue
 
 " Show invisible characters
