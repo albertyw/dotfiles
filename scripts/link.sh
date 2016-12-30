@@ -25,6 +25,7 @@ git submodule update --recursive
 
 move bash_profile
 move bashrc
+move config
 move git
 move gitconfig
 move gitignore
