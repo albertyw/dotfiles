@@ -10,7 +10,5 @@ foreach my $rev (`git rev-list --all --pretty=oneline`) {
     $tot += int($size);
   }
   my $revn = substr($rev, 0, 40);
-  # if ($tot > 1000000) {
-    print "$tot $revn " . `git show --pretty="format:" --name-only $revn | wc -l`  ;
-  # }
+  print "$tot $revn " . `git show --pretty="format:" --name-only $revn | wc -l`  ;
 }
