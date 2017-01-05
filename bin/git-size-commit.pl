@@ -10,5 +10,6 @@ foreach my $rev (`git rev-list --all --pretty=oneline`) {
     $tot += int($size);
   }
   my $revn = substr($rev, 0, 40);
+  $tot = `numfmt --to=si -z --padding 5 $tot`;
   print "$tot $revn " . `git show --pretty="format:" --name-only $revn | wc -l`  ;
 }
