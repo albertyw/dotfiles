@@ -41,6 +41,7 @@ alias rsync='rsync -vazhP'
 alias alert='echo -e "\a"'
 alias diff='icdiff'
 alias tree='tree -C'
+alias du='du -h'
 alias mkdir='mkdir -p'
 function geoip { curl "ipinfo.io/$1"; }
 export -f geoip
