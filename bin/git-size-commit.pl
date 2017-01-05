@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+print "Size  Hash                                     Lines\n";
 foreach my $rev (`git rev-list --all --pretty=oneline`) {
   my $tot = 0;
   ($sha = $rev) =~ s/\s.*$//;
