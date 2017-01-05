@@ -30,7 +30,7 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
 	todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE -e FIX-ME
 	logf = log --follow
-	size = count-objects -vH
+	size = !git-size
 	loc = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
 	userstats = !gitstats.sh
 	pygrep = !git grep $1 -- `git ls-files | grep -v migrations | grep py`

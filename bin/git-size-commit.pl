@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+print "Size  Hash                                     Lines\n";
 foreach my $rev (`git rev-list --all --pretty=oneline`) {
   my $tot = 0;
   ($sha = $rev) =~ s/\s.*$//;
@@ -10,7 +11,6 @@ foreach my $rev (`git rev-list --all --pretty=oneline`) {
     $tot += int($size);
   }
   my $revn = substr($rev, 0, 40);
-  # if ($tot > 1000000) {
-    print "$tot $revn " . `git show --pretty="format:" --name-only $revn | wc -l`  ;
-  # }
+  $tot = `numfmt --to=si -z --padding 5 $tot`;
+  print "$tot $revn " . `git show --pretty="format:" --name-only $revn | wc -l`  ;
 }
