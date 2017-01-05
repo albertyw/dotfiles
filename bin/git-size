@@ -10,4 +10,4 @@ du . -hs | cut -f 1
 echo ''
 
 echo 'Top 20 Largest Commits'
-git-size-commit.pl | sort -hr | head -n 20
+git-size-commit.pl | awk 'NR<2{print $0;next}{print $0| "sort -hr"}' | head -n 20
