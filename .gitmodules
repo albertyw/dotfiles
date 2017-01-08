@@ -19,3 +19,6 @@
 [submodule "files/vim/bundle/vim-markdown"]
 	path = files/vim/bundle/vim-markdown
 	url = git@github.com:plasticboy/vim-markdown.git
+[submodule "files/git-browse"]
+	path = files/git-browse
+	url = git@github.com:albertyw/git-browse
