@@ -1,6 +1,8 @@
 check () {
     git fetch
-    
+
+    git submodule update --recursive
+
     changes=$(git diff)
     if [ "$changes" != "" ]; then
         echo 'YOU HAVE UNCOMMITTED CHANGES';
@@ -12,7 +14,7 @@ check () {
         echo 'YOU HAVE UNCOMMITTED FILES';
         exit
     fi
-    
+
     changes=$(git diff HEAD..FETCH_HEAD)
     if [ "$changes" != "" ] ; then
         git pull --quiet > /dev/null
