@@ -40,3 +40,6 @@ set noerrorbells
 
 filetype on
 filetype plugin indent on
+
+" Disable folding in markdown files
+let g:vim_markdown_folding_disabled = 1
