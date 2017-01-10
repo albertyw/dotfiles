@@ -9,10 +9,6 @@
 [help]
 	autocorrect = 1
 
-[include]
-	# REQUIRES GIT 1.7.10+
-	path = .gitconfig_local
-
 [init]
 	templatedir = ~/.git
 
@@ -81,3 +77,9 @@
 
 [color "diff"]
 	meta = bold cyan
+
+# Overrides
+# This must go at the bottom in order to override configs above
+[include]
+	# REQUIRES GIT 1.7.10+
+	path = .gitconfig_local
