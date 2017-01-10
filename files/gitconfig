@@ -34,6 +34,7 @@
 	blame = blame -cwC
 	branches = branch -vv
 	find = !git ls-files | grep
+	browse = !git-browse.py --path=${GIT_PREFIX:-./}
 
 [grep]
 	linenumber = true
