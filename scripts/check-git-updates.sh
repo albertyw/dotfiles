@@ -1,6 +1,7 @@
 check () {
     git fetch
 
+    git submodule init
     git submodule update --recursive
 
     changes=$(git diff)
