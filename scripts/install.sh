@@ -22,6 +22,8 @@ sudo mv /tmp/20auto-upgrades /etc/apt/apt.conf.d/
 # Set time zone
 echo "America/Los_Angeles" | sudo tee /etc/timezone
 sudo dpkg-reconfigure --frontend noninteractive tzdata
+sudo locale-gen en_US en_US.UTF-8
+sudo dpkg-reconfigure --frontend noninteractive locales
 
 # git
 sudo apt-add-repository -y ppa:git-core/ppa
