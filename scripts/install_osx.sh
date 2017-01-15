@@ -3,13 +3,24 @@
 set -ex
 
 # Set up homebrew
-# TODO
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Utilities
+brew install \
+    bash-completion `: autocompletion for bash terminal` \
+    htop            `: better top` \
+    iftop           `: top for network I/O` \
+    jq              `: parse and prettify json` \
+    ngrep           `: read network traffic` \
+    nmap            `: network map` \
+    tree            `: recursive ls` \
+    wget            `: curl alternative`
 
 # Python 3
 brew install python3
 
 # Install go
-# TODO
+brew install go
 
 # Go Glide
 curl -OL https://github.com/Masterminds/glide/releases/download/v0.12.3/glide-v0.12.3-darwin-amd64.tar.gz

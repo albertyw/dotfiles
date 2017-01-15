@@ -4,10 +4,19 @@ set -ex
 
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install iotop iftop htop
-sudo apt-get install finger whois tree traceroute
-sudo apt-get install vim zip
-sudo apt-get install jq ngrep
+sudo apt-get install -y \
+    finger      `: lookup users` \
+    iotop       `: top for disk I/O` \
+    iftop       `: top for network I/O` \
+    jq          `: parse and prettify json` \
+    htop        `: better top` \
+    ngrep       `: read network traffic` \
+    nmap        `: network map` \
+    traceroute  `: find network hops to an IP` \
+    tree        `: recursive ls` \
+    vim         `: editor of choice` \
+    whois       `: lookup domain ownership` \
+    zip         `: when gzip fails`
 
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 cd ~/.dotfiles
@@ -22,6 +31,8 @@ sudo mv /tmp/20auto-upgrades /etc/apt/apt.conf.d/
 # Set time zone
 echo "America/Los_Angeles" | sudo tee /etc/timezone
 sudo dpkg-reconfigure --frontend noninteractive tzdata
+sudo locale-gen en_US en_US.UTF-8
+sudo dpkg-reconfigure --frontend noninteractive locales
 
 # git
 sudo apt-add-repository -y ppa:git-core/ppa
@@ -39,6 +50,9 @@ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install nodejs
 
 # Python/pip/virtualenvwrapper
+sudo apt-get install python3
+sudo apt-get install python-dev
+sudo apt-get install python3-dev
 curl https://bootstrap.pypa.io/get-pip.py | sudo python2
 curl https://bootstrap.pypa.io/get-pip.py | sudo python3
 sudo pip2 install virtualenvwrapper
