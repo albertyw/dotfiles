@@ -4,10 +4,19 @@ set -ex
 
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install iotop iftop htop
-sudo apt-get install finger whois tree traceroute
-sudo apt-get install vim zip
-sudo apt-get install jq ngrep
+sudo apt-get install -y \
+    finger      `: lookup users` \
+    iotop       `: top for disk I/O` \
+    iftop       `: top for network I/O` \
+    jq          `: parse and prettify json` \
+    htop        `: better top` \
+    ngrep       `: read network traffic` \
+    nmap        `: network map` \
+    traceroute  `: find network hops to an IP` \
+    tree        `: recursive ls` \
+    vim         `: editor of choice` \
+    whois       `: lookup domain ownership` \
+    zip         `: when gzip fails`
 
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 cd ~/.dotfiles
