@@ -6,7 +6,6 @@ REMOTE_MACHINES="
 cellabus.com
 prod.cellabus.com
 statsonice.com
-staging.statsonice.com
 albertyw.com
 pharmadataassociates.com
 dendr.io
