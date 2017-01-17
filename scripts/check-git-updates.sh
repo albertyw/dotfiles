@@ -1,9 +1,6 @@
 check () {
     git fetch
 
-    git submodule init
-    git submodule update --recursive
-
     changes=$(git diff)
     if [ "$changes" != "" ]; then
         echo 'YOU HAVE UNCOMMITTED CHANGES';
@@ -22,6 +19,9 @@ check () {
         ~/.dotfiles/scripts/chmod-private-keys.sh
         echo 'Dotfiles updated'
     fi
+
+    git submodule init
+    git submodule update --recursive
 }
 
 # Check if there are updates to this dotfiles repo
