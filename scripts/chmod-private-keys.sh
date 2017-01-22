@@ -2,7 +2,7 @@
 
 secure_secret_files () {
     if [ -n "$1" ]; then
-        chmod 600 $1
+        chmod 600 $@
     fi
 }
 
