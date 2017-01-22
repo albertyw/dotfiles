@@ -2,11 +2,11 @@
 
 secure_secret_files () {
     if [ -n "$1" ]; then
-        chmod 600 $@
+        chmod 600 "$@"
     fi
 }
 
-secretfiles=$(find ~/.ssh | grep id_.*$)
+secretfiles=$(find ~/.ssh | grep id_.*$ | grep -vF .pub)
 secure_secret_files $secretfiles
 
 secretfiles=$(find ~/.ssh | grep .pem)
