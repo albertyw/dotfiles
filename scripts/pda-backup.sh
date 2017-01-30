@@ -28,16 +28,13 @@ git clone git@github.com:albertyw/pharmadataassociates egnyte-local/pharmadataas
 # Upload data
 file="`date +"PDA %Y-%m-%d %H:%M:00 (Full)"`"
 screen zip -r "$file" egnyte-local/*
-gpg -r 8B4CEA83 -e $file
-screen s3cmd put "$file.gpg" s3://pharmadataassociates-backups/
+screen s3cmd put "$file.zip" s3://pharmadataassociates-backups/
 rm "$file"
 
 # Compute stats
 find egnyte-local | wc -l > files
 du -hs egnyte-local > size
 
-
 # To uncompress/decrypt
-# screen s3cmd get s3://pharmadataassociates-backups/$file.gpg $file.gpg
-# gpg -d $file.gpg > $file
-# tar xvf $file
+# screen s3cmd get s3://pharmadataassociates-backups/$file.zip $file.zip
+# unzip $file.zip
