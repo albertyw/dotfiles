@@ -1,86 +1,86 @@
 # Core
 [core]
-	editor = vi
-	excludesfile = ~/.gitignore
-	templatedir = ~/.git
-	trustctime = false
-	precomposeunicode = false
+    editor = vi
+    excludesfile = ~/.gitignore
+    templatedir = ~/.git
+    trustctime = false
+    precomposeunicode = false
 
 [help]
-	autocorrect = 1
+    autocorrect = 1
 
 [init]
-	templatedir = ~/.git
+    templatedir = ~/.git
 
 [submodule]
-	# Requires git 2.9.0+
-	fetchJobs = 0
+    # Requires git 2.9.0+
+    fetchJobs = 0
 
 [user]
-	name = Albert Wang
-	email = albertyw@mit.edu
+    name = Albert Wang
+    email = albertyw@mit.edu
 
 
 # Git command Configuration
 [alias]
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
-	todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE -e FIX-ME
-	logf = log --follow
-	size = !git-size
-	loc = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
-	userstats = !gitstats.sh
-	pygrep = !git grep $1 -- `git ls-files | grep -v migrations | grep py`
-	cherrypick = cherry-pick
-	blame = blame -cwC
-	branches = branch -vv
-	find = !git ls-files | grep
-	browse = !git-browse.py --path=${GIT_PREFIX:-./}
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
+    todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE -e FIX-ME
+    logf = log --follow
+    size = !git-size
+    loc = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
+    userstats = !gitstats.sh
+    pygrep = !git grep $1 -- `git ls-files | grep -v migrations | grep py`
+    cherrypick = cherry-pick
+    blame = blame -cwC
+    branches = branch -vv
+    find = !git ls-files | grep
+    browse = !git-browse.py --path=${GIT_PREFIX:-./}
 
 [grep]
-	linenumber = true
+    linenumber = true
 
 [log]
-	date = local
+    date = local
 
 [push]
-	default = current
+    default = current
 
 
 # Branching/Merging
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 
 [diff]
-	tool = vimdiff
-	compactionHeuristic = true
-	renames = copies
+    tool = vimdiff
+    compactionHeuristic = true
+    renames = copies
 
 [difftool]
-	prompt = false
+    prompt = false
 
 
 [merge]
-	conflictstyle = diff3
-	log = true
-	
+    conflictstyle = diff3
+    log = true
+
 [rerere]
-	enabled = true
+    enabled = true
 
 
 # Colors
 [color]
-	ui = true
+    ui = true
 
 [color "grep"]
-	filename = magenta
-	match = bold red
-	linenumber = bold blue
+    filename = magenta
+    match = bold red
+    linenumber = bold blue
 
 [color "diff"]
-	meta = bold cyan
+    meta = bold cyan
 
 # Overrides
 # This must go at the bottom in order to override configs above
 [include]
-	# REQUIRES GIT 1.7.10+
-	path = .gitconfig_local
+    # REQUIRES GIT 1.7.10+
+    path = .gitconfig_local
