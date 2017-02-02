@@ -20,8 +20,8 @@ check () {
         echo 'Dotfiles updated'
     fi
 
-    git submodule init
-    git submodule update --recursive
+    git submodule --quiet init
+    git submodule --quiet update --recursive
 }
 
 # Check if there are updates to this dotfiles repo
