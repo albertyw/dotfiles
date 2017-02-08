@@ -14,7 +14,8 @@ brew install \
     ngrep           `: read network traffic` \
     nmap            `: network map` \
     tree            `: recursive ls` \
-    wget            `: curl alternative`
+    wget            `: curl alternative` \
+    vim             `: install vim 8.0`
 
 # Python 3
 brew install python3
