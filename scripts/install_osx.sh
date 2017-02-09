@@ -32,3 +32,8 @@ rm glide-v0.12.3-darwin-amd64.tar.gz
 
 # Go Tools
 go get -u github.com/golang/lint/golint
+
+# jEdit
+git clone git@github.com:albertyw/jEdit-settings
+rm -r ~/Library/jEdit
+mv jEdit-settings ~/Library/jEdit
