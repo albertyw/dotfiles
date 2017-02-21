@@ -1,1 +1,1 @@
-../files/git-browse/browse.py
+../files/git-browse/git_browse/browse.py
