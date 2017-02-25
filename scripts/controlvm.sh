@@ -26,5 +26,8 @@ case "$1" in
         ;;
     *)
         echo $"Usage: $0 {start|stop|mount|status}"
+        dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+        script=`basename "$0"`
+        $dir/$script status
         exit 1
 esac
