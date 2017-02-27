@@ -7,6 +7,7 @@ set ruler
 set nowrap
 set number
 set enc=utf-8
+set backspace=indent,eol,start
 
 " Highlight current line
 set cursorline
