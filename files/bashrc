@@ -58,7 +58,11 @@ fi
 alias serve="python -m SimpleHTTPServer"
 alias gosymlink="cd -P \`pwd\`"
 alias portgrep="sudo ngrep -d any port"
-alias portlist="sudo netstat -lntup"
+if [[ $(uname) == Linux ]]; then
+    alias portlist="sudo netstat -lntup"
+elif [[ $(uname) == Darwin ]]; then
+    alias portlist="sudo lsof -i -P | grep -i 'listen'"
+fi
 
 ### Sourcing other scripts
 source $HOME/.dotfiles/bin/git-completion.sh
