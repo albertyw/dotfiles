@@ -19,8 +19,6 @@ hosts="$hosts $REMOTE_MACHINES"
 
 for server in $hosts; do
     ssh $server -q '
-      hostname
-
-      echo ""
+        hostname
 '
 done
