@@ -1,11 +1,12 @@
 #!/bin/bash
 
 ### Adjusting the PATH
-conf_dot_home_path=$HOME/.dotfiles/bin
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH=/usr/local/bin:$PATH:$conf_dot_home_path:/sbin
-export PATH=/usr/local/git/bin:$PATH
-export PATH=node_modules/.bin:$PATH
+export PATH="/usr/local/bin:$PATH"
+export PATH="$PATH:$HOME/.dotfiles/bin"
+export PATH="$PATH:/sbin"
+export PATH="/usr/local/git/bin:$PATH"
+export PATH="node_modules/.bin:$PATH"
 
 ### Setting variables
 export EDITOR=vim
