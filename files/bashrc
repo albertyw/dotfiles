@@ -2,7 +2,6 @@
 
 ### Adjusting the PATH
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
 export PATH="node_modules/.bin:$PATH"
 
