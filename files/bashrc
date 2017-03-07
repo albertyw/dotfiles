@@ -1,11 +1,9 @@
 #!/bin/bash
 
 ### Adjusting the PATH
-conf_dot_home_path=$HOME/.dotfiles/bin
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH=/usr/local/bin:$PATH:$conf_dot_home_path:/sbin
-export PATH=/usr/local/git/bin:$PATH
-export PATH=node_modules/.bin:$PATH
+export PATH="$HOME/.dotfiles/bin:$PATH"
+export PATH="node_modules/.bin:$PATH"
 
 ### Setting variables
 export EDITOR=vim
@@ -40,7 +38,6 @@ alias mem="ps aux | sed -n 1p && ps aux | sort -b -k 4 | tail -n 30"
 alias cpu="ps aux | sed -n 1p && ps aux | sort -b -k 3 | tail -n 30"
 alias dirdiff='dirdiff.sh'
 alias fucking='sudo'
-alias commands='cat $HOME/.dotfiles/scripts/commands.sh'
 alias lookup='$HOME/.dotfiles/bin/lookup.sh'
 alias hardware='hardware.sh'
 alias rsync='rsync -vazhP'
