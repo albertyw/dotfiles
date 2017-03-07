@@ -4,7 +4,6 @@
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
-export PATH="$PATH:/sbin"
 export PATH="/usr/local/git/bin:$PATH"
 export PATH="node_modules/.bin:$PATH"
 
