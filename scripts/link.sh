@@ -39,5 +39,4 @@ if [[ `hostname` == *"uber"* ]] ; then
     move bashrc_uber bashrc_local
 fi
 
-source ~/.bashrc
-source ~/.bash_profile
+exec bash
