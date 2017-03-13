@@ -3,8 +3,6 @@
 
 LOCAL_MACHINES="cellabus personal"
 REMOTE_MACHINES="
-cellabus.com
-prod.cellabus.com
 statsonice.com
 albertyw.com
 pharmadataassociates.com
