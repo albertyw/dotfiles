@@ -32,4 +32,5 @@ git ls-tree -r HEAD | \
     done | \
     $regexsed -e 's/.*\((.*)[0-9]{4}-[0-9]{2}-[0-9]{2} .*/\1/' -e 's/ +$//' | \
     sort | \
-    uniq -c
+    uniq -c | \
+    sort -nr
