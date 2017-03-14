@@ -28,7 +28,7 @@
     logf = log --follow
     size = !git-size
     loc = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
-    userstats = !gitstats.sh
+    userstats = !git-stats.sh
     pygrep = !git grep $1 -- `git ls-files | grep -v migrations | grep py`
     cherrypick = cherry-pick
     blame = blame -cwC
