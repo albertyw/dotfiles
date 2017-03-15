@@ -1,6 +1,9 @@
 check () {
     git fetch
 
+    git submodule --quiet init
+    git submodule --quiet update --recursive
+    
     changes=$(git diff)
     if [ "$changes" != "" ]; then
         echo 'YOU HAVE UNCOMMITTED CHANGES';
