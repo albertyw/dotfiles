@@ -73,5 +73,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Git updates
 ~/.dotfiles/scripts/chmod-private-keys.sh
-~/.dotfiles/scripts/check-git-updates.sh &
+~/.dotfiles/scripts/update-dotfiles.sh &
 disown
