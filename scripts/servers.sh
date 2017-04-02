@@ -9,7 +9,6 @@ codemancer.com
 pharmadataassociates.com
 dendr.io
 staging.dendr.io
-test.dendr.io
 "
 
 hosts=""
