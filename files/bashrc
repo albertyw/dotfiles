@@ -40,6 +40,7 @@ alias dirdiff='dirdiff.sh'
 alias fucking='sudo'
 alias lookup='$HOME/.dotfiles/bin/lookup.sh'
 alias hardware='hardware.sh'
+alias scp="rsync"
 alias rsync='rsync -vazhP'
 alias alert='echo -e "\a"'
 alias diff='icdiff'
