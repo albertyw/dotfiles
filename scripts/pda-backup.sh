@@ -35,6 +35,6 @@ rm "$file"
 find egnyte-local | wc -l > files
 du -hs egnyte-local > size
 
-# To uncompress/decrypt
+# To uncompress
 # screen s3cmd get s3://pharmadataassociates-backups/$file.zip $file.zip
 # unzip $file.zip
