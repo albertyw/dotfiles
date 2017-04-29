@@ -4,6 +4,7 @@
     excludesfile = ~/.gitignore
     templatedir = ~/.git
     trustctime = false
+    pager = "less -x4"
     precomposeunicode = false
 
 [help]
