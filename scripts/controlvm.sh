@@ -12,8 +12,10 @@ case "$1" in
         VBoxManage controlvm $VM acpipowerbutton
         ;;
     mount)
-        DIR=`dirname $0`
-        echo $DIR
+        DIR=/Users/albertyw/Desktop/personal
+        if mount | grep personal > /dev/null; then
+            sudo umount -f $DIR
+        fi
         sshfs -o follow_symlinks -o reconnect -o cache=no $VM:/home/albertyw/ $DIR
         ;;
     status)
