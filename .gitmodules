@@ -22,3 +22,6 @@
 [submodule "files/git-browse"]
 	path = files/git-browse
 	url = git@github.com:albertyw/git-browse
+[submodule "files/vim/bundle/vim-pathogen"]
+	path = files/vim/bundle/vim-pathogen
+	url = git@github.com:tpope/vim-pathogen.git

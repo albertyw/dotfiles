@@ -1,4 +1,5 @@
 " settings for vim
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 syntax on
