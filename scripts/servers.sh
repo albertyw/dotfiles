@@ -5,8 +5,7 @@ LOCAL_MACHINES="cellabus personal"
 REMOTE_MACHINES="
 statsonice.com
 albertyw.com
-codemancer.com
-pharmadataassociates.com
+log.fit
 dendr.io
 staging.dendr.io
 "
