@@ -62,10 +62,10 @@ elif [[ $(uname) == Darwin ]]; then
 fi
 
 ### Sourcing other scripts
-source $HOME/.dotfiles/bin/git-completion.sh
-source $HOME/.dotfiles/bin/npm-completion.sh
-source $HOME/.dotfiles/bin/rake-completion.sh
-source $HOME/.dotfiles/bin/django-completion.sh
+source $HOME/.dotfiles/files/completion/git-completion.sh
+source $HOME/.dotfiles/files/completion/npm-completion.sh
+source $HOME/.dotfiles/files/completion/rake-completion.sh
+source $HOME/.dotfiles/files/completion/django-completion.sh
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/heroku/bin:$PATH"
 
