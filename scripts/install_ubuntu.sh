@@ -2,9 +2,9 @@
 
 set -ex
 
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install -y \
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y \
     finger      `: lookup users` \
     iotop       `: top for disk I/O` \
     iftop       `: top for network I/O` \
@@ -24,7 +24,7 @@ git checkout files/bashrc # Seriously, WTF is heroku doing modifying my personal
 cd -
 
 # Unattended upgrades
-sudo apt-get install -y unattended-upgrades
+sudo apt install -y unattended-upgrades
 echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-Upgrade \"1\";\n" > /tmp/20auto-upgrades
 sudo mv /tmp/20auto-upgrades /etc/apt/apt.conf.d/
 
@@ -36,23 +36,23 @@ sudo dpkg-reconfigure --frontend noninteractive locales
 
 # git
 sudo apt-add-repository -y ppa:git-core/ppa
-sudo apt-get update
-sudo apt-get install git
+sudo apt update
+sudo apt install git
 
 # RVM (takes a long time)
 # gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 # curl -sSL https://get.rvm.io | bash -s stable --ruby
-# sudo apt-get install ruby-dev # Fixes mkmf errors
-# sudo apt-get install libgmp3-dev # Fixes installing json gem
+# sudo apt install ruby-dev # Fixes mkmf errors
+# sudo apt install libgmp3-dev # Fixes installing json gem
 
 # Node.js
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install nodejs
+sudo apt install nodejs
 
 # Python/pip/virtualenvwrapper
-sudo apt-get install python3
-sudo apt-get install python-dev
-sudo apt-get install python3-dev
+sudo apt install python3
+sudo apt install python-dev
+sudo apt install python3-dev
 curl https://bootstrap.pypa.io/get-pip.py | sudo python2
 curl https://bootstrap.pypa.io/get-pip.py | sudo python3
 sudo pip2 install virtualenvwrapper
@@ -60,8 +60,8 @@ sudo pip3 install virtualenvwrapper
 
 # Go
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
-sudo apt-get update
-sudo apt-get install golang
+sudo apt update
+sudo apt install golang
 
 # Go Glide
 wget https://github.com/Masterminds/glide/releases/download/v0.12.1/glide-v0.12.1-linux-amd64.tar.gz
