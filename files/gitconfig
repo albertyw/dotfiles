@@ -53,7 +53,7 @@
 
 [diff]
     tool = vimdiff
-    compactionHeuristic = true
+    indentHeuristic = true
     renames = copies
 
 [difftool]
