@@ -1,1 +1,0 @@
-../files/git-browse/git_browse/browse.py

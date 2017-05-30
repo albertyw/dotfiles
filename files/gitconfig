@@ -27,15 +27,15 @@
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
     todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE -e FIX-ME
     logf = log --follow
-    size = !git-size
     loc = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
-    userstats = !git-stats.sh
     pygrep = !git grep $1 -- `git ls-files | grep -v migrations | grep py`
     cherrypick = cherry-pick
     blame = blame -cwC
     branches = branch -vv
     find = !git ls-files | grep
-    browse = !git-browse.py --path=${GIT_PREFIX:-./}
+    browse = !~/.dotfiles/scripts/git/git-browse/git_browse/browse.py --path=${GIT_PREFIX:-./}
+    size = !~/.dotfiles/scripts/git/size
+    userstats = !~/.dotfiles/scripts/git/userstats
 
 [grep]
     linenumber = true
