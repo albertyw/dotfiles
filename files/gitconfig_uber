@@ -3,6 +3,9 @@
 [user]
   email = albertyw@uber.com
 
+[alias]
+    reviewers = !~/.dotfiles/scripts/git/git-reviewers/git_reviewers/reviewers.py --path=${GIT_PREFIX:-./} --uber
+
 [url "ssh://code.uber.internal/"]
     insteadOf = https://code.uber.internal/
 [url "ssh://config.uber.internal/"]
