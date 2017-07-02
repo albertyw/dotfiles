@@ -21,6 +21,11 @@
     name = Albert Wang
     email = git@albertyw.com
 
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
 
 # Git command Configuration
 [alias]
