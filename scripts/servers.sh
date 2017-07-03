@@ -7,7 +7,6 @@ statsonice.com
 albertyw.com
 log.fit
 dendr.io
-staging.dendr.io
 "
 
 hosts=""
