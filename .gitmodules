@@ -28,3 +28,6 @@
 [submodule "scripts/git/git-reviewers"]
 	path = scripts/git/git-reviewers
 	url = git@github.com:albertyw/git-reviewers
+[submodule "files/vim/bundle/csv.vim"]
+	path = files/vim/bundle/csv.vim
+	url = git@github.com:chrisbra/csv.vim.git
