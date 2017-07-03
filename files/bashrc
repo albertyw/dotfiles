@@ -55,6 +55,7 @@ fi
 alias serve="python -m SimpleHTTPServer"
 alias gosymlink="cd -P \`pwd\`"
 alias portgrep="sudo ngrep -d any port"
+alias apt-get="apt"
 if [[ $(uname) == Linux ]]; then
     alias portlist="sudo netstat -lntup"
 elif [[ $(uname) == Darwin ]]; then
