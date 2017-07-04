@@ -31,3 +31,6 @@
 [submodule "files/vim/bundle/csv.vim"]
 	path = files/vim/bundle/csv.vim
 	url = git@github.com:chrisbra/csv.vim.git
+[submodule "files/vim/bundle/requirements.txt.vim"]
+	path = files/vim/bundle/requirements.txt.vim
+	url = git@github.com:raimon49/requirements.txt.vim.git
