@@ -9,6 +9,9 @@ secure_secret_files () {
 secretfiles=$(find ~/.ssh | grep id_.*$ | grep -vF .pub)
 secure_secret_files $secretfiles
 
+secretfiles=$(find ~/.ssh | grep _rsa$)
+secure_secret_files $secretfiles
+
 secretfiles=$(find ~/.ssh | grep .pem)
 secure_secret_files $secretfiles
 
