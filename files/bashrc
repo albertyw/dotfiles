@@ -53,7 +53,7 @@ if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
 fi
 alias serve="python -m SimpleHTTPServer"
-alias gosymlink="cd -P \`pwd\`"
+alias gosymlink="cd -P \`pwd | sed -e 's|/albertyw/uber|/albertyw/Uber|'\`"
 alias portgrep="sudo ngrep -d any port"
 alias apt-get="apt"
 if [[ $(uname) == Linux ]]; then
