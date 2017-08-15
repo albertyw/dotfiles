@@ -46,8 +46,9 @@ sudo apt install git
 # sudo apt install libgmp3-dev # Fixes installing json gem
 
 # Node.js
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt install nodejs
+sudo apt install build-essential checkinstall libssl-dev
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+nvm install --lts
 
 # Python/pip/virtualenvwrapper
 sudo apt install python3
