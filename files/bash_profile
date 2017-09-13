@@ -2,7 +2,9 @@
 
 # Homebrew
 if hash brew 2>/dev/null; then
+    brew analytics off 2>&1 >/dev/null
     export PATH=$(brew --prefix)/sbin:$(brew --prefix)/bin:$PATH:$HOME/bin
+    export HOMEBREW_NO_SANDBOX=1
 fi
 
 [[ -r $HOME/.bashrc ]] && . ~/.bashrc
