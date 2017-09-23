@@ -33,6 +33,8 @@ endif
 au BufRead,BufNewFile *.dj setfiletype htmldjango
 au BufRead,BufNewFile *.hamlc set ft=haml
 
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
 set hlsearch
 set modeline
 
