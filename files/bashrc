@@ -5,6 +5,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$PATH"
 export PATH="node_modules/.bin:$PATH"
 
+# Read brew python
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 ### Setting variables
 export EDITOR=vim
 export LANG="en_US"

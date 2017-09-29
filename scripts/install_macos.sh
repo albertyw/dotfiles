@@ -20,7 +20,8 @@ brew install \
 # System monitoring
 gem install iStats
 
-# Python 3
+# Python
+brew install python
 brew install python3
 
 # Install go
