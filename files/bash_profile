@@ -17,7 +17,6 @@ fi
 export UBER_HOME="$HOME/Uber"
 export UBER_OWNER="albertyw@uber.com"
 export UBER_LDAP_UID="albertyw"
-export VAGRANT_DEFAULT_PROVIDER=aws
 [ -s "/usr/local/bin/virtualenvwrapper.sh" ] && . /usr/local/bin/virtualenvwrapper.sh
 [ -s "$HOME/.nvm/nvm.sh" ] && . $HOME/.nvm/nvm.sh
 type "brew" &>/dev/null && [ -s "$(brew --prefix)/etc/bash_completion" ] && . $(brew --prefix)/etc/bash_completion
