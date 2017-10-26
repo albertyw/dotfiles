@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 ### Setting variables
 export EDITOR=vim
 export LANG="en_US"
@@ -47,7 +46,7 @@ alias rspec='xvfb-run -a bundle exec rspec'
 if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
 fi
-alias serve="python -m SimpleHTTPServer"
+alias serve="python3 -m http.server"
 alias gosymlink="cd -P \`pwd | sed -e 's|/albertyw/uber|/albertyw/Uber|'\`"
 alias portgrep="sudo ngrep -d any port"
 alias apt-get="apt"
