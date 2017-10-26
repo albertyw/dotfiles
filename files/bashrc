@@ -1,11 +1,5 @@
 #!/bin/bash
 
-### Adjusting the PATH
-export PATH="$HOME/.dotfiles/bin:$PATH"
-export PATH="node_modules/.bin:$PATH"
-
-# Read brew python
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 ### Setting variables
 export EDITOR=vim
@@ -18,7 +12,6 @@ export HISTCONTROL=ignorespace
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export GOPATH=$HOME/gocode
-export PATH=$GOPATH/bin:$PATH
 
 # Set bash prompt
 blue='\[\e[1;34m\]'
@@ -69,8 +62,14 @@ source $HOME/.dotfiles/files/completion/git-completion.sh
 source $HOME/.dotfiles/files/completion/npm-completion.sh
 source $HOME/.dotfiles/files/completion/rake-completion.sh
 source $HOME/.dotfiles/files/completion/django-completion.sh
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+### Adjusting the PATH
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$HOME/.dotfiles/bin:$PATH"
+export PATH="node_modules/.bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scripting
 export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Read brew python
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

@@ -2,7 +2,6 @@
 
 export GOPATH=$HOME/Uber/gocode
 export PATH="$PATH:$GOPATH/bin"
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 goclone() {
     mkdir -p $GOPATH/src/code.uber.internal/$1
