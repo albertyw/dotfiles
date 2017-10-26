@@ -55,6 +55,9 @@ if [[ $(uname) == Linux ]]; then
     alias portlist="sudo netstat -lntup"
 elif [[ $(uname) == Darwin ]]; then
     alias portlist="sudo lsof -i -P | grep -i 'listen'"
+    if [ -f /usr/local/bin/vim ]; then
+        alias vi=/usr/local/bin/vim
+    fi
 fi
 
 ### Sourcing other scripts
