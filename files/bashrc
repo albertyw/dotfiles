@@ -72,7 +72,6 @@ export PATH="$PATH:/usr/local/heroku/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:node_modules/.bin"
 export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scripting
-export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Read brew python
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
