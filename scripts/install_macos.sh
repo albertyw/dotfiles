@@ -15,7 +15,8 @@ brew install \
     nmap            `: network map` \
     tree            `: recursive ls` \
     wget            `: curl alternative` \
-    vim             `: install vim 8.0`
+    vim             `: install vim 8.0` \
+    less            `: install newer version of less`
 
 # System monitoring
 gem install iStats
