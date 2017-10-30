@@ -1,4 +1,7 @@
+# Ignore text editor backup files
 *~
 *.swp
+
+# Ignore MacOS turds
 .DS_Store
-._.DS_Store
+._*
