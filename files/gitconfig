@@ -1,6 +1,6 @@
 # Core
 [core]
-    editor = vi
+    editor = vim
     excludesfile = ~/.gitignore
     templatedir = ~/.git
     trustctime = false
