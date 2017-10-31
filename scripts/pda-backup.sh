@@ -19,7 +19,7 @@ mkdir egnyte
 mkdir egnyte-local
 
 # Download data
-sudo mount.davfs pda.egnyte.com/webdav egnyte -o ro
+sudo mount.davfs https://pda.egnyte.com/webdav egnyte -o ro
 screen rsync -rv egnyte/Shared/PDA/* egnyte-local/
 
 # Download website
