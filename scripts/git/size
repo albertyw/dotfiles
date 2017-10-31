@@ -1,10 +1,5 @@
 #!/bin/bash
 
-BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-git count-objects -vH
-echo ''
-
 echo 'Current Branch'
 git count-objects -vH | grep size-pack | cut -d' ' -f 2-3
 echo ''
@@ -12,6 +7,3 @@ echo ''
 echo 'Total Local Storage'
 du -hs . | cut -f 1
 echo ''
-
-echo 'Top 20 Largest Commits'
-$BASEDIR/size-commit.pl | awk 'NR<2{print $0;next}{print $0| "sort -hr"}' | head -n 20
