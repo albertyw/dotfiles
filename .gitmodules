@@ -7,9 +7,6 @@
 [submodule "files/vim/bundle/vim-go"]
 	path = files/vim/bundle/vim-go
 	url = git@github.com:fatih/vim-go.git
-[submodule "files/vim/bundle/vim-slim"]
-	path = files/vim/bundle/vim-slim
-	url = git@github.com:slim-template/vim-slim.git
 [submodule "files/vim/bundle/vim-markdown"]
 	path = files/vim/bundle/vim-markdown
 	url = git@github.com:plasticboy/vim-markdown.git
