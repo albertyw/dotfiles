@@ -42,6 +42,7 @@
     reviewers = !~/.dotfiles/scripts/git/git-reviewers/git_reviewers/reviewers.py --path=${GIT_PREFIX:-./}
     size = !~/.dotfiles/scripts/git/size
     userstats = !~/.dotfiles/scripts/git/userstats
+    findreplace = "!f() { git ls-files | xargs sed -i -e "s/$1/$2/g"; }; f"
 
 [grep]
     linenumber = true
