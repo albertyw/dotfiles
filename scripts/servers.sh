@@ -6,7 +6,6 @@ REMOTE_MACHINES="
 statsonice.com
 albertyw.com
 log.fit
-dendr.io
 "
 
 hosts=""
