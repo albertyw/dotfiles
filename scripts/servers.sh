@@ -1,7 +1,7 @@
 #!/bin/bash
 # This is a simple replacement for puppet
 
-LOCAL_MACHINES="cellabus personal"
+LOCAL_MACHINES="personal"
 REMOTE_MACHINES="
 statsonice.com
 albertyw.com
