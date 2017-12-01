@@ -13,6 +13,9 @@ case "$1" in
         ;;
     mount)
         DIR=/Users/albertyw/Desktop/personal
+        if [ ! -d "$DIR" ]; then
+            mkdir -p $DIR
+        fi
         if mount | grep personal > /dev/null; then
             sudo umount -f $DIR
         fi
