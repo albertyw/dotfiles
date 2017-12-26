@@ -2,6 +2,7 @@
 
 set -e
 
+DIR=/Users/albertyw/Desktop/personal
 VM='personal'
 
 case "$1" in
@@ -12,14 +13,21 @@ case "$1" in
         VBoxManage controlvm $VM acpipowerbutton
         ;;
     mount)
-        DIR=/Users/albertyw/Desktop/personal
         if [ ! -d "$DIR" ]; then
             mkdir -p $DIR
         fi
-        if mount | grep personal > /dev/null; then
+        if mount | grep $DIR > /dev/null; then
             sudo umount -f $DIR
         fi
         sshfs -o follow_symlinks -o reconnect -o cache=no $VM:/home/albertyw/ $DIR
+        ;;
+    umount)
+        if mount | grep $DIR > /dev/null; then
+            sudo umount -f $DIR
+        fi
+        if [ -d "$DIR" ]; then
+            rmdir $DIR
+        fi
         ;;
     status)
         VMS=`vboxmanage list runningvms | grep $VM || true`
