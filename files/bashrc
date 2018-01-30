@@ -25,7 +25,7 @@ else
 fi
 
 ### Assorted aliases
-function path() { echo $PATH | tr ':' '\n'; }
+function path() { echo "$PATH" | tr ':' '\n'; }
 alias grep='grep --color=auto'
 alias oports="echo 'User:      Command:   Port:'; echo '----------------------------' ; lsof -i 4 -P -n | grep -i 'listen' | awk '{print \$3, \$1, \$9}' | sed 's/ [a-z0-9\.\*]*:/ /' | sort -k 3 -n |xargs printf '%-10s %-10s %-10s\n' | uniq"
 alias mem="ps aux | sed -n 1p && ps aux | sort -b -k 4 | tail -n 30"
@@ -60,10 +60,10 @@ elif [[ $(uname) == Darwin ]]; then
 fi
 
 ### Sourcing other scripts
-source $HOME/.dotfiles/files/completion/git-completion.sh
-source $HOME/.dotfiles/files/completion/npm-completion.sh
-source $HOME/.dotfiles/files/completion/rake-completion.sh
-source $HOME/.dotfiles/files/completion/django-completion.sh
+source "$HOME/.dotfiles/files/completion/git-completion.sh"
+source "$HOME/.dotfiles/files/completion/npm-completion.sh"
+source "$HOME/.dotfiles/files/completion/rake-completion.sh"
+source "$HOME/.dotfiles/files/completion/django-completion.sh"
 
 ### Adjusting the PATH
 export PATH="$PATH:$HOME/.dotfiles/bin"
