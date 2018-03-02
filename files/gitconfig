@@ -42,7 +42,7 @@
     reviewers = !~/.dotfiles/scripts/git/git-reviewers/git_reviewers/reviewers.py -i albertyw
     size = !~/.dotfiles/scripts/git/size
     userstats = !~/.dotfiles/scripts/git/userstats
-    findreplace = "!f() { git ls-files | xargs sed -i -e "s/$1/$2/g"; }; f"
+    findreplace = "!f() { git ls-files --stage | grep 100 | cut -f2 | xargs sed -i -e "s/$1/$2/g"; }; f"
 
 [grep]
     linenumber = true
