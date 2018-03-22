@@ -248,13 +248,13 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>-1480 966 400 129 -2560 0 2560 1417 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>-1590 768 620 392 -2560 0 2560 1417 </string>
+	<string>970 768 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>-2291 126 606 469 -2560 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>-2139 271 770 429 -2560 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 89 1920 1177 0 0 2560 1417 </string>
+	<string>584 -900 1440 877 584 -900 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1077,13 +1077,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-16T23:27:26Z</date>
+	<date>2018-03-20T20:52:34Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
@@ -1127,7 +1127,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.5.beta.2</string>
+	<string>3.1.6beta4</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
