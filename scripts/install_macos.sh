@@ -29,11 +29,11 @@ brew install python3
 brew install go
 
 # Go Glide
-curl -OL https://github.com/Masterminds/glide/releases/download/v0.12.3/glide-v0.12.3-darwin-amd64.tar.gz
-tar xvf glide-v0.12.3-linux-amd64.tar.gz
-mv darwin-amd64/glide ~/.dotfiles/bin
-rm -r linux-amd64
-rm glide-v0.12.3-darwin-amd64.tar.gz
+mkdir -p $GOPATH/src/github.com/Masterminds
+cd $GOPATH/src/github.com/Masterminds
+git clone git@github.com:Masterminds/glide.git
+cd glide
+go install
 
 # Go Tools
 go get -u github.com/golang/lint/golint

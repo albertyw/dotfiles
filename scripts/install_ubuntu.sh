@@ -59,17 +59,17 @@ curl https://bootstrap.pypa.io/get-pip.py | sudo python3
 sudo pip2 install virtualenvwrapper
 sudo pip3 install virtualenvwrapper
 
-# Go
+# Install Go
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
 sudo apt update
 sudo apt install golang
 
 # Go Glide
-wget https://github.com/Masterminds/glide/releases/download/v0.12.1/glide-v0.12.1-linux-amd64.tar.gz
-tar xvf glide-v0.12.1-linux-amd64.tar.gz
-mv linux-amd64/glide ~/.dotfiles/bin
-rm -r linux-amd64
-rm glide-v0.12.1-linux-amd64.tar.gz
+mkdir -p $GOPATH/src/github.com/Masterminds
+cd $GOPATH/src/github.com/Masterminds
+git clone git@github.com:Masterminds/glide.git
+cd glide
+go install
 
 # Go Tools
 go get -u github.com/golang/lint/golint
