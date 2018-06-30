@@ -11,6 +11,7 @@ export HISTCONTROL=ignorespace
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export GOPATH=$HOME/gocode
+export VIRTUALENVWRAPPER_PYTHON="$(command \which python3)"
 
 # Set bash prompt
 blue='\[\e[1;34m\]'
