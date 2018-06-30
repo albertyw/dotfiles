@@ -51,12 +51,8 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | b
 nvm install --lts
 
 # Python/pip/virtualenvwrapper
-sudo apt install python3
-sudo apt install python-dev
-sudo apt install python3-dev
-curl https://bootstrap.pypa.io/get-pip.py | sudo python2
+sudo apt install python3 python3-dev python3-distutils
 curl https://bootstrap.pypa.io/get-pip.py | sudo python3
-sudo pip2 install virtualenvwrapper
 sudo pip3 install virtualenvwrapper
 
 # Install Go
