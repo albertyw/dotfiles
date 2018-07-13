@@ -42,7 +42,8 @@ sudo dpkg-reconfigure --frontend noninteractive locales
 
 # Node.js
 sudo apt install build-essential checkinstall libssl-dev
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+mkdir -p ~/.nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 nvm install --lts
 
 # Python/pip/virtualenvwrapper
