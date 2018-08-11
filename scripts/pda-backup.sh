@@ -2,7 +2,7 @@
 
 # EC2 Instance
 # t2.small
-# 600 GB EBS Cold HDD Volume
+# 700 GB EBS Cold HDD Volume
 
 # Prereqs
 sudo apt update
