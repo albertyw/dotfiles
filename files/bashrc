@@ -10,7 +10,6 @@ export TERM=xterm-256color
 export HISTCONTROL=ignorespace
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-export GOPATH=$HOME/gocode
 
 # Set bash prompt
 blue='\[\e[1;34m\]'
@@ -75,6 +74,9 @@ export VIRTUALENVWRAPPER_PYTHON="$(command \which python3)"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Read brew python, needed for virtualenvwrapper
 [ -s "/usr/local/bin/virtualenvwrapper.sh" ] && . /usr/local/bin/virtualenvwrapper.sh
 source "$HOME/.dotfiles/files/completion/django-completion.sh"
+
+# Go
+export GOPATH=$HOME/gocode
 
 # Node
 export PATH="$PATH:node_modules/.bin"
