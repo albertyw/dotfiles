@@ -11,7 +11,6 @@ export HISTCONTROL=ignorespace
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export GOPATH=$HOME/gocode
-export VIRTUALENVWRAPPER_PYTHON="$(command \which python3)"
 
 # Set bash prompt
 blue='\[\e[1;34m\]'
@@ -65,14 +64,18 @@ fi
 ### Sourcing other scripts
 source "$HOME/.dotfiles/files/completion/git-completion.sh"
 source "$HOME/.dotfiles/files/completion/rake-completion.sh"
-source "$HOME/.dotfiles/files/completion/django-completion.sh"
 
 ### Adjusting the PATH
 export PATH="$PATH:$HOME/.dotfiles/bin"
 export PATH="$PATH:/usr/local/heroku/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scripting
+
+# Python
+export VIRTUALENVWRAPPER_PYTHON="$(command \which python3)"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Read brew python, needed for virtualenvwrapper
+[ -s "/usr/local/bin/virtualenvwrapper.sh" ] && . /usr/local/bin/virtualenvwrapper.sh
+source "$HOME/.dotfiles/files/completion/django-completion.sh"
 
 # Node
 export PATH="$PATH:node_modules/.bin"
