@@ -2,6 +2,9 @@
 
 export GOPATH=$HOME/Uber/gocode
 export PATH="$PATH:$GOPATH/bin"
+export UBER_HOME="$HOME/Uber"
+export UBER_OWNER="albertyw@uber.com"
+export UBER_LDAP_UID="albertyw"
 
 goclone() {
     mkdir -p "$GOPATH/src/code.uber.internal/$1"
