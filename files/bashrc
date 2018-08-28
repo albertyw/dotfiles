@@ -69,7 +69,6 @@ source "$HOME/.dotfiles/files/completion/rake-completion.sh"
 export PATH="$PATH:$HOME/.dotfiles/bin"
 export PATH="$PATH:/usr/local/heroku/bin"
 export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scripting
 
 # Python
 export VIRTUALENVWRAPPER_PYTHON="$(command \which python3)"
@@ -83,6 +82,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 source "$HOME/.dotfiles/files/completion/npm-completion.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Ruby
+export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 

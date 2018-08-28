@@ -9,6 +9,4 @@ fi
 
 [[ -r $HOME/.bashrc ]] && . ~/.bashrc
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 type "brew" &>/dev/null && [ -s "$(brew --prefix)/etc/bash_completion" ] && . $(brew --prefix)/etc/bash_completion
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
