@@ -64,7 +64,6 @@ fi
 
 ### Sourcing other scripts
 source "$HOME/.dotfiles/files/completion/git-completion.sh"
-source "$HOME/.dotfiles/files/completion/npm-completion.sh"
 source "$HOME/.dotfiles/files/completion/rake-completion.sh"
 source "$HOME/.dotfiles/files/completion/django-completion.sh"
 
@@ -72,13 +71,14 @@ source "$HOME/.dotfiles/files/completion/django-completion.sh"
 export PATH="$PATH:$HOME/.dotfiles/bin"
 export PATH="$PATH:/usr/local/heroku/bin"
 export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:node_modules/.bin"
 export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scripting
 export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Read brew python, needed for virtualenvwrapper
 
-# NVM
+# Node
+export PATH="$PATH:node_modules/.bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+source "$HOME/.dotfiles/files/completion/npm-completion.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
