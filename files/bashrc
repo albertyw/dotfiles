@@ -42,7 +42,6 @@ alias mkdir='mkdir -p'
 alias myip='curl --silent ipinfo.io | jq -r .ip'
 function geoip { curl "ipinfo.io/$1"; }
 export -f geoip
-alias rspec='xvfb-run -a bundle exec rspec'
 if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
 fi
@@ -89,6 +88,7 @@ export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scri
 source "$HOME/.dotfiles/files/completion/rake-completion.sh"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+alias rspec='xvfb-run -a bundle exec rspec'
 
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
