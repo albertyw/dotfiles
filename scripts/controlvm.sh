@@ -30,7 +30,7 @@ case "$1" in
         fi
         ;;
     status)
-        VMS=`vboxmanage list runningvms | grep $VM || true`
+        VMS=$(vboxmanage list runningvms | grep $VM || true)
         if [[ -z $VMS ]]; then
             echo "Not Running"
         else
@@ -40,7 +40,7 @@ case "$1" in
     *)
         echo $"Usage: $0 {start|stop|mount|status}"
         dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-        script=`basename "$0"`
-        $dir/$script status
+        script=$(basename "$0")
+        "$dir"/"$script" status
         exit 1
 esac
