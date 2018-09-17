@@ -7,7 +7,7 @@
 # Prereqs
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y davfs2 s3cmd zip git
+DEBIAN_FRONTEND=noninteractive sudo apt install -y davfs2 s3cmd zip git
 
 # Set up scratch disk
 sudo mkfs -t ext4 /dev/xvdb
