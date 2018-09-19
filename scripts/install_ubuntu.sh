@@ -2,6 +2,7 @@
 
 set -ex
 
+sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y \
