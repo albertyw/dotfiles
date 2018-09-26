@@ -29,8 +29,8 @@ brew install python3
 brew install go
 
 # Go Glide
-mkdir -p $GOPATH/src/github.com/Masterminds
-cd $GOPATH/src/github.com/Masterminds
+mkdir -p "$GOPATH/src/github.com/Masterminds"
+cd "$GOPATH/src/github.com/Masterminds"
 git clone git@github.com:Masterminds/glide.git
 cd glide
 go install

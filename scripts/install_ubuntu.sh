@@ -58,8 +58,8 @@ sudo apt update
 sudo apt install golang
 
 # Go Glide
-mkdir -p $GOPATH/src/github.com/Masterminds
-cd $GOPATH/src/github.com/Masterminds
+mkdir -p "$GOPATH/src/github.com/Masterminds"
+cd "$GOPATH/src/github.com/Masterminds"
 git clone git@github.com:Masterminds/glide.git
 cd glide
 go install
