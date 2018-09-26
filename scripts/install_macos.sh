@@ -28,14 +28,8 @@ brew install python3
 # Install go
 brew install go
 
-# Go Glide
-mkdir -p "$GOPATH/src/github.com/Masterminds"
-cd "$GOPATH/src/github.com/Masterminds"
-git clone git@github.com:Masterminds/glide.git
-cd glide
-go install
-
 # Go Tools
+curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 go get -u github.com/golang/lint/golint
 
 # jEdit
