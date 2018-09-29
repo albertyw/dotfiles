@@ -1,6 +1,11 @@
 #!/bin/sh
 
-sudo apt install lm-sensors smartmontools
+if [ -z $(which sensors) ]; then
+    sudo apt install lm-sensors
+fi
+if [ -z $(which smartctl) ]; then
+    sudo apt install smartmontools
+fi
 
 echo "\033[44m TEMPERATURES \033[0m"
 sensors
