@@ -16,7 +16,7 @@ discus
 echo ""
 
 echo "\033[44m NETWORK \033[0m"
-ifconfig
+ifconfig enp0s25
 echo ""
 
 echo "\033[44m UPTIME/USERS \033[0m"
