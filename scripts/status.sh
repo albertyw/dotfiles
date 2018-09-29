@@ -24,5 +24,7 @@ w
 echo ""
 
 echo "\033[44m MEMORY \033[0m"
-mem
+printf '\033[?7l'
+ps aux | sed -n 1p && ps aux | sort -b -k 4 | tail -n 30
+printf '\033[?7h'
 echo ""
