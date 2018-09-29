@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo apt install lm-sensors smartmontools hddtemp discus sysstat
+sudo apt install lm-sensors smartmontools
 
 echo "\033[44m TEMPERATURES \033[0m"
 sensors
@@ -26,6 +26,3 @@ echo ""
 echo "\033[44m MEMORY \033[0m"
 mem
 echo ""
-
-echo "\033[44m IOSTAT \033[0m"
-iostat -m
