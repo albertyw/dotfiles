@@ -12,7 +12,7 @@ sudo smartctl -HA /dev/sda
 echo ""
 
 echo "\033[44m DISK USAGE \033[0m"
-discus
+df -h | grep 'sda\|Filesystem'
 echo ""
 
 echo "\033[44m NETWORK \033[0m"
