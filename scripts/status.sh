@@ -24,7 +24,7 @@ w
 echo ""
 
 echo "\033[44m MEMORY \033[0m"
-free -m
+mem
 echo ""
 
 echo "\033[44m IOSTAT \033[0m"
