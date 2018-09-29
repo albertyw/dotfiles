@@ -8,8 +8,7 @@ echo ""
 
 echo "\033[44m DISK HEALTH \033[0m"
 echo "SDA"
-sudo smartctl -a /dev/sda
-hddtemp /dev/sda
+sudo smartctl -HA /dev/sda
 echo ""
 
 echo "\033[44m DISK USAGE \033[0m"
