@@ -25,6 +25,3 @@
 [submodule "files/vim/bundle/requirements.txt.vim"]
 	path = files/vim/bundle/requirements.txt.vim
 	url = git@github.com:raimon49/requirements.txt.vim.git
-[submodule "files/vim/bundle/vim-solidity"]
-	path = files/vim/bundle/vim-solidity
-	url = git@github.com:tomlion/vim-solidity.git
