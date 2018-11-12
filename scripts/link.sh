@@ -2,6 +2,7 @@
 
 set -e
 
+cd $HOME/.dotfiles
 dotfiles=$HOME/.dotfiles/files/
 
 move () {
