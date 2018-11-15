@@ -8,7 +8,7 @@ if [ -z $(which smartctl) ]; then
 fi
 
 echo "\033[44m TEMPERATURES \033[0m"
-sensors
+temperature
 echo ""
 
 echo "\033[44m DISK HEALTH \033[0m"
