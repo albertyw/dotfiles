@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Show hardware temperature data
+
+sensors
+find /dev/ | grep -e "sd[a-z]*$" | xargs sudo hddtemp
