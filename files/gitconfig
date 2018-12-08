@@ -40,7 +40,7 @@
     branches = branch -vv
     find = !git ls-files | grep
     browse = !~/.dotfiles/scripts/git/git-browse/git_browse/browse.py --path=${GIT_PREFIX:-./}
-    reviewers = !~/.dotfiles/scripts/git/git-reviewers/git_reviewers/reviewers.py -i albertyw -c -j ~/.gitreviewersignore.json
+    reviewers = !~/.dotfiles/scripts/git/git-reviewers/git_reviewers/reviewers.py -i albertyw -c -j ~/.gitreviewers.json
     size = !~/.dotfiles/scripts/git/size
     userstats = !~/.dotfiles/scripts/git/userstats
     findreplace = "!f() { git ls-files --stage | grep 100 | cut -f2 | xargs sed -i '' -e "s/$1/$2/g"; }; f"
