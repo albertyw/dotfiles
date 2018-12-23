@@ -5,8 +5,3 @@ export PATH="$PATH:$GOPATH/bin"
 export UBER_HOME="$HOME/Uber"
 export UBER_OWNER="albertyw@uber.com"
 export UBER_LDAP_UID="albertyw"
-
-goclone() {
-    mkdir -p "$GOPATH/src/code.uber.internal/$1"
-    git clone "gitolite@code.uber.internal:$1" "$GOPATH/src/code.uber.internal/$1" --recursive
-}

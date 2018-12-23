@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+"""
+Clone a go repository to its correct location under $GOPATH/src
+"""
+
+import os
+import subprocess
+import sys
+
+if len(sys.argv) < 2:
+    print("No repository to goclone")
+    sys.exit(1)
+
+# Generate path
+repository = sys.argv[1]
+repository_temp = repository.replace(":", "/")
+repository_temp = repository_temp.split("@")[-1]
+rel_path = repository_temp.split("/")
+
+gopath = os.getenv("GOPATH")
+if not gopath:
+    print("No GOPATH env var found")
+    sys.exit(1)
+abs_path = os.path.join(gopath, "src", *rel_path)
+
+# Clone
+cmd = ["git", "clone", repository, abs_path]
+try:
+    subprocess.check_call(cmd)
+except subprocess.CalledProcessError:
+    pass
