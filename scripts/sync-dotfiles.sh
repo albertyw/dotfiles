@@ -1,3 +1,6 @@
+#!/bin/bash
+# This script synchronizes the local dotfiles repository
+
 set -e
 
 check_internet () {
