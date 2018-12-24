@@ -5,7 +5,7 @@ check_internet () {
 }
 
 check () {
-    git fetch
+    git fetch --prune
 
     git submodule --quiet init
     git submodule --quiet update --recursive
