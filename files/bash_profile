@@ -4,8 +4,9 @@
 if hash brew 2>/dev/null; then
     export PATH=$(brew --prefix)/sbin:$(brew --prefix)/bin:$PATH:$HOME/bin
     export HOMEBREW_NO_SANDBOX=1
+    if [ -s "$(brew --prefix)/etc/bash_completion" ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
 fi
 
 [[ -r $HOME/.bashrc ]] && . ~/.bashrc
-
-type "brew" &>/dev/null && [ -s "$(brew --prefix)/etc/bash_completion" ] && . $(brew --prefix)/etc/bash_completion
