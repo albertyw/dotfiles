@@ -94,5 +94,5 @@ alias rspec='xvfb-run -a bundle exec rspec'
 
 ### Git updates
 ~/.dotfiles/scripts/chmod-private-keys.sh
-~/.dotfiles/scripts/update-dotfiles.sh &
+~/.dotfiles/scripts/sync-dotfiles.sh &
 disown

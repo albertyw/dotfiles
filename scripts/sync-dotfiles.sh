@@ -1,8 +1,14 @@
-check () {
-    git fetch
+#!/bin/bash
+# This script synchronizes the local dotfiles repository
 
-    git submodule --quiet init
-    git submodule --quiet update --recursive
+set -e
+
+check_internet () {
+    ping github.com -c 1 > /dev/null
+}
+
+check () {
+    git fetch --prune
 
     changes="$(git diff)"
     if [ "$changes" != "" ]; then
@@ -19,16 +25,17 @@ check () {
     changes="$(git diff HEAD..FETCH_HEAD)"
     if [ "$changes" != "" ] ; then
         git pull --quiet > /dev/null 2>&1
+        git submodule --quiet init
+        git submodule --quiet update --recursive
         ~/.dotfiles/scripts/chmod-private-keys.sh
         echo 'Dotfiles updated'
     fi
-
-    git submodule --quiet init
-    git submodule --quiet update --recursive
 }
 
 # Check if there are updates to this dotfiles repo
 cd ~/.dotfiles
+
+check_internet
 check
 
 # Check if there are updates to ssh
