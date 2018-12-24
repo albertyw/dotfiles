@@ -1,3 +1,9 @@
+set -e
+
+check_internet () {
+    ping github.com -c 1 > /dev/null
+}
+
 check () {
     git fetch
 
@@ -29,6 +35,8 @@ check () {
 
 # Check if there are updates to this dotfiles repo
 cd ~/.dotfiles
+
+check_internet
 check
 
 # Check if there are updates to ssh
