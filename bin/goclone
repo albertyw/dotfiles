@@ -29,4 +29,5 @@ cmd = ["git", "clone", repository, abs_path]
 try:
     subprocess.check_call(cmd)
 except subprocess.CalledProcessError:
+    # Git will have printed an error message to stdout/stderr already
     pass
