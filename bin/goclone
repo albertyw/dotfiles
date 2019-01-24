@@ -30,4 +30,14 @@ try:
     subprocess.check_call(cmd)
 except subprocess.CalledProcessError:
     # Git will have printed an error message to stdout/stderr already
+    print('asdf')
+    pass
+
+# Add git submodules
+os.chdir(abs_path)
+cmd = ["git", "submodule", "update", "--init"]
+try:
+    subprocess.check_call(cmd)
+except subprocess.CalledProcessError:
+    # Git will have printed an error message to stdout/stderr already
     pass
