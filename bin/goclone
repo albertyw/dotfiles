@@ -8,6 +8,16 @@ import os
 import subprocess
 import sys
 
+
+def run_command(cmd):
+    try:
+        subprocess.check_call(cmd)
+    except subprocess.CalledProcessError:
+        # Git will have printed an error message to stdout/stderr already
+        print('asdf')
+        pass
+
+
 if len(sys.argv) < 2:
     print("No repository to goclone")
     sys.exit(1)
@@ -26,18 +36,9 @@ abs_path = os.path.join(gopath, "src", *rel_path)
 
 # Clone
 cmd = ["git", "clone", repository, abs_path]
-try:
-    subprocess.check_call(cmd)
-except subprocess.CalledProcessError:
-    # Git will have printed an error message to stdout/stderr already
-    print('asdf')
-    pass
+run_command(cmd)
 
 # Add git submodules
 os.chdir(abs_path)
 cmd = ["git", "submodule", "update", "--init"]
-try:
-    subprocess.check_call(cmd)
-except subprocess.CalledProcessError:
-    # Git will have printed an error message to stdout/stderr already
-    pass
+run_command(cmd)
