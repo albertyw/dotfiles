@@ -248,13 +248,13 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>-1480 966 400 129 -2560 0 2560 1417 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>-1590 768 620 392 -2560 0 2560 1417 </string>
+	<string>970 768 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>-2291 126 606 469 -2560 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-2139 271 770 429 -2560 0 2560 1417 </string>
+	<string>738 -788 918 512 584 -900 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>584 -900 1440 877 584 -900 1440 877 </string>
+	<string>-2560 0 2560 1417 -2560 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -993,6 +993,8 @@
 	</array>
 	<key>NoSyncConfirmBeta</key>
 	<true/>
+	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<true/>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
@@ -1081,13 +1083,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-05-16T07:56:52Z</date>
+	<date>2019-01-24T18:10:00Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
@@ -1131,7 +1133,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.6beta5</string>
+	<string>3.2.7beta4</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
