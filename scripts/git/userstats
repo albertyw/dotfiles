@@ -15,7 +15,7 @@ git ls-files | \
 
 echo ""
 echo "Users by existing lines"
-unamestr=`uname`
+unamestr=$(uname)
 if [[ "$unamestr" == 'Linux' ]]; then
     regexsed="sed -r"
 elif [[ "$unamestr" == 'Darwin' ]]; then
@@ -23,12 +23,12 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 git ls-tree -r HEAD | \
     $regexsed -e 's/^.{53}//' | \
-    while read filename; do
+    while read -r filename; do
         file "$filename";
     done | \
     grep -E ': .*text' | \
     $regexsed -e 's/: .*//' | \
-    while read filename; do
+    while read -r filename; do
         git blame -w "$filename";
     done | \
     $regexsed -e 's/.*\((.*)[0-9]{4}-[0-9]{2}-[0-9]{2} .*/\1/' -e 's/ +$//' | \
