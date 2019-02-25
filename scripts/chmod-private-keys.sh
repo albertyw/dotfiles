@@ -1,7 +1,7 @@
 #!/bin/bash
 
 secure_secret_files () {
-    for i in "$@"; do
+    for i in $@; do
         chmod 600 "$i"
     done
 }
