@@ -5,6 +5,7 @@ set -ex
 sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
 sudo apt update
 sudo apt upgrade -y
+# shellcheck disable=SC2006,SC2046
 sudo apt install -y \
     finger      `: lookup users` \
     iotop       `: top for disk I/O` \
@@ -20,9 +21,10 @@ sudo apt install -y \
     zip         `: when gzip fails`
 
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-cd ~/.dotfiles
-git checkout files/bashrc # Seriously, WTF is heroku doing modifying my personal files?
-cd -
+(
+    cd ~/.dotfiles
+    git checkout files/bashrc # Seriously, WTF is heroku doing modifying my personal files?
+)
 
 # Unattended upgrades
 sudo apt install -y unattended-upgrades

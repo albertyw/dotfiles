@@ -2,7 +2,7 @@
 
 set -e
 
-cd $HOME/.dotfiles
+cd "$HOME/.dotfiles"
 dotfiles=$HOME/.dotfiles/files/
 
 move () {
@@ -12,13 +12,13 @@ move () {
         dest=$2
     fi
     echo "$1"
-    if [ -L "$HOME"/."$dest" ] ; then
+    if [ -L "$HOME/.$dest" ] ; then
         return 0
     fi
-    if [ -f $HOME/.$dest ] || [ -d "$HOME"/."$dest" ] ; then
-        mv "$HOME"/."$dest" "$HOME"/."$dest"~
+    if [ -f "$HOME/.$dest" ] || [ -d "$HOME/.$dest" ] ; then
+        mv "$HOME/.$dest" "$HOME/.$dest~"
     fi
-    ln -s "$dotfiles"/"$1" "$HOME"/."$dest"
+    ln -s "$dotfiles/$1" "$HOME/.$dest"
 }
 
 git submodule init

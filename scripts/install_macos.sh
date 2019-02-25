@@ -7,6 +7,7 @@ set -ex
 brew analytics off
 
 # Utilities
+# shellcheck disable=SC2006,SC2046
 brew install \
     bash-completion `: autocompletion for bash terminal` \
     htop            `: better top` \
