@@ -4,6 +4,6 @@ if [ "$domain" = "" ]; then
   echo "Need domain"
   exit
 fi
-nslookup $domain
-whois $domain
-traceroute $domain
+nslookup "$domain"
+whois "$domain"
+traceroute "$domain"
