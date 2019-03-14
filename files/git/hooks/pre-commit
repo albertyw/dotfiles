@@ -10,25 +10,25 @@ else
 fi
 
 IFS=$'\n' # Only split on newlines, not spaces
-for f in `exec git diff-index --cached --check $against -- | sed '/^[-+]/d' | cut -d: -f1 | uniq` ; do
+for f in $(exec git diff-index --cached --check $against -- | sed '/^[-+]/d' | cut -d: -f1 | uniq) ; do
 
     # Remove trailing whitespace
     echo "* Removed whitespace: $f"
     if [[ $(uname) == Darwin ]]; then
-        sed -i '' -E 's/[[:space:]]*$//' $f
+        sed -i '' -E 's/[[:space:]]*$//' "$f"
     else
-        sed -i 's/[[:space:]]*$//' $f
+        sed -i 's/[[:space:]]*$//' "$f"
     fi
-    git add $f
+    git add "$f"
 done
 
 files=$(git diff-index --name-status --cached HEAD | grep -v ^D | cut -c3-)
 for f in $files
 do
     # Add linebreak to end of file if it doesn't have one
-    if [ "$(tail -c 1 $f)" != "" ]
+    if [ "$(tail -c 1 "$f")" != "" ]
     then
-        echo >> $f
+        echo >> "$f"
     fi
-    git add $f
+    git add "$f"
 done
