@@ -59,9 +59,6 @@ elif [[ $(uname) == Darwin ]]; then
     fi
 fi
 
-### Sourcing other scripts
-source "$HOME/.dotfiles/files/completion/git-completion.sh"
-
 ### Adjusting the PATH
 export PATH="$PATH:$HOME/.dotfiles/bin"
 export PATH="$PATH:/usr/local/heroku/bin"
