@@ -2,10 +2,11 @@
 
 # Homebrew
 if hash brew 2>/dev/null; then
-    export PATH=$(brew --prefix)/sbin:$(brew --prefix)/bin:$PATH:$HOME/bin
+    brewprefix=$(brew --prefix)
+    export PATH="$brewprefix/sbin:$brewprefix/bin:$PATH:$HOME/bin"
     export HOMEBREW_NO_SANDBOX=1
-    if [ -s "$(brew --prefix)/etc/bash_completion" ]; then
-        . $(brew --prefix)/etc/bash_completion
+    if [ -s "$brewprefix/etc/bash_completion" ]; then
+        . "$brewprefix/etc/bash_completion"
     fi
 fi
 
