@@ -26,7 +26,7 @@ fi
 ### Assorted aliases
 function path() { echo "$PATH" | tr ':' '\n'; }
 alias grep='grep --color=auto'
-alias oports="echo 'User:      Command:   Port:'; echo '----------------------------' ; lsof -i 4 -P -n | grep -i 'listen' | awk '{print \$3, \$1, \$9}' | sed 's/ [a-z0-9\.\*]*:/ /' | sort -k 3 -n |xargs printf '%-10s %-10s %-10s\n' | uniq"
+oports() { echo 'User:      Command:   Port:'; echo '----------------------------' ; lsof -i 4 -P -n | grep -i 'listen' | awk '{print $3, $1, $9}' | sed 's/ [a-z0-9\.\*]*:/ /' | sort -k 3 -n |xargs printf '%-10s %-10s %-10s\n' | uniq; }
 alias mem="printf '\033[?7l' && ps aux | sed -n 1p && ps aux | sort -b -n -k 4 | tail -n 30 && printf '\033[?7h'"
 alias cpu="printf '\033[?7l' && ps aux | sed -n 1p && ps aux | sort -b -n -k 3 | tail -n 30 && printf '\033[?7h'"
 alias sudo='sudo '
@@ -64,7 +64,8 @@ export PATH="$PATH:$HOME/.dotfiles/bin"
 export PATH="$PATH:/usr/local/heroku/bin"
 
 # Python
-export VIRTUALENVWRAPPER_PYTHON="$(command \which python3)"
+python3location="$(command which python3)"
+export VIRTUALENVWRAPPER_PYTHON=$python3location
 export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Read brew python, needed for virtualenvwrapper
 [ -s "/usr/local/bin/virtualenvwrapper.sh" ] && . /usr/local/bin/virtualenvwrapper.sh
 source "$HOME/.dotfiles/files/completion/django-completion.sh"
