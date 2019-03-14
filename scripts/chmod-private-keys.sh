@@ -1,9 +1,12 @@
 #!/bin/bash
 
 secure_secret_files () {
-    for i in $@; do
-        chmod 600 "$i"
-    done
+    if [ -z "$1" ] ; then
+        return
+    fi
+    while read -r file; do
+        chmod 600 "$file"
+    done <<< "$1"
 }
 
 secretfiles=$(find ~/.ssh | grep id_ | grep -vF .pub)
