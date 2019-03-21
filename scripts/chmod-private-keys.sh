@@ -23,3 +23,9 @@ secure_secret_files "$secretfiles"
 
 secretfiles=$(find ~/.ssh | grep p12)
 secure_secret_files "$secretfiles"
+
+secretfiles=$(find ~/.ssh | grep gpg)
+secure_secret_files "$secretfiles"
+
+secretfiles=$(find ~/.ssh | grep davfs2)
+secure_secret_files "$secretfiles"
