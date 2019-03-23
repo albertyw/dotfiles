@@ -4,6 +4,9 @@ au BufNewFile,BufRead requirements-*.txt set ft=requirements
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+filetype on
+filetype plugin indent on
+
 syntax on
 set background=dark
 set ruler
@@ -43,9 +46,6 @@ set tabstop=4
 set autoindent
 set shiftwidth=4
 set noerrorbells
-
-filetype on
-filetype plugin indent on
 
 " Disable folding
 set nofoldenable
