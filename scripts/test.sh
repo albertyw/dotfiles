@@ -3,9 +3,10 @@
 
 set -e
 
-bashshebang=$(git grep -El '#!.*bash')
-bashfiles=$(git ls-files | grep bash)
-bashfiles="$bashshebang$IFS$bashfiles"
+bashfiles=$(git grep -El '#!.*bash')
+bashfiles="$bashfiles$IFS$(git ls-files | grep bash)"
+bashfiles="$bashfiles$IFS$(git ls-files | grep -F .sh)"
+bashfiles="$(echo "$bashfiles" | tr "$IFS" "\n" | sort -u | tr " " "$IFS" | sed '/./,$!d')"
 
 while read -r bashfile; do
     shellcheck -e SC1090,SC1091 "$bashfile"
