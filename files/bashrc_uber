@@ -5,3 +5,5 @@ export PATH="$PATH:$GOPATH/bin"
 export UBER_HOME="$HOME/Uber"
 export UBER_OWNER="albertyw@uber.com"
 export UBER_LDAP_UID="albertyw"
+
+[ -r /Users/albertyw/.profile_lda ] && . /Users/albertyw/.profile_lda
