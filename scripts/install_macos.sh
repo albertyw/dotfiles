@@ -10,6 +10,7 @@ brew analytics off
 # shellcheck disable=SC2006,SC2046
 brew install \
     bash-completion `: autocompletion for bash terminal` \
+    grep            `: faster gnu grep` \
     htop            `: better top` \
     iftop           `: top for network I/O` \
     jq              `: parse and prettify json` \
