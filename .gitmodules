@@ -28,3 +28,6 @@
 [submodule "files/vim/bundle/jinja2"]
 	path = files/vim/bundle/jinja2
 	url = git@github.com:Glench/Vim-Jinja2-Syntax.git
+[submodule "files/vim/bundle/thrift-vim"]
+	path = files/vim/bundle/thrift-vim
+	url = git@github.com:solarnz/thrift.vim.git
