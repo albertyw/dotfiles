@@ -38,7 +38,7 @@
     cherrypick = cherry-pick
     blame = blame -cwC
     branches = branch -vv
-    find = !git ls-files | grep
+    find = !cd $GIT_PREFIX && git ls-files | grep
     browse = !~/.dotfiles/scripts/git/git-browse/git_browse/browse.py --path=${GIT_PREFIX:-./}
     reviewers = !~/.dotfiles/scripts/git/git-reviewers/git_reviewers/reviewers.py -i albertyw -c -j ~/.gitreviewers.json
     size = !~/.dotfiles/scripts/git/size
