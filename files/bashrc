@@ -17,7 +17,7 @@ red='\[\e[1;31m\]'
 yellow='\[\e[1;33m\]'
 magentabackground='\[\e[1;45m\]'
 reset='\[\e[0m\]'
-if [[ "$(hostname)" == *"personal"* ]] || [[ "$(uname)" == "Darwin" ]]; then
+if [[ "$(hostname)" == *"personal"* ]] || [[ "$(uname)" == "Darwin" ]] || [[ "$(hostname)" == *"desktop"* ]]; then
     PS1="$blue\u$red@\[$yellow\h$red \w \$ $reset"
 else
     PS1="$blue\u$red@\[$yellow$magentabackground\h$reset$red \w \$ $reset"
