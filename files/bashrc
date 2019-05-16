@@ -78,13 +78,13 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:node_modules/.bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-if which npm > /dev/null; then source <(npm completion); fi
+if command -v npm > /dev/null; then source <(npm completion); fi
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Ruby
 export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 alias rspec='xvfb-run -a bundle exec rspec'
 
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
