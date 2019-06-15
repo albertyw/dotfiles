@@ -35,6 +35,7 @@ endif
 
 au BufRead,BufNewFile *.dj setfiletype htmldjango
 au BufRead,BufNewFile *.hamlc set ft=haml
+au BufRead,BufNewFile .env* set syntax=sh
 
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
