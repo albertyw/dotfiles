@@ -76,6 +76,7 @@ export PATH="$PATH:$GOPATH/bin"
 
 # Node
 export PATH="$PATH:node_modules/.bin"
+export NODE_OPTIONS=--max_old_space_size=4096
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 if command -v npm > /dev/null; then source <(npm completion); fi
