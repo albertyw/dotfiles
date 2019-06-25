@@ -7,6 +7,10 @@
     insteadOf = https://code.uber.internal/
 [url "ssh://config.uber.internal/"]
     insteadOf = https://config.uber.internal/
+[credential "https://git.uberinternal.com"]
+   helper = usso
+[credential "https://vfs4g-cache.uberinternal.com"]
+   helper = usso
 [http "https://gopkg.uberinternal.com"]
     followRedirects = true
 [http "https://gopkg.in"]
