@@ -6,4 +6,7 @@ export UBER_HOME="$HOME/Uber"
 export UBER_OWNER="albertyw@uber.com"
 export UBER_LDAP_UID="albertyw"
 
+# Uber adds a bunch of crap to the hostname, override it
+PS1="${blue}\u${red}@\[${yellow}albertyw${red} \w \$ ${reset}"
+
 [ -r /Users/albertyw/.profile_lda ] && . /Users/albertyw/.profile_lda
