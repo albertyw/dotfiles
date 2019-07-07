@@ -9,6 +9,9 @@ secure_secret_files () {
     done <<< "$1"
 }
 
+secretfiles=$(find ~/.ssh | grep config$ | grep -v git)
+secure_secret_files "$secretfiles"
+
 secretfiles=$(find ~/.ssh | grep id_ | grep -vF .pub)
 secure_secret_files "$secretfiles"
 
