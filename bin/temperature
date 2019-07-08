@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Show hardware temperature data
+# sudo apt install lm-sensors hddtemp
 
 sensors
 find /dev/ | grep -e "sd[a-z]*$" | xargs sudo hddtemp
