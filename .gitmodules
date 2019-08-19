@@ -31,3 +31,6 @@
 [submodule "files/vim/bundle/thrift-vim"]
 	path = files/vim/bundle/thrift-vim
 	url = git@github.com:solarnz/thrift.vim.git
+[submodule "files/vim/bundle/vim-javascript"]
+	path = files/vim/bundle/vim-javascript
+	url = git@github.com:pangloss/vim-javascript
