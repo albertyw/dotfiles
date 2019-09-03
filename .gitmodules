@@ -13,9 +13,6 @@
 [submodule "files/git-browse"]
 	path = scripts/git/git-browse
 	url = git@github.com:albertyw/git-browse
-[submodule "files/vim/pack/albertyw/start/vim-pathogen"]
-	path = files/vim/pack/albertyw/start/vim-pathogen
-	url = git@github.com:tpope/vim-pathogen.git
 [submodule "scripts/git/git-reviewers"]
 	path = scripts/git/git-reviewers
 	url = git@github.com:albertyw/git-reviewers
