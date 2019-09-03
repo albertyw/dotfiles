@@ -31,3 +31,6 @@
 [submodule "files/vim/pack/albertyw/start/vim-javascript"]
 	path = files/vim/pack/albertyw/start/vim-javascript
 	url = git@github.com:pangloss/vim-javascript
+[submodule "files/vim/pack/albertyw/start/vim-airline"]
+	path = files/vim/pack/albertyw/start/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
