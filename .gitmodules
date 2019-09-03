@@ -1,36 +1,36 @@
-[submodule "files/vim/bundle/puppet-syntax-vim"]
-	path = files/vim/bundle/puppet-syntax-vim
+[submodule "files/vim/pack/albertyw/start/puppet-syntax-vim"]
+	path = files/vim/pack/albertyw/start/puppet-syntax-vim
 	url = git@github.com:puppetlabs/puppet-syntax-vim.git
-[submodule "files/vim/bundle/vim-json"]
-	path = files/vim/bundle/vim-json
+[submodule "files/vim/pack/albertyw/start/vim-json"]
+	path = files/vim/pack/albertyw/start/vim-json
 	url = git@github.com:elzr/vim-json.git
-[submodule "files/vim/bundle/vim-go"]
-	path = files/vim/bundle/vim-go
+[submodule "files/vim/pack/albertyw/start/vim-go"]
+	path = files/vim/pack/albertyw/start/vim-go
 	url = git@github.com:fatih/vim-go.git
-[submodule "files/vim/bundle/vim-markdown"]
-	path = files/vim/bundle/vim-markdown
+[submodule "files/vim/pack/albertyw/start/vim-markdown"]
+	path = files/vim/pack/albertyw/start/vim-markdown
 	url = git@github.com:plasticboy/vim-markdown.git
 [submodule "files/git-browse"]
 	path = scripts/git/git-browse
 	url = git@github.com:albertyw/git-browse
-[submodule "files/vim/bundle/vim-pathogen"]
-	path = files/vim/bundle/vim-pathogen
+[submodule "files/vim/pack/albertyw/start/vim-pathogen"]
+	path = files/vim/pack/albertyw/start/vim-pathogen
 	url = git@github.com:tpope/vim-pathogen.git
 [submodule "scripts/git/git-reviewers"]
 	path = scripts/git/git-reviewers
 	url = git@github.com:albertyw/git-reviewers
-[submodule "files/vim/bundle/csv.vim"]
-	path = files/vim/bundle/csv.vim
+[submodule "files/vim/pack/albertyw/start/csv.vim"]
+	path = files/vim/pack/albertyw/start/csv.vim
 	url = git@github.com:chrisbra/csv.vim.git
-[submodule "files/vim/bundle/requirements.txt.vim"]
-	path = files/vim/bundle/requirements.txt.vim
+[submodule "files/vim/pack/albertyw/start/requirements.txt.vim"]
+	path = files/vim/pack/albertyw/start/requirements.txt.vim
 	url = git@github.com:raimon49/requirements.txt.vim.git
-[submodule "files/vim/bundle/jinja2"]
-	path = files/vim/bundle/jinja2
+[submodule "files/vim/pack/albertyw/start/jinja2"]
+	path = files/vim/pack/albertyw/start/jinja2
 	url = git@github.com:Glench/Vim-Jinja2-Syntax.git
-[submodule "files/vim/bundle/thrift-vim"]
-	path = files/vim/bundle/thrift-vim
+[submodule "files/vim/pack/albertyw/start/thrift-vim"]
+	path = files/vim/pack/albertyw/start/thrift-vim
 	url = git@github.com:solarnz/thrift.vim.git
-[submodule "files/vim/bundle/vim-javascript"]
-	path = files/vim/bundle/vim-javascript
+[submodule "files/vim/pack/albertyw/start/vim-javascript"]
+	path = files/vim/pack/albertyw/start/vim-javascript
 	url = git@github.com:pangloss/vim-javascript
