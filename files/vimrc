@@ -1,9 +1,6 @@
 " Include requirements-*.txt for detecting python requirements files
 au BufNewFile,BufRead requirements-*.txt set ft=requirements
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-
 filetype on
 filetype plugin indent on
 
