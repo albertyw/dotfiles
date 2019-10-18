@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Remove mac terminal notification about zsh
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Homebrew
 if hash brew 2>/dev/null; then
     brewprefix=$(brew --prefix)
