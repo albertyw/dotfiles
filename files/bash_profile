@@ -1,15 +1,17 @@
 #!/bin/bash
 
-# Remove mac terminal notification about zsh
-export BASH_SILENCE_DEPRECATION_WARNING=1
+if [ "$(uname)" == "Darwin" ]; then
+    # Remove mac terminal notification about zsh
+    export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# Homebrew
-if hash brew 2>/dev/null; then
-    brewprefix=$(brew --prefix)
-    export PATH="$brewprefix/sbin:$brewprefix/bin:$PATH:$HOME/bin"
-    export HOMEBREW_NO_SANDBOX=1
-    if [ -s "$brewprefix/etc/bash_completion" ]; then
-        . "$brewprefix/etc/bash_completion"
+    # Homebrew
+    if hash brew 2>/dev/null; then
+        brewprefix=$(brew --prefix)
+        export PATH="$brewprefix/sbin:$brewprefix/bin:$PATH:$HOME/bin"
+        export HOMEBREW_NO_SANDBOX=1
+        if [ -s "$brewprefix/etc/bash_completion" ]; then
+            . "$brewprefix/etc/bash_completion"
+        fi
     fi
 fi
 
