@@ -1,8 +1,10 @@
 #!/bin/bash
 
-set -ex
+set -e
 
-git ls-files --stage \
+location=${GIT_PREFIX:-./}
+
+git ls-files --stage "$location" \
     | grep 100 \
     | cut -f2 \
     | xargs file \
