@@ -10,6 +10,7 @@ bashfiles="$(echo "$bashfiles" | tr "$IFS" "\n" | sort -u | tr " " "$IFS" | sed 
 shellcheckignores="SC1090,SC1091"
 
 while read -r bashfile; do
+    echo "$bashfile"
     # bash completion files are meant to be sourced instead of run so they 
     # should not have a shebang
     additionalignores=""
@@ -22,5 +23,6 @@ done <<< "$bashfiles"
 pythonfiles=$(git grep -El '#!.*python' | grep -v "test.sh")
 
 while read -r pythonfile; do
+    echo "$pythonfile"
     flake8 "$pythonfile"
 done <<< "$pythonfiles"
