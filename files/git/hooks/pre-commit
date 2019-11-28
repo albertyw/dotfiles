@@ -10,7 +10,12 @@ else
 fi
 
 IFS=$'\n' # Only split on newlines, not spaces
-for f in $(exec git diff-index --cached --check $against -- | sed '/^[-+]/d' | cut -d: -f1 | uniq) ; do
+files=$(exec git diff-index --cached --check $against -- | sed '/^[-+]/d' | cut -d: -f1 | uniq)
+for f in $files; do
+    # Skip modifying non-text files
+    if [ "$(file -bL --mime "$f" | grep -q '^text')" != "" ]; then
+        continue
+    fi
 
     # Remove trailing whitespace
     echo "* Removed whitespace: $f"
@@ -23,8 +28,12 @@ for f in $(exec git diff-index --cached --check $against -- | sed '/^[-+]/d' | c
 done
 
 files=$(git diff-index --name-status --cached HEAD | grep -v ^D | cut -c3-)
-for f in $files
-do
+for f in $files; do
+    # Skip modifying non-text files
+    if [ "$(file -bL --mime "$f" | grep -q '^text')" == "" ]; then
+        continue
+    fi
+
     # Add linebreak to end of file if it doesn't have one
     if [ "$(tail -c 1 "$f")" != "" ]
     then
