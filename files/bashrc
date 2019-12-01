@@ -39,8 +39,8 @@ alias diff='icdiff'
 alias tree='tree -C'
 alias du='du -h'
 alias mkdir='mkdir -p'
-alias myip='curl --silent ipinfo.io | jq -r .ip'
-function geoip { curl "ipinfo.io/$1"; }
+alias myip='curl --silent https://ipinfo.io | jq -r .ip'
+function geoip { curl "https://ipinfo.io/$1"; }
 export -f geoip
 if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
