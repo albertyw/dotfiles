@@ -72,8 +72,7 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Read brew python, needed
 source "$HOME/.dotfiles/files/completion/django-completion.sh"
 
 # Do not pip install when not in a virtual environment
-# https://docs.python-guide.org/dev/pip-virtualenv/#requiring-an-active-v
-irtual-environment-for-pip
+# https://docs.python-guide.org/dev/pip-virtualenv/#requiring-an-active-virtual-environment-for-pip
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Go
