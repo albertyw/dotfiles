@@ -71,6 +71,11 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Read brew python, needed
 [ -s "/usr/local/bin/virtualenvwrapper.sh" ] && . /usr/local/bin/virtualenvwrapper.sh
 source "$HOME/.dotfiles/files/completion/django-completion.sh"
 
+# Do not pip install when not in a virtual environment
+# https://docs.python-guide.org/dev/pip-virtualenv/#requiring-an-active-v
+irtual-environment-for-pip
+export PIP_REQUIRE_VIRTUALENV=true
+
 # Go
 export GOPATH=$HOME/gocode
 export PATH="$PATH:$GOPATH/bin"
