@@ -20,11 +20,11 @@ sudo apt install -y \
     whois       `: lookup domain ownership` \
     zip         `: when gzip fails`
 
-wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-(
-    cd ~/.dotfiles
-    git checkout files/bashrc # Seriously, WTF is heroku doing modifying my personal files?
-)
+# wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+# (
+#     cd ~/.dotfiles
+#     git checkout files/bashrc # Seriously, WTF is heroku doing modifying my personal files?
+# )
 
 # Unattended upgrades
 sudo apt install -y unattended-upgrades
