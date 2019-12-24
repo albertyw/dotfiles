@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -euo pipefail
+IFS=$'\n\t'
+
 echo "Users by commits"
 git shortlog -sne | \
     head -n 20
