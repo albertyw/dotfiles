@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "Users by commits"
-git shortlog -sne
+git shortlog -sne | \
+    head -n 20
 
 echo ""
 echo "Users by line changes"
