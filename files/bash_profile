@@ -16,3 +16,6 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 [[ -r $HOME/.bashrc ]] && . ~/.bashrc
+
+# Uber
+[ -r /Users/albertyw/.profile_lda ] && . /Users/albertyw/.profile_lda
