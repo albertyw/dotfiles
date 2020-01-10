@@ -15,7 +15,7 @@ fi
 files=$(exec git diff-index --cached --check $against -- | sed '/^[-+]/d' | cut -d: -f1 | uniq)
 for f in $files; do
     # Skip modifying non-text files
-    if [ "$(file -bL --mime "$f" | grep '^text')" != "" ]; then
+    if [ "$(file -bL --mime "$f" | grep '^text')" == "" ]; then
         continue
     fi
 
