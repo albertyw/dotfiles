@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -euo pipefail
+# Cannot have pipefail because grep will exit with status code 1 if no text is selected
+set -eu
 IFS=$'\n\t'
 
 if git rev-parse --verify HEAD >/dev/null 2>&1
@@ -14,7 +15,7 @@ fi
 files=$(exec git diff-index --cached --check $against -- | sed '/^[-+]/d' | cut -d: -f1 | uniq)
 for f in $files; do
     # Skip modifying non-text files
-    if [ "$(file -bL --mime "$f" | grep -q '^text')" != "" ]; then
+    if [ "$(file -bL --mime "$f" | grep '^text')" == "" ]; then
         continue
     fi
 
@@ -31,7 +32,7 @@ done
 files=$(git diff-index --name-status --cached HEAD | grep -v ^D | cut -c3-)
 for f in $files; do
     # Skip modifying non-text files
-    if [ "$(file -bL --mime "$f" | grep -q '^text')" == "" ]; then
+    if [ "$(file -bL --mime "$f" | grep '^text')" == "" ]; then
         continue
     fi
 
