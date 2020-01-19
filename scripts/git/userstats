@@ -19,23 +19,27 @@ git ls-files | \
 
 echo ""
 echo "Users by existing lines"
-unamestr=$(uname)
-if [[ "$unamestr" == 'Linux' ]]; then
-    regexsed="sed -r"
-elif [[ "$unamestr" == 'Darwin' ]]; then
-    regexsed='sed -E'
-fi
+regexsed() {
+    unamestr=$(uname)
+    if [[ "$unamestr" == 'Linux' ]]; then
+        sed -r "$@"
+    elif [[ "$unamestr" == 'Darwin' ]]; then
+        sed -E "$@"
+    else
+        sed -r "$@"
+    fi
+}
 git ls-tree -r HEAD | \
-    $regexsed -e 's/^.{53}//' | \
+    regexsed -e 's/^.{53}//' | \
     while read -r filename; do
         file "$filename";
     done | \
     grep -E ': .*text' | \
-    $regexsed -e 's/: .*//' | \
+    regexsed -e 's/: .*//' | \
     while read -r filename; do
         git blame -w "$filename";
     done | \
-    $regexsed -e 's/.*\((.*)[0-9]{4}-[0-9]{2}-[0-9]{2} .*/\1/' -e 's/ +$//' | \
+    regexsed -e 's/.*\((.*)[0-9]{4}-[0-9]{2}-[0-9]{2} .*/\1/' -e 's/ +$//' | \
     sort | \
     uniq -c | \
     sort -nr | \
