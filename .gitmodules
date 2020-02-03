@@ -34,3 +34,6 @@
 [submodule "files/vim/pack/albertyw/start/vim-airline"]
 	path = files/vim/pack/albertyw/start/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
+[submodule "files/vim/pack/albertyw/start/Dockerfile.vim"]
+	path = files/vim/pack/albertyw/start/Dockerfile.vim
+	url = git@github.com:ekalinin/Dockerfile.vim
