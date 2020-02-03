@@ -7,6 +7,10 @@
     pager = "less --tabs=4"
     precomposeunicode = false
 
+[protocol]
+    # Requires git 2.18.0+
+    version = 2
+
 [help]
     autocorrect = 1
 
