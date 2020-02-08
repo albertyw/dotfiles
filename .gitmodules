@@ -37,3 +37,6 @@
 [submodule "files/vim/pack/albertyw/start/Dockerfile.vim"]
 	path = files/vim/pack/albertyw/start/Dockerfile.vim
 	url = git@github.com:ekalinin/Dockerfile.vim
+[submodule "files/vim/pack/albertyw/start/typescript-vim"]
+	path = files/vim/pack/albertyw/start/typescript-vim
+	url = git@github.com:leafgarland/typescript-vim.git
