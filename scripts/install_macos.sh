@@ -10,16 +10,17 @@ brew analytics off
 # shellcheck disable=SC2006,SC2046
 brew install \
     bash-completion `: autocompletion for bash terminal` \
+    git             `: more up-to-date git than what macos provides` \
     grep            `: faster gnu grep` \
     htop            `: better top` \
     iftop           `: top for network I/O` \
     jq              `: parse and prettify json` \
+    less            `: more up-to-date less than what macos provides` \
     ngrep           `: read network traffic` \
     nmap            `: network map` \
     tree            `: recursive ls` \
     wget            `: curl alternative` \
     vim             `: install vim 8.0` \
-    less            `: install newer version of less`
 
 # System monitoring
 gem install iStats
