@@ -3,7 +3,7 @@
 # without comparing file contents
 
 set -euo pipefail
-IFS='\t\n'
+IFS=$'\n\t'
 
 file1="$(find "$1" | sed "s/^${1//\//\\/}//g" | sort)"
 file2="$(find "$2" | sed "s/^${2//\//\\/}//g" | sort)"
