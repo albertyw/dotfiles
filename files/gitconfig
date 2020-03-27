@@ -68,6 +68,7 @@
     autosetuprebase = always
 
 [diff]
+    algorithm = histogram
     tool = vimdiff
     indentHeuristic = true
     renames = copies
