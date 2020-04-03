@@ -56,6 +56,9 @@
 [grep]
     linenumber = true
 
+[blame]
+    date = local
+
 [log]
     date = local
 
