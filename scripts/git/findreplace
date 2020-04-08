@@ -5,9 +5,16 @@ IFS=$'\n\t'
 
 location=${GIT_PREFIX:-./}
 
-git ls-files --stage "$location" \
+sed2() {
+    sed -i -e "s/$1/$2/g" "$3";
+}
+
+files="$(git ls-files --stage "$location" \
     | grep 100 \
     | cut -f2 \
     | xargs file \
-    | awk -F: '/ASCII text/ {print $1    }' \
-    | xargs -t -L 1 sed -i -e "s/$1/$2/g";
+    | awk -F: '/ASCII text/ {print $1    }')"
+
+for file in $files; do
+    sed2 "$1" "$2" "$file"
+done
