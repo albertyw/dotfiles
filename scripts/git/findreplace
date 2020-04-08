@@ -6,7 +6,11 @@ IFS=$'\n\t'
 location=${GIT_PREFIX:-./}
 
 sed2() {
-    sed -i -e "s/$1/$2/g" "$3";
+    if [[ $(uname) == Darwin ]]; then
+        sed -i '' -e "s/$1/$2/g" "$3"
+    else
+        sed -i -e "s/$1/$2/g" "$3"
+    fi
 }
 
 files="$(git ls-files --stage "$location" \
