@@ -6,6 +6,7 @@
     trustctime = false
     pager = "less --tabs=4"
     precomposeunicode = false
+    untrackedCache = true
 
 [protocol]
     # Requires git 2.18.0+
