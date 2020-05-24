@@ -11,6 +11,9 @@ case "$1" in
         ;;
     stop)
         VBoxManage controlvm $VM acpipowerbutton
+        if [ -d "$DIR" ]; then
+            rmdir $DIR
+        fi
         ;;
     mount)
         mkdir -p $DIR
