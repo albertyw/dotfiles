@@ -13,9 +13,7 @@ case "$1" in
         VBoxManage controlvm $VM acpipowerbutton
         ;;
     mount)
-        if [ ! -d "$DIR" ]; then
-            mkdir -p $DIR
-        fi
+        mkdir -p $DIR
         if mount | grep $DIR > /dev/null; then
             sudo umount -f $DIR
         fi
