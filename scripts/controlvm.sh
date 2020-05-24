@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
+IFS=$'\n\t'
 
 DIR=/Users/albertyw/Desktop/personal
 VM='personal'

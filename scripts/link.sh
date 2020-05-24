@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
+IFS=$'\n\t'
 
 cd "$HOME/.dotfiles"
 dotfiles=$HOME/.dotfiles/files/

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -euo pipefail
+IFS=$'\n\t'
+
 secure_secret_files () {
     if [ -z "$1" ] ; then
         return

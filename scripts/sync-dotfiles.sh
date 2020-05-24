@@ -1,7 +1,8 @@
 #!/bin/bash
 # This script synchronizes the local dotfiles repository
 
-set -e
+set -euo pipefail
+IFS=$'\n\t'
 
 check_internet () {
     ping github.com -c 1 > /dev/null

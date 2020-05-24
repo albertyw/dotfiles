@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -ex
+set -euxo pipefail
+IFS=$'\n\t'
 
 # Set up homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

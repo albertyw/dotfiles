@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -uo pipefail
+IFS=$'\n\t'
+
 # Get Ubuntu version
 echo "UBUNTU VERSION"
 lsb_release -a

@@ -1,7 +1,8 @@
 #!/bin/bash
 # Test dotfiles
 
-set -e
+set -euo pipefail
+IFS=$'\n\t'
 
 bashfiles=$(git grep -El '#!.*bash')
 bashfiles="$bashfiles$IFS$(git ls-files | grep bash)"
