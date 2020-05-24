@@ -6,7 +6,7 @@ IFS=$'\n\t'
 DIR=/Users/albertyw/Desktop/personal
 VM='personal'
 
-case "$1" in
+case "${1:-}" in
     start)
         VBoxManage startvm $VM --type headless
         ;;
