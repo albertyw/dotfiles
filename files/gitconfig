@@ -61,6 +61,7 @@
     date = local
 
 [log]
+    abbrevCommit = true
     date = local
 
 [push]
