@@ -26,6 +26,9 @@
     # Requires git 2.9.0+
     fetchJobs = 0
 
+[pack]
+    threads = 0
+
 [user]
     name = Albert Wang
     email = git@albertyw.com
