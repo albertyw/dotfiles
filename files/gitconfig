@@ -89,6 +89,8 @@
 [rerere]
     enabled = true
 
+[apply]
+    whitespace = fix
 
 # Colors
 [color]
