@@ -7,7 +7,7 @@ cd "$HOME/.dotfiles"
 dotfiles=$HOME/.dotfiles/files/
 
 move () {
-    if [ -z "$2" ] ; then
+    if [ -z ${var+x} ] ; then
         dest=$1
     else
         dest=$2
