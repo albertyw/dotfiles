@@ -76,6 +76,9 @@
 [branch]
     autosetuprebase = always
 
+[pull]
+    rebase = true
+
 [diff]
     algorithm = histogram
     tool = vimdiff
