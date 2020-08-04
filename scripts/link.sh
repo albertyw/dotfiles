@@ -7,6 +7,7 @@ cd "$HOME/.dotfiles"
 dotfiles=$HOME/.dotfiles/files/
 
 move () {
+    # shellcheck disable=SC2086
     if [ -z ${2+x} ] ; then
         dest=$1
     else
