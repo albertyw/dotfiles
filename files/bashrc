@@ -66,12 +66,16 @@ export PATH="$PATH:$HOME/.dotfiles/bin"
 # export PATH="$PATH:/usr/local/heroku/bin"
 
 # Python
-python3location="$(command which python3)"
-export VIRTUALENVWRAPPER_PYTHON=$python3location
-export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Read brew python, needed for virtualenvwrapper
-[ -s "/usr/local/bin/virtualenvwrapper.sh" ] && . /usr/local/bin/virtualenvwrapper.sh
+if [[ $(uname) == Darwin ]]; then
+    # Read brew python, needed for virtualenvwrapper
+    export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
+fi
+if [ -s "/usr/local/bin/virtualenvwrapper.sh" ]; then
+    python3location="$(command which python3)"
+    export VIRTUALENVWRAPPER_PYTHON=$python3location
+    [ -s "/usr/local/bin/virtualenvwrapper.sh" ] && . /usr/local/bin/virtualenvwrapper.sh
+fi
 source "$HOME/.dotfiles/files/completion/django-completion.sh"
-
 # Do not pip install when not in a virtual environment
 # https://docs.python-guide.org/dev/pip-virtualenv/#requiring-an-active-virtual-environment-for-pip
 export PIP_REQUIRE_VIRTUALENV=true
