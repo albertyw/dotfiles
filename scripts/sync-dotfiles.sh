@@ -5,7 +5,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 check_internet () {
-    ping github.com -c 1 > /dev/null
+    ping github.com -Q -c 1 > /dev/null 2>&1
 }
 
 check () {
