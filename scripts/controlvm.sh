@@ -19,13 +19,13 @@ case "${1:-}" in
     mount)
         mkdir -p $DIR
         if mount | grep $DIR > /dev/null; then
-            sudo umount -f $DIR
+            umount -f $DIR
         fi
         sshfs -o follow_symlinks -o reconnect -o cache=no $VM:/home/albertyw/ $DIR
         ;;
     umount)
         if mount | grep $DIR > /dev/null; then
-            sudo umount -f $DIR
+            umount -f $DIR
         fi
         if [ -d "$DIR" ]; then
             rmdir $DIR
