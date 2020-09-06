@@ -22,7 +22,7 @@ files="$(git ls-files --stage "$location" \
     | grep 100 \
     | cut -f2 \
     | xargs file \
-    | awk -F: '/ASCII text/ {print $1    }')"
+    | awk -F: '/text/ {print $1    }')"
 
 for file in $files; do
     sed2 "$1" "$2" "$file"
