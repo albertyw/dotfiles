@@ -67,6 +67,9 @@ export PATH="$PATH:$HOME/.dotfiles/bin"
 # export PATH="$PATH:/usr/local/heroku/bin"
 
 # Python
+# 1-May-2020: Fix for Keyring error with pip. Hopefully new pip will fix it
+# soon https://github.com/pypa/pip/issues/7883
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 if [[ $(uname) == Darwin ]]; then
     # Read brew python, needed for virtualenvwrapper
     export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
