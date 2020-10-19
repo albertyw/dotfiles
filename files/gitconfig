@@ -3,6 +3,7 @@
     editor = vim
     excludesfile = ~/.gitignore
     templatedir = ~/.git
+    attributesfile = ~/.gitattributes
     trustctime = false
     pager = "less --tabs=4"
     precomposeunicode = false
