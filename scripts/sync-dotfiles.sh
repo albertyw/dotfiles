@@ -10,7 +10,6 @@ check_internet () {
 
 check_time () {
     local_time="$(date +%s)"
-    local_time="1603080024"
     remote_time="$(curl -s "http://worldtimeapi.org/api/ip" | jq .unixtime)"
     difference="$((local_time-remote_time))"
     difference="${difference#-}"
