@@ -13,4 +13,5 @@ yellow='\[\e[1;33m\]'
 reset='\[\e[0m\]'
 PS1="${blue}\u${red}@\[${yellow}albertyw${red} \w \$ ${reset}"
 
+# Uber
 [ -r /Users/albertyw/.profile_lda ] && . /Users/albertyw/.profile_lda

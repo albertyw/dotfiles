@@ -103,7 +103,6 @@ if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 alias rspec='xvfb-run -a bundle exec rspec'
 
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
-[[ -r /Users/albertyw/.profile_lda ]] && . /Users/albertyw/.profile_lda
 
 ### Git updates
 ~/.dotfiles/scripts/chmod-private-keys.sh
