@@ -3,13 +3,15 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+GIT_PREFIX="${GIT_PREFIX:-.}"
+
 echo "Users by commits"
-git shortlog -sne --no-merges | \
+git shortlog -sne --no-merges "$GIT_PREFIX" | \
     head -n 20
 
 echo ""
 echo "Users by line changes"
-git ls-files | \
+git ls-files "$GIT_PREFIX" | \
     xargs -n1 git blame --line-porcelain 2> /dev/null | \
     sed -n 's/^author //p' | \
     sort -f | \
