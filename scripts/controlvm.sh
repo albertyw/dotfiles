@@ -3,7 +3,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-DIR=/Users/albertyw/Desktop/personal
+DIR="~/Desktop/personal"
 VM='personal'
 
 case "${1:-}" in
