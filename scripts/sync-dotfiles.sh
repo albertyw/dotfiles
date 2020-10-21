@@ -14,7 +14,7 @@ check_time () {
     difference="$((local_time-remote_time))"
     difference="${difference#-}"
     if [ "$difference" -ge 60 ]; then
-        echo "Local time is out of sync.  Run 'timesync'"
+        echo "Local time is out of sync by $difference seconds.  Run 'timesync'"
     fi
 }
 
