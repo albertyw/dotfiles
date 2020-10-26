@@ -39,8 +39,8 @@ alias diff='icdiff'
 alias tree='tree -C'
 alias du='du -h'
 alias mkdir='mkdir -p'
-alias myip='curl --silent https://ipinfo.io | jq -r .ip'
-alias myipv6='curl https://api6.ipify.org'
+alias myip='curl --silent https://ipv4.ipleak.net/json/ | jq -r .ip'
+alias myipv6='curl --silent https://ipv4.ipleak.net/json/ | jq -r .ip'
 function geoip { curl "https://ipinfo.io/$1"; }
 export -f geoip
 if [[ $(uname) == Linux ]]; then
