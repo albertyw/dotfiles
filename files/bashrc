@@ -41,7 +41,8 @@ alias du='du -h'
 alias mkdir='mkdir -p'
 alias myip='curl --silent https://ipv4.ipleak.net/json/ | jq -r .ip'
 alias myipv6='curl --silent https://ipv4.ipleak.net/json/ | jq -r .ip'
-alias mydns="curl --silent https://$(date +"%s%s%s%s").ipleak.net/json/ | jq -r .ip"
+function mydns { curl --silent "https://$(date +"%s%s%s%s").ipleak.net/json/" | jq -r .ip; }
+export -f mydns
 function geoip { curl "https://ipinfo.io/$1"; }
 export -f geoip
 if [[ $(uname) == Linux ]]; then
