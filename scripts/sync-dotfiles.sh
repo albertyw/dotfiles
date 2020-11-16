@@ -9,6 +9,10 @@ check_internet () {
 }
 
 check_time () {
+    # Check that system time is correct.  System time might drift on VMs.
+    if [[ "$(hostname)" != *"personal"* ]]; then
+        return
+    fi
     local_time="$(date +%s)"
     remote_time="$(curl -s "http://worldtimeapi.org/api/ip" | jq .unixtime)"
     difference="$((local_time-remote_time))"
