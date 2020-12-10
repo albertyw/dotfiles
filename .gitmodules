@@ -1,6 +1,6 @@
-[submodule "files/vim/pack/albertyw/start/puppet-syntax-vim"]
-	path = files/vim/pack/albertyw/start/puppet-syntax-vim
-	url = git@github.com:puppetlabs/puppet-syntax-vim.git
+#[submodule "files/vim/pack/albertyw/start/puppet-syntax-vim"]
+#	path = files/vim/pack/albertyw/start/puppet-syntax-vim
+#	url = git@github.com:puppetlabs/puppet-syntax-vim.git
 [submodule "files/vim/pack/albertyw/start/vim-json"]
 	path = files/vim/pack/albertyw/start/vim-json
 	url = git@github.com:elzr/vim-json.git
