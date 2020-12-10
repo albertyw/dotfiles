@@ -33,3 +33,7 @@ subprocess.check_call(cmd)
 os.chdir(abs_path)
 cmd = ["git", "submodule", "update", "--init"]
 subprocess.check_call(cmd)
+
+# Symlink
+cmd = ["ln", "-s", abs_patch, "."]
+subprocess.check_call(cmd)
