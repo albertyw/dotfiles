@@ -35,5 +35,5 @@ cmd = ["git", "submodule", "update", "--init"]
 subprocess.check_call(cmd)
 
 # Symlink
-cmd = ["ln", "-s", abs_patch, "."]
+cmd = ["ln", "-s", abs_path, "."]
 subprocess.check_call(cmd)
