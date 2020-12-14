@@ -5,6 +5,7 @@ Clone a go repository to its correct location under $GOPATH/src
 """
 
 import os
+import pathlib
 import subprocess
 import sys
 
@@ -18,6 +19,8 @@ repository = sys.argv[1]
 repository_temp = repository.replace(":", "/")
 repository_temp = repository_temp.split("@")[-1]
 rel_path = repository_temp.split("/")
+current_path = pathlib.Path().absolute()
+symlink_path = os.path.join(current_path, rel_path[-1])
 
 gopath = os.getenv("GOPATH")
 if not gopath:
@@ -35,5 +38,5 @@ cmd = ["git", "submodule", "update", "--init"]
 subprocess.check_call(cmd)
 
 # Symlink
-cmd = ["ln", "-s", abs_path, "."]
+cmd = ["ln", "-s", abs_path, symlink_path]
 subprocess.check_call(cmd)
