@@ -14,7 +14,7 @@ check_time () {
         return
     fi
     local_time="$(date +%s)"
-    remote_time="$(curl -s "http://worldtimeapi.org/api/ip" | jq .unixtime)"
+    remote_time="$(curl -s "https://www.reaction.pics/time/" | jq .unixtime)"
     difference="$((local_time-remote_time))"
     difference="${difference#-}"
     if [ "$difference" -ge 60 ]; then
