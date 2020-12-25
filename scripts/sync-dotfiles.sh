@@ -19,7 +19,8 @@ check_time () {
     difference="${difference#-}"
     if [ "$difference" -ge 60 ]; then
         echo "Local time is out of sync by $difference seconds.  Running 'timesync'"
-        timesync
+        sudo timedatectl set-ntp false
+        sudo timedatectl set-ntp true
         echo "Finished timesync"
     fi
 }
