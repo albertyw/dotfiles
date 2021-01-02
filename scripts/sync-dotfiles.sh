@@ -8,23 +8,6 @@ check_internet () {
     ping github.com -c 1 > /dev/null 2>&1
 }
 
-check_time () {
-    # Check that system time is correct.  System time might drift on VMs.
-    if [[ "$(hostname)" != *"personal"* ]]; then
-        return
-    fi
-    local_time="$(date +%s)"
-    remote_time="$(curl -s "https://www.reaction.pics/time/" | jq .unixtime)"
-    difference="$((local_time-remote_time))"
-    difference="${difference#-}"
-    if [ "$difference" -ge 60 ]; then
-        echo "Local time is out of sync by $difference seconds.  Running 'timesync'"
-        sudo timedatectl set-ntp false
-        sudo timedatectl set-ntp true
-        echo "Finished timesync"
-    fi
-}
-
 check () {
     git fetch --prune
 
@@ -54,7 +37,7 @@ check () {
 cd ~/.dotfiles
 
 check_internet
-check_time
+~/.dotfiles/scripts/time-check.sh
 check
 
 # Check if there are updates to ssh
