@@ -9,8 +9,9 @@ fi
 URL='https://www.google.com'
 
 DATESTRING=$(curl -sI "$URL" | grep -i "^date: ")
+STATUS=$?
 
-if [[ $? -ne 0 ]]; then
+if [[ $STATUS -ne 0 ]]; then
     echo "Can't connect to $HOST"
     exit 1
 fi
