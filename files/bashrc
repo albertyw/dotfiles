@@ -104,6 +104,12 @@ export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scri
 if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 alias rspec='xvfb-run -a bundle exec rspec'
 
+# CUDA
+if [ -d "/usr/local/cuda-11.2/bin/" ]; then
+    export PATH=/usr/local/cuda-11.2/bin${PATH:+:${PATH}}
+    export LD_LIBRARY_PATH=/usr/local/cuda-11.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+fi
+
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
