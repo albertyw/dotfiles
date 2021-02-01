@@ -8,11 +8,12 @@ echo 'Total Local Storage'
 du -hs . | cut -f 1
 echo ''
 
-echo 'Commits > 1 MiB'
+echo 'Top 20 Commits > 1 MiB'
 git rev-list --objects --all \
 | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
 | sed -n 's/^blob //p' \
 | awk '$2 >= 2^20' \
 | sort --numeric-sort --key=2 \
 | cut -c 1-12,41- \
-| $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
+| $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest \
+| head -n 20
