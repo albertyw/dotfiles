@@ -34,6 +34,7 @@ au BufRead,BufNewFile *.dj setfiletype htmldjango
 au BufRead,BufNewFile *.hamlc set ft=haml
 au BufRead,BufNewFile .env* set syntax=sh
 au BufRead,BufNewFile Dockerfile* set syntax=dockerfile
+au BufRead,BufNewFile */nginx/* set ft=nginx
 
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
