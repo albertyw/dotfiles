@@ -6,6 +6,16 @@ IFS=$'\n\t'
 DIR="$HOME/Desktop/personal"
 VM='personal'
 
+status() {
+    VMS=$(vboxmanage list runningvms | grep $VM || true)
+    if [[ -z $VMS ]]; then
+        echo "Not Running"
+    else
+        echo "Running"
+    fi
+
+}
+
 case "${1:-}" in
     start)
         VBoxManage startvm $VM --type headless
@@ -40,17 +50,10 @@ case "${1:-}" in
         pkill -f "ssh -fNL $PORT:localhost:$PORT $VM"
         ;;
     status)
-        VMS=$(vboxmanage list runningvms | grep $VM || true)
-        if [[ -z $VMS ]]; then
-            echo "Not Running"
-        else
-            echo "Running"
-        fi
+        status
         ;;
     *)
         echo "Usage: $0 {start|stop|mount|umount|tunnel|untunnel|status}"
-        dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-        script=$(basename "$0")
-        "$dir"/"$script" status
+        status
         exit 1
 esac
