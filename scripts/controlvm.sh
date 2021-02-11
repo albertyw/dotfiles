@@ -48,7 +48,7 @@ case "${1:-}" in
         fi
         ;;
     *)
-        echo "Usage: $0 {start|stop|mount|umount|status}"
+        echo "Usage: $0 {start|stop|mount|umount|tunnel|untunnel|status}"
         dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
         script=$(basename "$0")
         "$dir"/"$script" status
