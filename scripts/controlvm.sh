@@ -31,6 +31,10 @@ case "${1:-}" in
             rmdir "$DIR"
         fi
         ;;
+    tunnel)
+        PORT="${2:-}"
+        ssh -fNL "$PORT:localhost:$PORT" $VM
+        ;;
     status)
         VMS=$(vboxmanage list runningvms | grep $VM || true)
         if [[ -z $VMS ]]; then
