@@ -35,6 +35,10 @@ case "${1:-}" in
         PORT="${2:-}"
         ssh -fNL "$PORT:localhost:$PORT" $VM
         ;;
+    untunnel)
+        PORT="${2:-}"
+        pkill -f "ssh -fNL $PORT:localhost:$PORT $VM"
+        ;;
     status)
         VMS=$(vboxmanage list runningvms | grep $VM || true)
         if [[ -z $VMS ]]; then
