@@ -1,0 +1,10 @@
+kind: pipeline
+type: docker
+name: test
+
+steps:
+- name: Test
+  image: ubuntu
+  commands:
+  - scripts/test_setup.sh
+  - scripts/test.sh
