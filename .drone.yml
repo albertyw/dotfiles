@@ -4,7 +4,7 @@ name: test
 
 steps:
 - name: Test
-  image: ubuntu
+  image: ubuntu:20.04
   commands:
   - scripts/test_setup.sh
   - scripts/test.sh
