@@ -3,12 +3,13 @@
 
 set -euo pipefail
 IFS=$'\n\t'
+lockfile="${HOME}/.dotfiles/sync"
 
 check_internet () {
     ping github.com -c 1 > /dev/null 2>&1
 }
 
-check () {
+update_dotfiles () {
     git fetch --prune
 
     changes="$(git diff)"
@@ -33,15 +34,25 @@ check () {
     fi
 }
 
+# Prevent other sync-dotfiles.sh runs from running
+if [ -f "$lockfile" ]; then
+    exit
+fi
+touch "$lockfile"
+removelock () {
+    rm "$lockfile"
+}
+trap removelock EXIT
+
 # Check if there are updates to this dotfiles repo
 cd ~/.dotfiles
 
 check_internet
 ~/.dotfiles/scripts/time-check.sh
-check
+update_dotfiles
 
 # Check if there are updates to ssh
 if [ -d ~/.ssh/.git ]; then
     cd ~/.ssh
-    check
+    update_dotfiles
 fi
