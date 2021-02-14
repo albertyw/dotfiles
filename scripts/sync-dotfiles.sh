@@ -8,7 +8,7 @@ check_internet () {
     ping github.com -c 1 > /dev/null 2>&1
 }
 
-check () {
+update_dotfiles () {
     git fetch --prune
 
     changes="$(git diff)"
@@ -38,10 +38,10 @@ cd ~/.dotfiles
 
 check_internet
 ~/.dotfiles/scripts/time-check.sh
-check
+update_dotfiles
 
 # Check if there are updates to ssh
 if [ -d ~/.ssh/.git ]; then
     cd ~/.ssh
-    check
+    update_dotfiles
 fi
