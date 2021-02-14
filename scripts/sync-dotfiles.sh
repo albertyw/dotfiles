@@ -3,6 +3,7 @@
 
 set -euo pipefail
 IFS=$'\n\t'
+lockfile="${HOME}/.dotfiles/sync"
 
 check_internet () {
     ping github.com -c 1 > /dev/null 2>&1
@@ -32,6 +33,16 @@ update_dotfiles () {
         echo 'Dotfiles updated'
     fi
 }
+
+# Prevent other sync-dotfiles.sh runs from running
+if [ -f "$lockfile" ]; then
+    exit
+fi
+touch "$lockfile"
+removelock () {
+    rm "$lockfile"
+}
+trap removelock EXIT
 
 # Check if there are updates to this dotfiles repo
 cd ~/.dotfiles
