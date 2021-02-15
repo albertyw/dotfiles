@@ -8,6 +8,7 @@
     pager = "less --tabs=4"
     precomposeunicode = false
     untrackedCache = true
+    hooksPath = "~/.dotfiles/files/git-hooks"
 
 [protocol]
     # Requires git 2.18.0+
@@ -19,9 +20,6 @@
 
 [help]
     autocorrect = 1
-
-[init]
-    templatedir = ~/.git
 
 [submodule]
     # Requires git 2.9.0+
