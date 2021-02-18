@@ -42,6 +42,10 @@ pull_request_count=$(
     | jq -s '. | length'
 )
 
-echo $commit_count
-echo $issues_count
-echo $pull_request_count
+contributions=$((commit_count + issues_count))
+if [[ contributions -ge 15 ]]; then
+    echo "Estimated Github contributions in last 24 hours:"
+    echo "Commits: $commit_count"
+    echo "Issues: $issues_count"
+    echo "Pull requests: $pull_request_count"
+fi
