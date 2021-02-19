@@ -9,8 +9,7 @@ steps:
       - pip install flake8
       - flake8 --exclude files/vim
 
-  - name: Test
-    image: ubuntu:20.04
+  - name: Test Bash
+    image: koalaman/shellcheck-alpine:stable
     commands:
-      - scripts/test_setup.sh
-      - scripts/test.sh
+      - scripts/test_bash.sh
