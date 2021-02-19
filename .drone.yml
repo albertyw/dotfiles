@@ -3,8 +3,14 @@ type: docker
 name: test
 
 steps:
-- name: Test
-  image: ubuntu:20.04
-  commands:
-  - scripts/test_setup.sh
-  - scripts/test.sh
+  - name: Test Python
+    image: python:3.9
+    commands:
+      - pip install flake8
+      - flake8 --exclude files/vim
+
+  - name: Test Bash
+    image: koalaman/shellcheck-alpine:stable
+    commands:
+      - apk add --no-cache bash git
+      - scripts/test_bash.sh
