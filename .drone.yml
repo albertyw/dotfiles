@@ -12,4 +12,5 @@ steps:
   - name: Test Bash
     image: koalaman/shellcheck-alpine:stable
     commands:
+      - apk add --no-cache bash git
       - scripts/test_bash.sh
