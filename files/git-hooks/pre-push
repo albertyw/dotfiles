@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+url="$2"
+if [[ "$url" == *"github.com"* ]]; then
+    ~/.dotfiles/scripts/github-contributions.sh &
+fi
