@@ -11,7 +11,11 @@ events_data=$(curl -s \
     -H "Accept: application/vnd.github.v3+json" \
     -u "$USER:$TOKEN" \
     https://api.github.com/users/albertyw/events)
-yesterday="$(date -v -1d -u +"%Y-%m-%dT%H:%M:%SZ")"
+if [[ $(uname) == Linux ]]; then
+    yesterday="$(date -d "yesterday" -u +"%Y-%m-%dT%H:%M:%SZ")"
+else
+    yesterday="$(date -v -1d -u +"%Y-%m-%dT%H:%M:%SZ")"
+fi
 events_data=$(
     echo "$events_data" \
     | jq ".[] | select(.created_at >= \"$yesterday\")" \
