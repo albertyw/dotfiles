@@ -113,6 +113,6 @@ fi
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
-~/.dotfiles/scripts/chmod-private-keys.sh
+~/.ssh/chmod.sh
 ~/.dotfiles/scripts/sync-dotfiles.sh &
 disown

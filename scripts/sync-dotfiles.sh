@@ -29,7 +29,7 @@ update_dotfiles () {
         git pull --quiet > /dev/null 2>&1
         git submodule --quiet init
         git submodule --quiet update --recursive
-        ~/.dotfiles/scripts/chmod-private-keys.sh
+        ~/.ssh/chmod.sh
         echo 'Dotfiles updated'
     fi
 }
