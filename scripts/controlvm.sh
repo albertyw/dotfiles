@@ -42,7 +42,7 @@ case "${1:-}" in
         fi
         ;;
     tunnel)
-        if [ -z "${2+}" ]; then
+        if [ -z "${2:-}" ]; then
             echo "Must set tunnel port"
             exit 1
         fi
@@ -50,7 +50,7 @@ case "${1:-}" in
         ssh -fNL "0.0.0.0:$PORT:localhost:$PORT" $VM
         ;;
     untunnel)
-        if [ -z "${2+}" ]; then
+        if [ -z "${2:-}" ]; then
             echo "Must set tunnel port"
             exit 1
         fi
