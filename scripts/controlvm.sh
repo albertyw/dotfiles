@@ -47,7 +47,7 @@ case "${1:-}" in
             exit 1
         fi
         PORT="$2"
-        ssh -fNL "$PORT:localhost:$PORT" $VM
+        ssh -fNL "0.0.0.0:$PORT:localhost:$PORT" $VM
         ;;
     untunnel)
         if [ -z "${2+}" ]; then
@@ -55,7 +55,7 @@ case "${1:-}" in
             exit 1
         fi
         PORT="$2"
-        pkill -f "ssh -fNL $PORT:localhost:$PORT $VM"
+        pkill -f "ssh -fNL 0.0.0.0:$PORT:localhost:$PORT $VM"
         ;;
     status)
         status
