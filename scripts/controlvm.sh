@@ -42,11 +42,19 @@ case "${1:-}" in
         fi
         ;;
     tunnel)
-        PORT="${2:-}"
+        if [ -z "${2+}" ]; then
+            echo "Must set tunnel port"
+            exit 1
+        fi
+        PORT="$2"
         ssh -fNL "$PORT:localhost:$PORT" $VM
         ;;
     untunnel)
-        PORT="${2:-}"
+        if [ -z "${2+}" ]; then
+            echo "Must set tunnel port"
+            exit 1
+        fi
+        PORT="$2"
         pkill -f "ssh -fNL $PORT:localhost:$PORT $VM"
         ;;
     status)
