@@ -5,6 +5,7 @@ name: test
 steps:
   - name: Test Python
     image: python:3.9
+    privileged: true
     commands:
       - pip install flake8
       - flake8 --exclude files/vim
