@@ -17,5 +17,5 @@ PS1="${blue}\u${red}@\[${yellow}albertyw${red} \w \$ ${reset}"
 [ -r ~/.profile_lda ] && . ~/.profile_lda
 
 # Go monorepo
-echo -e "`date +"%Y-%m-%d %H:%M:%S"` direnv hooking bash"
+echo -e "$(date +"%Y-%m-%d %H:%M:%S") direnv hooking bash"
 eval "$(direnv hook bash)"
