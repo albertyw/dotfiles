@@ -83,6 +83,7 @@
     tool = vimdiff
     indentHeuristic = true
     renames = copies
+    renameLimit = 1000
 
 [difftool]
     prompt = false
