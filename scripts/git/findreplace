@@ -10,19 +10,24 @@ REPLACE="$2"
 ESCAPED_REPLACE=$(printf '%s\n' "$REPLACE" | sed -e 's/[]\/$*.^[]/\\&/g');
 
 sed2() {
+    FILE="$1"
+
+    if [ -z "$(file "$FILE" | grep text)" ]; then
+        return
+    fi
+    echo "$FILE"
     if [[ $(uname) == Darwin ]]; then
-        sed -i '' -e "s/$ESCAPED_FIND/$ESCAPED_REPLACE/g" "$3"
+        sed -i '' -e "s/$ESCAPED_FIND/$ESCAPED_REPLACE/g" "$FILE"
     else
-        sed -i -e "s/$ESCAPED_FIND/$ESCAPED_REPLACE/g" "$3"
+        sed -i -e "s/$ESCAPED_FIND/$ESCAPED_REPLACE/g" "$FILE"
     fi
 }
 
 files="$(git ls-files --stage "$location" \
     | grep 100 \
-    | cut -f2 \
-    | xargs file \
-    | awk -F: '/text/ {print $1    }')"
+    | cut -f2
+)"
 
 for file in $files; do
-    sed2 "$1" "$2" "$file"
+    sed2 "$file"
 done
