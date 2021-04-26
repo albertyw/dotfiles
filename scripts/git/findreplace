@@ -4,26 +4,22 @@ set -euo pipefail
 IFS=$'\n\t'
 
 location=${GIT_PREFIX:-./}
+search="$1"
+escaped_search=$(printf '%s\n' "$search" | sed -e 's/[]\/$*.^[]/\\&/g');
+replace="$2"
+escaped_replace=$(printf '%s\n' "$replace" | sed -e 's/[]\/$*.^[]/\\&/g');
 
 sed2() {
-    FIND="$1"
-    ESCAPED_FIND=$(printf '%s\n' "$FIND" | sed -e 's/[]\/$*.^[]/\\&/g');
-    REPLACE="$2"
-    ESCAPED_REPLACE=$(printf '%s\n' "$REPLACE" | sed -e 's/[]\/$*.^[]/\\&/g');
-
+    file="$1"
+    echo "$file"
     if [[ $(uname) == Darwin ]]; then
-        sed -i '' -e "s/$ESCAPED_FIND/$ESCAPED_REPLACE/g" "$3"
+        sed -i '' -e "s/$escaped_search/$escaped_replace/g" "$file"
     else
-        sed -i -e "s/$ESCAPED_FIND/$ESCAPED_REPLACE/g" "$3"
+        sed -i -e "s/$escaped_search/$escaped_replace/g" "$file"
     fi
 }
 
-files="$(git ls-files --stage "$location" \
-    | grep 100 \
-    | cut -f2 \
-    | xargs file \
-    | awk -F: '/text/ {print $1    }')"
-
+files="$(git grep -l "$search" "$location")"
 for file in $files; do
-    sed2 "$1" "$2" "$file"
+    sed2 "$file" &
 done
