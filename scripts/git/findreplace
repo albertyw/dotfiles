@@ -4,13 +4,12 @@ set -euo pipefail
 IFS=$'\n\t'
 
 location=${GIT_PREFIX:-./}
+FIND="$1"
+ESCAPED_FIND=$(printf '%s\n' "$FIND" | sed -e 's/[]\/$*.^[]/\\&/g');
+REPLACE="$2"
+ESCAPED_REPLACE=$(printf '%s\n' "$REPLACE" | sed -e 's/[]\/$*.^[]/\\&/g');
 
 sed2() {
-    FIND="$1"
-    ESCAPED_FIND=$(printf '%s\n' "$FIND" | sed -e 's/[]\/$*.^[]/\\&/g');
-    REPLACE="$2"
-    ESCAPED_REPLACE=$(printf '%s\n' "$REPLACE" | sed -e 's/[]\/$*.^[]/\\&/g');
-
     if [[ $(uname) == Darwin ]]; then
         sed -i '' -e "s/$ESCAPED_FIND/$ESCAPED_REPLACE/g" "$3"
     else
