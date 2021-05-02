@@ -111,6 +111,9 @@
 [color "diff"]
     meta = bold cyan
 
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
 # Overrides
 # This must go at the bottom in order to override configs above
 [include]
