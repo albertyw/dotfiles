@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+location=${GIT_PREFIX:-./}
+search="$1"
+escaped_search=$(printf '%s\n' "$search" | sed -e 's/[]\/$*.^[]/\\&/g');
+
+sed2() {
+    file="$1"
+    echo "$file"
+    if [[ $(uname) == Darwin ]]; then
+        sed -i '' -e "/$escaped_search/d" "$file"
+    else
+        sed -i -e "/$escaped_search/d" "$file"
+    fi
+}
+
+files="$(git grep -l "$search" "$location")"
+for file in $files; do
+    sed2 "$file" &
+done

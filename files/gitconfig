@@ -56,6 +56,7 @@
     size = !~/.dotfiles/scripts/git/size
     userstats = !~/.dotfiles/scripts/git/userstats
     findreplace = !~/.dotfiles/scripts/git/findreplace
+    finddelete = !~/.dotfiles/scripts/git/finddelete
 
 [grep]
     linenumber = true
