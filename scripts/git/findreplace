@@ -4,9 +4,16 @@ set -euo pipefail
 IFS=$'\n\t'
 
 location=${GIT_PREFIX:-./}
-search="$1"
+search="${1:-}"
+replace="${2:-}"
+
+if [ -z "$search" ] || [ -z "$replace" ]; then
+    echo "Find and replace strings in version controlled files"
+    echo "Usage: git findreplace \$searchterm \$replacement"
+    exit 1
+fi
+
 escaped_search=$(printf '%s\n' "$search" | sed -e 's/[]\/$*.^[]/\\&/g');
-replace="$2"
 escaped_replace=$(printf '%s\n' "$replace" | sed -e 's/[]\/$*.^[]/\\&/g');
 
 sed2() {

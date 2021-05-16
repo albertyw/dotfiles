@@ -4,7 +4,12 @@ set -euo pipefail
 IFS=$'\n\t'
 
 location=${GIT_PREFIX:-./}
-search="$1"
+search="${1:-}"
+if [ -z "$search" ]; then
+    echo "Delete lines in version controlled files that contain a string"
+    echo "Usage: git finddelete \$searchterm"
+    exit 1
+fi
 escaped_search=$(printf '%s\n' "$search" | sed -e 's/[]\/$*.^[]/\\&/g');
 
 sed2() {
