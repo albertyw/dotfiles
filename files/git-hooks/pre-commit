@@ -13,6 +13,9 @@ else
 fi
 
 files="$(exec git diff-index --cached --check "$against" -- | sed '/^[-+]/d' | cut -d: -f1 | uniq)"
+if [ "$(echo "$files" | wc -l)" -gt 30 ]; then
+    exit
+fi
 for f in $files; do
     # Skip modifying non-text files
     if [ "$(file -bL --mime "$f" | grep '^text')" == "" ]; then
@@ -30,6 +33,9 @@ for f in $files; do
 done
 
 files=$(git diff-index --name-status --cached HEAD | grep -v ^D | cut -c3-)
+if [ "$(echo "$files" | wc -l)" -gt 30 ]; then
+    exit
+fi
 for f in $files; do
     # Skip modifying non-text files
     if [ "$(file -bL --mime "$f" | grep '^text')" == "" ]; then
