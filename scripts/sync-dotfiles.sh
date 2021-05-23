@@ -3,7 +3,7 @@
 
 set -euo pipefail
 IFS=$'\n\t'
-lockfile="${HOME}/.dotfiles/sync"
+lockdir="${HOME}/.dotfiles/sync"
 
 check_internet () {
     ping github.com -c 1 > /dev/null 2>&1
@@ -35,12 +35,11 @@ update_dotfiles () {
 }
 
 # Prevent other sync-dotfiles.sh runs from running
-if [ -f "$lockfile" ]; then
+if ! mkdir "$lockdir" 2> /dev/null; then
     exit
 fi
-touch "$lockfile"
 removelock () {
-    rm "$lockfile"
+    rmdir "$lockdir"
 }
 trap removelock EXIT
 
