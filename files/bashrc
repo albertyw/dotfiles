@@ -55,6 +55,8 @@ alias req-update="~/.dotfiles/scripts/git/req-update/req_update/req_update.py"
 alias timesync="~/.dotfiles/scripts/timesync.sh"
 if [[ $(hostname) == albertyw-server ]]; then
     alias iftop="iftop -i enp0s25"
+elif [[ $(hostname) == personal ]]; then
+    alias iftop="iftop -i enp0s8"
 fi
 if [[ $(uname) == Linux ]]; then
     alias portlist="sudo netstat -lntup"
