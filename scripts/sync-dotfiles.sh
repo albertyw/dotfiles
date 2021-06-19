@@ -12,6 +12,13 @@ check_internet () {
 update_dotfiles () {
     git fetch --prune
 
+    branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
+    branch_name="(unnamed branch)"     # detached HEAD
+    if [ "$branch_name" != "refs/heads/master" ]; then
+        echo 'Dotfiles not on master';
+        exit
+    fi
+
     changes="$(git diff)"
     if [ "$changes" != "" ]; then
         echo 'YOU HAVE UNCOMMITTED CHANGES';
