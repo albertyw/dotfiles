@@ -27,6 +27,12 @@ sed2() {
 }
 
 files="$(git grep -l "$search" "$location")"
+pids=();
 for file in $files; do
     sed2 "$file" &
+    pids+=($!)
+done
+
+for pid in ${pids[*]}; do
+    wait "$pid"
 done
