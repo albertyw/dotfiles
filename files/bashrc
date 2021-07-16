@@ -47,7 +47,6 @@ if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
 fi
 alias serve="python3 -m http.server"
-alias realpath='python -c "import os, sys; print(os.path.realpath(sys.argv[1]))"'
 alias gosymlink='cd "$(realpath "$(pwd)")"'
 alias portgrep="sudo ngrep -d any port"
 alias apt-get="apt"
