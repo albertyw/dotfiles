@@ -119,3 +119,6 @@ fi
 ~/.ssh/chmod.sh
 ~/.dotfiles/scripts/sync-dotfiles.sh &
 disown
+
+# Uber-specific stuff
+[ -r /Users/albertyw/.profile_lda ] && . /Users/albertyw/.profile_lda
