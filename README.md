@@ -2,7 +2,6 @@ Dot Files
 =========
 
 [![Build Status](https://drone.albertyw.com/api/badges/albertyw/dotfiles/status.svg)](https://drone.albertyw.com/albertyw/dotfiles)
-[![Code Climate](https://codeclimate.com/github/albertyw/dotfiles/badges/gpa.svg)](https://codeclimate.com/github/albertyw/dotfiles)
 
 This repository includes my personal Unix config files that are synchronized
 across my various computers.
