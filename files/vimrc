@@ -1,6 +1,3 @@
-" Include requirements-*.txt for detecting python requirements files
-au BufNewFile,BufRead requirements-*.txt set ft=requirements
-
 filetype on
 filetype plugin indent on
 
@@ -9,8 +6,9 @@ set background=dark
 set ruler
 set nowrap
 set number
-set enc=utf-8
 set backspace=indent,eol,start
+set encoding=utf-8
+scriptencoding utf-8
 
 " Highlight current line
 set cursorline
@@ -20,7 +18,7 @@ hi CursorLine cterm=NONE ctermbg=DarkBlue
 set lcs=tab:▸\ ,trail:·,nbsp:_
 set list
 
-if has("terminfo")
+if has('terminfo')
   let &t_Co=8
   let &t_Sf="\e[3%p1%dm"
   let &t_Sb="\e[4%p1%dm"
@@ -33,14 +31,17 @@ endif
 " Disable gopls code because Uber's Go Monorepo is slow
 let g:go_gopls_enabled = 0
 
-au BufRead,BufNewFile *.dj setfiletype htmldjango
-au BufRead,BufNewFile *.hamlc set ft=haml
-au BufRead,BufNewFile .env* set syntax=sh
-au BufRead,BufNewFile Dockerfile* set syntax=dockerfile
+augroup filetypes
+    au BufNewFile,BufRead requirements-*.txt set ft=requirements
+    au BufRead,BufNewFile *.dj setfiletype htmldjango
+    au BufRead,BufNewFile *.hamlc set ft=haml
+    au BufRead,BufNewFile .env* set syntax=sh
+    au BufRead,BufNewFile Dockerfile* set syntax=dockerfile
 
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+    autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
 
 set hlsearch
 set modeline
