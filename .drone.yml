@@ -9,6 +9,12 @@ steps:
       - pip install flake8
       - flake8 --exclude files/vim
 
+  - name: Test Vim
+    image: python:3.9
+    commands:
+      - pip install vim-vint==0.3.21
+      - git ls-files | grep vim | grep -v pack | xargs vint
+
   - name: Test Bash
     image: koalaman/shellcheck-alpine:stable
     commands:
