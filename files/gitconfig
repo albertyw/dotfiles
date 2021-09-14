@@ -44,7 +44,6 @@
     lg-notags = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
     s = status -uno
     todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE -e FIX-ME
-    logf = log --follow
     loc = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
     pygrep = !git grep $1 -- `git ls-files | grep -v migrations | grep py`
     cherrypick = cherry-pick
@@ -67,6 +66,8 @@
 [log]
     abbrevCommit = true
     date = local
+    # Follow file renames when running git log on a file
+    follow = true
 
 [push]
     default = current
