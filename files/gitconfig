@@ -116,6 +116,10 @@
 [url "ssh://git@github.com/"]
     insteadOf = https://github.com/
 
+[init]
+    # Initialize new repositories with branch name "master"
+    defaultBranch = master
+
 # Overrides
 # This must go at the bottom in order to override configs above
 [include]
