@@ -4,7 +4,7 @@
 set -eu
 IFS=$'\n\t'
 
-if git rev-parse --verify HEAD >/dev/null 2>&1
+if git rev-parse --verify HEAD >/dev/null || true 2>&1
 then
     against=HEAD
 else
