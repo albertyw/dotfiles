@@ -85,9 +85,6 @@ if [ -s "/usr/local/bin/virtualenvwrapper_lazy.sh" ]; then
     [ -s "/usr/local/bin/virtualenvwrapper_lazy.sh" ] && . /usr/local/bin/virtualenvwrapper_lazy.sh
 fi
 source "$HOME/.dotfiles/files/completion/django-completion.sh"
-# Do not pip install when not in a virtual environment
-# https://docs.python-guide.org/dev/pip-virtualenv/#requiring-an-active-virtual-environment-for-pip
-export PIP_REQUIRE_VIRTUALENV=true
 
 # Go
 export GOPATH=$HOME/gocode
