@@ -1,3 +1,5 @@
+# vim: ft=dosini
+
 # Core
 [core]
     editor = vim

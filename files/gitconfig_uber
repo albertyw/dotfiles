@@ -1,3 +1,5 @@
+# vim: ft=dosini
+
 # Uber-specific gitconfigs
 
 [user]
