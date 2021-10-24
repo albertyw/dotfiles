@@ -51,7 +51,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 nvm install --lts
 
 # Python/pip/virtualenvwrapper
-sudo apt install python3 python3-dev python3-distutils
+sudo apt install python3.10 python3.10-dev python3.10-distutils python3.10-venv
 curl https://bootstrap.pypa.io/get-pip.py | sudo python3
 sudo pip3 install virtualenvwrapper
 
