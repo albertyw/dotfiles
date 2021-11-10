@@ -20,7 +20,7 @@ while read -r bashfile; do
     # should not have a shebang
     additionalignores=""
     if [[ "$bashfile" == *"completion"* ]]; then
-        additionalignores=",SC2148"
+        additionalignores=",SC2148,SC2048"
     fi
     shellcheck -e "$shellcheckignores$additionalignores" "$bashfile"
 done <<< "$bashfiles"
