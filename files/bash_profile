@@ -5,13 +5,10 @@ if [ "$(uname)" == "Darwin" ]; then
     export BASH_SILENCE_DEPRECATION_WARNING=1
 
     # Homebrew
-    if hash brew 2>/dev/null; then
-        brewprefix=$(brew --prefix)
-        export PATH="$brewprefix/sbin:$brewprefix/bin:$PATH:$HOME/bin"
-        export HOMEBREW_NO_SANDBOX=1
-        if [ -s "$brewprefix/etc/bash_completion" ]; then
-            . "$brewprefix/etc/bash_completion"
-        fi
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    brewprefix=$(brew --prefix)
+    if [ -s "$brewprefix/etc/bash_completion.d/brew" ]; then
+        . "$brewprefix/etc/bash_completion.d/brew"
     fi
 fi
 
