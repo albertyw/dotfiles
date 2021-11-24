@@ -33,6 +33,7 @@ echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-U
 sudo mv /tmp/20auto-upgrades /etc/apt/apt.conf.d/
 
 # Set time zone
+sudo timedatectl set-timezone America/Los_Angeles
 echo "America/Los_Angeles" | sudo tee /etc/timezone
 sudo dpkg-reconfigure --frontend noninteractive tzdata
 sudo locale-gen en_US en_US.UTF-8
