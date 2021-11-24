@@ -33,6 +33,7 @@ echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-U
 sudo mv /tmp/20auto-upgrades /etc/apt/apt.conf.d/
 
 # Set time zone
+sudo timedatectl set-timezone America/Los_Angeles
 echo "America/Los_Angeles" | sudo tee /etc/timezone
 sudo dpkg-reconfigure --frontend noninteractive tzdata
 sudo locale-gen en_US en_US.UTF-8
@@ -45,15 +46,15 @@ sudo dpkg-reconfigure --frontend noninteractive locales
 # sudo apt install libgmp3-dev # Fixes installing json gem
 
 # Node.js
-sudo apt install build-essential checkinstall libssl-dev
-mkdir -p ~/.nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install --lts
 
 # Python/pip/virtualenvwrapper
-sudo apt install python3.10 python3.10-dev python3.10-distutils python3.10-venv
-curl https://bootstrap.pypa.io/get-pip.py | sudo python3
-sudo pip3 install virtualenvwrapper
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt install python3.10 python3.10-dev python3.10-distutils
+sudo python3 get-pip.py
+sudo python3 -m pip install virtualenv
+sudo python3 -m pip install virtualenvwrapper
 
 # Install Go
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
