@@ -46,9 +46,7 @@ sudo dpkg-reconfigure --frontend noninteractive locales
 # sudo apt install libgmp3-dev # Fixes installing json gem
 
 # Node.js
-sudo apt install build-essential checkinstall libssl-dev
-mkdir -p ~/.nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install --lts
 
 # Python/pip/virtualenvwrapper
