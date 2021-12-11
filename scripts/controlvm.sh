@@ -5,15 +5,14 @@ IFS=$'\n\t'
 
 DIR="$HOME/Desktop/personal"
 VM="personal"
+IP="192.168.64.2"
 
 status() {
-    VMS=$(vboxmanage list runningvms | grep $VM || true)
-    if [[ -z $VMS ]]; then
-        echo "Not Running"
-    else
+    if ping "$IP" -c 1 -t 1 &> /dev/null; then
         echo "Running"
+    else
+        echo "Not Running"
     fi
-
 }
 
 case "${1:-}" in
