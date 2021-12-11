@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 DIR="$HOME/Desktop/personal"
-VM='personal'
+VM="personal"
 
 status() {
     VMS=$(vboxmanage list runningvms | grep $VM || true)
@@ -18,10 +18,10 @@ status() {
 
 case "${1:-}" in
     start)
-        open utm://start?name=Personal
+        open "utm://start?name=$VM"
         ;;
     stop)
-        open utm://stop?name=Personal
+        open "utm://stop?name=$VM"
         if [ -d "$DIR" ]; then
             rmdir "$DIR"
         fi
