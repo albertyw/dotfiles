@@ -4,24 +4,27 @@ set -euo pipefail
 IFS=$'\n\t'
 
 DIR="$HOME/Desktop/personal"
-VM='personal'
+VM="personal"
+IP="192.168.64.2"
 
 status() {
-    VMS=$(vboxmanage list runningvms | grep $VM || true)
-    if [[ -z $VMS ]]; then
-        echo "Not Running"
-    else
+    if ping "$IP" -c 1 -t 1 &> /dev/null; then
         echo "Running"
+    else
+        echo "Not Running"
     fi
-
 }
 
 case "${1:-}" in
+    miniaturize)
+        osascript -e 'tell application "Finder" to set visible of process "UTM" to false'
+        ;;
     start)
-        VBoxManage startvm $VM --type headless
+        open "utm://start?name=$VM"
+        miniaturize
         ;;
     stop)
-        VBoxManage controlvm $VM acpipowerbutton
+        ssh "$VM" "sudo shutdown now -h"
         if [ -d "$DIR" ]; then
             rmdir "$DIR"
         fi
