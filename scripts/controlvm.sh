@@ -16,8 +16,12 @@ status() {
 }
 
 case "${1:-}" in
+    miniaturize)
+        osascript -e 'tell application "Finder" to set visible of process "UTM" to false'
+        ;;
     start)
         open "utm://start?name=$VM"
+        miniaturize
         ;;
     stop)
         open "utm://stop?name=$VM"
