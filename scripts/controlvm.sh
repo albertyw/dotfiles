@@ -18,10 +18,10 @@ status() {
 
 case "${1:-}" in
     start)
-        VBoxManage startvm $VM --type headless
+        open utm://start?name=Personal
         ;;
     stop)
-        VBoxManage controlvm $VM acpipowerbutton
+        open utm://stop?name=Personal
         if [ -d "$DIR" ]; then
             rmdir "$DIR"
         fi
