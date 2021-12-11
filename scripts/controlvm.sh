@@ -24,7 +24,7 @@ case "${1:-}" in
         miniaturize
         ;;
     stop)
-        open "utm://stop?name=$VM"
+        ssh "$VM" "sudo shutdown now -h"
         if [ -d "$DIR" ]; then
             rmdir "$DIR"
         fi
