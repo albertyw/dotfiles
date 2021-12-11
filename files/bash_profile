@@ -9,6 +9,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brewprefix=$(brew --prefix)
     if [ -s "$brewprefix/etc/bash_completion.d/brew" ]; then
         . "$brewprefix/etc/bash_completion.d/brew"
+        . "$brewprefix/etc/bash_completion.d/git-completion.bash"
     fi
 fi
 
