@@ -16,12 +16,9 @@ status() {
 }
 
 case "${1:-}" in
-    miniaturize)
-        osascript -e 'tell application "Finder" to set visible of process "UTM" to false'
-        ;;
     start)
         open "utm://start?name=$VM"
-        miniaturize
+        osascript -e 'tell application "Finder" to set visible of process "UTM" to false'
         ;;
     stop)
         ssh "$VM" "sudo shutdown now -h"
