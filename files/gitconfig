@@ -23,6 +23,9 @@
 [help]
     autocorrect = 1
 
+[advice]
+    skippedCherryPicks = true
+
 [submodule]
     # Requires git 2.9.0+
     fetchJobs = 0
