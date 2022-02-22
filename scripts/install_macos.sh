@@ -38,3 +38,6 @@ go get -u github.com/golang/lint/golint
 git clone git@github.com:albertyw/jEdit-settings
 rm -r ~/Library/jEdit
 mv jEdit-settings ~/Library/jEdit
+
+# Install inconsolata font
+open https://fonts.google.com/specimen/Inconsolata
