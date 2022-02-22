@@ -62,5 +62,4 @@ sudo apt update
 sudo apt install golang
 
 # Go Tools
-curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 go get -u github.com/golang/lint/golint
