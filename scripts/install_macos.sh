@@ -24,9 +24,6 @@ brew install \
     wget            `: curl alternative` \
     vim             `: install vim 8.0` \
 
-# System monitoring
-gem install iStats
-
 # Python
 brew install python
 brew install python3
