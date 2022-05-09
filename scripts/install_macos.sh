@@ -31,9 +31,6 @@ brew install python3
 # Install go
 brew install go
 
-# Go Tools
-go get -u github.com/golang/lint/golint
-
 # jEdit
 git clone git@github.com:albertyw/jEdit-settings
 rm -r ~/Library/jEdit

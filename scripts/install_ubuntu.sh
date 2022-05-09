@@ -60,6 +60,3 @@ sudo python3 -m pip install virtualenvwrapper
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
 sudo apt update
 sudo apt install golang
-
-# Go Tools
-go get -u github.com/golang/lint/golint
