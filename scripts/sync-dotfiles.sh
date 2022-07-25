@@ -54,7 +54,6 @@ trap removelock EXIT
 cd ~/.dotfiles
 
 check_internet
-~/.dotfiles/scripts/timesync.sh &>/dev/null
 update_dotfiles
 
 # Check if there are updates to ssh
