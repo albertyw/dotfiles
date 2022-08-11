@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+location=${GIT_PREFIX:-./}
+search="${1:-}"
+location="${2:-./}"
+
+if [ -z "$search" ]; then
+    echo "Find files matching a grep"
+    echo "Usage: git find \$searchterm [\$location]"
+    exit 1
+fi
+
+cd "$location" && git ls-files "$location" | grep "$search"
