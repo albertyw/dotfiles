@@ -38,3 +38,7 @@ mv jEdit-settings ~/Library/jEdit
 
 # Install inconsolata font
 open https://fonts.google.com/specimen/Inconsolata
+
+# Disable Spotlight Indexing
+sudo mdutil -a -s
+sudo mdutil -a -i off
