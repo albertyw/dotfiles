@@ -16,5 +16,5 @@ for f in ./*; do
         continue
     fi
     echo "$f"
-    git -C "$f" grep "$@" || true
+    git -C "$f" --no-pager grep "$@" || true
 done
