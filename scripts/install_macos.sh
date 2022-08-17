@@ -42,3 +42,6 @@ open https://fonts.google.com/specimen/Inconsolata
 # Disable Spotlight Indexing
 sudo mdutil -a -s
 sudo mdutil -a -i off
+
+# Disable showing accented characters when holding down key
+defaults write -g ApplePressAndHoldEnabled -bool false
