@@ -3,7 +3,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-location=${GIT_PREFIX:-./}
+gitlocation=${GIT_PREFIX:-./}
 search="${1:-}"
 location="${2:-./}"
 
@@ -13,4 +13,4 @@ if [ -z "$search" ]; then
     exit 1
 fi
 
-cd "$location" && git ls-files "$location" | grep "$search"
+cd "$gitlocation" && git ls-files "$location" | grep "$search"
