@@ -109,6 +109,12 @@ if [ -d "/usr/local/cuda-11.2/bin/" ]; then
     export LD_LIBRARY_PATH=/usr/local/cuda-11.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 fi
 
+# Direnv
+if command -v direnv > /dev/null; then
+    echo -e "$(date +"%Y-%m-%d %H:%M:%S") direnv hooking bash"
+    eval "$(direnv hook bash)"
+fi
+
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
 
 ### Git updates
