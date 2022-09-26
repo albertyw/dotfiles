@@ -29,6 +29,7 @@ git submodule update --recursive
 move bash_profile
 move bashrc
 move config
+move direnvrc
 move gitconfig
 move gitignore
 move irbrc
