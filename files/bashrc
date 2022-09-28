@@ -111,7 +111,6 @@ fi
 
 # Direnv
 if command -v direnv > /dev/null; then
-    echo -e "$(date +"%Y-%m-%d %H:%M:%S") direnv hooking bash"
     eval "$(direnv hook bash)"
     show_virtual_env() {
       if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
