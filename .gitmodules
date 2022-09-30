@@ -46,3 +46,6 @@
 [submodule "files/vim/pack/albertyw/start/vim-m3ql"]
 	path = files/vim/pack/albertyw/start/vim-m3ql
 	url = git@github.com:albertyw/vim-m3ql
+[submodule "files/vim/pack/albertyw/start/vim-gofmt"]
+	path = files/vim/pack/albertyw/start/vim-gofmt
+	url = git@github.com:darrikonn/vim-gofmt.git
