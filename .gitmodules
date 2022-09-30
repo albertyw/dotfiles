@@ -4,9 +4,6 @@
 [submodule "files/vim/pack/albertyw/start/vim-json"]
 	path = files/vim/pack/albertyw/start/vim-json
 	url = git@github.com:elzr/vim-json.git
-[submodule "files/vim/pack/albertyw/start/vim-go"]
-	path = files/vim/pack/albertyw/start/vim-go
-	url = git@github.com:fatih/vim-go.git
 [submodule "files/vim/pack/albertyw/start/vim-markdown"]
 	path = files/vim/pack/albertyw/start/vim-markdown
 	url = git@github.com:plasticboy/vim-markdown.git
