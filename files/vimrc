@@ -28,12 +28,6 @@ else
   let &t_Sb="\e[4%dm"
 endif
 
-if !empty($UBER_HOME)
-    " Disable gopls code because Uber's Go Monorepo is slow
-    let g:go_gopls_enabled = 0
-    let g:go_gocode_autobuild = 0
-end
-
 augroup filetypes
     au BufNewFile,BufRead requirements-*.txt set ft=requirements
     au BufRead,BufNewFile *.dj setfiletype htmldjango
