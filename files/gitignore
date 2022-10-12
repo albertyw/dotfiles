@@ -6,3 +6,6 @@
 # Ignore MacOS turds
 .DS_Store
 ._*
+
+# Ignore personal python environment automation
+.envrc
