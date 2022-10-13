@@ -1,3 +1,6 @@
+# vim: ft=dosini
+# See https://mypy.readthedocs.io/en/stable/config_file.html
+
 [mypy]
 disallow_any_unimported = True
 show_error_codes = True
