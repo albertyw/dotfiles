@@ -1,0 +1,5 @@
+[mypy]
+disallow_any_unimported = True
+show_error_codes = True
+ignore_missing_imports = True
+strict = True
