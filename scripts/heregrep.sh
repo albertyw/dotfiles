@@ -16,5 +16,7 @@ for f in ./*; do
         continue
     fi
     echo "$f"
+    tput rmam
     git -C "$f" --no-pager grep "$@" || true
+    tput smam
 done
