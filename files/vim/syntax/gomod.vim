@@ -1,7 +1,7 @@
 " gomod.vim: Vim syntax file for go.mod file
 "
 " Quit when a (custom) syntax file was already loaded
-if exists("b:current_syntax")
+if exists('b:current_syntax')
   finish
 endif
 
@@ -105,4 +105,4 @@ syntax match gomodVersionRangeSeparator "," contained
 highlight default link gomodVersionRangeSeparator Operator
 
 
-let b:current_syntax = "gomod"
+let b:current_syntax = 'gomod'

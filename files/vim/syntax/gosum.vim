@@ -1,7 +1,7 @@
 " gosum.vim: Vim syntax file for go.sum file
 "
 " Quit when a (custom) syntax file was already loaded
-if exists("b:current_syntax")
+if exists('b:current_syntax')
   finish
 endif
 
@@ -52,4 +52,4 @@ syntax match gomodVersion "v[2-9]\{1}\d*\.\d\+\.\d\+\%(+\%([0-9A-Za-z-]\+\)\%(\.
 "                          ^------- version -------^^---------------- metadata ---------------------^
 highlight default link gomodVersion Identifier
 
-let b:current_syntax = "gomod"
+let b:current_syntax = 'gomod'
