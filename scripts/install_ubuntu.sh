@@ -31,6 +31,7 @@ sudo apt install -y \
 sudo apt install -y unattended-upgrades
 echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-Upgrade \"1\";\n" > /tmp/20auto-upgrades
 sudo mv /tmp/20auto-upgrades /etc/apt/apt.conf.d/
+sudo pro config set apt_news=false
 
 # Set time zone
 sudo timedatectl set-timezone America/Los_Angeles
