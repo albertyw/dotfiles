@@ -34,6 +34,7 @@ augroup filetypes
     au BufRead,BufNewFile .env* set syntax=sh
     au BufRead,BufNewFile Dockerfile* set syntax=dockerfile
     au BufRead,BufNewFile METADATA set syntax=yaml
+    au BufRead,BufNewFile *.conf set syntax=dosini
 
     autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
     autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
