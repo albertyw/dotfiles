@@ -68,5 +68,5 @@ else
     pythons=python
 fi
 
-complete -F _python_django_completion -o default $pythons
+complete -F _python_django_completion -o default "${pythons}"
 unset pythons
