@@ -52,7 +52,7 @@ nvm install --lts
 
 # Python/pip/virtualenvwrapper
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.10 python3.10-dev python3.10-distutils
+sudo apt install python3.11 python3.11-dev python3.11-distutils
 sudo python3 get-pip.py
 sudo python3 -m pip install virtualenv
 sudo python3 -m pip install virtualenvwrapper
