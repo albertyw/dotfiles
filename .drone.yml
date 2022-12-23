@@ -4,7 +4,7 @@ name: test
 
 steps:
   - name: Test Python
-    image: python:3.10
+    image: python:3.11
     commands:
       - pip install flake8
       - flake8 --exclude files/vim
