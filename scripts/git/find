@@ -13,4 +13,9 @@ if [ -z "$search" ]; then
     exit 1
 fi
 
-cd "$gitlocation" && git ls-files "$location" | grep "$search"
+cd "$gitlocation"
+
+deleted="$(git ls-files -d "$location" | grep "$search")"
+found="$(git ls-files "$location" | grep "$search")"
+
+echo "$found" | grep -Fv "$deleted"
