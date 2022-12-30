@@ -50,7 +50,6 @@
     s = status -uno
     todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE -e FIX-ME
     loc = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
-    pygrep = !git grep $1 -- `git ls-files | grep -v migrations | grep py`
     cherrypick = cherry-pick
     blame = blame -cwC
     branches = branch -vv
