@@ -15,7 +15,11 @@ fi
 
 cd "$gitlocation"
 
-deleted="$(git ls-files -d "$location" | grep "$search")"
-found="$(git ls-files "$location" | grep "$search")"
+deleted="$(git ls-files -d "$location" | grep "$search")" || true
+found="$(git ls-files "$location" | grep "$search")" || true
 
-echo "$found" | grep -Fv "$deleted"
+if [[ -n "$deleted" ]]; then
+    echo "$found" | grep -Fv "$deleted"
+else
+    echo "$found"
+fi
