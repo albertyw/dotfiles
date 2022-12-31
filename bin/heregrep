@@ -10,13 +10,18 @@ if [[ -z "${1+x}" ]] || [[ "$1" == "-h" ]]; then
     echo "Runs a grep operation under each git repository underneath the current pwd"
     exit
 fi
+yellow='\e[1;33m'
+reset='\e[0m'
 
 for f in ./*; do
     if [ ! -d "$f/.git" ]; then
         continue
     fi
-    echo "$f"
-    tput rmam  # Disable line wrapping in terminal
-    git -C "$f" --no-pager grep "$@" || true
-    tput smam  # Reenable line wrapping in terminal
+    result="$(git -C "$f" --no-pager grep "$@" || true)"
+    if [[ -n "$result" ]]; then
+        echo -e "${yellow}$f${reset}"
+        tput rmam  # Disable line wrapping in terminal
+        echo "$result"
+        tput smam  # Reenable line wrapping in terminal
+    fi
 done
