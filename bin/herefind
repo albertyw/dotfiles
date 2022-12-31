@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# This script runs git find (see gitconfig) through all git repositories
+# directly underneath my current directory
+
+set -euo pipefail
+IFS=$'\n\t'
+
+if [[ -z "${1+x}" ]] || [[ "$1" == "-h" ]]; then
+    echo "Runs a git find operation under each git repository underneath the current pwd"
+    exit
+fi
+
+for f in ./*; do
+    if [ ! -d "$f/.git" ]; then
+        continue
+    fi
+    echo "$f"
+    tput rmam
+    git -C "$f" find "$@" || true
+    tput smam
+done
