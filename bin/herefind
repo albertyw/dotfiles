@@ -16,7 +16,7 @@ for f in ./*; do
         continue
     fi
     echo "$f"
-    tput rmam
+    tput rmam  # Disable line wrapping in terminal
     git -C "$f" find "$@" || true
-    tput smam
+    tput smam  # Reenable line wrapping in terminal
 done
