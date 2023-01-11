@@ -1,3 +1,5 @@
+# vi:syntax=bash:
+
 WORKON_HOME=~/.virtualenvs
 
 layout_virtualenv() {
