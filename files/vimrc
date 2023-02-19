@@ -37,6 +37,8 @@ augroup filetypes
     au BufRead,BufNewFile *.conf set syntax=dosini
 
     autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+    autocmd Filetype css setlocal ts=2 sts=2 sw=2
+    autocmd Filetype scss setlocal ts=2 sts=2 sw=2
     autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
     autocmd Filetype typescriptreact setlocal ts=2 sts=2 sw=2
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
