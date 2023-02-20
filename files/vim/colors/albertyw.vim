@@ -11,7 +11,7 @@ endif
 set t_Co=256
 let g:colors_name = 'albertyw'
 
-' Define reusable colorvariables.
+" Define reusable colorvariables.
 let s:bg='#000000'
 let s:fg='#6af554'
 let s:fg2='#62e14d'
