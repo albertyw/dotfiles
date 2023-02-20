@@ -9,24 +9,11 @@ set number
 set backspace=indent,eol,start
 set encoding=utf-8
 scriptencoding utf-8
-
-" Highlight current line
-set cursorline
-hi CursorLine cterm=NONE ctermbg=DarkBlue
+colorscheme albertyw
 
 " Show invisible characters
 set lcs=tab:▸\ ,trail:·,nbsp:_
 set list
-
-if has('terminfo')
-  let &t_Co=8
-  let &t_Sf="\e[3%p1%dm"
-  let &t_Sb="\e[4%p1%dm"
-else
-  let &t_Co=8
-  let &t_Sf="\e[3%dm"
-  let &t_Sb="\e[4%dm"
-endif
 
 augroup filetypes
     au BufNewFile,BufRead requirements-*.txt set ft=requirements
