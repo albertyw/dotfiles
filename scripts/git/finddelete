@@ -22,7 +22,7 @@ sed2() {
     fi
 }
 
-files="$(git grep -l "$search" "$location")"
+files="$(git grep -l "$escaped_search" "$location")"
 pids=();
 for file in $files; do
     sed2 "$file" &
