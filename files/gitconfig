@@ -19,6 +19,8 @@
 [fetch]
     # Requires git 2.24.0+
     writeCommitGraph = true
+    # Prune branches when fetching
+    prune = true
 
 [help]
     autocorrect = 1
