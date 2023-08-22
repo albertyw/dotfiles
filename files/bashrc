@@ -80,6 +80,7 @@ source "$HOME/.dotfiles/files/completion/django-completion.sh"
 
 # Go
 export GOPATH=$HOME/gocode
+export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$GOPATH/bin"
 
 # Node
