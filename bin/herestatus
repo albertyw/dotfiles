@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+if [[ -n "${1+x}" ]] && [[ "$1" == "-h" ]]; then
+    echo "Runs git status under each git repository underneath the current pwd and shows any unclean repositories"
+    exit
+fi
+yellow='\e[1;33m'
+reset='\e[0m'
+
+for f in ./*; do
+    if [ ! -d "$f/.git" ]; then
+        continue
+    fi
+    result="$(git -C "$f" status || true)"
+    if [[ -n "$result" ]]; then
+        if [[ ${result} == *"working tree clean"* && ${result} == *"up to date"* ]]; then
+            continue
+        fi
+        echo -e "${yellow}$f${reset}"
+        tput rmam  # Disable line wrapping in terminal
+        echo "$result"
+        tput smam  # Reenable line wrapping in terminal
+    fi
+done
