@@ -47,12 +47,12 @@ sudo dpkg-reconfigure --frontend noninteractive locales
 # sudo apt install libgmp3-dev # Fixes installing json gem
 
 # Node.js
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 nvm install --lts
 
 # Python/pip/virtualenvwrapper
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.11 python3.11-dev python3.11-distutils
+sudo apt install python3.12 python3.12-dev python3.12-distutils
 sudo python3 get-pip.py
 sudo python3 -m pip install virtualenv
 sudo python3 -m pip install virtualenvwrapper
