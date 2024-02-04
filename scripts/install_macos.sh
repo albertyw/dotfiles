@@ -19,10 +19,11 @@ brew install \
     less            `: more up-to-date less than what macos provides` \
     ngrep           `: read network traffic` \
     nmap            `: network map` \
+    neovim          `: better vim` \
     coreutils       `: utility for dereferencing symlinks` \
     tree            `: recursive ls` \
     wget            `: curl alternative` \
-    vim             `: install vim 8.0` \
+    vim             `: better vi` \
 
 # Python
 brew install python
