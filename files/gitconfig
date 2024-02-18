@@ -82,6 +82,12 @@
     # Follow file renames when running git log on a file
     follow = true
 
+[status]
+    submoduleSummary = true
+
+[submodule]
+    recurse = true
+
 [push]
     default = current
 
@@ -104,6 +110,7 @@
     indentHeuristic = true
     renames = copies
     renameLimit = 1000
+    submodule = log
 
 [difftool]
     prompt = false
