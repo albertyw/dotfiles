@@ -101,10 +101,11 @@
 [pull]
     rebase = true
 
-# Automatically stash and unstash changes when rebasing or pulling
-# https://cscheng.info/2017/01/26/git-tip-autostash-with-git-pull-rebase.html
 [rebase]
+    # Automatically stash and unstash changes when rebasing or pulling
+    # https://cscheng.info/2017/01/26/git-tip-autostash-with-git-pull-rebase.html
     autoStash = true
+    updateRefs = true
 
 [diff]
     algorithm = histogram
