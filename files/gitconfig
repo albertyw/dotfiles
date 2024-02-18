@@ -85,9 +85,6 @@
 [status]
     submoduleSummary = true
 
-[submodule]
-    recurse = true
-
 [push]
     default = current
 
