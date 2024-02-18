@@ -113,6 +113,8 @@
     renames = copies
     renameLimit = 1000
     submodule = log
+    colorMoved = default
+    colorMovedWS = allow-indentation-change
 
 [difftool]
     prompt = false
