@@ -2,7 +2,7 @@
 
 # Core
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = ~/.gitignore
     templatedir = ~/.git
     attributesfile = ~/.gitattributes
