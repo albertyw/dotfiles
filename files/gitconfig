@@ -95,6 +95,8 @@
 # Branching/Merging
 [branch]
     autosetuprebase = always
+    # Sort branches by committer date instead of alphabetical
+    sort = committerdate
 
 [pull]
     rebase = true
