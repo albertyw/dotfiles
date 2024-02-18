@@ -21,6 +21,13 @@
     writeCommitGraph = true
     # Prune branches when fetching
     prune = true
+    fsckobjects = true
+
+[transfer]
+    fsckobjects = true
+
+[receive]
+    fsckobjects = true
 
 [help]
     autocorrect = 1
