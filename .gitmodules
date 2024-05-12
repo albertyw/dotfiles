@@ -52,3 +52,6 @@
 [submodule "files/vim/pack/albertyw/start/copilot"]
 	path = files/vim/pack/albertyw/start/copilot
 	url = git@github.com:github/copilot.vim
+[submodule "files/vim/pack/albertyw/start/rainbow_csv"]
+	path = files/vim/pack/albertyw/start/rainbow_csv
+	url = git@github.com:mechatroner/rainbow_csv.git
