@@ -13,9 +13,6 @@
 [submodule "scripts/git/git-reviewers"]
 	path = scripts/git/git-reviewers
 	url = git@github.com:albertyw/git-reviewers
-[submodule "files/vim/pack/albertyw/start/csv.vim"]
-	path = files/vim/pack/albertyw/start/csv.vim
-	url = git@github.com:chrisbra/csv.vim.git
 [submodule "files/vim/pack/albertyw/start/requirements.txt.vim"]
 	path = files/vim/pack/albertyw/start/requirements.txt.vim
 	url = git@github.com:raimon49/requirements.txt.vim.git
