@@ -9,7 +9,9 @@ set number
 set backspace=indent,eol,start
 set encoding=utf-8
 scriptencoding utf-8
-colorscheme albertyw
+" colorscheme albertyw
+hi clear
+colorscheme vim
 
 " Show invisible characters
 set lcs=tab:▸\ ,trail:·,nbsp:_
