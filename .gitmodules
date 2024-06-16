@@ -58,3 +58,6 @@
 [submodule "files/vim/pack/albertyw/start/vim-copilot-ignore"]
 	path = files/vim/pack/albertyw/start/vim-copilot-ignore
 	url = git@github.com:panozzaj/vim-copilot-ignore.git
+[submodule "files/vim/pack/albertyw/start/vim-terraform"]
+	path = files/vim/pack/albertyw/start/vim-terraform
+	url = git@github.com:hashivim/vim-terraform.git
