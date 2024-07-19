@@ -32,11 +32,6 @@ brew install python3
 # Install go
 brew install go
 
-# jEdit
-git clone git@github.com:albertyw/jEdit-settings
-rm -r ~/Library/jEdit
-mv jEdit-settings ~/Library/jEdit
-
 # Install inconsolata font
 open https://fonts.google.com/specimen/Inconsolata
 
