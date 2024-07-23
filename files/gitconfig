@@ -119,7 +119,7 @@
 
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
     log = true
 
 [rerere]
