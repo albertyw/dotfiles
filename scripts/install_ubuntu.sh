@@ -41,12 +41,11 @@ sudo dpkg-reconfigure --frontend noninteractive locales
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 nvm install --lts
 
-# Python/pip/virtualenvwrapper
+# Python/pip/virtualenv
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install python3.12 python3.12-dev python3.12-distutils
 sudo python3 get-pip.py
 sudo python3 -m pip install virtualenv
-sudo python3 -m pip install virtualenvwrapper
 
 # Install Go
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
