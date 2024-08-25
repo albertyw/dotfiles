@@ -8,6 +8,7 @@ sudo apt update
 sudo apt upgrade -y
 # shellcheck disable=SC2006,SC2046
 sudo apt install -y \
+    direnv      `: directory-specific environments` \
     iotop       `: top for disk I/O` \
     iftop       `: top for network I/O` \
     jq          `: parse and prettify json` \

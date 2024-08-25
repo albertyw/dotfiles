@@ -11,6 +11,7 @@ brew analytics off
 # shellcheck disable=SC2006,SC2046
 brew install \
     bash-completion `: autocompletion for bash terminal` \
+    direnv          `: directory-specific environments` \
     git             `: more up-to-date git than what macos provides` \
     grep            `: faster gnu grep` \
     htop            `: better top` \
