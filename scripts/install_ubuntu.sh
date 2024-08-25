@@ -38,6 +38,11 @@ sudo dpkg-reconfigure --frontend noninteractive locales
 # sudo apt install ruby-dev # Fixes mkmf errors
 # sudo apt install libgmp3-dev # Fixes installing json gem
 
+# Git
+# Install a more recent version of git than is bundled with Ubuntu
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt install git
+
 # Node.js
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 nvm install --lts
