@@ -20,6 +20,8 @@
     precomposeunicode = false
     # Use a cache to determine untracked files for git status
     untrackedCache = true
+    # Use a filesystem monitor to detect changes
+    fsmonitor = true
     # Use global git hooks
     hooksPath = "~/.dotfiles/files/git-hooks"
 
