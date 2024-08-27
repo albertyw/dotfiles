@@ -35,6 +35,8 @@
     # Prune branches when fetching
     prune = true
     fsckobjects = true
+    # Parallel fetching (chooses a "reasonable default")
+    parallel = 0
 
 [transfer]
     fsckobjects = true
