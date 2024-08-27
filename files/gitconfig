@@ -2,14 +2,25 @@
 
 # Core
 [core]
+    # Use neovim as the default editor for things like git commits
     editor = nvim
+    # Global gitignore file
     excludesfile = ~/.gitignore
+    # Copy githooks and other useful stuff into newly cloned repositories
+    # TODO: this might have no effect; remove
     templatedir = ~/.git
-    attributesfile = ~/.gitattributes
+    # Configure git attributes for certain file types
+    attributesfile = ~/.dotfiles/files/gitattributes
+    # https://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
+    # TODO: this is probably not needed anymore; remove
     trustctime = false
+    # Use less to do paging
     pager = "less --tabs=4"
+    # Make file names be handled transparently by Git on Mac OS
     precomposeunicode = false
+    # Use a cache to determine untracked files for git status
     untrackedCache = true
+    # Use global git hooks
     hooksPath = "~/.dotfiles/files/git-hooks"
 
 [protocol]
