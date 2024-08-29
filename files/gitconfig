@@ -27,7 +27,6 @@
     hooksPath = "~/.dotfiles/files/git-hooks"
 
 [fetch]
-    # Requires git 2.24.0+
     writeCommitGraph = true
     # Prune branches when fetching
     prune = true
