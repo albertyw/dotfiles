@@ -26,10 +26,6 @@
     # Use global git hooks
     hooksPath = "~/.dotfiles/files/git-hooks"
 
-[protocol]
-    # Requires git 2.18.0+
-    version = 2
-
 [fetch]
     # Requires git 2.24.0+
     writeCommitGraph = true
