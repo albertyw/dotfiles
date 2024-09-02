@@ -27,6 +27,7 @@
     hooksPath = "~/.dotfiles/files/git-hooks"
 
 [fetch]
+    # Update the git commit graph when fetching
     writeCommitGraph = true
     # Prune branches when fetching
     prune = true
@@ -34,6 +35,7 @@
     parallel = 0
 
 [transfer]
+    # Check objects when fetching or receiving
     fsckobjects = true
 
 [help]
