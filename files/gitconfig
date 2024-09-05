@@ -39,6 +39,7 @@
     fsckobjects = true
 
 [help]
+    # Auto-correct typos in git commands with a 0.1 second delay
     autocorrect = 1
 
 [advice]
