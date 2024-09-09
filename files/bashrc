@@ -88,9 +88,7 @@ fi
 if [ -s "$HOME/.nvm/nvm.sh" ]; then
     export NVM_DIR="$HOME/.nvm"
     source "$NVM_DIR/nvm.sh"
-    if [ -s "$NVM_DIR/bash_completion" ]; then
-        source "$NVM_DIR/bash_completion"
-    fi
+    source "$NVM_DIR/bash_completion"
     source "$HOME/.dotfiles/files/completion/npx-completion.sh"
 fi
 if command -v npm > /dev/null; then
