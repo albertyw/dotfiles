@@ -89,12 +89,12 @@ if [ -s "$HOME/.nvm/nvm.sh" ]; then
     export NVM_DIR="$HOME/.nvm"
     source "$NVM_DIR/nvm.sh"
     source "$NVM_DIR/bash_completion"
-    source "$HOME/.dotfiles/files/completion/npx-completion.sh"
 fi
 if command -v npm > /dev/null; then
     export PATH="$PATH:node_modules/.bin"
     export NODE_OPTIONS=--max_old_space_size=4096
     source <(npm completion)
+    source "$HOME/.dotfiles/files/completion/npx-completion.sh"
 fi
 
 # Ruby
