@@ -88,7 +88,6 @@ fi
 if [ -s "$HOME/.nvm/nvm.sh" ]; then
     export NVM_DIR="$HOME/.nvm"
     source "$NVM_DIR/nvm.sh"
-    source "$NVM_DIR/bash_completion"
 fi
 if command -v npm > /dev/null; then
     export PATH="$PATH:node_modules/.bin"

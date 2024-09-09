@@ -15,6 +15,10 @@ fi
 
 [[ -r $HOME/.bashrc ]] && . ~/.bashrc
 
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+    source "$NVM_DIR/bash_completion"
+fi
+
 # Git updates
 ~/.ssh/chmod.sh
 ~/.dotfiles/scripts/sync-dotfiles.sh &
