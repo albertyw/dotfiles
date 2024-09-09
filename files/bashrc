@@ -78,18 +78,26 @@ fi
 source "$HOME/.dotfiles/files/completion/django-completion.sh"
 
 # Go
-export GOPATH=$HOME/gocode
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:$GOPATH/bin"
+if command -v go > /dev/null; then
+    export GOPATH=$HOME/gocode
+    export PATH="$PATH:/usr/local/go/bin"
+    export PATH="$PATH:$GOPATH/bin"
+fi
 
 # Node
-export PATH="$PATH:node_modules/.bin"
-export NODE_OPTIONS=--max_old_space_size=4096
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-if command -v npm > /dev/null; then source <(npm completion); fi
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source "$HOME/.dotfiles/files/completion/npx-completion.sh"
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    source "$NVM_DIR/nvm.sh"
+    if [ -s "$NVM_DIR/bash_completion" ]; then
+        source "$NVM_DIR/bash_completion"
+    fi
+    source "$HOME/.dotfiles/files/completion/npx-completion.sh"
+fi
+if command -v npm > /dev/null; then
+    export PATH="$PATH:node_modules/.bin"
+    export NODE_OPTIONS=--max_old_space_size=4096
+    source <(npm completion)
+fi
 
 # Ruby
 # Not using ruby for anything right now
