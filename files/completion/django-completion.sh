@@ -1,6 +1,5 @@
-# #########################################################################
-# This bash script adds tab-completion feature to django-admin.py and
-# manage.py.
+# #############################################################################
+# This bash script adds tab-completion feature to django-admin and manage.py.
 #
 # Testing it out without installing
 # =================================
@@ -33,12 +32,11 @@
 
 _django_completion()
 {
-    IFS=" " read -r -a COMPREPLY <<< "$( COMP_WORDS="${COMP_WORDS[*]}" \
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
                    COMP_CWORD=$COMP_CWORD \
-                   DJANGO_AUTO_COMPLETE=1 $1 )"
+                   DJANGO_AUTO_COMPLETE=1 $1 ) )
 }
-
-complete -F _django_completion -o default django-admin.py manage.py django-admin
+complete -F _django_completion -o default manage.py django-admin
 
 _python_django_completion()
 {
@@ -46,10 +44,10 @@ _python_django_completion()
         local PYTHON_EXE=${COMP_WORDS[0]##*/}
         if echo "$PYTHON_EXE" | grep -qE "python([3-9]\.[0-9])?"; then
             local PYTHON_SCRIPT=${COMP_WORDS[1]##*/}
-            if echo "$PYTHON_SCRIPT" | grep -qE "manage\.py|django-admin(\.py)?"; then
-                IFS=" " read -r -a COMPREPLY <<< "$( COMP_WORDS=( "${COMP_WORDS[*]:1}" )
+            if echo "$PYTHON_SCRIPT" | grep -qE "manage\.py|django-admin"; then
+                COMPREPLY=( $( COMP_WORDS=( "${COMP_WORDS[*]:1}" )
                                COMP_CWORD=$(( COMP_CWORD-1 ))
-                               DJANGO_AUTO_COMPLETE=1 ${COMP_WORDS[*]} )"
+                               DJANGO_AUTO_COMPLETE=1 ${COMP_WORDS[*]} ) )
             fi
         fi
     fi
@@ -68,5 +66,5 @@ else
     pythons=python
 fi
 
-complete -F _python_django_completion -o default "${pythons}"
+complete -F _python_django_completion -o default $pythons
 unset pythons
