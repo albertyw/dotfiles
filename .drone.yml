@@ -12,7 +12,7 @@ steps:
   - name: Test Vim
     image: python:3.12
     commands:
-      - pip install vim-vint==0.3.21
+      - pip install vim-vint==0.3.21 setuptools
       - git ls-files | grep vim | grep -v sh.vim | grep -v pack | xargs vint
 
   - name: Test Bash
