@@ -3,7 +3,7 @@
 
 set -euo pipefail
 IFS=$'\n\t'
-lastupdated="${HOME}/.dotfiles/lastupdated"
+lastupdated_file="${HOME}/.dotfiles/lastupdated"
 
 check_internet () {
     ping github.com -c 1 > /dev/null 2>&1
@@ -42,18 +42,18 @@ update_dotfiles () {
 }
 
 # Skip if last updated in 30 minutes
-if [ -f "$lastupdated" ]; then
+if [ -f "$lastupdated_file" ]; then
     if [[ $(uname) == Linux ]]; then
-        lastupdated=$(stat -c %Y "$lastupdated")
+        lastupdated=$(stat -c %Y "$lastupdated_file")
     else
-        lastupdated=$(stat -f %m "$lastupdated")
+        lastupdated=$(stat -f %m "$lastupdated_file")
     fi
     now=$(date +%s)
     if [ $((now - lastupdated)) -lt 1800 ]; then
         exit
     fi
 fi
-touch "$lastupdated"
+touch "$lastupdated_file"
 
 # Check if there are updates to this dotfiles repo
 cd ~/.dotfiles
