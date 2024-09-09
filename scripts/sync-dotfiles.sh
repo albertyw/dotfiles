@@ -45,7 +45,7 @@ update_dotfiles () {
 if [ -f "$lastupdated" ]; then
     lastupdated=$(stat -c %Y "$lastupdated")
     now=$(date +%s)
-    if [ $((now - lastupdated)) -lt 300 ]; then
+    if [ $((now - lastupdated)) -lt 1800 ]; then
         exit
     fi
 fi
