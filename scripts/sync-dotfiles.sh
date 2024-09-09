@@ -3,7 +3,7 @@
 
 set -euo pipefail
 IFS=$'\n\t'
-lockdir="${HOME}/.dotfiles/sync"
+lastupdated="${HOME}/.dotfiles/lastupdated"
 
 check_internet () {
     ping github.com -c 1 > /dev/null 2>&1
@@ -41,14 +41,15 @@ update_dotfiles () {
     fi
 }
 
-# Prevent other sync-dotfiles.sh runs from running
-if ! mkdir "$lockdir" 2> /dev/null; then
-    exit
+# Skip if last updated in 30 minutes
+if [ -f "$lastupdated" ]; then
+    lastupdated=$(stat -c %Y "$lastupdated")
+    now=$(date +%s)
+    if [ $((now - lastupdated)) -lt 300 ]; then
+        exit
+    fi
 fi
-removelock () {
-    rmdir "$lockdir"
-}
-trap removelock EXIT
+touch "$lastupdated"
 
 # Check if there are updates to this dotfiles repo
 cd ~/.dotfiles
