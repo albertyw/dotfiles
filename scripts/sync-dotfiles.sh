@@ -43,7 +43,11 @@ update_dotfiles () {
 
 # Skip if last updated in 30 minutes
 if [ -f "$lastupdated" ]; then
-    lastupdated=$(stat -c %Y "$lastupdated")
+    if [[ $(uname) == Linux ]]; then
+        lastupdated=$(stat -c %Y "$lastupdated")
+    else
+        lastupdated=$(stat -f %m "$lastupdated")
+    fi
     now=$(date +%s)
     if [ $((now - lastupdated)) -lt 1800 ]; then
         exit
