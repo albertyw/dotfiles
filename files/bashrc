@@ -95,10 +95,11 @@ if command -v npm > /dev/null; then source <(npm completion); fi
 source "$HOME/.dotfiles/files/completion/npx-completion.sh"
 
 # Ruby
-export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-alias rspec='xvfb-run -a bundle exec rspec'
+# Not using ruby for anything right now
+# export PATH="$PATH:$HOME/.rvm/bin"                    # Add RVM to PATH for scripting
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# alias rspec='xvfb-run -a bundle exec rspec'
 
 # CUDA
 if [ -d "/usr/local/cuda-11.2/bin/" ]; then
