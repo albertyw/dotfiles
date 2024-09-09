@@ -14,3 +14,8 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 [[ -r $HOME/.bashrc ]] && . ~/.bashrc
+
+# Git updates
+~/.ssh/chmod.sh
+~/.dotfiles/scripts/sync-dotfiles.sh &
+disown
