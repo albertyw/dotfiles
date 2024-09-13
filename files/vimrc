@@ -39,6 +39,11 @@ augroup filetypes
     au BufRead,BufNewFile go.sum set syntax=gosum
 augroup END
 
+augroup WrapLineInTeXFile
+    autocmd!
+    autocmd FileType markdown setlocal wrap
+augroup END
+
 set hlsearch
 set modeline
 
