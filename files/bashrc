@@ -127,6 +127,3 @@ if command -v direnv > /dev/null; then
 fi
 
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
-
-# Uber-specific stuff
-[ -r /Users/albertyw/.profile_lda ] && . /Users/albertyw/.profile_lda
