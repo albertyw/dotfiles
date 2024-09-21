@@ -152,6 +152,7 @@
     meta = bold cyan
 
 [url "ssh://git@github.com/"]
+    # Use an alias for git remote
     insteadOf = https://github.com/
 
 [init]
@@ -161,4 +162,5 @@
 # Overrides
 # This must go at the bottom in order to override configs above
 [include]
+    # Override gitconfig from ~/.gitconfig_local
     path = .gitconfig_local
