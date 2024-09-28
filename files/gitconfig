@@ -46,6 +46,7 @@
     skippedCherryPicks = false
 
 [submodule]
+    # Parallel fetching (chooses a "reasonable default")
     fetchJobs = 0
 
 [pack]
