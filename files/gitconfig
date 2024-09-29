@@ -135,6 +135,8 @@
     log = true
 
 [rerere]
+    # Use "reuse recorded resolution", which will remember git rebase conflict resolutions so they will be reapplied for future conficts
+    # https://git-scm.com/book/en/v2/Git-Tools-Rerere
     enabled = true
 
 [apply]
