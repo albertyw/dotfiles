@@ -53,7 +53,9 @@
     threads = 0
 
 [user]
+    # Set the name used for git commits
     name = Albert Wang
+    # Set the email used for git commits
     email = git@albertyw.com
 
 [filter "lfs"]
