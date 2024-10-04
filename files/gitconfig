@@ -146,6 +146,7 @@
 
 # Colors
 [color]
+    # Ensure git output is colored.
     ui = true
 
 [color "grep"]
