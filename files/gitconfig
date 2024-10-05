@@ -83,6 +83,7 @@
     finddelete = !~/.dotfiles/scripts/git/finddelete
 
 [grep]
+    # Show line numbers when using git grep
     linenumber = true
 
 [blame]
