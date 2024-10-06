@@ -66,6 +66,7 @@
 
 # Git command Configuration
 [alias]
+    # Show the git log in a pretty format that graphs out dependencies between git branches
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
     lg-notags = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
     s = status -uno
