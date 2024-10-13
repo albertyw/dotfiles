@@ -96,9 +96,6 @@
     # Follow file renames when running git log on a file
     follow = true
 
-[status]
-    submoduleSummary = true
-
 [push]
     default = current
 
