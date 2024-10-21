@@ -54,7 +54,7 @@ sudo python3 get-pip.py
 sudo python3 -m pip install virtualenv
 
 # Install Go
-sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
+sudo add-apt-repository ppa:longsleep/golang-backports
 sudo apt update
 sudo apt install golang
 
