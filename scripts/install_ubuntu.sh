@@ -49,9 +49,7 @@ nvm install --lts
 
 # Python/pip/virtualenv
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.12 python3.12-dev python3.12-distutils
-sudo python3 get-pip.py
-sudo python3 -m pip install virtualenv
+sudo apt install python3.13 python3.13-venv python3.13-dev
 
 # Install Go
 sudo add-apt-repository ppa:longsleep/golang-backports
