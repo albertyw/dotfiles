@@ -1,7 +1,0 @@
-#!/bin/bash
-
-redis-cli info | grep 'used_memory'
-redis-cli info | grep 'total'
-redis-cli info | grep 'keyspace'
-echo -n 'number_of_keys: '
-redis-cli dbsize
