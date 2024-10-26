@@ -67,13 +67,8 @@ export PATH="$PATH:$HOME/.dotfiles/bin"
 
 # Python
 if [[ $(uname) == Darwin ]]; then
-    # Read brew python, needed for virtualenvwrapper
+    # Read brew python
     export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
-fi
-if [ -s "/usr/local/bin/virtualenvwrapper_lazy.sh" ]; then
-    python3location="$(command which python3)"
-    export VIRTUALENVWRAPPER_PYTHON=$python3location
-    [ -s "/usr/local/bin/virtualenvwrapper_lazy.sh" ] && . /usr/local/bin/virtualenvwrapper_lazy.sh
 fi
 source "$HOME/.dotfiles/files/completion/django-completion.sh"
 
