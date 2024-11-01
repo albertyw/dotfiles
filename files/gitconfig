@@ -68,19 +68,33 @@
 [alias]
     # Show the git log in a pretty format that graphs out dependencies between git branches
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
+    # lg without tags
     lg-notags = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
+    # Faster status
     s = status -uno
+    # Show todos
     todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE -e FIX-ME
+    # Show lines of code
     loc = !git diff --stat `git hash-object -t tree /dev/null` | tail -1 | cut -d' ' -f5
+    # Deal with typos for cherry-pick
     cherrypick = cherry-pick
+    # Blame adjusting for nonconsequential changes
     blame = blame -cwC
+    # Branch showing upstream
     branches = branch -vv
+    # Find tracked files by name
     find = !~/.dotfiles/scripts/git/find
+    # Open references as a URL
     browse = !~/.dotfiles/scripts/git/git-browse/git_browse/browse.py --path=${GIT_PREFIX:-./}
+    # Recommend reviewers for code
     reviewers = !~/.dotfiles/scripts/git/git-reviewers/git_reviewers/reviewers.py -i albertyw -c -j ~/.gitreviewers.json
+    # Show size of git repository
     size = !~/.dotfiles/scripts/git/size
+    # Show user commit stats
     userstats = !~/.dotfiles/scripts/git/userstats
+    # Find and replace content in tracked files
     findreplace = !~/.dotfiles/scripts/git/findreplace
+    # Delete lines in tracked files matching pattern
     finddelete = !~/.dotfiles/scripts/git/finddelete
 
 [grep]
