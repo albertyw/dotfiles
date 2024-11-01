@@ -33,7 +33,6 @@ move copilotignore
 move direnvrc
 move gitconfig
 move gitignore
-move irbrc
 move selected_editor
 move sudo_as_admin_successful
 move vim
