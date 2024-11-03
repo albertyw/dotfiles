@@ -41,6 +41,10 @@ update_dotfiles () {
     fi
 }
 
+# Ignore SIGINT (Ctrl-C) and SIGHUP (terminal closed)
+trap '' SIGINT
+trap '' SIGHUP
+
 # Skip if last updated in 30 minutes
 if [ -f "$lastupdated_file" ]; then
     if [[ $(uname) == Linux ]]; then
@@ -66,3 +70,7 @@ if [ -d ~/.ssh/.git ]; then
     cd ~/.ssh
     update_dotfiles
 fi
+
+# Reenable SIGINT and SIGHUP
+trap SIGINT
+trap SIGHUP
