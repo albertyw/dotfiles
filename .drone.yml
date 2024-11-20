@@ -4,13 +4,13 @@ name: test
 
 steps:
   - name: Test Python
-    image: python:3.12
+    image: python:3.13
     commands:
       - pip install flake8
       - flake8 --exclude files/vim
 
   - name: Test Vim
-    image: python:3.12
+    image: python:3.13
     commands:
       - pip install vim-vint==0.3.21 setuptools
       - git ls-files | grep vim | grep -v sh.vim | grep -v pack | xargs vint
