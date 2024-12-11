@@ -48,8 +48,12 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 nvm install --lts
 
 # Python/pip/virtualenv
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.13 python3.13-venv python3.13-dev
+curl https://pyenv.run | bash
+# shellcheck disable=SC2006,SC2046
+sudo apt install -y \
+    libreadline-dev `: GNU readline for compiling` \
+    liblzma-dev     `: XZ Utils for compiling` \
+    libffi-dev      `: FFI for compiling`
 
 # Install Go
 sudo add-apt-repository ppa:longsleep/golang-backports

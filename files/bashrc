@@ -66,6 +66,11 @@ fi
 export PATH="$PATH:$HOME/.dotfiles/bin"
 
 # Python
+if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
 if [[ $(uname) == Darwin ]]; then
     # Read brew python
     export PATH="/usr/local/opt/python/libexec/bin:$PATH" 
