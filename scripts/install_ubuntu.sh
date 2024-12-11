@@ -48,8 +48,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 nvm install --lts
 
 # Python/pip/virtualenv
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.13 python3.13-venv python3.13-dev
+curl https://pyenv.run | bash
 
 # Install Go
 sudo add-apt-repository ppa:longsleep/golang-backports
