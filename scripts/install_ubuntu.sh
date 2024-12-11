@@ -49,6 +49,11 @@ nvm install --lts
 
 # Python/pip/virtualenv
 curl https://pyenv.run | bash
+# shellcheck disable=SC2006,SC2046
+sudo apt install -y \
+    libreadline-dev `: GNU readline for compiling` \
+    liblzma-dev     `: XZ Utils for compiling` \
+    libffi-dev      `: FFI for compiling`
 
 # Install Go
 sudo add-apt-repository ppa:longsleep/golang-backports
