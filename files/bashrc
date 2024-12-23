@@ -114,6 +114,9 @@ if [ -s "/usr/bin/terraform" ]; then
     complete -C /usr/bin/terraform terraform
 fi
 
+# Makefile
+complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' ?akefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
+
 # Direnv
 if command -v direnv > /dev/null; then
     eval "$(direnv hook bash)"
