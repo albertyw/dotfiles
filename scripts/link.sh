@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 cd "$HOME/.dotfiles"
-dotfiles=$HOME/.dotfiles/files/
+dotfiles=$HOME/.dotfiles/files
 
 move () {
     # shellcheck disable=SC2086
