@@ -37,9 +37,6 @@
 [submodule "scripts/git/req-update"]
 	path = scripts/git/req-update
 	url = git@github.com:albertyw/req-update
-[submodule "files/vim/pack/albertyw/start/nginx.vim"]
-	path = files/vim/pack/albertyw/start/nginx.vim
-	url = git@github.com:chr4/nginx.vim.git
 [submodule "files/vim/pack/albertyw/start/vim-m3ql"]
 	path = files/vim/pack/albertyw/start/vim-m3ql
 	url = git@github.com:albertyw/vim-m3ql
