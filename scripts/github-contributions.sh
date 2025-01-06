@@ -9,7 +9,7 @@ source ~/.ssh/other/github.sh
 
 events_data=$(curl -s \
     -X POST \
-    -u "$USER:$TOKEN" \
+    -H "Authorization: bearer $TOKEN" \
     -d '{"query": "query {viewer {contributionsCollection {contributionCalendar {weeks {contributionDays {contributionCount date}}}}}}"}' \
     https://api.github.com/graphql)
 
