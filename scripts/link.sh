@@ -35,6 +35,7 @@ move gitconfig
 move gitignore
 move selected_editor
 move sudo_as_admin_successful
+move tmux.conf
 move vim
 move vimrc
 if [[ $(hostname) == *"uber"* ]] ; then
