@@ -49,19 +49,27 @@ case "${1:-}" in
         PORT="$2"
         ssh -fNL "0.0.0.0:$PORT:localhost:$PORT" $VM
         ;;
+    tunnel-remote)
+        if [ -z "${2:-}" ]; then
+            echo "Must set tunnel port"
+            exit 1
+        fi
+        PORT="$2"
+        ssh -fNL "0.0.0.0:$PORT:$IP:$PORT" macbookpro.attlocal.net
+        ;;
     untunnel)
         if [ -z "${2:-}" ]; then
             echo "Must set tunnel port"
             exit 1
         fi
         PORT="$2"
-        pkill -f "ssh -fNL 0.0.0.0:$PORT:localhost:$PORT $VM"
+        pkill -f "ssh -fNL 0.0.0.0:$PORT"
         ;;
     status)
         status
         ;;
     *)
-        echo "Usage: $0 {start|stop|mount|umount|tunnel|untunnel|status}"
+        echo "Usage: $0 {start|stop|mount|umount|tunnel|tunnel-remote|untunnel|status}"
         status
         exit 1
 esac
