@@ -150,9 +150,7 @@
 
 
 [merge]
-    conflictstyle = diff3
-    # TODO: switch to zdiff3 after ubuntu updates to >2.35.0
-    # conflictstyle = zdiff3
+    conflictstyle = zdiff3
     log = true
 
 [rerere]
