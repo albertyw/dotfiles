@@ -43,6 +43,7 @@
     autocorrect = 1
 
 [advice]
+    # Don't show warnings for skipped cherry-picks
     skippedCherryPicks = false
 
 [submodule]
@@ -50,6 +51,7 @@
     fetchJobs = 0
 
 [pack]
+    # Use all available CPU cores for pack indexing
     threads = 0
 
 [user]
@@ -102,15 +104,19 @@
     linenumber = true
 
 [blame]
+    # Show git blame times in my own time zone
     date = local
 
 [log]
+    # Show a shorter but still unique commit hash
     abbrevCommit = true
+    # Show git log times in my own time zone
     date = local
     # Follow file renames when running git log on a file
     follow = true
 
 [push]
+    # By default, push the current branch to the remote branch of the same name
     default = current
 
 
@@ -163,11 +169,13 @@
     ui = true
 
 [color "grep"]
+    # Set colors for git grep
     filename = magenta
     match = bold red
     linenumber = bold blue
 
 [color "diff"]
+    # Set colors for git diff
     meta = bold cyan
 
 [url "ssh://git@github.com/"]
