@@ -16,6 +16,7 @@ sudo apt install -y \
     ngrep       `: read network traffic` \
     nmap        `: network map` \
     neovim      `: better vim` \
+    tmux        `: terminal multiplexer` \
     traceroute  `: find network hops to an IP` \
     tree        `: recursive ls` \
     vim         `: editor of choice` \

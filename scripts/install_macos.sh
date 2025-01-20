@@ -22,6 +22,7 @@ brew install \
     nmap            `: network map` \
     neovim          `: better vim` \
     coreutils       `: utility for dereferencing symlinks` \
+    tmux            `: terminal multiplexer` \
     tree            `: recursive ls` \
     wget            `: curl alternative` \
     vim             `: better vi` \
