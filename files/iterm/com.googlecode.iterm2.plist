@@ -124,12 +124,18 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0xf72c-0x40000</key>
+		<key>0xf72c-0x40000-0x74</key>
 		<dict>
 			<key>Action</key>
-			<integer>30</integer>
+			<integer>31</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>1</integer>
 			<key>Text</key>
 			<string></string>
+			<key>Version</key>
+			<integer>2</integer>
 		</dict>
 		<key>0xf72d-0x100000</key>
 		<dict>
@@ -145,12 +151,18 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0xf72d-0x40000</key>
+		<key>0xf72d-0x40000-0x79</key>
 		<dict>
 			<key>Action</key>
-			<integer>31</integer>
+			<integer>30</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>1</integer>
 			<key>Text</key>
 			<string></string>
+			<key>Version</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>HapticFeedbackForEsc</key>
