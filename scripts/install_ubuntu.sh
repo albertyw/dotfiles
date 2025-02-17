@@ -57,9 +57,10 @@ sudo apt install -y \
     libffi-dev      `: FFI for compiling`
 
 # Install Go
-sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt update
-sudo apt install golang
+# Using https://go.dev/doc/install because longsleep/golang-backports is out of date
+# wget https://go.dev/dl/go1.24.0.linux-arm64.tar.gz
+# sudo rm -rf /usr/local/go
+# sudo tar -C /usr/local -xzf go1.24.0.linux-arm64.tar.gz
 
 # Install Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
