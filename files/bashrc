@@ -78,7 +78,7 @@ fi
 source "$HOME/.dotfiles/files/completion/django-completion.sh"
 
 # Go
-if command -v go > /dev/null; then
+if [ -s "/usr/local/go/bin" ]; then
     export GOPATH=$HOME/gocode
     export PATH="$PATH:/usr/local/go/bin"
     export PATH="$PATH:$GOPATH/bin"
