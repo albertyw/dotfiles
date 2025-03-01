@@ -31,6 +31,8 @@
     writeCommitGraph = true
     # Prune branches when fetching
     prune = true
+    # Prune tags when fetching
+    pruneTags = true
     # Parallel fetching (chooses a "reasonable default")
     parallel = 0
 
@@ -139,10 +141,12 @@
     algorithm = histogram
     tool = vimdiff
     indentHeuristic = true
+    # Have git detect renames and copies in git diff
     renames = copies
     renameLimit = 1000
     submodule = log
-    colorMoved = default
+    # Show a different color for moved lines
+    colorMoved = plain
     colorMovedWS = allow-indentation-change
 
 [difftool]
@@ -181,6 +185,10 @@
 [column]
     # Output branches and other lists as columns
     ui = auto
+
+[tag]
+    # Output tags sorted in numerical/semver order
+    sort = version:refname
 
 # Miscellaneous
 [url "ssh://git@github.com/"]
