@@ -31,6 +31,8 @@
     writeCommitGraph = true
     # Prune branches when fetching
     prune = true
+    # Prune tags when fetching
+    pruneTags = true
     # Parallel fetching (chooses a "reasonable default")
     parallel = 0
 
