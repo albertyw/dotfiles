@@ -182,6 +182,10 @@
     # Output branches and other lists as columns
     ui = auto
 
+[tag]
+    # Output tags sorted in numerical/semver order
+    sort = version:refname
+
 # Miscellaneous
 [url "ssh://git@github.com/"]
     # Use an alias for git remote
