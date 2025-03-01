@@ -163,7 +163,7 @@
 [apply]
     whitespace = fix
 
-# Colors
+# UI
 [color]
     # Ensure git output is colored.
     ui = true
@@ -178,6 +178,11 @@
     # Set colors for git diff
     meta = bold cyan
 
+[column]
+    # Output branches and other lists as columns
+    ui = auto
+
+# Miscellaneous
 [url "ssh://git@github.com/"]
     # Use an alias for git remote
     insteadOf = https://github.com/
