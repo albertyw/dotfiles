@@ -139,10 +139,12 @@
     algorithm = histogram
     tool = vimdiff
     indentHeuristic = true
+    # Have git detect renames and copies in git diff
     renames = copies
     renameLimit = 1000
     submodule = log
-    colorMoved = default
+    # Show a different color for moved lines
+    colorMoved = plain
     colorMovedWS = allow-indentation-change
 
 [difftool]
