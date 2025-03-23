@@ -55,7 +55,7 @@ case "${1:-}" in
             exit 1
         fi
         PORT="$2"
-        ssh -fNL "0.0.0.0:$PORT:$IP:$PORT" macbookpro.attlocal.net
+        ssh -fNL "0.0.0.0:$PORT:$IP:$PORT" mac
         ;;
     untunnel)
         if [ -z "${2:-}" ]; then
