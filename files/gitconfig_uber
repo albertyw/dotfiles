@@ -3,7 +3,7 @@
 # Uber-specific gitconfigs
 
 [user]
-  email = albertyw@uber.com
+    email = albertyw@uber.com
 
 [url "ssh://code.uber.internal/"]
     insteadOf = https://code.uber.internal/
