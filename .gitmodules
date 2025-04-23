@@ -42,7 +42,7 @@
 	url = git@github.com:albertyw/vim-m3ql
 [submodule "files/vim/pack/albertyw/start/vim-gofmt"]
 	path = files/vim/pack/albertyw/start/vim-gofmt
-	url = git@github.com:albertyw/vim-gofmt.git
+	url = git@github.com:darrikonn/vim-gofmt.git
 [submodule "files/vim/pack/albertyw/start/starlark.vim"]
 	path = files/vim/pack/albertyw/start/starlark.vim
 	url = git@github.com:cappyzawa/starlark.vim.git
