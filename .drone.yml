@@ -6,8 +6,8 @@ steps:
   - name: Test Python
     image: python:3.13
     commands:
-      - pip install flake8
-      - flake8 --exclude files/vim
+      - pip install ruff
+      - ruff check . --exclude files/vim
 
   - name: Test Vim
     image: python:3.13
