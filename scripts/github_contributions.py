@@ -67,7 +67,10 @@ def main() -> bool:
     be more than 20 per day
     """
     contributions = get_contributions()
-    print(contributions)
+    today = datetime.date.today()
+    contributions_today = contributions.get(today, 0)
+    if contributions_today > 15:
+        print("Estimated Github contributions today %s: %s" % (today, contributions_today))
     return True
 
 
