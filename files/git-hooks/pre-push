@@ -5,5 +5,5 @@ IFS=$'\n\t'
 
 url="$2"
 if [[ "$url" == *"github.com"* ]]; then
-    ~/.dotfiles/scripts/github-contributions.sh &
+    ~/.dotfiles/scripts/github_contributions.py
 fi
