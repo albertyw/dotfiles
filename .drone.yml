@@ -7,7 +7,7 @@ steps:
     image: python:3.13
     commands:
       - pip install ruff
-      - ruff check . --exclude files/vim
+      - ruff check . --exclude files/vim,scripts/git/req-update --select E,F,W,A,B,COM,N,PLC,PLE,PLW
 
   - name: Test Vim
     image: python:3.13
