@@ -101,14 +101,17 @@ def main() -> bool:
     be more than 20 per day
     """
     remote_contributions = get_remote_contributions()
-    get_local_contributions()
-    today = datetime.date.today()
-    remote_contributions_today = remote_contributions.get(today, 0)
-    if remote_contributions_today > 15:
-        print("Estimated Github contributions %s: %s" %
-            (today, remote_contributions_today))
+    local_contributions = get_local_contributions()
+    for local_date, local_count in local_contributions.items():
+        count = remote_contributions.get(local_date, 0) + local_count
+        if count > 15:
+            print("Estimated Github contributions %s: %s" % (local_date, count))
+        if count > 20:
+            return False
     return True
 
 
 if __name__ == "__main__":
-    main()
+    allow = main()
+    if not allow:
+        exit(1)
