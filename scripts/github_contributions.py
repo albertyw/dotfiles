@@ -23,7 +23,7 @@ def get_github_api_headers() -> dict[str, str]:
     return github_api_headers
 
 
-def get_contributions() -> dict[datetime.date, int]:
+def get_remote_contributions() -> dict[datetime.date, int]:
     request_data = {
         "query": """
         query {
@@ -66,11 +66,12 @@ def main() -> bool:
     Returns whether already pushed plus planned-to-pushed contributions will
     be more than 20 per day
     """
-    contributions = get_contributions()
+    remote_contributions = get_remote_contributions()
     today = datetime.date.today()
-    contributions_today = contributions.get(today, 0)
-    if contributions_today > 15:
-        print("Estimated Github contributions today %s: %s" % (today, contributions_today))
+    remote_contributions_today = remote_contributions.get(today, 0)
+    if remote_contributions_today > 15:
+        print("Estimated Github contributions %s: %s" %
+            (today, remote_contributions_today))
     return True
 
 
