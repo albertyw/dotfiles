@@ -21,3 +21,5 @@
     followRedirects = true
 [http "https://gopkg.in"]
     followRedirects = true
+[credential "https://git.uberinternal.com"]
+	helper = !arh auth git-credential
