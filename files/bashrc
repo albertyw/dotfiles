@@ -117,6 +117,12 @@ fi
 # Makefile
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' ?akefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 
+# Qlty
+if [ -d "$HOME/.qlty" ]; then
+    export QLTY_INSTALL="$HOME/.qlty"
+    export PATH=$QLTY_INSTALL/bin:$PATH
+fi
+
 # Direnv
 if command -v direnv > /dev/null; then
     eval "$(direnv hook bash)"
