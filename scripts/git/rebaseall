@@ -5,9 +5,12 @@ IFS=$'\n\t'
 
 # This script rebases all branches in the current Git repository
 # onto the currently checked-out branch.
+# Add the `-p` flag to delete branches that have been fully merged.
 
 blue='\033[0;34m'
 no_color='\033[0m'
+
+prune="${1:-}"
 
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 echo -e "${blue}Current branch is '$current_branch'${no_color}"
@@ -17,4 +20,13 @@ for branch in $branches; do
     echo -e "${blue}Rebasing branch '$branch' onto '$current_branch'${no_color}"
     git checkout "$branch"
     git rebase "$current_branch"
+
+    # If -p flag is provided, delete the branch if it has been fully merged
+    if [[ "$prune" == "-p" ]]; then
+        if git merge-base --is-ancestor "$branch" "$current_branch"; then
+            echo -e "${blue}Branch '$branch' has been fully merged into '$current_branch'. Deleting branch...${no_color}"
+            git checkout "$current_branch"
+            git branch -d "$branch"
+        fi
+    fi
 done
