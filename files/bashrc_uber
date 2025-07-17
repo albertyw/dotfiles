@@ -7,7 +7,7 @@ export UBER_OWNER="albertyw@uber.com"
 export UBER_LDAP_UID="albertyw"
 
 # Uber web monorepo
-export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+# export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 
 # Uber adds a bunch of crap to the hostname, override it
 blue='\[\e[1;34m\]'
