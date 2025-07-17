@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+# This script rebases all branches in the current Git repository
+# onto the currently checked-out branch.
+
+blue='\033[0;34m'
+no_color='\033[0m'
+
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+echo -e "${blue}Current branch is '$current_branch'${no_color}"
+
+branches=$(git for-each-ref --format='%(refname:short)' refs/heads/ | grep -v "^$current_branch$")
+for branch in $branches; do
+    echo -e "${blue}Rebasing branch '$branch' onto '$current_branch'${no_color}"
+    git checkout "$branch"
+    git rebase "$current_branch"
+done
