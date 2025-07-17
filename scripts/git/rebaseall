@@ -30,3 +30,5 @@ for branch in $branches; do
         fi
     fi
 done
+
+git checkout "$current_branch"
