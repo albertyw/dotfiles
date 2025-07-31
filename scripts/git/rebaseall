@@ -22,7 +22,7 @@ for branch in $branches; do
     git rebase "$current_branch"
 
     # If -p flag is provided, delete the branch if it has been fully merged
-    if [[ "$prune" == "-p" ]]; then
+    if [[ "$prune" == "-p" || "$prune" == "--prune" ]]; then
         if git merge-base --is-ancestor "$branch" "$current_branch"; then
             echo -e "${blue}Branch '$branch' has been fully merged into '$current_branch'. Deleting branch...${no_color}"
             git checkout "$current_branch"
