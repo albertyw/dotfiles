@@ -61,6 +61,9 @@ fi
 if command -v nvim > /dev/null; then
     alias vi=nvim
 fi
+if [ -f ~/.dotfiles/bin/nvim/bin/nvim ]; then
+    alias vi="~/.dotfiles/bin/nvim/bin/nvim"
+fi
 
 ### Adjusting the PATH
 export PATH="$PATH:$HOME/.dotfiles/bin"
