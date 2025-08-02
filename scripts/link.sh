@@ -38,6 +38,7 @@ move sudo_as_admin_successful
 move tmux.conf
 move vim
 move vimrc
+move zshrc
 if [[ $(hostname) == *"uber"* ]] ; then
     move gitconfig_uber gitconfig_local
     move bashrc_uber bashrc_local

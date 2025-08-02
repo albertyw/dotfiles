@@ -1,0 +1,6 @@
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt beep extendedglob nomatch
+
+PROMPT="%F{blue}%n%F{red}@%F{yellow}%m%F{red} %~ $ %f"
