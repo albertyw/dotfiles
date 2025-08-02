@@ -11,3 +11,5 @@ augroup END
 
 " Ignore mouse
 set mouse=
+
+lua require('config')
