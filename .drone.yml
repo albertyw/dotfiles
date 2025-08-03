@@ -13,7 +13,7 @@ steps:
     image: python:3.13
     commands:
       - pip install vim-vint==0.3.21 setuptools
-      - git ls-files | grep vim | grep -v sh.vim | grep -v pack | grep -v spell | xargs vint
+      - git ls-files | grep vim | grep -v sh.vim | grep -v pack | grep -v spell | grep -v lua | xargs vint
 
   - name: Test Bash
     image: koalaman/shellcheck-alpine:stable
