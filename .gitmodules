@@ -46,9 +46,15 @@
 [submodule "files/vim/pack/albertyw/start/starlark.vim"]
 	path = files/vim/pack/albertyw/start/starlark.vim
 	url = git@github.com:cappyzawa/starlark.vim.git
+[submodule "files/vim/pack/albertyw/start/copilot"]
+	path = files/vim/pack/albertyw/start/copilot
+	url = git@github.com:github/copilot.vim
 [submodule "files/vim/pack/albertyw/start/rainbow_csv"]
 	path = files/vim/pack/albertyw/start/rainbow_csv
 	url = git@github.com:mechatroner/rainbow_csv.git
+[submodule "files/vim/pack/albertyw/start/vim-copilot-ignore"]
+	path = files/vim/pack/albertyw/start/vim-copilot-ignore
+	url = git@github.com:panozzaj/vim-copilot-ignore.git
 [submodule "files/vim/pack/albertyw/start/vim-terraform"]
 	path = files/vim/pack/albertyw/start/vim-terraform
 	url = git@github.com:hashivim/vim-terraform.git
