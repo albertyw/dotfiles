@@ -33,12 +33,6 @@ sudo dpkg-reconfigure --frontend noninteractive tzdata
 sudo locale-gen en_US en_US.UTF-8
 sudo dpkg-reconfigure --frontend noninteractive locales
 
-# Neovim
-wget https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz
-mkdir ~/.dotfiles/bin/nvim
-tar xvf nvim-linux-x86_64.tar.gz --strip-components=1 -C ~/.dotfiles/bin/nvim
-rm nvim-linux-x86_64.tar.gz
-
 # RVM (takes a long time)
 # gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 # curl -sSL https://get.rvm.io | bash -s stable --ruby
