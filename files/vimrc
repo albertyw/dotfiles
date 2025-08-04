@@ -58,3 +58,6 @@ set nofoldenable
 
 imap <silent><script><expr> <C-space> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+
+" Disable copilot strict SSL to deal with Uber zscaler
+let g:copilot_proxy_strict_ssl = v:false
