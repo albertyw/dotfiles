@@ -9,3 +9,6 @@
 
 # Ignore personal python environment automation
 .envrc
+
+# Ignore claude settings
+.claude
