@@ -21,5 +21,12 @@
     followRedirects = true
 [http "https://gopkg.in"]
     followRedirects = true
+
 [credential "https://git.uberinternal.com"]
 	helper = !arh auth git-credential
+[gpg]
+   format = x509
+[gpg "x509"]
+   program = /opt/uber/bin/signingfx
+[commit]
+   gpgsign = false
