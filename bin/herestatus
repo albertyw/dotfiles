@@ -16,7 +16,7 @@ for f in ./*; do
     fi
     result="$(git -C "$f" status || true)"
     if [[ -n "$result" ]]; then
-        if [[ ${result} == *"working tree clean"* && ${result} == *"up to date"* ]]; then
+        if [[ ${result} == *"working tree clean"* && ${result} == *"up to date"* && ${result} == *"master"* ]]; then
             continue
         fi
         echo -e "${yellow}$f${reset}"
