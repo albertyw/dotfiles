@@ -62,6 +62,7 @@
     # Set the email used for git commits
     email = git@albertyw.com
 
+# Git LFS configuration
 [filter "lfs"]
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
@@ -126,6 +127,7 @@
 
 # Branching/Merging
 [branch]
+    # Always rebase when pulling
     autosetuprebase = always
     # Sort branches by committer date instead of alphabetical
     sort = committerdate
@@ -140,25 +142,34 @@
     updateRefs = true
 
 [diff]
+    # Use a more advanced diff algorithm
     algorithm = histogram
+    # Use vimdiff as the default diff tool
     tool = vimdiff
+    # Ignore whitespace changes in diffs
     indentHeuristic = true
     # Have git detect renames and copies in git diff
     renames = copies
+    # limit the number of files to consider for renames
     renameLimit = 1000
+    # Show a log of changes for a submodule update when running git diff
     submodule = log
     # Show a different color for moved lines
     colorMoved = plain
+    # Allow indentation changes to count as moved lines
     colorMovedWS = allow-indentation-change
 
 [difftool]
+    # Do not prompt before launching difftool
     prompt = false
 
 
 [merge]
+    # Show the original parent versions in a 3-way merge
     conflictstyle = diff3
     # TODO: switch to zdiff3 after ubuntu updates to >2.35.0
     # conflictstyle = zdiff3
+    # Show 20 lines of git log context in merge conflicts
     log = true
 
 [rerere]
@@ -167,6 +178,7 @@
     enabled = true
 
 [apply]
+    # Automatically fix whitespace errors when applying patches
     whitespace = fix
 
 # UI
@@ -177,7 +189,9 @@
 [color "grep"]
     # Set colors for git grep
     filename = magenta
+    # Highlight the matching text in red bold
     match = bold red
+    # Show line numbers in blue bold
     linenumber = bold blue
 
 [color "diff"]
