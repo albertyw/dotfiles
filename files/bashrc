@@ -64,6 +64,7 @@ fi
 
 ### Adjusting the PATH
 export PATH="$PATH:$HOME/.dotfiles/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Python
 if [ -d "$HOME/.pyenv" ]; then

@@ -12,3 +12,6 @@
 
 # Ignore claude settings
 .claude
+
+# Ignore aider
+.aider*
