@@ -18,7 +18,7 @@
 # Main model:
 
 ## Specify the model to use for the main chat
-#model: xxx
+model: ollama_chat/gpt-oss
 
 ########################
 # API Keys and settings:
@@ -47,7 +47,8 @@
 ## Set an environment variable (to control API settings, can be used multiple times)
 #set-env: xxx
 ## Specify multiple values like this:
-#set-env:
+set-env:
+  - OLLAMA_API_BASE=http://127.0.0.1:11434
 #  - xxx
 #  - yyy
 #  - zzz
@@ -210,7 +211,7 @@
 #git: true
 
 ## Enable/disable adding .aider* to .gitignore (default: True)
-#gitignore: true
+gitignore: false
 
 ## Enable/disable the addition of files listed in .gitignore to Aider's editing scope.
 #add-gitignore-files: false
@@ -222,7 +223,7 @@
 #subtree-only: false
 
 ## Enable/disable auto commit of LLM changes (default: True)
-#auto-commits: true
+auto-commits: false
 
 ## Enable/disable commits when repo is found dirty (default: True)
 #dirty-commits: true
