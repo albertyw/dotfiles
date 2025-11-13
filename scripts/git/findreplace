@@ -16,6 +16,10 @@ fi
 escaped_search=$(printf '%s\n' "$search" | sed -e 's/[]\/$*.^[]/\\&/g');
 escaped_replace=$(printf '%s\n' "$replace" | sed -e 's/[]\/$*.^[]/\\&/g');
 
+# Escape '&' in the replacement string for sed
+escaped_search=$(printf '%s\n' "$escaped_search" | sed -e 's/&/\\&/g');
+escaped_replace=$(printf '%s\n' "$escaped_replace" | sed -e 's/&/\\&/g');
+
 sed2() {
     file="$1"
     echo "$file"
