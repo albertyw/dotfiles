@@ -1,3 +1,6 @@
 - name: ollama_chat/gpt-oss:20b
   extra_params:
     num_ctx: 65536
+- name: ollama_chat/qwen3-coder:30b
+  extra_params:
+    num_ctx: 65536
