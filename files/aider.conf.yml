@@ -18,7 +18,7 @@
 # Main model:
 
 ## Specify the model to use for the main chat
-model: ollama_chat/gpt-oss
+model: ollama_chat/gpt-oss:20b
 
 ########################
 # API Keys and settings:
@@ -48,7 +48,7 @@ model: ollama_chat/gpt-oss
 #set-env: xxx
 ## Specify multiple values like this:
 set-env:
-  - OLLAMA_API_BASE=http://127.0.0.1:11434
+  - OLLAMA_API_BASE=http://192.168.50.128:11434
 #  - xxx
 #  - yyy
 #  - zzz
