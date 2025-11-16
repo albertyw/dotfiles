@@ -23,7 +23,6 @@ set list
 augroup filetypes
     au BufRead,BufNewFile requirements-*.txt set ft=requirements
     au BufRead,BufNewFile *.dj setfiletype htmldjango
-    au BufRead,BufNewFile .env* set syntax=sh
     au BufRead,BufNewFile Dockerfile* set syntax=dockerfile
     au BufRead,BufNewFile METADATA set syntax=yaml
     au BufRead,BufNewFile *.conf set syntax=dosini
@@ -31,6 +30,12 @@ augroup filetypes
     au BufRead,BufNewFile .arc* set syntax=json
     au BufRead,BufNewFile go.mod set syntax=gomod
     au BufRead,BufNewFile go.sum set syntax=gosum
+
+    au BufRead,BufNewFile *.env* setlocal filetype=dotenv syntax=sh
+    au BufRead,BufNewFile env setlocal filetype=dotenv syntax=sh
+    au BufRead,BufNewFile env.* setlocal filetype=dotenv syntax=sh
+    au BufRead,BufNewFile id_* setlocal filetype=secret
+    au BufRead,BufNewFile secret_* setlocal filetype=secret
 
     autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
     autocmd Filetype css setlocal ts=2 sts=2 sw=2
@@ -62,3 +67,12 @@ let g:copilot_no_tab_map = v:true
 
 " Disable copilot strict SSL to deal with Uber zscaler
 let g:copilot_proxy_strict_ssl = v:false
+
+" Disable copilot for specific filetypes
+let g:copilot_filetypes = {
+    \ 'markdown': v:false,
+    \ 'restructuredtext': v:false,
+    \ 'text': v:false,
+    \ 'dotenv': v:false,
+    \ 'secret': v:false,
+    \ }

@@ -31,7 +31,6 @@ move aider.model.settings.yml
 move bash_profile
 move bashrc
 move config
-move copilotignore
 move direnvrc
 move gitconfig
 move gitignore
