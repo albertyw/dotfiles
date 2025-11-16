@@ -34,6 +34,8 @@ augroup filetypes
     au BufRead,BufNewFile *.env* setlocal filetype=dotenv syntax=sh
     au BufRead,BufNewFile env setlocal filetype=dotenv syntax=sh
     au BufRead,BufNewFile env.* setlocal filetype=dotenv syntax=sh
+    au BufRead,BufNewFile id_* setlocal filetype=secret
+    au BufRead,BufNewFile secret_* setlocal filetype=secret
 
     autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
     autocmd Filetype css setlocal ts=2 sts=2 sw=2
@@ -72,4 +74,5 @@ let g:copilot_filetypes = {
     \ 'restructuredtext': v:false,
     \ 'text': v:false,
     \ 'dotenv': v:false,
+    \ 'secret': v:false,
     \ }
