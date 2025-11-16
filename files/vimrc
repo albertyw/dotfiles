@@ -21,7 +21,7 @@ set lcs=tab:▸\ ,trail:·,nbsp:_
 set list
 
 augroup filetypes
-    au BufNewFile,BufRead requirements-*.txt set ft=requirements
+    au BufRead,BufNewFile requirements-*.txt set ft=requirements
     au BufRead,BufNewFile *.dj setfiletype htmldjango
     au BufRead,BufNewFile .env* set syntax=sh
     au BufRead,BufNewFile Dockerfile* set syntax=dockerfile
