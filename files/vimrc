@@ -29,6 +29,8 @@ augroup filetypes
     au BufRead,BufNewFile *.conf set syntax=dosini
     au BufRead,BufNewFile *.uql set syntax=sql
     au BufRead,BufNewFile .arc* set syntax=json
+    au BufRead,BufNewFile go.mod set syntax=gomod
+    au BufRead,BufNewFile go.sum set syntax=gosum
 
     autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
     autocmd Filetype css setlocal ts=2 sts=2 sw=2
@@ -36,9 +38,6 @@ augroup filetypes
     autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
     autocmd Filetype typescriptreact setlocal ts=2 sts=2 sw=2
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-    au BufRead,BufNewFile go.mod set syntax=gomod
-    au BufRead,BufNewFile go.sum set syntax=gosum
 augroup END
 
 augroup WrapLineInTeXFile
