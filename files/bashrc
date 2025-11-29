@@ -97,6 +97,11 @@ if command -v npm > /dev/null; then
     source <(npm completion)
     source "$HOME/.dotfiles/files/completion/npx-completion.sh"
 fi
+# pnpm
+if [ -s "$HOME/.local/share/pnpm" ]; then
+    export PNPM_HOME="$HOME/.local/share/pnpm"
+    export PATH="$PNPM_HOME:$PATH"
+fi
 
 # Ruby
 # Not using ruby for anything right now

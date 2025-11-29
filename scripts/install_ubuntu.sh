@@ -47,6 +47,7 @@ sudo apt install git
 # Node.js
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 nvm install --lts
+curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 # Python/pip/virtualenv
 curl https://pyenv.run | bash
