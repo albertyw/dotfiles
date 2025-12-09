@@ -4,6 +4,7 @@
 
 [user]
     email = albertyw@uber.com
+    signingkey =
 
 [url "ssh://code.uber.internal/"]
     insteadOf = https://code.uber.internal/
