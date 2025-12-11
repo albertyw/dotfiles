@@ -19,7 +19,9 @@ update_dotfiles () {
         exit
     fi
 
-    changes="$(git diff)"
+    changes="$(git diff --name-only)"
+    # Uber changes .gitconfig
+    changes="$(echo "$changes" | grep -v '^files/gitconfig$')"
     if [ "$changes" != "" ]; then
         echo 'YOU HAVE UNCOMMITTED CHANGES';
         exit
