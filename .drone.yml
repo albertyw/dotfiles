@@ -4,7 +4,7 @@ name: test
 
 steps:
   - name: Test Python
-    image: python:3.13
+    image: python:3.14
     commands:
       - pip install ruff
       - ruff check . --exclude files/vim,scripts/git/req-update --select E,F,W,A,B,COM,N,PLC,PLE,PLW
