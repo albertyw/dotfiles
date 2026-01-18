@@ -30,6 +30,7 @@ move aider.conf.yml
 move aider.model.settings.yml
 move bash_profile
 move bashrc
+move claude-code-router
 move config
 move direnvrc
 move gitconfig

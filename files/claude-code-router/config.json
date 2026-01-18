@@ -1,0 +1,29 @@
+{
+  "LOG": true,
+  "CLAUDE_PATH": "/home/albertyw/.nvm/versions/node/v24.12.0/bin/claude",
+  "API_TIMEOUT_MS": 600000,
+  "transformers": [],
+  "Providers": [
+    {
+      "name": "ollama",
+      "api_base_url": "http://localhost:11434/v1/chat/completions",
+      "api_key": "ollama",
+      "models": [
+        "qwen2.5-coder:latest",
+        "gpt-oss:20b"
+      ],
+      "transformer": [
+        "tooluse",
+        "enhancetool"
+      ]
+    }
+  ],
+  "Router": {
+    "default": "ollama,qwen2.5-coder:latest",
+    "background": "ollama,gpt-oss:20b",
+    "think": "ollama,gpt-oss:20b",
+    "longContext": "ollama,gpt-oss:20b",
+    "webSearch": "ollama,gpt-oss:20b"
+  },
+  "NON_INTERACTIVE_MODE": false
+}
