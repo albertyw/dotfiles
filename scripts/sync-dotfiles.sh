@@ -65,12 +65,14 @@ touch "$lastupdated_file"
 cd ~/.dotfiles
 
 check_internet
-update_dotfiles
+# Have update_dotfiles ignore SIGHUP and SIGINT
+( set -m; update_dotfiles & wait )
 
 # Check if there are updates to ssh
 if [ -d ~/.ssh/.git ]; then
     cd ~/.ssh
-    update_dotfiles
+    # Have update_dotfiles ignore SIGHUP and SIGINT
+    ( set -m; update_dotfiles & wait)
 fi
 
 # Reenable SIGINT and SIGHUP
