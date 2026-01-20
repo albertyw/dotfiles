@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# geoip: fetch geoip info for given IP
+
+set -eo pipefail
+IFS=$'\n\t'
+
+curl "https://ipinfo.io/$1"

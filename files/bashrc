@@ -41,8 +41,6 @@ alias mkdir='mkdir -p'
 alias myip='myipv4'
 alias myipv4='curl --silent https://ip4only.me/api/ | cut -d',' -f2'
 alias myipv6='curl --silent https://ip6only.me/api/ | cut -d',' -f2'
-function geoip { curl "https://ipinfo.io/$1"; }
-export -f geoip
 if [[ $(uname) == Linux ]]; then
     alias ls='ls --color=always'
 fi
