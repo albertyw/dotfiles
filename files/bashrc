@@ -36,6 +36,7 @@ alias alert='echo -e "\a"'
 alias diff='icdiff'
 alias tree='tree -C'
 alias du='du -h'
+alias env="env -0 | sort -z | tr '\0' '\n'"
 alias mkdir='mkdir -p'
 alias myip='myipv4'
 alias myipv4='curl --silent https://ip4only.me/api/ | cut -d',' -f2'
