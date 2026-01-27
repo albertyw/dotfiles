@@ -129,6 +129,11 @@ if [ -d "$HOME/.qlty" ]; then
     export PATH=$QLTY_INSTALL/bin:$PATH
 fi
 
+# add Pulumi to the PATH
+if [ -d "$HOME/.pulumi/bin" ]; then
+    export PATH="$PATH:$HOME/.pulumi/bin"
+fi
+
 # Direnv
 if command -v direnv > /dev/null; then
     eval "$(direnv hook bash)"
@@ -147,6 +152,3 @@ export ANTHROPIC_AUTH_TOKEN=ollama
 export ANTHROPIC_BASE_URL=http://localhost:11434
 
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
-
-# add Pulumi to the PATH
-export PATH=$PATH:/home/albertyw/.pulumi/bin
