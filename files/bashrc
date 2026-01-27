@@ -141,9 +141,6 @@ if command -v direnv > /dev/null; then
     PS1='$(show_virtual_env)'$PS1
 fi
 
-# Ollama
-export OLLAMA_CONTEXT_LENGTH=64000
-
 # Claude Code
 # Have Claude use ollama
 export ANTHROPIC_AUTH_TOKEN=ollama
