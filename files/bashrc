@@ -147,3 +147,6 @@ export ANTHROPIC_AUTH_TOKEN=ollama
 export ANTHROPIC_BASE_URL=http://localhost:11434
 
 [[ -r $HOME/.bashrc_local ]] && . ~/.bashrc_local
+
+# add Pulumi to the PATH
+export PATH=$PATH:/home/albertyw/.pulumi/bin
