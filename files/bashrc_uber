@@ -6,6 +6,8 @@ export UBER_HOME="$HOME/Uber"
 export UBER_OWNER="albertyw@uber.com"
 export UBER_LDAP_UID="albertyw"
 
+alias ussh="ussh && ~/.dotfiles/npm_reset"
+
 # Uber web monorepo
 # export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 
