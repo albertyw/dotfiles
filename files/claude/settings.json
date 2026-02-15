@@ -23,6 +23,10 @@
             "Bash(tail :*)",
             "Bash(tree :*)",
             "Bash(wc :*)"
+        ],
+        "deny": [
+            "Read(./.env**)",
+            "Bash(git commit :*)"
         ]
     }
 }
