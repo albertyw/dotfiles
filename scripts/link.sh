@@ -26,8 +26,6 @@ move () {
 git submodule init
 git submodule update --recursive
 
-move aider.conf.yml
-move aider.model.settings.yml
 move bash_profile
 move bashrc
 move config
