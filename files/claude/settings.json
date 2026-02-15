@@ -1,0 +1,33 @@
+{
+    "hooks": {
+        "Notification": [
+            {
+                "matcher": "permission_prompt",
+                "hooks": [{
+                    "type": "command",
+                    "command": "alert"
+                }]
+            }
+        ]
+    },
+    "permissions": {
+        "allow": [
+            "Bash(cat :*)",
+            "Bash(diff :*)",
+            "Bash(du :*)",
+            "Bash(find :*)",
+            "Bash(grep :*)",
+            "Bash(head :*)",
+            "Bash(ls :*)",
+            "Bash(pwd)",
+            "Bash(tail :*)",
+            "Bash(tree :*)",
+            "Bash(wc :*)",
+            "WebFetch"
+        ],
+        "deny": [
+            "Read(./.env**)",
+            "Bash(git commit :*)"
+        ]
+    }
+}
