@@ -28,6 +28,7 @@ git submodule update --recursive
 
 move bash_profile
 move bashrc
+move claude
 move config
 move direnvrc
 move gitconfig
