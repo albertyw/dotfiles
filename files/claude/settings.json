@@ -22,7 +22,8 @@
             "Bash(pwd)",
             "Bash(tail :*)",
             "Bash(tree :*)",
-            "Bash(wc :*)"
+            "Bash(wc :*)",
+            "WebFetch"
         ],
         "deny": [
             "Read(./.env**)",
