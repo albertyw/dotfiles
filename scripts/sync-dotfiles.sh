@@ -20,8 +20,10 @@ update_dotfiles () {
     fi
 
     changes="$(git diff --name-only)"
-    # Uber changes .gitconfig
-    changes="$(echo "$changes" | grep -v '^files/gitconfig$')"
+    # Uber changes .gitconfig; disable errors from grep exiting this script
+    set +e
+    changes="$(echo "$changes" | grep -v '^files/gitconfig$' | grep -v 'sync-dotfiles')"
+    set -e
     if [ "$changes" != "" ]; then
         echo 'YOU HAVE UNCOMMITTED CHANGES';
         exit
