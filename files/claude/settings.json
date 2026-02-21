@@ -2,29 +2,25 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
-      "Bash(cat :*)",
-      "Bash(diff :*)",
-      "Bash(du :*)",
-      "Bash(find :*)",
-      "Bash(grep :*)",
-      "Bash(head :*)",
-      "Bash(ls :*)",
+      "Bash(cat *)",
+      "Bash(diff *)",
+      "Bash(du *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(head *)",
+      "Bash(ls *)",
+      "Bash(ollama ps*)",
       "Bash(pwd)",
-      "Bash(tail :*)",
-      "Bash(test :*)",
-      "Bash(tree :*)",
-      "Bash(wc :*)",
-      "Bash(which :*)",
-      "WebFetch",
-      "Bash(ls:*)",
-      "Bash(ollama ps:*)",
-      "Bash(curl:*)",
-      "Bash(pnpm run build:dev)",
-      "Bash(pnpm eslint:*)"
+      "Bash(tail *)",
+      "Bash(test *)",
+      "Bash(tree *)",
+      "Bash(wc *)",
+      "Bash(which *)",
+      "WebFetch"
     ],
     "deny": [
       "Read(./.env**)",
-      "Bash(git commit :*)"
+      "Bash(git commit *)"
     ],
     "defaultMode": "default"
   },
