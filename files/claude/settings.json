@@ -1,33 +1,45 @@
 {
-    "hooks": {
-        "Notification": [
-            {
-                "matcher": "permission_prompt",
-                "hooks": [{
-                    "type": "command",
-                    "command": "alert"
-                }]
-            }
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(cat :*)",
+      "Bash(diff :*)",
+      "Bash(du :*)",
+      "Bash(find :*)",
+      "Bash(grep :*)",
+      "Bash(head :*)",
+      "Bash(ls :*)",
+      "Bash(pwd)",
+      "Bash(tail :*)",
+      "Bash(test :*)",
+      "Bash(tree :*)",
+      "Bash(wc :*)",
+      "Bash(which :*)",
+      "WebFetch",
+      "Bash(ls:*)",
+      "Bash(ollama ps:*)",
+      "Bash(curl:*)",
+      "Bash(pnpm run build:dev)",
+      "Bash(pnpm eslint:*)"
+    ],
+    "deny": [
+      "Read(./.env**)",
+      "Bash(git commit :*)"
+    ],
+    "defaultMode": "default"
+  },
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf \"\\a\" > /dev/tty"
+          }
         ]
-    },
-    "permissions": {
-        "allow": [
-            "Bash(cat :*)",
-            "Bash(diff :*)",
-            "Bash(du :*)",
-            "Bash(find :*)",
-            "Bash(grep :*)",
-            "Bash(head :*)",
-            "Bash(ls :*)",
-            "Bash(pwd)",
-            "Bash(tail :*)",
-            "Bash(tree :*)",
-            "Bash(wc :*)",
-            "WebFetch"
-        ],
-        "deny": [
-            "Read(./.env**)",
-            "Bash(git commit :*)"
-        ]
-    }
+      }
+    ]
+  }
 }
