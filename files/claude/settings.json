@@ -20,7 +20,8 @@
     ],
     "deny": [
       "Read(./.env**)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ],
     "defaultMode": "default"
   },
