@@ -19,7 +19,6 @@
       "WebFetch"
     ],
     "deny": [
-      "Read(./.env**)",
       "Bash(git commit *)",
       "Bash(git push *)"
     ],
