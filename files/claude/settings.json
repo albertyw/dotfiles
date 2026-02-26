@@ -1,5 +1,20 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "fastMode": false,
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "command": "printf \"\\a\" \u003e /dev/tty",
+            "type": "command"
+          }
+        ],
+        "matcher": "permission_prompt"
+      }
+    ]
+  },
+  "model": "opus",
   "permissions": {
     "allow": [
       "Bash(cat *)",
@@ -22,24 +37,10 @@
       "mcp__monorepo-experts-mcp-server__update_build_files",
       "mcp__monorepo-experts-mcp-server__get_coverage_report"
     ],
+    "defaultMode": "default",
     "deny": [
       "Bash(git commit *)",
       "Bash(git push *)"
-    ],
-    "defaultMode": "default"
-  },
-  "model": "opus",
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "permission_prompt",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "printf \"\\a\" > /dev/tty"
-          }
-        ]
-      }
     ]
   }
 }
