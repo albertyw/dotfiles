@@ -8,6 +8,9 @@ export UBER_LDAP_UID="albertyw"
 
 alias ussh="ussh && ~/.dotfiles/npm_reset"
 
+unset ANTHROPIC_AUTH_TOKEN
+unset ANTHROPIC_BASE_URL
+
 # Uber web monorepo
 # export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 
