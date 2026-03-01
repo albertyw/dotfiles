@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 echo "\033[44m TEMPERATURES \033[0m"
 temperature
