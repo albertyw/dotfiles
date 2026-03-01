@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script runs git find (see gitconfig) through all git repositories
 # directly underneath my current directory

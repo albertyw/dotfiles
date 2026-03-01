@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script diffs the structure of two directories
 # without comparing file contents
 

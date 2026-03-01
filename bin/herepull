@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script runs git pull through all clean git repositories
 # directly underneath my current directory

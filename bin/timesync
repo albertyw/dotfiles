@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check whether local time is correct.  System time might drift on VMs.
 

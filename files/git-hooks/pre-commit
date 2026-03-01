@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Cannot have pipefail because grep will exit with status code 1 if no text is selected
 set -eu

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script runs git grep through all git repositories directly underneath
 # the current directory

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 domain=$1
 if [ "$domain" = "" ]; then
   echo "Need domain"

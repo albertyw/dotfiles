@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script synchronizes the local dotfiles repository
 
 set -euo pipefail

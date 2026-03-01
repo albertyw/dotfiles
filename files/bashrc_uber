@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export GOPATH=$HOME/Uber/gocode
 export PATH="$PATH:$GOPATH/bin"

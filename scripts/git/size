@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo 'Current Branch'
 git count-objects -vH | grep size-pack | cut -d' ' -f 2-3
