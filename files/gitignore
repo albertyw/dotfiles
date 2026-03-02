@@ -12,3 +12,4 @@
 
 # Ignore claude settings
 .claude
+.mcp.json*
