@@ -1,20 +1,21 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "fastMode": false,
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true
+  },
   "hooks": {
     "Notification": [
       {
         "hooks": [
           {
-            "command": "printf \"\\a\" \u003e /dev/tty",
+            "command": "notify claude",
             "type": "command"
           }
         ],
-        "matcher": "permission_prompt"
+        "matcher": ""
       }
     ]
   },
-  "model": "opus",
   "permissions": {
     "allow": [
       "Bash(cat *)",
@@ -24,18 +25,20 @@
       "Bash(grep *)",
       "Bash(head *)",
       "Bash(ls *)",
+      "Bash(mypy *)",
       "Bash(ollama ps*)",
       "Bash(pwd)",
+      "Bash(ruff check *)",
       "Bash(tail *)",
       "Bash(test *)",
       "Bash(tree *)",
       "Bash(wc *)",
       "Bash(which *)",
       "WebFetch",
-      "mcp__monorepo-experts-mcp-server__generate_standard_go_mocks",
       "mcp__monorepo-experts-mcp-server__generate_glue_go_mocks",
-      "mcp__monorepo-experts-mcp-server__update_build_files",
-      "mcp__monorepo-experts-mcp-server__get_coverage_report"
+      "mcp__monorepo-experts-mcp-server__generate_standard_go_mocks",
+      "mcp__monorepo-experts-mcp-server__get_coverage_report",
+      "mcp__monorepo-experts-mcp-server__update_build_files"
     ],
     "defaultMode": "default",
     "deny": [
