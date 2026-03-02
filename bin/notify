@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# This is a generic notification script that works across different platforms (Linux, WSL, macOS).
+# It uses the appropriate notification system based on the detected environment.
+
+set -euo pipefail
+IFS=$'\n\t'
+
+MESSAGE="${1:-"notification"}"
+
+if [[ $(uname -r) =~ WSL ]]; then
+    # Check if wsl-notify-send.exe is available, if not, download and set it up
+    if ! command -v wsl-notify-send.exe &> /dev/null; then
+        (
+            cd ~/.dotfiles/bin
+            wget https://github.com/stuartleeks/wsl-notify-send/releases/download/v0.1.871612270/wsl-notify-send_windows_amd64.zip
+            unzip wsl-notify-send_windows_amd64.zip
+            rm README.md LICENSE wsl-notify-send_windows_amd64.zip
+        )
+    fi
+    wsl-notify-send.exe "$MESSAGE"
+    exit
+fi
+
+if [[ $(uname) == Linux ]]; then
+    notify-send "$MESSAGE"
+    exit
+fi
+
+if [[ $(uname) == Darwin ]]; then
+    osascript -e "display notification \"$MESSAGE\" with title \"notify\" sound name \"Hero\""
+    exit
+fi
