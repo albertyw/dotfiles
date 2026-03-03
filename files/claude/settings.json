@@ -45,5 +45,9 @@
       "Bash(git commit *)",
       "Bash(git push *)"
     ]
+  },
+  "statusLine": {
+    "command": "bash ~/.claude/statusline-command.sh",
+    "type": "command"
   }
 }
