@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# This script gets the ports that are currently being listened to on the
+# system, along with the user, command, and PID associated with each port.
+# It uses the `lsof` command to list open files and filters for those that are
+# listening on IPv4 ports. The output is formatted in a readable way.
+
+echo 'User:      Command:   PID:       Port:'
+echo '--------------------------------------'
+lsof -i 4 -P -n | grep -i 'listen' | awk '{print $3, $1, $2, $9}' | sed 's/ [a-z0-9\.\*]*:/ /' | sort -k 4 -n |xargs printf '%-10s %-10s %-10s %-10s\n' | uniq
