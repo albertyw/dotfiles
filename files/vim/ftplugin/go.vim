@@ -1,3 +1,4 @@
+scriptencoding utf-8
 augroup filetypes
     " GoFmt
     autocmd BufWritePre <buffer> call go#fmt#Format(-1)

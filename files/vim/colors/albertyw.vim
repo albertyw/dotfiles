@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " Vim color file
 " albertyw
 " Created by @albertyw with ThemeCreator (https://github.com/mswift42/themecreator)

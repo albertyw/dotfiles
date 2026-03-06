@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " Read old vim configs
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath

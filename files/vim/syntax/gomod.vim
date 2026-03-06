@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " gomod.vim: Vim syntax file for go.mod file
 "
 " Quit when a (custom) syntax file was already loaded

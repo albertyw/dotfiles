@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " gosum.vim: Vim syntax file for go.sum file
 "
 " Quit when a (custom) syntax file was already loaded
