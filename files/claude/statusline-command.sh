@@ -5,7 +5,6 @@ input=$(cat)
 blue='\e[1;34m'
 red='\e[1;31m'
 yellow='\e[1;33m'
-magentabackground='\e[1;45m'
 reset='\e[0m'
 
 cwd=$(echo "$input" | jq -r '.workspace.current_dir')

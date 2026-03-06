@@ -12,8 +12,8 @@ steps:
   - name: Test Vim
     image: python:3.14
     commands:
-      - pip install vim-vint==0.3.21 setuptools==81.0.0
-      - git ls-files | grep vim | grep -v sh.vim | grep -v pack | grep -v spell | xargs vint
+      - pip install vim-vint==0.3.21 setuptools==79.0.1
+      - git ls-files | grep vim | grep -v sh.vim | grep -v pack | grep -v spell | xargs -n 1 vint
 
   - name: Test Bash
     image: koalaman/shellcheck-alpine:stable
