@@ -1,3 +1,4 @@
+set encoding=utf-8
 scriptencoding utf-8
 filetype on
 filetype plugin indent on
@@ -8,8 +9,6 @@ set ruler
 set nowrap
 set number
 set backspace=indent,eol,start
-set encoding=utf-8
-scriptencoding utf-8
 try
     colorscheme albertyw
     colorscheme vim
