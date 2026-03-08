@@ -22,6 +22,11 @@ if [[ $(uname -r) =~ WSL ]]; then
 fi
 
 if [[ $(uname) == Linux ]]; then
+    if [[ $(hostname) == "personal" ]]; then
+        # Fall back to terminal bell for remote ssh sessions
+        printf "\a" && sleep 1 && printf "\a" && sleep 1 && printf "\a"
+        exit
+    fi
     notify-send "$MESSAGE"
     exit
 fi
