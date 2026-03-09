@@ -39,6 +39,7 @@
       "Bash(env)",
       "Bash(file *)",
       "Bash(find *)",
+      "Bash(gazelle *)",
       "Bash(grep *)",
       "Bash(head *)",
       "Bash(jq *)",
