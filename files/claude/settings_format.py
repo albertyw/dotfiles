@@ -31,9 +31,9 @@ def format_settings(path: Path) -> None:
 def main() -> None:
     parent = Path(__file__).parent
     format_settings(parent / "settings.json")
-    local_path = parent / "settings.local.json"
-    if local_path.exists():
-        format_settings(local_path)
+    personal_path = parent / "settings_personal.json"
+    if personal_path.exists():
+        format_settings(personal_path)
 
 
 if __name__ == "__main__":
