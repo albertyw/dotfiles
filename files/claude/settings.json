@@ -24,7 +24,6 @@
       }
     ]
   },
-  "model": "opus",
   "otelHeadersHelper": "/Users/albertyw/.local/share/aifx/bin/claude-telemetry-token-helper",
   "permissions": {
     "allow": [
