@@ -35,6 +35,7 @@
       "Bash(gazelle *)",
       "Bash(git diff *)",
       "Bash(git log *)",
+      "Bash(git show *)",
       "Bash(git status *)",
       "Bash(grep *)",
       "Bash(head *)",
