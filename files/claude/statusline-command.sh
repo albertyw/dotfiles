@@ -26,15 +26,10 @@ else
     cost="$0.0000"
 fi
 
-# Git lines added/removed in the current working directory
-git_diff=$(git -C "$cwd" diff --no-lock-index --shortstat HEAD 2>/dev/null)
-if [ -n "$git_diff" ]; then
-    added=$(echo "$git_diff" | grep -oP '\d+(?= insertion)' || echo "0")
-    removed=$(echo "$git_diff" | grep -oP '\d+(?= deletion)' || echo "0")
-    git_str="+${added}/-${removed}"
-else
-    git_str="+0/-0"
-fi
+# Git lines added/removed from Claude Code's cost tracking
+lines_added=$(echo "$input" | jq -r '.cost.total_lines_added // 0')
+lines_removed=$(echo "$input" | jq -r '.cost.total_lines_removed // 0')
+git_str="+${lines_added}/-${lines_removed}"
 
 printf "${blue}%s${reset} | ${yellow}%s${reset} | ${red}%s${reset} | ${blue}%s${reset} | %s\n" \
     "$model" "$context_str" "$cost" "$git_str" "$cwd"
