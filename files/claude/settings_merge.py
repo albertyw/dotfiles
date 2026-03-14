@@ -51,6 +51,23 @@ def merge(base: object, override: object, path: str = "") -> object:
         print("Please enter 1 or 2.")
 
 
+def find_extras(base: object, personal: object, path: str = "") -> list[str]:
+    """Return paths present in base but not in personal."""
+    extras: list[str] = []
+    if isinstance(base, dict) and isinstance(personal, dict):
+        for key, val in base.items():
+            child_path = f"{path}.{key}" if path else key
+            if key not in personal:
+                extras.append(f"{child_path}: {json.dumps(val)}")
+            else:
+                extras.extend(find_extras(val, personal[key], child_path))
+    elif isinstance(base, list) and isinstance(personal, list):
+        for item in base:
+            if item not in personal:
+                extras.append(f"{path}[]: {json.dumps(item)}")
+    return extras
+
+
 def main() -> None:
     parent = Path(__file__).parent
     base_path = parent / "settings.json"
@@ -63,6 +80,14 @@ def main() -> None:
 
     base = json.loads(base_path.read_text())
     personal = json.loads(personal_path.read_text())
+
+    extras = find_extras(base, personal)
+    if extras:
+        print("Settings in settings.json but not in settings_personal.json:")
+        for entry in extras:
+            print(f"  {entry}")
+    else:
+        print("No settings in settings.json are missing from settings_personal.json.")
 
     merged = merge(base, personal)
     base_path.write_text(json.dumps(merged, indent=2) + "\n")
