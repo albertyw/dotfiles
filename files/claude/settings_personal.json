@@ -37,6 +37,7 @@
       "Bash(git log *)",
       "Bash(git show *)",
       "Bash(git status *)",
+      "Bash(go doc *)",
       "Bash(grep *)",
       "Bash(head *)",
       "Bash(jq *)",
