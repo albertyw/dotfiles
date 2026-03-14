@@ -73,12 +73,10 @@ def main() -> None:
     base_path = parent / "settings.json"
     personal_path = parent / "settings_personal.json"
 
-    if not base_path.exists():
-        sys.exit(f"Error: {base_path} not found")
     if not personal_path.exists():
         sys.exit(f"Error: {personal_path} not found")
 
-    base = json.loads(base_path.read_text())
+    base = json.loads(base_path.read_text()) if base_path.exists() else {}
     personal = json.loads(personal_path.read_text())
 
     extras = find_extras(base, personal)
