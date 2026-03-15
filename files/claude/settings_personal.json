@@ -41,6 +41,7 @@
       "Bash(git show *)",
       "Bash(git status *)",
       "Bash(go doc *)",
+      "Bash(go env *)",
       "Bash(go vet *)",
       "Bash(golangci-lint *)",
       "Bash(grep *)",
