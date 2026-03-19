@@ -68,7 +68,8 @@
       "Bash(uniq *)",
       "Bash(wc *)",
       "Bash(which *)",
-      "WebFetch"
+      "WebFetch",
+      "WebSearch"
     ],
     "defaultMode": "default",
     "deny": [
