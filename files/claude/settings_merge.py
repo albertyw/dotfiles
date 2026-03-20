@@ -56,6 +56,8 @@ def find_extras(base: object, personal: object, path: str = "") -> list[str]:
     extras: list[str] = []
     if isinstance(base, dict) and isinstance(personal, dict):
         for key, val in base.items():
+            if key in ("model", "effortLevel"):
+                continue
             child_path = f"{path}.{key}" if path else key
             if key not in personal:
                 extras.append(f"{child_path}: {json.dumps(val)}")
