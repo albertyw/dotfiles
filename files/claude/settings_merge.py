@@ -17,8 +17,14 @@ _mod = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_mod)
 format_settings = _mod.format_settings
 
+IGNORED_KEYS = frozenset({"model", "effortLevel"})
+
 # Each change is (path, personal_value, settings_value)
 Change = tuple[str, str, str]
+
+
+def _join_path(path: str, key: str) -> str:
+    return f"{path}.{key}" if path else key
 
 
 def merge(base: object, override: object, path: str = "") -> object:
@@ -26,7 +32,7 @@ def merge(base: object, override: object, path: str = "") -> object:
         merged = dict(base)
         for key, over_val in override.items():
             if key in merged:
-                merged[key] = merge(merged[key], over_val, f"{path}.{key}")
+                merged[key] = merge(merged[key], over_val, _join_path(path, key))
             else:
                 merged[key] = over_val
         return merged
@@ -59,15 +65,15 @@ def collect_changes(base: object, personal: object, path: str = "") -> list[Chan
     changes: list[Change] = []
     if isinstance(base, dict) and isinstance(personal, dict):
         for key, val in personal.items():
-            child_path = f"{path}.{key}" if path else key
+            child_path = _join_path(path, key)
             if key not in base:
                 changes.append((child_path, json.dumps(val), ""))
             else:
                 changes.extend(collect_changes(base[key], val, child_path))
         for key, val in base.items():
-            if key in ("model", "effortLevel"):
+            if key in IGNORED_KEYS:
                 continue
-            child_path = f"{path}.{key}" if path else key
+            child_path = _join_path(path, key)
             if key not in personal:
                 changes.append((child_path, "", json.dumps(val)))
     elif isinstance(base, list) and isinstance(personal, list):
@@ -102,12 +108,12 @@ def main() -> None:
     if not personal_path.exists():
         sys.exit(f"Error: {personal_path} not found")
 
-    base = json.loads(base_path.read_text()) if base_path.exists() else {}
+    original_text = base_path.read_text() if base_path.exists() else ""
+    base = json.loads(original_text) if original_text else {}
     personal = json.loads(personal_path.read_text())
 
     changes = collect_changes(base, personal)
 
-    original_text = base_path.read_text() if base_path.exists() else ""
     merged = merge(base, personal)
     base_path.write_text(json.dumps(merged, indent=2) + "\n")
     format_settings(base_path)
