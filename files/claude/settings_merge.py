@@ -86,13 +86,13 @@ def main() -> None:
         print("Settings in settings.json but not in settings_personal.json:")
         for entry in extras:
             print(f"  {entry}")
-    else:
-        print("No settings in settings.json are missing from settings_personal.json.")
 
+    original_text = base_path.read_text() if base_path.exists() else ""
     merged = merge(base, personal)
     base_path.write_text(json.dumps(merged, indent=2) + "\n")
     format_settings(base_path)
-    print(f"\nMerged result written to {base_path}")
+    if base_path.read_text() != original_text:
+        print(f"Merged result written to {base_path}")
 
 
 if __name__ == "__main__":
