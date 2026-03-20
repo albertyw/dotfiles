@@ -17,6 +17,9 @@ _mod = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_mod)
 format_settings = _mod.format_settings
 
+# Each change is (path, personal_value, settings_value)
+Change = tuple[str, str, str]
+
 
 def merge(base: object, override: object, path: str = "") -> object:
     if isinstance(base, dict) and isinstance(override, dict):
@@ -51,23 +54,44 @@ def merge(base: object, override: object, path: str = "") -> object:
         print("Please enter 1 or 2.")
 
 
-def find_extras(base: object, personal: object, path: str = "") -> list[str]:
-    """Return paths present in base but not in personal."""
-    extras: list[str] = []
+def collect_changes(base: object, personal: object, path: str = "") -> list[Change]:
+    """Diff base and personal, returning (path, personal_value, settings_value) tuples."""
+    changes: list[Change] = []
     if isinstance(base, dict) and isinstance(personal, dict):
+        for key, val in personal.items():
+            child_path = f"{path}.{key}" if path else key
+            if key not in base:
+                changes.append((child_path, json.dumps(val), ""))
+            else:
+                changes.extend(collect_changes(base[key], val, child_path))
         for key, val in base.items():
             if key in ("model", "effortLevel"):
                 continue
             child_path = f"{path}.{key}" if path else key
             if key not in personal:
-                extras.append(f"{child_path}: {json.dumps(val)}")
-            else:
-                extras.extend(find_extras(val, personal[key], child_path))
+                changes.append((child_path, "", json.dumps(val)))
     elif isinstance(base, list) and isinstance(personal, list):
+        for item in personal:
+            if item not in base:
+                changes.append((f"{path}[]", json.dumps(item), ""))
         for item in base:
             if item not in personal:
-                extras.append(f"{path}[]: {json.dumps(item)}")
-    return extras
+                changes.append((f"{path}[]", "", json.dumps(item)))
+    elif base != personal:
+        changes.append((path, json.dumps(personal), json.dumps(base)))
+    return changes
+
+
+def print_table(rows: list[Change]) -> None:
+    col1 = max(len(r[0]) for r in rows)
+    col2 = max(len(r[1]) for r in rows)
+    header = ("setting", "settings_personal.json", "settings.json")
+    col1 = max(col1, len(header[0]))
+    col2 = max(col2, len(header[1]))
+    print(f"  {header[0]:<{col1}}  {header[1]:<{col2}}  {header[2]}")
+    print(f"  {'-' * col1}  {'-' * col2}  {'-' * len(header[2])}")
+    for path, personal_val, settings_val in rows:
+        print(f"  {path:<{col1}}  {personal_val:<{col2}}  {settings_val or '(added)'}")
 
 
 def main() -> None:
@@ -81,18 +105,18 @@ def main() -> None:
     base = json.loads(base_path.read_text()) if base_path.exists() else {}
     personal = json.loads(personal_path.read_text())
 
-    extras = find_extras(base, personal)
-    if extras:
-        print("Settings in settings.json but not in settings_personal.json:")
-        for entry in extras:
-            print(f"  {entry}")
+    changes = collect_changes(base, personal)
 
     original_text = base_path.read_text() if base_path.exists() else ""
     merged = merge(base, personal)
     base_path.write_text(json.dumps(merged, indent=2) + "\n")
     format_settings(base_path)
-    if base_path.read_text() != original_text:
-        print(f"Merged result written to {base_path}")
+    file_changed = base_path.read_text() != original_text
+
+    if changes or file_changed:
+        print("claude settings:")
+        if changes:
+            print_table(changes)
 
 
 if __name__ == "__main__":
