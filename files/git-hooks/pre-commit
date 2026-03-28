@@ -14,6 +14,7 @@ fi
 
 files="$(exec git diff-index --cached --check "$against" -- | sed '/^[-+]/d' | cut -d: -f1 | uniq)"
 if [ "$(echo "$files" | wc -l)" -gt 30 ]; then
+    echo "Warning: skipping whitespace fixes (>30 files)"
     exit
 fi
 for f in $files; do
@@ -34,6 +35,7 @@ done
 
 files=$(git diff-index --name-status --cached HEAD | grep -v ^D | cut -c3-)
 if [ "$(echo "$files" | wc -l)" -gt 30 ]; then
+    echo "Warning: skipping newline fixes (>30 files)"
     exit
 fi
 for f in $files; do
