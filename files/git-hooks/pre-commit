@@ -4,12 +4,12 @@
 set -eu
 IFS=$'\n\t'
 
-if git rev-parse --verify HEAD >/dev/null || true 2>&1
+if git rev-parse --verify HEAD >/dev/null 2>&1
 then
     against=HEAD
 else
     # Initial commit: diff against an empty tree object
-    against="$(git rev-list --max-parents=0 HEAD)"
+    against="$(git hash-object -t tree /dev/null)"
 fi
 
 files="$(exec git diff-index --cached --check "$against" -- | sed '/^[-+]/d' | cut -d: -f1 | uniq)"
