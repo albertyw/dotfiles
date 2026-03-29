@@ -31,5 +31,26 @@ lines_added=$(echo "$input" | jq -r '.cost.total_lines_added // 0')
 lines_removed=$(echo "$input" | jq -r '.cost.total_lines_removed // 0')
 git_str="+${lines_added}/-${lines_removed}"
 
-printf "${blue}%s${reset} | ${yellow}%s${reset} | ${red}%s${reset} | ${blue}%s${reset} | %s\n" \
-    "$model" "$context_str" "$cost" "$git_str" "$cwd"
+# Rate limits: 5-hour (daily) and 7-day (weekly)
+five_hour=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+seven_day=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+rate_parts=""
+if [ -n "$five_hour" ]; then
+    rate_parts="1d:$(printf '%.0f' "$five_hour")%"
+fi
+if [ -n "$seven_day" ]; then
+    weekly_str="7d:$(printf '%.0f' "$seven_day")%"
+    if [ -n "$rate_parts" ]; then
+        rate_parts="$rate_parts $weekly_str"
+    else
+        rate_parts="$weekly_str"
+    fi
+fi
+
+if [ -n "$rate_parts" ]; then
+    printf "${blue}%s${reset} | ${yellow}%s${reset} | ${red}%s${reset} | ${blue}%s${reset} | ${yellow}%s${reset} | %s\n" \
+        "$model" "$context_str" "$cost" "$git_str" "$rate_parts" "$cwd"
+else
+    printf "${blue}%s${reset} | ${yellow}%s${reset} | ${red}%s${reset} | ${blue}%s${reset} | %s\n" \
+        "$model" "$context_str" "$cost" "$git_str" "$cwd"
+fi
