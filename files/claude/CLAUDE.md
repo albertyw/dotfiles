@@ -52,6 +52,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - ruff for linting and formatting
 - mypy for type checking (strict)
 - coverage.py for code coverage
+- For unittest.mock.patch, prefer using "@patch" decorators instead of "with patch"
 
 ### JavaScript/TypeScript
 - Prefer TypeScript for nontrivial projects or projects that already use it
