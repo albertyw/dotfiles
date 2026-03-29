@@ -27,6 +27,7 @@
       "Bash(awk *)",
       "Bash(basename *)",
       "Bash(cat *)",
+      "Bash(coverage report *)",
       "Bash(cut *)",
       "Bash(date *)",
       "Bash(diff *)",
