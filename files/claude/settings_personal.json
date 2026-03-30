@@ -40,6 +40,7 @@
       "Bash(gazelle *)",
       "Bash(git blame *)",
       "Bash(git diff *)",
+      "Bash(git grep *)",
       "Bash(git log *)",
       "Bash(git rev-parse *)",
       "Bash(git show *)",
