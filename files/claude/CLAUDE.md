@@ -16,7 +16,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Always rebase when pulling (no merge commits)
 - SSH for GitHub URLs
 - NEVER run `git push` — notify me when commits are ready for review and pushing
-- Commit messages should be concise
+- Commit messages should be concise.  They should explain the meaning of the commit rather than the mechanics.
 - All tests, lints, and type checks must pass before committing.
 - Do a short code review for correctness, simplicity, and security before committing.
 - Ask for explicit permission before committing.  When asking for permission, describe changes and show me a list of all files to commit.
