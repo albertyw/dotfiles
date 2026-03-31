@@ -46,6 +46,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 ### Go
 - Uses golangci-lint for linting, go vet for analysis
 - Uses Makefiles for build/test/lint commands
+- Follow [Uber's Go Style Guide](https://github.com/uber-go/guide/blob/master/style.md)
 
 ### Python
 - Django for web backends, Flask for smaller projects
