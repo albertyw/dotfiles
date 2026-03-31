@@ -70,6 +70,7 @@
       "Bash(uniq *)",
       "Bash(wc *)",
       "Bash(which *)",
+      "github - Get details *",
       "WebFetch",
       "WebSearch"
     ],
