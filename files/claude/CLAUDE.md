@@ -34,6 +34,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Do not use sed to edit files.  Do not use output redirection to write files except to the /tmp directory
 - Do not use the `gh` CLI.  Instead use the `github` MCP or curl to get data from github.
 - Use `git grep` instead of `grep` when searching version-controlled files
+- Use `git ls-files | grep` instead of `find` when searching version-controlled file names
 
 ## Personal (Linux / Ubuntu / WSL)
 
