@@ -1,1 +1,2 @@
-minimum-release-age-exclude=10080
+# https://pnpm.io/settings#minimumreleaseage
+minimum-release-age=10080
