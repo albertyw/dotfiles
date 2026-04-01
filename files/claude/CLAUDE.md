@@ -81,3 +81,4 @@ Same language tools as Personal Linux above.
 - **Git email**: albertyw@uber.com
 - **Internal git hosts**: code.uber.internal, config.uber.internal
 - Gazelle for Go build file generation
+- Use the SourceGraph MCP for searching for code instead of `grep`
