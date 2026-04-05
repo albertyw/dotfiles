@@ -2,7 +2,9 @@
 #
 # Generates the claude code buddy
 
-# curl -fsSL https://bun.sh/install | bash
+cd "$(dirname "$0")" || exit 1
+
+curl -fsSL https://bun.sh/install | bash
 npx any-buddy@latest \
     --species owl \
     --rarity legendary \
@@ -13,4 +15,5 @@ npx any-buddy@latest \
     --dump CHAOS \
     --yes
 
-# rm -r ~/.bun
+git checkout ../bash_profile
+rm -r ~/.bun
