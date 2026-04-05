@@ -109,12 +109,6 @@ fi
 # if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # alias rspec='xvfb-run -a bundle exec rspec'
 
-# CUDA
-if [ -d "/usr/local/cuda-11.2/bin/" ]; then
-    export PATH=/usr/local/cuda-11.2/bin${PATH:+:${PATH}}
-    export LD_LIBRARY_PATH=/usr/local/cuda-11.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-fi
-
 # Terraform
 if [ -s "/usr/bin/terraform" ]; then
     complete -C /usr/bin/terraform terraform
