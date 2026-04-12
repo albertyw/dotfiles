@@ -2,6 +2,9 @@
 #
 # Generates the claude code buddy
 
+set -euo pipefail
+IFS=$'\n\t'
+
 cd "$(dirname "$0")" || exit 1
 
 curl -fsSL https://bun.sh/install | bash
