@@ -31,19 +31,46 @@ lines_added=$(echo "$input" | jq -r '.cost.total_lines_added // 0')
 lines_removed=$(echo "$input" | jq -r '.cost.total_lines_removed // 0')
 git_str="+${lines_added}/-${lines_removed}"
 
+# Format seconds into a human-readable countdown rounded to nearest hour (e.g. "2h" or "<1h")
+format_countdown() {
+    local secs=$1
+    if [ "$secs" -le 0 ]; then
+        echo "now"
+        return
+    fi
+    local rounded_h=$(( (secs + 1800) / 3600 ))
+    if [ "$rounded_h" -lt 1 ]; then
+        printf "<1h"
+    else
+        printf "%dh" "$rounded_h"
+    fi
+}
+
 # Rate limits: 5-hour (daily) and 7-day (weekly)
 five_hour=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+five_hour_resets=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
 seven_day=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+seven_day_resets=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
+now=$(date +%s)
 rate_parts=""
 if [ -n "$five_hour" ]; then
-    rate_parts="1d:$(printf '%.0f' "$five_hour")%"
+    five_str="1d:$(printf '%.0f' "$five_hour")%"
+    if [ -n "$five_hour_resets" ]; then
+        remaining=$(( five_hour_resets - now ))
+        five_str="$five_str($(format_countdown "$remaining"))"
+    fi
+    rate_parts="$five_str"
 fi
 if [ -n "$seven_day" ]; then
-    weekly_str="7d:$(printf '%.0f' "$seven_day")%"
+    week_str="7d:$(printf '%.0f' "$seven_day")%"
+    if [ -n "$seven_day_resets" ]; then
+        remaining=$(( seven_day_resets - now ))
+        week_str="$week_str($(format_countdown "$remaining"))"
+    fi
     if [ -n "$rate_parts" ]; then
-        rate_parts="$rate_parts $weekly_str"
+        rate_parts="$rate_parts $week_str"
     else
-        rate_parts="$weekly_str"
+        rate_parts="$week_str"
     fi
 fi
 
