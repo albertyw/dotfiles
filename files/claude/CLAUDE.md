@@ -19,8 +19,14 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Commit messages should be concise.  They should explain the meaning of the commit rather than the mechanics.
 - All tests, lints, and type checks must pass before committing.
 - Do a short code review for correctness, simplicity, and security before committing.
-- Ask for explicit permission before committing.  When asking for permission, describe changes and show me a list of all files to commit.
+- Ask for explicit permission before committing, unless a plan with specific commits has already been approved.  When asking for permission, describe changes and show me a list of all files to commit.
 - Do not publish passwords, API keys, and tokens to git or to package managers.
+
+### Workflow
+- When doing complex work, split into multiple git commits.  Do not make single catch-all git commits.
+- When there are multiple git commits on a related subject, use a separate branch.  Do not commit directly to the default branch.
+- Avoid catch-all fixit commits.  If fixes are for commits that have not been pushed to remote, use fixup commits and interactive rebase to fold them into the original commits.
+- Generate a TODO markdown file to keep track of status for larger pieces of work.  Check off items as they are completed, including the updated TODO in each commit.  Do not commit the TODO markdown file.
 
 ### Code Style
 - Keep changes minimal and focused
@@ -31,7 +37,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Prefer self-documenting code over excessive comments.
 
 ### Tools
-- Do not use sed to edit files.  Do not use output redirection to write files except to the /tmp directory
+- Do not use sed to edit files.  Do not use output redirection (>, >>) to write files except to /tmp.
 - Do not use the `gh` CLI.  Instead use the `github` MCP or curl to get data from github.
 - Use `git grep` instead of `grep` when searching version-controlled files
 - Use `git ls-files | grep` instead of `find` when searching version-controlled file names
