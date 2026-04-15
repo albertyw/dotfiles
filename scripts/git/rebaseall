@@ -5,7 +5,7 @@ IFS=$'\n\t'
 
 # This script rebases all branches in the current Git repository
 # onto the currently checked-out branch.
-# Add the `-p` flag to delete branches that have been fully merged.
+# Add the `-p` flag to delete branches that have no net changes.
 
 blue='\033[0;34m'
 red='\033[0;31m'
@@ -18,18 +18,26 @@ echo -e "${blue}Current branch is '$current_branch'${no_color}"
 
 branches=$(git for-each-ref --format='%(refname:short)' refs/heads/ | grep -v "^$current_branch$")
 for branch in $branches; do
+    # If -p flag is provided, check for no net changes before rebasing
+    if [[ "$prune" == "-p" || "$prune" == "--prune" ]]; then
+        if git diff --quiet "$current_branch" "$branch"; then
+            echo -e "${red}Branch '$branch' has no net changes relative to '$current_branch'. Deleting branch...${no_color}"
+            git branch -D "$branch"
+            continue
+        fi
+    fi
+
     echo -e "${blue}Rebasing branch '$branch' onto '$current_branch'${no_color}"
     git checkout "$branch"
     git rebase "$current_branch"
+    git checkout "$current_branch"
 
-    # If -p flag is provided, delete the branch if it has been fully merged
+    # Check again after rebase — rebasing onto a new base can cause
+    # previously non-empty diffs to become empty.
     if [[ "$prune" == "-p" || "$prune" == "--prune" ]]; then
-        if git merge-base --is-ancestor "$branch" "$current_branch"; then
-            echo -e "${red}Branch '$branch' has been fully merged into '$current_branch'. Deleting branch...${no_color}"
-            git checkout "$current_branch"
+        if git diff --quiet "$current_branch" "$branch"; then
+            echo -e "${red}Branch '$branch' has no net changes relative to '$current_branch'. Deleting branch...${no_color}"
             git branch -d "$branch"
         fi
     fi
 done
-
-git checkout "$current_branch"
