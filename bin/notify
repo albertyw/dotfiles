@@ -5,33 +5,14 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+source ~/.ssh/other/ntfy.sh
+
 MESSAGE="${1:-"notification"}"
 
-if [[ $(uname -r) =~ WSL ]]; then
-    # Check if wsl-notify-send.exe is available, if not, download and set it up
-    if ! command -v wsl-notify-send.exe &> /dev/null; then
-        (
-            cd ~/.dotfiles/bin
-            wget https://github.com/stuartleeks/wsl-notify-send/releases/download/v0.1.871612270/wsl-notify-send_windows_amd64.zip
-            unzip wsl-notify-send_windows_amd64.zip
-            rm README.md LICENSE wsl-notify-send_windows_amd64.zip
-        )
-    fi
-    wsl-notify-send.exe "$MESSAGE"
-    exit
-fi
-
-if [[ $(uname) == Linux ]]; then
-    if [[ -n "${SSH_CLIENT:-}" ]] || [[ -n "${SSH_TTY:-}" ]]; then
-        # Fall back to terminal bell for remote ssh sessions
-        printf "\a" && sleep 1 && printf "\a" && sleep 1 && printf "\a"
-        exit
-    fi
-    notify-send "$MESSAGE"
-    exit
-fi
-
-if [[ $(uname) == Darwin ]]; then
-    osascript -e "display notification \"$MESSAGE\" with title \"notify\" sound name \"Hero\""
-    exit
-fi
+curl \
+  --header "Title: $MESSAGE" \
+  --header "Priority: high" \
+  --header "Tags: envelope_with_arrow" \
+  --user "$NTFY_USERNAME:$NTFY_PASSWORD" \
+  --data "$MESSAGE" \
+  "$NTFY_ADDRESS/claude"
