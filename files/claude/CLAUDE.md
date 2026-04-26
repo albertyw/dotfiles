@@ -10,13 +10,14 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - **Editor**: Neovim
 - **Shell**: Bash (primary), Zsh available
 - Do not read `.env` or `.env.*` files.
+- Use `jq` instead of `python` to parse json
 
 ### Git
 - Default branch: master
-- Always rebase when pulling (no merge commits)
 - SSH for GitHub URLs
 - NEVER run `git push` — notify me when commits are ready for review and pushing
-- Commit messages should be concise.  They should explain the meaning of the commit rather than the mechanics.
+- Avoid using git "-C" flag unless needed
+- Commit messages should be a single concise line.  They should explain the meaning of the commit rather than the mechanics.  No multi-line body unless explicitly requested.
 - All tests, lints, and type checks must pass before committing.
 - Do a short code review for correctness, simplicity, and security before committing.
 - Ask for explicit permission before committing, unless a plan with specific commits has already been approved.  When asking for permission, describe changes and show me a list of all files to commit.
@@ -26,7 +27,8 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - When doing complex work, split into multiple git commits.  Do not make single catch-all git commits.
 - When there are multiple git commits on a related subject, use a separate branch.  Do not commit directly to the default branch.
 - Avoid catch-all fixit commits.  If fixes are for commits that have not been pushed to remote, use fixup commits and interactive rebase to fold them into the original commits.
-- Generate a TODO markdown file to keep track of status for larger pieces of work.  Check off items as they are completed, including the updated TODO in each commit.  Do not commit the TODO markdown file.
+- After completing each step of a multi-step plan, pause to self-review and present a summary.  Wait for explicit user approval before proceeding to the next step.
+- Generate a local TODO markdown file to keep track of status for larger pieces of work.  Check off items as they are completed.  Never commit the TODO markdown file to git.
 
 ### Code Style
 - Keep changes minimal and focused
@@ -66,7 +68,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 
 ### JavaScript/TypeScript
 - Prefer TypeScript for nontrivial projects or projects that already use it
-- pnpm as package manager, use `npm run` / `pnpm run` commands
+- pnpm as package manager, use `pnpm run` commands
 - ESLint, StyleLint for linting
 - Jest, Mocha for testing
 
