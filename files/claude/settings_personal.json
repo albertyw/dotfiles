@@ -99,7 +99,7 @@
       "mcp__github__search_repositories",
       "mcp__github__search_users"
     ],
-    "defaultMode": "default",
+    "defaultMode": "acceptEdits",
     "deny": [
       "Bash(git push *)"
     ]
