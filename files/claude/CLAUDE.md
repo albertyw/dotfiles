@@ -65,6 +65,8 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - mypy for type checking (strict)
 - coverage.py for code coverage
 - For unittest.mock.patch, prefer using "@patch" decorators instead of "with patch"
+- Run Python CLI tools directly by name (e.g. `mypy`, `ruff`, `coverage`), never via `python -m <tool>`
+- Uses direnv with a virtualenv at the `env/` directory; the virtualenv is always active, so CLI tools are available directly
 
 ### JavaScript/TypeScript
 - Prefer TypeScript for nontrivial projects or projects that already use it
