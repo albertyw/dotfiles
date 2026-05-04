@@ -51,13 +51,7 @@ def merge(base: object, override: object, path: str = "") -> object:
     print(f"\nConflict at {path or 'root'}:")
     print(f"  [1] settings.json:          {json.dumps(base)}")
     print(f"  [2] settings_personal.json: {json.dumps(override)}")
-    while True:
-        choice = input("Keep which value? (1/2): ").strip()
-        if choice == "1":
-            return base
-        if choice == "2":
-            return override
-        print("Please enter 1 or 2.")
+    raise RuntimeError("Conflict detected. Please resolve manually.")
 
 
 def collect_changes(base: object, personal: object, path: str = "") -> list[Change]:
