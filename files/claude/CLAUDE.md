@@ -61,6 +61,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 ### Python
 - Django for web backends, Flask for smaller projects
 - Flask projects should be based on the http://github.com/albertyw/base-flask template
+- Use "python -m unittest" for testing, "./manage.py test" for Django projects
 - ruff for linting and formatting
 - mypy for type checking (strict)
 - coverage.py for code coverage
