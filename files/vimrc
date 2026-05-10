@@ -37,16 +37,10 @@ augroup filetypes
     au BufRead,BufNewFile id_* setlocal filetype=secret
     au BufRead,BufNewFile secret_* setlocal filetype=secret
 
-    autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
     autocmd Filetype css setlocal ts=2 sts=2 sw=2
     autocmd Filetype scss setlocal ts=2 sts=2 sw=2
     autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
     autocmd Filetype typescriptreact setlocal ts=2 sts=2 sw=2
-augroup END
-
-augroup WrapLineInTeXFile
-    autocmd!
-    autocmd FileType markdown setlocal wrap
 augroup END
 
 set hlsearch
