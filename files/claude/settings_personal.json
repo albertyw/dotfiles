@@ -26,6 +26,7 @@
     "allow": [
       "Bash(awk *)",
       "Bash(basename *)",
+      "Bash(bazel query *)",
       "Bash(cat *)",
       "Bash(coverage report *)",
       "Bash(cut *)",
