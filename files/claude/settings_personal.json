@@ -20,6 +20,28 @@
         ],
         "matcher": ""
       }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify \"$(jq -r '\"Claude needs permission: \" + .tool_name')\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify \"Claude error: $(jq -r '.stop_reason // \"unknown\"' 2>/dev/null || echo 'unknown')\" 2>/dev/null || true"
+          }
+        ]
+      }
     ]
   },
   "permissions": {
