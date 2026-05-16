@@ -16,7 +16,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Default branch: master
 - SSH for GitHub URLs
 - NEVER run `git push` — notify me when commits are ready for review and pushing
-- Avoid using git "-C" flag unless needed
+- Never use `git -C` (working directory) or `git -c` (config override) flags — the shell is already in the correct directory and config is already set
 - Commit messages should be a single concise line.  They should explain the meaning of the commit rather than the mechanics.  No multi-line body unless explicitly requested.
 - All tests, lints, and type checks must pass before committing.
 - Do a short code review for correctness, simplicity, and security before committing.
@@ -43,6 +43,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Do not use the `gh` CLI.  Instead use the `github` MCP or curl to get data from github.
 - Use `git grep` instead of `grep` when searching version-controlled files
 - Use `git ls-files | grep` instead of `find` when searching version-controlled file names
+- Prefer pre-approved shell commands over ones that require confirmation: use the Read/Edit/Write tools instead of shell commands that touch files; use `jq` for JSON parsing; use `awk` or `cut` instead of `python3 -c` for simple text processing.
 
 ## Personal (Linux / Ubuntu / WSL)
 
