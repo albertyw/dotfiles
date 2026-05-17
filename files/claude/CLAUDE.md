@@ -31,6 +31,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Generate a local TODO markdown file to keep track of status for larger pieces of work.  Check off items as they are completed.  Never commit the TODO markdown file to git.
 
 ### Code Style
+- Always use LF (Unix) line endings, never CRLF. When writing files with Python's csv module, set `lineterminator='\n'` explicitly.
 - Keep changes minimal and focused
 - Prefer simple, direct solutions
 - Tests should accompany new functionality.  Aim for 100% test coverage.
