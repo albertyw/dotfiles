@@ -18,6 +18,17 @@ echo -e "${blue}Current branch is '$current_branch'${no_color}"
 
 branches=$(git for-each-ref --format='%(refname:short)' refs/heads/ | grep -v "^$current_branch$")
 for branch in $branches; do
+    # Skip branches already fully merged — rebasing them causes duplicate-commit conflicts
+    if git merge-base --is-ancestor "$branch" "$current_branch"; then
+        if [[ "$prune" == "-p" || "$prune" == "--prune" ]]; then
+            echo -e "${red}Branch '$branch' is already merged into '$current_branch'. Deleting branch...${no_color}"
+            git branch -d "$branch"
+        else
+            echo -e "${blue}Branch '$branch' is already merged into '$current_branch'. Skipping...${no_color}"
+        fi
+        continue
+    fi
+
     # If -p flag is provided, check for no net changes before rebasing
     if [[ "$prune" == "-p" || "$prune" == "--prune" ]]; then
         if git diff --quiet "$current_branch" "$branch"; then
@@ -29,7 +40,12 @@ for branch in $branches; do
 
     echo -e "${blue}Rebasing branch '$branch' onto '$current_branch'${no_color}"
     git checkout "$branch"
-    git rebase "$current_branch"
+    if ! git rebase "$current_branch"; then
+        echo -e "${red}Rebase of '$branch' onto '$current_branch' failed. Aborting and skipping...${no_color}"
+        git rebase --abort
+        git checkout "$current_branch"
+        continue
+    fi
     git checkout "$current_branch"
 
     # Check again after rebase — rebasing onto a new base can cause
