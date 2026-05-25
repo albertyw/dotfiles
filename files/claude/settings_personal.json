@@ -23,24 +23,24 @@
     ],
     "PermissionRequest": [
       {
-        "matcher": "",
         "hooks": [
           {
-            "type": "command",
-            "command": "notify \"$(jq -r '\"Claude needs permission: \" + .tool_name')\" 2>/dev/null || true"
+            "command": "notify \"$(jq -r '\"Claude needs permission: \" + .tool_name')\" 2>/dev/null || true",
+            "type": "command"
           }
-        ]
+        ],
+        "matcher": ""
       }
     ],
     "StopFailure": [
       {
-        "matcher": "",
         "hooks": [
           {
-            "type": "command",
-            "command": "notify \"Claude error: $(jq -r '.stop_reason // \"unknown\"' 2>/dev/null || echo 'unknown')\" 2>/dev/null || true"
+            "command": "notify \"Claude error: $(jq -r '.stop_reason // \"unknown\"' 2>/dev/null || echo 'unknown')\" 2>/dev/null || true",
+            "type": "command"
           }
-        ]
+        ],
+        "matcher": ""
       }
     ]
   },
@@ -95,10 +95,10 @@
       "Bash(uniq *)",
       "Bash(wc *)",
       "Bash(which *)",
-      "Read(//private/tmp/**)",
-      "Read(//tmp/**)",
       "Read(//Users/albertyw/.dotfiles/**)",
       "Read(//home/albertyw/.dotfiles/**)",
+      "Read(//private/tmp/**)",
+      "Read(//tmp/**)",
       "WebFetch",
       "WebSearch",
       "mcp__github__get_commit",
@@ -126,7 +126,7 @@
       "mcp__github__search_repositories",
       "mcp__github__search_users"
     ],
-    "defaultMode": "acceptEdits",
+    "defaultMode": "auto",
     "deny": [
       "Bash(git push *)"
     ]
