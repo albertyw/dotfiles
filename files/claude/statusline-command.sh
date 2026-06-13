@@ -10,6 +10,25 @@ reset='\e[0m'
 cwd=$(echo "$input" | jq -r '.workspace.current_dir')
 model=$(echo "$input" | jq -r '.model.display_name')
 
+# Thinking mode indicator
+thinking=$(echo "$input" | jq -r '.thinking.enabled // false')
+if [ "$thinking" = "true" ]; then
+    model_str="$model [T]"
+else
+    model_str="$model"
+fi
+
+# Session name (only when set via /rename)
+session_name=$(echo "$input" | jq -r '.session_name // empty')
+
+# Effort level (only when non-default, i.e. not "medium")
+effort_level=$(echo "$input" | jq -r '.effort.level // empty')
+if [ -n "$effort_level" ] && [ "$effort_level" != "medium" ]; then
+    effort_str="effort:$effort_level"
+else
+    effort_str=""
+fi
+
 # Context window usage percentage
 used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 if [ -n "$used_pct" ]; then
@@ -74,10 +93,12 @@ if [ -n "$seven_day" ]; then
     fi
 fi
 
-if [ -n "$rate_parts" ]; then
-    printf "${blue}%s${reset} | ${yellow}%s${reset} | ${red}%s${reset} | ${blue}%s${reset} | ${yellow}%s${reset} | %s\n" \
-        "$model" "$context_str" "$cost" "$git_str" "$rate_parts" "$cwd"
-else
-    printf "${blue}%s${reset} | ${yellow}%s${reset} | ${red}%s${reset} | ${blue}%s${reset} | %s\n" \
-        "$model" "$context_str" "$cost" "$git_str" "$cwd"
-fi
+line=$(printf "${blue}%s${reset}" "$model_str")
+[ -n "$session_name" ] && line="$line | $(printf "${yellow}%s${reset}" "$session_name")"
+[ -n "$effort_str" ]   && line="$line | $(printf "${blue}%s${reset}"   "$effort_str")"
+line="$line | $(printf "${yellow}%s${reset}" "$context_str")"
+line="$line | $(printf "${red}%s${reset}"    "$cost")"
+line="$line | $(printf "${blue}%s${reset}"   "$git_str")"
+[ -n "$rate_parts" ]   && line="$line | $(printf "${yellow}%s${reset}" "$rate_parts")"
+line="$line | $cwd"
+printf "%s\n" "$line"
