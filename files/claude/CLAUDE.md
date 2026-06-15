@@ -28,7 +28,8 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - When there are multiple git commits on a related subject, use a separate branch.  Do not commit directly to the default branch.
 - Avoid catch-all fixit commits.  If fixes are for commits that have not been pushed to remote, use fixup commits and interactive rebase to fold them into the original commits.
 - After completing each step of a multi-step plan, pause to self-review and present a summary.  Wait for explicit user approval before proceeding to the next step.
-- Generate a local TODO markdown file to keep track of status for larger pieces of work.  Check off items as they are completed.  Never commit the TODO markdown file to git.
+- Write working documents — specs, implementation plans, and TODO/status tracking markdown — under a `claude/` directory at the repository root.  Check off TODO items as they are completed.
+- Keep the `claude/` directory out of version control by adding a line `claude/` to the repository's `.git/info/exclude` (NOT `.gitignore`, which is itself committed and shared with the team).  Never commit the `claude/` directory or its contents.
 
 ### Code Style
 - Always use LF (Unix) line endings, never CRLF. When writing files with Python's csv module, set `lineterminator='\n'` explicitly.
