@@ -13,6 +13,7 @@ bashfiles="$bashfiles$IFS$(git ls-files | grep bash)"
 bashfiles="$bashfiles$IFS$(git ls-files | grep -F .sh)"
 bashfiles="$(echo "$bashfiles" | tr "$IFS" "\n" | sort -u | tr " " "$IFS" | sed '/./,$!d')"
 bashfiles="$(echo "$bashfiles" | grep -v django-completion)"
+bashfiles="$(echo "$bashfiles" | grep -v pnpm-completion)"
 shellcheckignores="SC1090,SC1091"
 
 while read -r bashfile; do
