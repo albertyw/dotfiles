@@ -6,14 +6,8 @@
     editor = nvim
     # Global gitignore file
     excludesfile = ~/.gitignore
-    # Copy githooks and other useful stuff into newly cloned repositories
-    # TODO: this might have no effect; remove
-    templatedir = ~/.git
     # Configure git attributes for certain file types
     attributesfile = ~/.dotfiles/files/gitattributes
-    # https://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
-    # TODO: this is probably not needed anymore; remove
-    trustctime = false
     # Use less to do paging
     pager = "less --tabs=4"
     # Make file names be handled transparently by Git on Mac OS
@@ -123,6 +117,8 @@
 [push]
     # By default, push the current branch to the remote branch of the same name
     default = current
+    # Automatically track remote branch instead of erroring
+    autoSetupRemote = true
 
 
 # Branching/Merging
@@ -140,6 +136,10 @@
     # https://cscheng.info/2017/01/26/git-tip-autostash-with-git-pull-rebase.html
     autoStash = true
     updateRefs = true
+
+[commit]
+    # Show full diff in commit message editor
+    verbose = true
 
 [diff]
     # Use a more advanced diff algorithm
@@ -166,9 +166,7 @@
 
 [merge]
     # Show the original parent versions in a 3-way merge
-    conflictstyle = diff3
-    # TODO: switch to zdiff3 after ubuntu updates to >2.35.0
-    # conflictstyle = zdiff3
+    conflictstyle = zdiff3
     # Show 20 lines of git log context in merge conflicts
     log = true
 
@@ -184,7 +182,7 @@
 # UI
 [color]
     # Ensure git output is colored.
-    ui = true
+    ui = auto
 
 [color "grep"]
     # Set colors for git grep
