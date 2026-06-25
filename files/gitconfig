@@ -117,6 +117,8 @@
 [push]
     # By default, push the current branch to the remote branch of the same name
     default = current
+    # Automatically track remote branch instead of erroring
+    autoSetupRemote = true
 
 
 # Branching/Merging
