@@ -182,7 +182,7 @@
 # UI
 [color]
     # Ensure git output is colored.
-    ui = true
+    ui = auto
 
 [color "grep"]
     # Set colors for git grep
