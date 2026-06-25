@@ -8,9 +8,6 @@
     excludesfile = ~/.gitignore
     # Configure git attributes for certain file types
     attributesfile = ~/.dotfiles/files/gitattributes
-    # https://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
-    # TODO: this is probably not needed anymore; remove
-    trustctime = false
     # Use less to do paging
     pager = "less --tabs=4"
     # Make file names be handled transparently by Git on Mac OS
