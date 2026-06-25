@@ -6,9 +6,6 @@
     editor = nvim
     # Global gitignore file
     excludesfile = ~/.gitignore
-    # Copy githooks and other useful stuff into newly cloned repositories
-    # TODO: this might have no effect; remove
-    templatedir = ~/.git
     # Configure git attributes for certain file types
     attributesfile = ~/.dotfiles/files/gitattributes
     # https://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
