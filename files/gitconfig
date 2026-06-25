@@ -137,6 +137,10 @@
     autoStash = true
     updateRefs = true
 
+[commit]
+    # Show full diff in commit message editor
+    verbose = true
+
 [diff]
     # Use a more advanced diff algorithm
     algorithm = histogram
