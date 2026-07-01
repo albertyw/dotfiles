@@ -131,6 +131,7 @@
       "Bash(git push *)"
     ]
   },
+  "skipAutoPermissionPrompt": true,
   "statusLine": {
     "command": "bash ~/.claude/statusline-command.sh",
     "type": "command"
