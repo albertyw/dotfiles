@@ -10,6 +10,12 @@ reset='\e[0m'
 cwd=$(echo "$input" | jq -r '.workspace.current_dir')
 model=$(echo "$input" | jq -r '.model.display_name')
 
+# Hostname (useful when working across multiple machines)
+host_str=$(hostname -s 2>/dev/null)
+
+# Current git branch (not present in the JSON payload; omit if not a repo or detached HEAD)
+branch_str=$(cd "$cwd" 2>/dev/null && git --no-optional-locks branch --show-current 2>/dev/null)
+
 # Thinking mode indicator
 thinking=$(echo "$input" | jq -r '.thinking.enabled // false')
 if [ "$thinking" = "true" ]; then
@@ -17,9 +23,6 @@ if [ "$thinking" = "true" ]; then
 else
     model_str="$model"
 fi
-
-# Session name (only when set via /rename)
-session_name=$(echo "$input" | jq -r '.session_name // empty')
 
 # Effort level (only when non-default, i.e. not "medium")
 effort_level=$(echo "$input" | jq -r '.effort.level // empty')
@@ -94,11 +97,12 @@ if [ -n "$seven_day" ]; then
 fi
 
 line=$(printf "${blue}%s${reset}" "$model_str")
-[ -n "$session_name" ] && line="$line | $(printf "${yellow}%s${reset}" "$session_name")"
+[ -n "$host_str" ]      && line="$line | $(printf "${yellow}%s${reset}" "$host_str")"
 [ -n "$effort_str" ]   && line="$line | $(printf "${blue}%s${reset}"   "$effort_str")"
 line="$line | $(printf "${yellow}%s${reset}" "$context_str")"
 line="$line | $(printf "${red}%s${reset}"    "$cost")"
 line="$line | $(printf "${blue}%s${reset}"   "$git_str")"
 [ -n "$rate_parts" ]   && line="$line | $(printf "${yellow}%s${reset}" "$rate_parts")"
 line="$line | $cwd"
+[ -n "$branch_str" ]   && line="$line | $(printf "${blue}%s${reset}"   "$branch_str")"
 printf "%s\n" "$line"
