@@ -10,6 +10,7 @@ import urllib.request
 GITHUB_API_URL = "https://api.github.com/graphql"
 GITHUB_TOKEN_FILE = pathlib.Path.home() / ".ssh" / "other" / "github.sh"
 CONTRIBUTIONS_CACHE_FILE = pathlib.Path.home() / ".dotfiles" / "github_contributions_cache.json"
+DATE_FORMAT = "%Y-%m-%d"
 
 
 def get_contributions() -> dict[datetime.date, int]:
@@ -19,7 +20,7 @@ def get_contributions() -> dict[datetime.date, int]:
             if not data_serialized:
                 return {}
             data = json.loads(data_serialized)
-            data_parsed = {datetime.datetime.strptime(d, "%Y-%m-%d").date(): c
+            data_parsed = {datetime.datetime.strptime(d, DATE_FORMAT).date(): c
                            for d, c in data.items()}
             return data_parsed
     except (FileNotFoundError, json.JSONDecodeError, ValueError):
@@ -27,7 +28,7 @@ def get_contributions() -> dict[datetime.date, int]:
 
 
 def save_contributions(data: dict[datetime.date, int]) -> None:
-    data_serialized = {date.strftime("%Y-%m-%d"): count for date, count in data.items()}
+    data_serialized = {date.strftime(DATE_FORMAT): count for date, count in data.items()}
     with open(CONTRIBUTIONS_CACHE_FILE, "w") as f:
         f.write(json.dumps(data_serialized))
 
@@ -78,7 +79,7 @@ def get_remote_contributions() -> dict[datetime.date, int]:
     contributions: dict[datetime.date, int] = {}
     for week in weeks:
         for day in week["contributionDays"]:
-            date = datetime.datetime.strptime(day["date"], "%Y-%m-%d").date()
+            date = datetime.datetime.strptime(day["date"], DATE_FORMAT).date()
             contributions[date] = day["contributionCount"]
     return contributions
 
