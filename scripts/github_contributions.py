@@ -9,6 +9,27 @@ import urllib.request
 
 GITHUB_API_URL = "https://api.github.com/graphql"
 GITHUB_TOKEN_FILE = pathlib.Path.home() / ".ssh" / "other" / "github.sh"
+CONTRIBUTIONS_CACHE_FILE = pathlib.Path.home() / ".dotfiles" / "github_contributions_cache.json"
+
+
+def get_contributions() -> dict[datetime.date, int]:
+    try:
+        with open(CONTRIBUTIONS_CACHE_FILE, "r") as f:
+            data_serialized = f.read()
+            if not data_serialized:
+                return {}
+            data = json.loads(data_serialized)
+            data_parsed = {datetime.datetime.strptime(d, "%Y-%m-%d").date(): c
+                           for d, c in data.items()}
+            return data_parsed
+    except (FileNotFoundError, json.JSONDecodeError, ValueError):
+        return {}
+
+
+def save_contributions(data: dict[datetime.date, int]) -> None:
+    data_serialized = {date.strftime("%Y-%m-%d"): count for date, count in data.items()}
+    with open(CONTRIBUTIONS_CACHE_FILE, "w") as f:
+        f.write(json.dumps(data_serialized))
 
 
 def get_github_api_headers() -> dict[str, str]:
@@ -101,14 +122,20 @@ def main() -> bool:
     be more than 20 per day
     """
     remote_contributions = get_remote_contributions()
+    expected_remote_contributions = get_contributions()
     local_contributions = get_local_contributions()
     if not local_contributions:
         local_contributions = {datetime.date.today(): 0}
     for local_date, local_count in local_contributions.items():
+        if remote_contributions.get(local_date, 0) < expected_remote_contributions.get(local_date, 0):
+            print("github remote contributions not at expected value for %s, possible data lag" % local_date)
+            return False
         count = remote_contributions.get(local_date, 0) + local_count
         print("Estimated Github contributions %s: %s\n" % (local_date, count))
         if count > 20:
             return False
+        expected_remote_contributions[local_date] = count
+    save_contributions(expected_remote_contributions)
     return True
 
 
