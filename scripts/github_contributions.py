@@ -129,8 +129,13 @@ def main() -> bool:
         local_contributions = {datetime.date.today(): 0}
     for local_date, local_count in local_contributions.items():
         if remote_contributions.get(local_date, 0) < expected_remote_contributions.get(local_date, 0):
-            print("github remote contributions not at expected value for %s, possible data lag" % local_date)
-            return False
+            answer = input(
+                "github remote contributions for %s (%d) is below expected (%d); "
+                "possible data lag or failed push. Continue anyway? [y/N] "
+                % (local_date, remote_contributions.get(local_date, 0), expected_remote_contributions.get(local_date, 0))
+            )
+            if answer.strip().lower() != "y":
+                return False
         count = remote_contributions.get(local_date, 0) + local_count
         print("Estimated Github contributions %s: %s\n" % (local_date, count))
         if count > 20:
