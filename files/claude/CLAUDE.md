@@ -31,6 +31,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - After completing each step of a multi-step plan, pause to self-review and present a summary.  Wait for explicit user approval before proceeding to the next step.
 - Write working documents — specs, implementation plans, and TODO/status tracking markdown — under a `claude/` directory at the repository root.  Check off TODO items as they are completed.
 - Keep the `claude/` directory out of version control by adding a line `claude/` to the repository's `.git/info/exclude` (NOT `.gitignore`, which is itself committed and shared with the team).  Never commit the `claude/` directory or its contents.
+- When using /loop, always run in the local session — never use cloud schedules.
 
 ### Code Style
 - Always use LF (Unix) line endings, never CRLF. When writing files with Python's csv module, set `lineterminator='\n'` explicitly.
