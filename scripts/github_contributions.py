@@ -9,7 +9,9 @@ import urllib.request
 
 GITHUB_API_URL = "https://api.github.com/graphql"
 GITHUB_TOKEN_FILE = pathlib.Path.home() / ".ssh" / "other" / "github.sh"
-CONTRIBUTIONS_CACHE_FILE = pathlib.Path.home() / ".dotfiles" / "github_contributions_cache.json"
+CONTRIBUTIONS_CACHE_FILE = (
+    pathlib.Path.home() / ".dotfiles" / "github_contributions_cache.json"
+)
 DATE_FORMAT = "%Y-%m-%d"
 
 
@@ -28,7 +30,9 @@ def get_contributions() -> dict[datetime.date, int]:
 
 
 def save_contributions(data: dict[datetime.date, int]) -> None:
-    data_serialized = {date.strftime(DATE_FORMAT): count for date, count in data.items()}
+    data_serialized = {
+        date.strftime(DATE_FORMAT): count for date, count in data.items()
+    }
     with open(CONTRIBUTIONS_CACHE_FILE, "w") as f:
         f.write(json.dumps(data_serialized))
 
@@ -136,15 +140,17 @@ def main() -> bool:
     if not local_contributions:
         local_contributions = {datetime.date.today(): 0}
     for local_date, local_count in local_contributions.items():
-        if remote_contributions.get(local_date, 0) < expected_remote_contributions.get(local_date, 0):
+        remote_count = remote_contributions.get(local_date, 0)
+        expected_count = expected_remote_contributions.get(local_date, 0)
+        if remote_count < expected_count:
             answer = prompt_tty(
                 "github remote contributions for %s (%d) is below expected (%d); "
                 "possible data lag or failed push. Continue anyway? [y/N] "
-                % (local_date, remote_contributions.get(local_date, 0), expected_remote_contributions.get(local_date, 0))
+                % (local_date, remote_count, expected_count),
             )
             if answer.strip().lower() != "y":
                 return False
-        count = remote_contributions.get(local_date, 0) + local_count
+        count = remote_count + local_count
         print("Estimated Github contributions %s: %s\n" % (local_date, count))
         if count > 20:
             return False
