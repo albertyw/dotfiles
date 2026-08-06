@@ -137,5 +137,6 @@
   "statusLine": {
     "command": "bash ~/.claude/statusline-command.sh",
     "type": "command"
-  }
+  },
+  "tui": "default"
 }
