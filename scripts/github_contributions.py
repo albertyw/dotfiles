@@ -33,6 +33,14 @@ def save_contributions(data: dict[datetime.date, int]) -> None:
         f.write(json.dumps(data_serialized))
 
 
+def prompt_tty(prompt: str) -> str:
+    # stdin/stdout are used by git to pass ref update data to pre-push hooks
+    with open("/dev/tty", "r") as tty_in, open("/dev/tty", "w") as tty_out:
+        tty_out.write(prompt)
+        tty_out.flush()
+        return tty_in.readline()
+
+
 def get_github_api_headers() -> dict[str, str]:
     with open(GITHUB_TOKEN_FILE, "r") as f:
         data = f.readlines()
@@ -129,7 +137,7 @@ def main() -> bool:
         local_contributions = {datetime.date.today(): 0}
     for local_date, local_count in local_contributions.items():
         if remote_contributions.get(local_date, 0) < expected_remote_contributions.get(local_date, 0):
-            answer = input(
+            answer = prompt_tty(
                 "github remote contributions for %s (%d) is below expected (%d); "
                 "possible data lag or failed push. Continue anyway? [y/N] "
                 % (local_date, remote_contributions.get(local_date, 0), expected_remote_contributions.get(local_date, 0))
