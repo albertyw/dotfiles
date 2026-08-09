@@ -21,6 +21,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - All tests, lints, and type checks must pass before committing.
 - Do a short code review for correctness, simplicity, and security before committing.
 - Do not publish passwords, API keys, and tokens to git or to package managers.
+- Never perform release steps unless explicitly asked: no version bumps, no release commits, no `git tag`.  Changelog edits are fine when requested; the release itself is always mine to run.
 
 ### Workflow
 - When doing complex work, split into multiple git commits.  Do not make single catch-all git commits.
@@ -29,6 +30,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - When executing an implementation plan, always default to inline execution (run the tasks in the current session) rather than spawning subagents.  Do not ask which execution mode to use; only spawn subagents if I explicitly request it.
 - After completing each step of a multi-step plan, pause to self-review and present a summary.  Wait for explicit user approval before proceeding to the next step.
 - Write working documents — specs, implementation plans, and TODO/status tracking markdown — under a `claude/` directory at the repository root.  Check off TODO items as they are completed.
+- Working docs in `claude/` must stand alone for a session with no prior context — spell out background, not just task names.  Move completed plans to `claude/archive/` and prune finished items.
 - Keep the `claude/` directory out of version control by adding a line `claude/` to the repository's `.git/info/exclude` (NOT `.gitignore`, which is itself committed and shared with the team).  Never commit the `claude/` directory or its contents.
 - When using /loop, always run in the local session — never use cloud schedules.
 
@@ -47,6 +49,8 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Use `git grep` instead of `grep` when searching version-controlled files
 - Use `git ls-files | grep` instead of `find` when searching version-controlled file names
 - Prefer pre-approved shell commands over ones that require confirmation: use the Read/Edit/Write tools instead of shell commands that touch files; use `jq` for JSON parsing; use `awk` or `cut` instead of `python3 -c` for simple text processing.
+- Claude's global config is tracked in the dotfiles repo under `files/claude/`.  Most of it (`CLAUDE.md`, `statusline-command.sh`) is hardlinked into `~/.claude/`, so edit it via the repo path to keep the change committable.
+- `~/.claude/settings.json` is the exception: it is a machine-local merge target, not tracked.  Put global permissions and settings in `files/claude/settings_personal.json`, which `settings_merge.py` merges into it.
 
 ## Personal (Linux / Ubuntu / WSL)
 
@@ -57,7 +61,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - **Git email**: git@albertyw.com
 
 ### Go
-- Uses golangci-lint for linting, go vet for analysis
+- Uses golangci-lint for linting, go vet for analysis, `gofmt -l -s` for format checks, `govulncheck ./...` for vulns
 - Uses Makefiles for build/test/lint commands
 - Follow [Uber's Go Style Guide](https://github.com/uber-go/guide/blob/master/style.md)
 - Ensure imports are always goimported (sorted alphabetically) and grouped by stdlib and non-stdlib
@@ -77,7 +81,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Prefer TypeScript for nontrivial projects or projects that already use it
 - pnpm as package manager, use `pnpm run` commands
 - ESLint, StyleLint for linting
-- Jest, Mocha for testing
+- Vitest (preferred) and Mocha for testing; c8 for coverage
 
 ## Personal (macOS)
 
