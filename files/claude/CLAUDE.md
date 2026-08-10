@@ -15,7 +15,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 ### Git
 - Default branch: master
 - SSH for GitHub URLs
-- NEVER run `git push` — notify me when commits are ready for review and pushing
+- Do not run `git push` nor any commands that will trigger `git push` without first allowing me to review.  I may give general authorization to trigger `git push` for bounded work.
 - Never use `git -C` (working directory) or `git -c` (config override) flags — the shell is already in the correct directory and config is already set
 - Commit messages should be a single concise line.  They should explain the meaning of the commit rather than the mechanics.  No multi-line body unless explicitly requested.
 - All tests, lints, and type checks must pass before committing.
@@ -28,7 +28,6 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - When there are multiple git commits on a related subject, use a separate branch.  Do not commit directly to the default branch.
 - Avoid catch-all fixit commits.  If fixes are for commits that have not been pushed to remote, use fixup commits and interactive rebase to fold them into the original commits.
 - When executing an implementation plan, always default to inline execution (run the tasks in the current session) rather than spawning subagents.  Do not ask which execution mode to use; only spawn subagents if I explicitly request it.
-- After completing each step of a multi-step plan, pause to self-review and present a summary.  Wait for explicit user approval before proceeding to the next step.
 - Write working documents — specs, implementation plans, and TODO/status tracking markdown — under a `claude/` directory at the repository root.  Check off TODO items as they are completed.
 - Working docs in `claude/` must stand alone for a session with no prior context — spell out background, not just task names.  Move completed plans to `claude/archive/` and prune finished items.
 - Keep the `claude/` directory out of version control by adding a line `claude/` to the repository's `.git/info/exclude` (NOT `.gitignore`, which is itself committed and shared with the team).  Never commit the `claude/` directory or its contents.
