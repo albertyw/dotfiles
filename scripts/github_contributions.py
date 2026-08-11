@@ -9,40 +9,6 @@ import urllib.request
 
 GITHUB_API_URL = "https://api.github.com/graphql"
 GITHUB_TOKEN_FILE = pathlib.Path.home() / ".ssh" / "other" / "github.sh"
-CONTRIBUTIONS_CACHE_FILE = (
-    pathlib.Path.home() / ".dotfiles" / "github_contributions_cache.json"
-)
-DATE_FORMAT = "%Y-%m-%d"
-
-
-def get_contributions() -> dict[datetime.date, int]:
-    try:
-        with open(CONTRIBUTIONS_CACHE_FILE, "r") as f:
-            data_serialized = f.read()
-            if not data_serialized:
-                return {}
-            data = json.loads(data_serialized)
-            data_parsed = {datetime.datetime.strptime(d, DATE_FORMAT).date(): c
-                           for d, c in data.items()}
-            return data_parsed
-    except (FileNotFoundError, json.JSONDecodeError, ValueError):
-        return {}
-
-
-def save_contributions(data: dict[datetime.date, int]) -> None:
-    data_serialized = {
-        date.strftime(DATE_FORMAT): count for date, count in data.items()
-    }
-    with open(CONTRIBUTIONS_CACHE_FILE, "w") as f:
-        f.write(json.dumps(data_serialized))
-
-
-def prompt_tty(prompt: str) -> str:
-    # stdin/stdout are used by git to pass ref update data to pre-push hooks
-    with open("/dev/tty", "r") as tty_in, open("/dev/tty", "w") as tty_out:
-        tty_out.write(prompt)
-        tty_out.flush()
-        return tty_in.readline()
 
 
 def get_github_api_headers() -> dict[str, str]:
@@ -91,7 +57,7 @@ def get_remote_contributions() -> dict[datetime.date, int]:
     contributions: dict[datetime.date, int] = {}
     for week in weeks:
         for day in week["contributionDays"]:
-            date = datetime.datetime.strptime(day["date"], DATE_FORMAT).date()
+            date = datetime.datetime.strptime(day["date"], "%Y-%m-%d").date()
             contributions[date] = day["contributionCount"]
     return contributions
 
@@ -135,27 +101,13 @@ def main() -> bool:
     be more than 20 per day
     """
     remote_contributions = get_remote_contributions()
-    expected_remote_contributions = get_contributions()
     local_contributions = get_local_contributions()
-    if not local_contributions:
-        local_contributions = {datetime.date.today(): 0}
     for local_date, local_count in local_contributions.items():
-        remote_count = remote_contributions.get(local_date, 0)
-        expected_count = expected_remote_contributions.get(local_date, 0)
-        if remote_count < expected_count:
-            answer = prompt_tty(
-                "github remote contributions for %s (%d) is below expected (%d); "
-                "possible data lag or failed push. Continue anyway? [y/N] "
-                % (local_date, remote_count, expected_count),
-            )
-            if answer.strip().lower() != "y":
-                return False
-        count = remote_count + local_count
-        print("Estimated Github contributions %s: %s\n" % (local_date, count))
+        count = remote_contributions.get(local_date, 0) + local_count
+        if count > 15:
+            print("Estimated Github contributions %s: %s\n" % (local_date, count))
         if count > 20:
             return False
-        expected_remote_contributions[local_date] = count
-    save_contributions(expected_remote_contributions)
     return True
 
 
