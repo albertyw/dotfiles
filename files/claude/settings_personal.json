@@ -11,6 +11,9 @@
     "security-guidance@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true
   },
+  "env": {
+    "ENABLE_CLAUDEAI_MCP_SERVERS": "false"
+  },
   "hooks": {
     "Notification": [
       {
@@ -85,6 +88,7 @@
       "Bash(npx tsc *)",
       "Bash(ollama ps*)",
       "Bash(pnpm run eslint)",
+      "Bash(pnpm run eslint *)",
       "Bash(pnpm run lint)",
       "Bash(pnpm run typecheck)",
       "Bash(printenv *)",
