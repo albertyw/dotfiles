@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 _spec = importlib.util.spec_from_file_location(
-    "settings_format", Path(__file__).parent / "settings_format.py"
+    "settings_format", Path(__file__).parent / "settings_format.py",
 )
 assert _spec and _spec.loader
 _mod = importlib.util.module_from_spec(_spec)
@@ -55,7 +55,9 @@ def merge(base: object, override: object, path: str = "") -> object:
 
 
 def collect_changes(base: object, personal: object, path: str = "") -> list[Change]:
-    """Diff base and personal, returning (path, personal_value, settings_value) tuples."""
+    """
+    Diff base and personal, returning (path, personal_value, settings_value) tuples.
+    """
     changes: list[Change] = []
     if isinstance(base, dict) and isinstance(personal, dict):
         for key, val in personal.items():

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# This script is used to format the claude settings.json files for better version control.
+# This script is used to format the claude settings.json files for
+# better version control.
 # Changes include:
 # 1.  Sorting all values by alphabetical order
 # 2.  Enforcing a two-space indentation
