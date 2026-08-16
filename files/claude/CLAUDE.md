@@ -48,8 +48,8 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Use `git grep` instead of `grep` when searching version-controlled files
 - Use `git ls-files | grep` instead of `find` when searching version-controlled file names
 - Prefer pre-approved shell commands over ones that require confirmation: use the Read/Edit/Write tools instead of shell commands that touch files; use `jq` for JSON parsing; use `awk` or `cut` instead of `python3 -c` for simple text processing.
-- Claude's global config is tracked in the dotfiles repo under `files/claude/`.  Most of it (`CLAUDE.md`, `statusline-command.sh`) is hardlinked into `~/.claude/`, so edit it via the repo path to keep the change committable.
-- `~/.claude/settings.json` is the exception: it is a machine-local merge target, not tracked.  Put global permissions and settings in `files/claude/settings_personal.json`, which `settings_merge.py` merges into it.
+- `~/.claude/` is a symlink to `files/claude/` in the dotfiles repo, so the two paths are the same files.  Its `.gitignore` is default-deny (`*`) with an explicit whitelist: `CLAUDE.md`, `keybindings.json`, `settings_personal.json`, `settings_format.py`, `settings_merge.py`, `statusline-command.sh`, and the `agents/`, `commands/`, `hooks/`, `output-styles/`, and `skills/` directories.  Everything else (credentials, `history.jsonl`, `projects/`, `sessions/`, `plugins/`, caches) stays local.  To track something new there, whitelist it — a directory needs both `!dir/` and `!dir/**`.
+- `~/.claude/settings.json` is deliberately not tracked: it is a machine-local merge target.  Put global permissions and settings in `files/claude/settings_personal.json`, which `settings_merge.py` merges into it.
 
 ## Personal (Linux / Ubuntu / WSL)
 

@@ -1,1 +1,23 @@
+# Default-deny: ~/.claude holds credentials, transcripts, and caches.
+# Only explicitly whitelisted config is version controlled.
 *
+
+!.gitignore
+!CLAUDE.md
+!keybindings.json
+!settings_personal.json
+!settings_format.py
+!settings_merge.py
+!statusline-command.sh
+
+# Directories need both the dir and its contents un-ignored.
+!agents/
+!agents/**
+!commands/
+!commands/**
+!hooks/
+!hooks/**
+!output-styles/
+!output-styles/**
+!skills/
+!skills/**
