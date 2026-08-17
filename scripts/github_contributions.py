@@ -1,64 +1,49 @@
 #!/usr/bin/env python3
 
 import datetime
-import json
-import pathlib
+import re
 import subprocess
 import urllib.request
 
 
-GITHUB_API_URL = "https://api.github.com/graphql"
-GITHUB_TOKEN_FILE = pathlib.Path.home() / ".ssh" / "other" / "github.sh"
+GITHUB_USER = "albertyw"
+GITHUB_CALENDAR_URL = "https://github.com/users/%s/contributions" % GITHUB_USER
 
-
-def get_github_api_headers() -> dict[str, str]:
-    with open(GITHUB_TOKEN_FILE, "r") as f:
-        data = f.readlines()
-    for line in data:
-        if 'export TOKEN=' in line:
-            token = line.split("'")[1].strip()
-            break
-    github_api_headers = {
-        "Authorization": "bearer %s" % token,
-    }
-    return github_api_headers
+# <td data-date="2026-08-16" id="contribution-day-component-0-33" ...>
+CALENDAR_DAY_RE = re.compile(
+    r'data-date="(\d{4}-\d{2}-\d{2})" id="(contribution-day-component-[\d-]+)"',
+)
+# <tool-tip ... for="contribution-day-component-0-33" ...>22 contributions on ...
+CALENDAR_COUNT_RE = re.compile(
+    r'for="(contribution-day-component-[\d-]+)"[^>]*>(No|[\d,]+) contributions? on',
+)
 
 
 def get_remote_contributions() -> dict[datetime.date, int]:
-    request_data = {
-        "query": """
-        query {
-            viewer {
-                contributionsCollection {
-                    contributionCalendar {
-                        weeks {
-                            contributionDays {
-                                date
-                                contributionCount
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        """,
-    }
-    data_serialized = json.dumps(request_data).encode('utf-8')
-    request = urllib.request.Request(
-        GITHUB_API_URL,
-        headers=get_github_api_headers(),
-        data=data_serialized,
-        method="POST",
-    )
+    """
+    Returns a dict of contributions already known to Github, scraped from the
+    public contribution calendar.
+
+    The GraphQL API is deliberately not used: organizations can forbid access
+    via personal access tokens, and Github then silently omits contributions to
+    those organizations from contributionsCollection rather than erroring.  The
+    public calendar is what github.com/<user> itself renders, so it always
+    agrees with the profile page.
+    """
+    request = urllib.request.Request(GITHUB_CALENDAR_URL)
     with urllib.request.urlopen(request) as response:
-        response_data_serialized = response.read().decode('utf-8')
-    response_data = json.loads(response_data_serialized)["data"]["viewer"]
-    weeks = response_data["contributionsCollection"]["contributionCalendar"]["weeks"]
+        html = response.read().decode('utf-8')
+    days = {
+        element_id: datetime.datetime.strptime(date, "%Y-%m-%d").date()
+        for date, element_id in CALENDAR_DAY_RE.findall(html)
+    }
     contributions: dict[datetime.date, int] = {}
-    for week in weeks:
-        for day in week["contributionDays"]:
-            date = datetime.datetime.strptime(day["date"], "%Y-%m-%d").date()
-            contributions[date] = day["contributionCount"]
+    for element_id, count in CALENDAR_COUNT_RE.findall(html):
+        if element_id not in days:
+            continue
+        contributions[days[element_id]] = 0 if count == "No" else int(count.replace(",", ""))
+    if not contributions:
+        raise RuntimeError("Could not parse contributions from %s" % GITHUB_CALENDAR_URL)
     return contributions
 
 
