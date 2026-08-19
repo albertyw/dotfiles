@@ -3,11 +3,11 @@
 import datetime
 import re
 import subprocess
+import sys
 import urllib.request
 
-
 GITHUB_USER = "albertyw"
-GITHUB_CALENDAR_URL = "https://github.com/users/%s/contributions" % GITHUB_USER
+GITHUB_CALENDAR_URL = f"https://github.com/users/{GITHUB_USER}/contributions"
 
 # <td data-date="2026-08-16" id="contribution-day-component-0-33" ...>
 CALENDAR_DAY_RE = re.compile(
@@ -34,7 +34,7 @@ def get_remote_contributions() -> dict[datetime.date, int]:
     with urllib.request.urlopen(request) as response:
         html = response.read().decode('utf-8')
     days = {
-        element_id: datetime.datetime.strptime(date, "%Y-%m-%d").date()
+        element_id: datetime.date.fromisoformat(date)
         for date, element_id in CALENDAR_DAY_RE.findall(html)
     }
     contributions: dict[datetime.date, int] = {}
@@ -43,7 +43,7 @@ def get_remote_contributions() -> dict[datetime.date, int]:
             continue
         contributions[days[element_id]] = 0 if count == "No" else int(count.replace(",", ""))
     if not contributions:
-        raise RuntimeError("Could not parse contributions from %s" % GITHUB_CALENDAR_URL)
+        raise RuntimeError(f"Could not parse contributions from {GITHUB_CALENDAR_URL}")
     return contributions
 
 
@@ -64,7 +64,7 @@ def get_local_contributions() -> dict[datetime.date, int]:
     git_history_command = [
         "git", "log", "--oneline",
         "--date=iso", "--pretty=%ad",
-        "origin/%s..%s" % (current_branch, current_branch),
+        f"origin/{current_branch}..{current_branch}",
     ]
     git_history_output = subprocess.run(
         git_history_command,
@@ -90,7 +90,7 @@ def main() -> bool:
     for local_date, local_count in local_contributions.items():
         count = remote_contributions.get(local_date, 0) + local_count
         if count > 15:
-            print("Estimated Github contributions %s: %s\n" % (local_date, count))
+            print(f"Estimated Github contributions {local_date}: {count}\n")
         if count > 20:
             return False
     return True
@@ -99,4 +99,4 @@ def main() -> bool:
 if __name__ == "__main__":
     allow = main()
     if not allow:
-        exit(1)
+        sys.exit(1)
