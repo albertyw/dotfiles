@@ -60,9 +60,9 @@ def get_local_contributions() -> dict[datetime.date, int]:
     ).stdout.strip()
     contributions: dict[datetime.date, int] = {}
     if current_branch not in ["master", "main"]:
-       return contributions
+        return contributions
     git_history_command = [
-        "git", "log", "--oneline",
+        "git", "log",
         "--date=iso", "--pretty=%ad",
         f"origin/{current_branch}..{current_branch}",
     ]
