@@ -41,7 +41,10 @@ def get_remote_contributions() -> dict[datetime.date, int]:
     for element_id, count in CALENDAR_COUNT_RE.findall(html):
         if element_id not in days:
             continue
-        contributions[days[element_id]] = 0 if count == "No" else int(count.replace(",", ""))
+        count_value = 0
+        if count != "No":
+            count_value = int(count.replace(",", ""))
+        contributions[days[element_id]] = count_value
     if not contributions:
         raise RuntimeError(f"Could not parse contributions from {GITHUB_CALENDAR_URL}")
     return contributions
