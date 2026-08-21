@@ -18,6 +18,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Do not run `git push` nor any commands that will trigger `git push` without first allowing me to review.  I may give general authorization to trigger `git push` for bounded work.
 - Never use `git -C` (working directory) or `git -c` (config override) flags — the shell is already in the correct directory and config is already set
 - Commit messages should be a single concise line.  They should explain the meaning of the commit rather than the mechanics.  No multi-line body unless explicitly requested.
+- Never add a Claude session marker to commit messages or pull request bodies: no `Claude-Session:` trailer, no "Generated with Claude Code" line, no co-authored-by Claude.
 - All tests, lints, and type checks must pass before committing.
 - Do a short code review for correctness, simplicity, and security before committing.
 - Do not publish passwords, API keys, and tokens to git or to package managers.
