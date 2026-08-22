@@ -90,6 +90,8 @@ def main() -> bool:
     """
     remote_contributions = get_remote_contributions()
     local_contributions = get_local_contributions()
+    if not local_contributions:
+        local_contributions = {datetime.date.today(): 0}
     for local_date, local_count in local_contributions.items():
         count = remote_contributions.get(local_date, 0) + local_count
         print(f"Estimated Github contributions {local_date}: {count}\n")
