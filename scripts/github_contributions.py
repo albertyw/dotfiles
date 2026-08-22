@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+"""
+Estimates whether a day's Github contributions will exceed 20 once the local
+commits are pushed, by scraping the public contribution calendar.
+
+The calendar is not real-time and can lag by ~2 hours.  Using an auth token,
+the GraphQL API, setting timezones, or setting no-cache headers does not bust
+cache to fix the lag.  Using personal access tokens with graphql leads to
+undercounting because they will not count contributions to github
+organizations that forbid access via personal access tokens.
+"""
+
 import datetime
 import re
 import subprocess
@@ -19,18 +30,33 @@ CALENDAR_COUNT_RE = re.compile(
 )
 
 
-def get_remote_contributions() -> dict[datetime.date, int]:
+def get_remote_contributions(years: set[int]) -> dict[datetime.date, int]:
     """
     Returns a dict of contributions already known to Github, scraped from the
-    public contribution calendar.
+    public contribution calendar for each of the given calendar years.
 
     The GraphQL API is deliberately not used: organizations can forbid access
     via personal access tokens, and Github then silently omits contributions to
-    those organizations from contributionsCollection rather than erroring.  The
-    public calendar is what github.com/<user> itself renders, so it always
-    agrees with the profile page.
+    those organizations from contributionsCollection rather than erroring.  It
+    would however report contributions the public calendar has not caught up
+    to yet, which is the tradeoff described in the module docstring.
     """
-    request = urllib.request.Request(GITHUB_CALENDAR_URL)
+    contributions: dict[datetime.date, int] = {}
+    for year in sorted(years):
+        contributions.update(get_remote_year_contributions(year))
+    return contributions
+
+
+def get_remote_year_contributions(year: int) -> dict[datetime.date, int]:
+    """
+    Returns a dict of contributions known to Github for a single calendar year
+
+    Github answers an unparseable `from` with the stale rolling-year calendar
+    instead of an error, so the returned grid is checked to be the requested
+    year: a silent fallback would undercount today and wave a push through.
+    """
+    url = f"{GITHUB_CALENDAR_URL}?from={year}-01-01"
+    request = urllib.request.Request(url)
     with urllib.request.urlopen(request) as response:
         html = response.read().decode('utf-8')
     days = {
@@ -46,7 +72,9 @@ def get_remote_contributions() -> dict[datetime.date, int]:
             count_value = int(count.replace(",", ""))
         contributions[days[element_id]] = count_value
     if not contributions:
-        raise RuntimeError(f"Could not parse contributions from {GITHUB_CALENDAR_URL}")
+        raise RuntimeError(f"Could not parse contributions from {url}")
+    if max(contributions) != datetime.date(year, 12, 31):
+        raise RuntimeError(f"{url} did not return the {year} calendar")
     return contributions
 
 
@@ -88,10 +116,11 @@ def main() -> bool:
     Returns whether already pushed plus planned-to-pushed contributions will
     be more than 20 per day
     """
-    remote_contributions = get_remote_contributions()
     local_contributions = get_local_contributions()
     if not local_contributions:
         local_contributions = {datetime.date.today(): 0}
+    years = {date.year for date in local_contributions}
+    remote_contributions = get_remote_contributions(years)
     for local_date, local_count in local_contributions.items():
         count = remote_contributions.get(local_date, 0) + local_count
         print(f"Estimated Github contributions {local_date}: {count}\n")
