@@ -92,8 +92,7 @@ def main() -> bool:
     local_contributions = get_local_contributions()
     for local_date, local_count in local_contributions.items():
         count = remote_contributions.get(local_date, 0) + local_count
-        if count > 15:
-            print(f"Estimated Github contributions {local_date}: {count}\n")
+        print(f"Estimated Github contributions {local_date}: {count}\n")
         if count > 20:
             return False
     return True
