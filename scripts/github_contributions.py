@@ -4,11 +4,19 @@
 Estimates whether a day's Github contributions will exceed 20 once the local
 commits are pushed, by scraping the public contribution calendar.
 
-The calendar is not real-time and can lag by ~2 hours.  Using an auth token,
-the GraphQL API, setting timezones, or setting no-cache headers does not bust
-cache to fix the lag.  Using personal access tokens with graphql leads to
-undercounting because they will not count contributions to github
-organizations that forbid access via personal access tokens.
+The calendar is not real-time and can lag by ~2 hours.  Setting timezones or
+no-cache headers does not bust cache to fix the lag, and neither does any URL
+parameter or nonce; only an authenticated API call sees contributions sooner.
+Using personal access tokens with graphql leads to undercounting because they
+will not count contributions to github organizations that forbid access via
+personal access tokens.
+
+Read the calendar the way the profile page does, from the <include-fragment>
+it lazy-loads.  Github serves several grids of the same data that lag each
+other by hours in no fixed order: a `from` parameter selects a calendar-year
+grid that was once fresher than the default rolling grid by 6 contributions,
+and later staler than it by 4.  The profile fragment is the one whose number
+matches what the profile itself shows.
 """
 
 import datetime
@@ -18,7 +26,7 @@ import sys
 import urllib.request
 
 GITHUB_USER = "albertyw"
-GITHUB_CALENDAR_URL = f"https://github.com/users/{GITHUB_USER}/contributions"
+GITHUB_CALENDAR_URL = f"https://github.com/{GITHUB_USER}?tab=contributions"
 
 # <td data-date="2026-08-16" id="contribution-day-component-0-33" ...>
 CALENDAR_DAY_RE = re.compile(
@@ -30,33 +38,22 @@ CALENDAR_COUNT_RE = re.compile(
 )
 
 
-def get_remote_contributions(years: set[int]) -> dict[datetime.date, int]:
+def get_remote_contributions() -> dict[datetime.date, int]:
     """
     Returns a dict of contributions already known to Github, scraped from the
-    public contribution calendar for each of the given calendar years.
+    rolling-year calendar that github.com/<user> renders on its profile page.
 
     The GraphQL API is deliberately not used: organizations can forbid access
     via personal access tokens, and Github then silently omits contributions to
-    those organizations from contributionsCollection rather than erroring.  It
-    would however report contributions the public calendar has not caught up
-    to yet, which is the tradeoff described in the module docstring.
-    """
-    contributions: dict[datetime.date, int] = {}
-    for year in sorted(years):
-        contributions.update(get_remote_year_contributions(year))
-    return contributions
+    those organizations from contributionsCollection rather than erroring.
 
-
-def get_remote_year_contributions(year: int) -> dict[datetime.date, int]:
+    The profile page loads its calendar lazily through an <include-fragment>,
+    so the request has to look like that fragment's own.  Without the header
+    Github answers 200 with the profile shell and no calendar in it, which
+    would parse as an empty grid rather than fail.
     """
-    Returns a dict of contributions known to Github for a single calendar year
-
-    Github answers an unparseable `from` with the stale rolling-year calendar
-    instead of an error, so the returned grid is checked to be the requested
-    year: a silent fallback would undercount today and wave a push through.
-    """
-    url = f"{GITHUB_CALENDAR_URL}?from={year}-01-01"
-    request = urllib.request.Request(url)
+    request = urllib.request.Request(GITHUB_CALENDAR_URL)
+    request.add_header("X-Requested-With", "XMLHttpRequest")
     with urllib.request.urlopen(request) as response:
         html = response.read().decode('utf-8')
     days = {
@@ -71,10 +68,8 @@ def get_remote_year_contributions(year: int) -> dict[datetime.date, int]:
         if count != "No":
             count_value = int(count.replace(",", ""))
         contributions[days[element_id]] = count_value
-    if not contributions:
-        raise RuntimeError(f"Could not parse contributions from {url}")
-    if max(contributions) != datetime.date(year, 12, 31):
-        raise RuntimeError(f"{url} did not return the {year} calendar")
+    if datetime.date.today() not in contributions:
+        raise RuntimeError(f"Could not parse contributions from {GITHUB_CALENDAR_URL}")
     return contributions
 
 
@@ -119,8 +114,7 @@ def main() -> bool:
     local_contributions = get_local_contributions()
     if not local_contributions:
         local_contributions = {datetime.date.today(): 0}
-    years = {date.year for date in local_contributions}
-    remote_contributions = get_remote_contributions(years)
+    remote_contributions = get_remote_contributions()
     for local_date, local_count in local_contributions.items():
         count = remote_contributions.get(local_date, 0) + local_count
         print(f"Estimated Github contributions {local_date}: {count}\n")
