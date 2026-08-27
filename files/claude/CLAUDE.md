@@ -104,3 +104,5 @@ Same language tools as Personal Linux above.
 - Use the SourceGraph MCP for searching for code instead of `grep`
 - When running `coverage` in the go-code repository, set the environment variable `NOHTML`
 - When creating a pull request, always enable auto-merge.
+- Never name a branch after a Jira/Linear issue key — the keys are opaque and hard to understand at a glance.  Name branches with a few descriptive words prefixed by the project or service being modified (e.g. `delivery-alerting-platform/drop-dslite`).  Link the issue in the commit message or PR body instead.
+- When a change spans several pull requests, reuse the same prefix across all of their branches so they group together.
