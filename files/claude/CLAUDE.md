@@ -45,6 +45,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 
 ### Tools
 - Do not use sed to edit files.  Do not use output redirection (>, >>) to write files except to /tmp.
+- Do not ssh to remote servers to execute write operations — editing files, restarting or recreating services, deploying, changing config — unless I confirm first.  Read-only inspection over ssh (logs, status, config contents) is fine without asking.  This does not apply to Uber work.
 - Do not use the `gh` CLI.  Instead use the `github` MCP or curl to get data from github.
 - Use `git grep` instead of `grep` when searching version-controlled files
 - Use `git ls-files | grep` instead of `find` when searching version-controlled file names
