@@ -40,7 +40,7 @@ update_dotfiles () {
         git pull --quiet > /dev/null 2>&1
         git submodule --quiet init
         git submodule --quiet update --recursive
-        ~/.ssh/chmod.sh
+        ~/.ssh/chmod.sh || true
         ~/.dotfiles/files/claude/settings_merge.py
         echo 'Dotfiles updated'
     fi
