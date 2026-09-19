@@ -21,3 +21,6 @@
 !output-styles/**
 !skills/
 !skills/**
+
+# Skills synced down from the Anthropic account are a local cache, not config.
+skills/synced/
