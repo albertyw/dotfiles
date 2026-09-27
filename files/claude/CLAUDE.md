@@ -16,6 +16,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Default branch: master
 - SSH for GitHub URLs
 - Do not run `git push` nor any commands that will trigger `git push` without first allowing me to review.  I may give general authorization to trigger `git push` for bounded work.
+- When finished making a requested change on a version-controlled file, git commit it once it passes the checks and review below.  Commit only the changes you made; if a file already had my uncommitted changes, ask first.
 - Never use `git -C` (working directory) or `git -c` (config override) flags — the shell is already in the correct directory and config is already set
 - Commit messages should be a single concise line.  They should explain the meaning of the commit rather than the mechanics.  No multi-line body unless explicitly requested.
 - Never add a Claude session marker to commit messages or pull request bodies: no `Claude-Session:` trailer, no "Generated with Claude Code" line, no co-authored-by Claude.
@@ -26,9 +27,11 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 
 ### Workflow
 - When doing complex work, split into multiple git commits.  Do not make single catch-all git commits.
-- When there are multiple git commits on a related subject, use a separate branch.  Do not commit directly to the default branch.
+- When there is ambiguity, ask me questions.
+- Clearly call out open questions and decisions that need my input, in a separate labeled section rather than buried in prose.  I may answer only some at a time; keep raising the unanswered ones in later responses until I explicitly answer or dismiss each.
+- When there are multiple git commits on a related subject, use a separate branch.  When making single commits in personal repos, commit directly on the default branch.
 - Avoid catch-all fixit commits.  If fixes are for commits that have not been pushed to remote, use fixup commits and interactive rebase to fold them into the original commits.
-- When executing an implementation plan, always default to inline execution (run the tasks in the current session) rather than spawning subagents.  Do not ask which execution mode to use; only spawn subagents if I explicitly request it.
+- When making file edits or modifying state, always default to inline execution (run the tasks in the current session) rather than spawning subagents.  Do not ask which execution mode to use.  Do not use subagents to make modifications.  Do not hand work to a subagent and then just wait for it; do it inline.
 - Write working documents — specs, implementation plans, and TODO/status tracking markdown — under a `claude/` directory at the repository root.  Check off TODO items as they are completed.
 - Working docs in `claude/` must stand alone for a session with no prior context — spell out background, not just task names.  Move completed plans to `claude/archive/` and prune finished items.
 - Keep the `claude/` directory out of version control by adding a line `claude/` to the repository's `.git/info/exclude` (NOT `.gitignore`, which is itself committed and shared with the team).  Never commit the `claude/` directory or its contents.
@@ -104,6 +107,10 @@ Same language tools as Personal Linux above.
 - Gazelle for Go build file generation
 - Use the SourceGraph MCP for searching for code instead of `grep`
 - When running `coverage` in the go-code repository, set the environment variable `NOHTML`
+- Prefer GitHub pull requests for most code changes.  Use Phabricator diffs for trivial changes.
+- Always follow instructions in /uber-dev:pr-create and /uber-dev:pr-update when creating and updating GitHub pull requests, or from /uber-dev:diff-create and /uber-dev:diff-update when creating and updating Phabricator diffs.  Never use `gh` or raw `git push` commands.
 - When creating a pull request, always enable auto-merge.
-- Never name a branch after a Jira/Linear issue key — the keys are opaque and hard to understand at a glance.  Name branches with a few descriptive words prefixed by the project or service being modified (e.g. `delivery-alerting-platform/drop-dslite`).  Link the issue in the commit message or PR body instead.
+- Never name a branch after a Jira/Linear issue key — the keys are opaque and hard to understand at a glance.  Name branches with a few descriptive words prefixed by the project or service being modified (e.g. `delivery-alerting-platform/drop-dslite`).  Link the issue in the commit message or PR body instead.  Prefix the pull request title with `[<project or service>]`.
 - When a change spans several pull requests, reuse the same prefix across all of their branches so they group together.
+- Always attach at least one Jira or Linear issue to each GitHub pull request or Phabricator diff.
+- Every pull request or diff should have a short description following the pull request or diff template.  The description should be at most 5 sentences and summarize the change and any major design decisions.
