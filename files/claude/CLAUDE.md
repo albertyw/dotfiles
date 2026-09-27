@@ -8,9 +8,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 
 ### Editor & Shell
 - **Editor**: Neovim
-- **Shell**: Bash (primary), Zsh available
 - Do not read `.env` or `.env.*` files.
-- Use `jq` instead of `python` to parse json
 
 ### Git
 - Default branch: master
@@ -26,11 +24,11 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Never perform release steps unless explicitly asked: no version bumps, no release commits, no `git tag`.  Changelog edits are fine when requested; the release itself is always mine to run.
 
 ### Workflow
-- When doing complex work, split into multiple git commits.  Do not make single catch-all git commits.
+- When doing complex work, split it into focused commits, one per logical change.
 - When there is ambiguity, ask me questions.
 - Clearly call out open questions and decisions that need my input, in a separate labeled section rather than buried in prose.  I may answer only some at a time; keep raising the unanswered ones in later responses until I explicitly answer or dismiss each.
 - When there are multiple git commits on a related subject, use a separate branch.  When making single commits in personal repos, commit directly on the default branch.
-- Avoid catch-all fixit commits.  If fixes are for commits that have not been pushed to remote, use fixup commits and interactive rebase to fold them into the original commits.
+- Fold fixes for unpushed commits into the original commit with `git commit --fixup=<sha>` and `git rebase --autosquash`, instead of adding a separate fix commit.
 - When making file edits or modifying state, always default to inline execution (run the tasks in the current session) rather than spawning subagents.  Do not ask which execution mode to use.  Do not use subagents to make modifications.  Do not hand work to a subagent and then just wait for it; do it inline.
 - Write working documents — specs, implementation plans, and TODO/status tracking markdown — under a `claude/` directory at the repository root.  Check off TODO items as they are completed.
 - Working docs in `claude/` must stand alone for a session with no prior context — spell out background, not just task names.  Move completed plans to `claude/archive/` and prune finished items.
@@ -43,11 +41,11 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Prefer simple, direct solutions
 - Tests should accompany new functionality.  Aim for 100% test coverage.
 - Tests should avoid modifying files or making network calls.
-- Make extensive use of ASCII diagrams for explaining concepts, code flow, and architecture. Include diagrams in proposed plans.
+- Use ASCII diagrams when explaining architecture, code flow, or multi-step processes.  Always include diagrams in proposed plans.
 - Prefer self-documenting code over excessive comments.
 
 ### Tools
-- Do not use sed to edit files.  Do not use output redirection (>, >>) to write files except to /tmp.
+- Do not use sed to edit files.  Do not use output redirection (>, >>) to write files except to /tmp or the session scratchpad.
 - Do not ssh to remote servers to execute write operations — editing files, restarting or recreating services, deploying, changing config — unless I confirm first.  Read-only inspection over ssh (logs, status, config contents) is fine without asking.  This does not apply to Uber work.
 - Do not use the `gh` CLI.  Instead use the `github` MCP or curl to get data from github.
 - Use `git grep` instead of `grep` when searching version-controlled files
@@ -72,7 +70,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 
 ### Python
 - Django for web backends, Flask for smaller projects
-- Flask projects should be based on the http://github.com/albertyw/base-flask template
+- Flask projects should be based on the https://github.com/albertyw/base-flask template
 - Use "python -m unittest" for testing, "./manage.py test" for Django projects
 - ruff for linting and formatting
 - mypy for type checking (strict)
