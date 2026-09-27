@@ -17,7 +17,7 @@ _mod = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_mod)
 format_settings = _mod.format_settings
 
-IGNORED_KEYS = frozenset({"model", "effortLevel"})
+IGNORED_KEYS = frozenset({"autoMode", "effortLevel", "model"})
 
 # Each change is (path, personal_value, settings_value)
 Change = tuple[str, str, str]
