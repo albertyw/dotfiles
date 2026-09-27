@@ -26,5 +26,11 @@ Setup
 git clone git@github.com:albertyw/dotfiles.git .dotfiles
 cd .dotfiles
 scripts/link.sh
-scripts/install.sh
+
+# Ubuntu
+scripts/install_ubuntu.sh
+
+# macOS
+scripts/link_macos.sh
+scripts/install_macos.sh
 ```
