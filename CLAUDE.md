@@ -1,0 +1,4 @@
+# Dotfiles CLAUDE.md
+
+- `~/.claude/` is a symlink to `files/claude/` in this repo, so the two paths are the same files.  Its `.gitignore` is default-deny (`*`) with an explicit whitelist: `CLAUDE.md`, `keybindings.json`, `settings_personal.json`, `settings_format.py`, `settings_merge.py`, `statusline-command.sh`, and the `agents/`, `commands/`, `hooks/`, `output-styles/`, and `skills/` directories.  Everything else (credentials, `history.jsonl`, `projects/`, `sessions/`, `plugins/`, caches) stays local.  To track something new there, whitelist it — a directory needs both `!dir/` and `!dir/**`.
+- `~/.claude/settings.json` is deliberately not tracked: it is a machine-local merge target.  Put global permissions and settings in `files/claude/settings_personal.json`, which `settings_merge.py` merges into it.
