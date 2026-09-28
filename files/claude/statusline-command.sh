@@ -2,10 +2,17 @@
 
 input=$(cat)
 
-blue='\e[1;34m'
-red='\e[1;31m'
-yellow='\e[1;33m'
+colors=('\e[1;34m' '\e[1;32m' '\e[1;35m' '\e[1;36m' '\e[1;33m' '\e[1;31m')
 reset='\e[0m'
+color_index=0
+line=""
+
+# Append a section in the next color of the cycle
+add_section() {
+    local color=${colors[color_index % ${#colors[@]}]}
+    color_index=$((color_index + 1))
+    line="${line:+$line | }$(printf '%b%s%b' "$color" "$1" "$reset")"
+}
 
 cwd=$(echo "$input" | jq -r '.workspace.current_dir')
 model=$(echo "$input" | jq -r '.model.display_name')
@@ -47,11 +54,6 @@ if [ -n "$raw_cost" ]; then
 else
     cost="$0.0000"
 fi
-
-# Git lines added/removed from Claude Code's cost tracking
-lines_added=$(echo "$input" | jq -r '.cost.total_lines_added // 0')
-lines_removed=$(echo "$input" | jq -r '.cost.total_lines_removed // 0')
-git_str="+${lines_added}/-${lines_removed}"
 
 # Format seconds into a human-readable countdown rounded to nearest hour (e.g. "2h" or "<1h")
 format_countdown() {
@@ -96,13 +98,12 @@ if [ -n "$seven_day" ]; then
     fi
 fi
 
-line=$(printf "${blue}%s${reset}" "$model_str")
-[ -n "$host_str" ]      && line="$line | $(printf "${yellow}%s${reset}" "$host_str")"
-[ -n "$effort_str" ]   && line="$line | $(printf "${blue}%s${reset}"   "$effort_str")"
-line="$line | $(printf "${yellow}%s${reset}" "$context_str")"
-line="$line | $(printf "${red}%s${reset}"    "$cost")"
-line="$line | $(printf "${blue}%s${reset}"   "$git_str")"
-[ -n "$rate_parts" ]   && line="$line | $(printf "${yellow}%s${reset}" "$rate_parts")"
+add_section "$model_str"
+[ -n "$host_str" ]   && add_section "$host_str"
+[ -n "$effort_str" ] && add_section "$effort_str"
+add_section "$context_str"
+add_section "$cost"
+[ -n "$rate_parts" ] && add_section "$rate_parts"
 line="$line | $cwd"
-[ -n "$branch_str" ]   && line="$line | $(printf "${blue}%s${reset}"   "$branch_str")"
+[ -n "$branch_str" ] && add_section "$branch_str"
 printf "%s\n" "$line"
