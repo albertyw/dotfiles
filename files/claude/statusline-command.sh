@@ -102,8 +102,12 @@ add_section "$model_str"
 [ -n "$host_str" ]   && add_section "$host_str"
 [ -n "$effort_str" ] && add_section "$effort_str"
 add_section "$context_str"
-add_section "$cost"
-[ -n "$rate_parts" ] && add_section "$rate_parts"
+# Individual plans report usage quotas; team/enterprise plans don't, so show cost
+if [ -n "$rate_parts" ]; then
+    add_section "$rate_parts"
+else
+    add_section "$cost"
+fi
 line="$line | $cwd"
 [ -n "$branch_str" ] && add_section "$branch_str"
 printf "%s\n" "$line"
