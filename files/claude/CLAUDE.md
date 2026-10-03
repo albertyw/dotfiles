@@ -26,7 +26,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 ### Workflow
 - When doing complex work, split it into focused commits, one per logical change.
 - When there is ambiguity, ask me questions.
-- Clearly call out open questions and decisions that need my input, in a separate labeled section rather than buried in prose.  I may answer only some at a time; keep raising the unanswered ones in later responses until I explicitly answer or dismiss each.
+- Clearly call out open questions and decisions that need my input, in a separate labeled section rather than buried in prose.  I may answer only some at a time; keep raising the unanswered ones in later responses until I explicitly answer or dismiss each.  Number each point and provide context for answering those questions.
 - When there are multiple git commits on a related subject, use a separate branch.  When making single commits in personal repos, commit directly on the default branch.
 - Fold fixes for unpushed commits into the original commit with `git commit --fixup=<sha>` and `git rebase --autosquash`, instead of adding a separate fix commit.
 - When making file edits or modifying state, always default to inline execution (run the tasks in the current session) rather than spawning subagents.  Do not ask which execution mode to use.  Do not use subagents to make modifications.  Do not hand work to a subagent and then just wait for it; do it inline.
