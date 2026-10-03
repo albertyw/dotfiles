@@ -24,6 +24,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Never perform release steps unless explicitly asked: no version bumps, no release commits, no `git tag`.  Changelog edits are fine when requested; the release itself is always mine to run.
 
 ### Workflow
+- These instructions override plugin skills such as superpowers.  When a skill's steps conflict with this file, follow this file and keep the rest of the skill — for example, save specs and plans under `claude/` (not `docs/`) without committing them, and execute plans inline.
 - When doing complex work, split it into focused commits, one per logical change.
 - When there is ambiguity, ask me questions.
 - Clearly call out open questions and decisions that need my input, in a separate labeled section rather than buried in prose.  I may answer only some at a time; keep raising the unanswered ones in later responses until I explicitly answer or dismiss each.  Number each point and provide context for answering those questions.
