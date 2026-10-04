@@ -95,10 +95,12 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 
 Same language tools as Personal Linux above.
 
-## Work (Uber / macOS)
+## Work (Uber)
 
-- **GOPATH**: ~/Uber/gocode
-- **UBER_HOME**: ~/Uber
+Applies to both work machines:
+
+- **macOS**: GOPATH at ~/Uber/gocode, UBER_HOME at ~/Uber
+- **Linux (Debian)**: GOPATH includes ~/go-code
 - **Git email**: albertyw@uber.com
 - **Internal git hosts**: code.uber.internal, config.uber.internal
 - Gazelle for Go build file generation
@@ -107,6 +109,7 @@ Same language tools as Personal Linux above.
 - Prefer GitHub pull requests for most code changes.  Use Phabricator diffs for trivial changes.
 - Always follow instructions in /uber-dev:pr-create and /uber-dev:pr-update when creating and updating GitHub pull requests, or from /uber-dev:diff-create and /uber-dev:diff-update when creating and updating Phabricator diffs.  Never use `gh` or raw `git push` commands.
 - When creating a pull request, always enable auto-merge.
+- Never git commit directly to the main/master branch, even for single commits; this overrides the earlier Git and Workflow rules.  Create a branch first.
 - Never name a branch after a Jira/Linear issue key — the keys are opaque and hard to understand at a glance.  Name branches with a few descriptive words prefixed by the project or service being modified (e.g. `delivery-alerting-platform/drop-dslite`).  Link the issue in the commit message or PR body instead.  Prefix the pull request title with `[<project or service>]`.
 - When a change spans several pull requests, reuse the same prefix across all of their branches so they group together.
 - Always attach at least one Jira or Linear issue to each GitHub pull request or Phabricator diff.
