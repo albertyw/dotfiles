@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-export GOPATH=$HOME/Uber/gocode
-export PATH="$PATH:$GOPATH/bin"
-export UBER_HOME="$HOME/Uber"
+if [[ $(uname) == Darwin ]]; then
+    export GOPATH=$HOME/Uber/gocode
+    export PATH="$PATH:$GOPATH/bin"
+    export UBER_HOME="$HOME/Uber"
+fi
 export UBER_OWNER="albertyw@uber.com"
 export UBER_LDAP_UID="albertyw"
 
