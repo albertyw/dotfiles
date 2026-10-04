@@ -39,7 +39,7 @@ move tmux.conf
 move vim
 move vimrc
 move zshrc
-if [[ $(hostname) == *"uber"* ]] ; then
+if [[ $(hostname) == *"uber"* ]] || [ -n "${UBER_OWNER:-}" ] ; then
     move gitconfig_uber gitconfig_local
     move bashrc_uber bashrc_local
 fi

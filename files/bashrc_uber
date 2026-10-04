@@ -1,8 +1,24 @@
 #!/usr/bin/env bash
 
-export GOPATH=$HOME/Uber/gocode
-export PATH="$PATH:$GOPATH/bin"
-export UBER_HOME="$HOME/Uber"
+if [[ $(uname) == Darwin ]]; then
+    export GOPATH=$HOME/Uber/gocode
+    export PATH="$PATH:$GOPATH/bin"
+    export UBER_HOME="$HOME/Uber"
+
+    # Uber adds a bunch of crap to the hostname, override it
+    blue='\[\e[1;34m\]'
+    red='\[\e[1;31m\]'
+    yellow='\[\e[1;33m\]'
+    reset='\[\e[0m\]'
+    PS1="${blue}\u${red}@${yellow}albertyw${red} \w \$ ${reset}"
+    if declare -F show_virtual_env > /dev/null; then
+        PS1='$(show_virtual_env)'$PS1
+    fi
+fi
+if [[ $(uname) == Linux ]]; then
+    # Breaks rendering of Claude Code inside screen
+    unset COLORTERM
+fi
 export UBER_OWNER="albertyw@uber.com"
 export UBER_LDAP_UID="albertyw"
 
@@ -10,13 +26,6 @@ alias ussh="npm_reset"
 
 # Uber web monorepo
 # export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
-
-# Uber adds a bunch of crap to the hostname, override it
-blue='\[\e[1;34m\]'
-red='\[\e[1;31m\]'
-yellow='\[\e[1;33m\]'
-reset='\[\e[0m\]'
-PS1="${blue}\u${red}@\[${yellow}albertyw${red} \w \$ ${reset}"
 
 # Uber
 [ -r ~/.profile_lda ] && . ~/.profile_lda

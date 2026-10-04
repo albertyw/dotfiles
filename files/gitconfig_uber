@@ -3,6 +3,7 @@
 # Uber-specific gitconfigs
 
 [user]
+    name = Albert Wang
     email = albertyw@uber.com
     signingkey =
 

@@ -36,7 +36,7 @@ files/<name> ──symlink (scripts/link.sh)──> ~/.<name>
 ```
 
 - **`files/`** holds everything that gets linked into `$HOME` with a leading dot (`files/bashrc` → `~/.bashrc`, `files/claude` → `~/.claude`). Adding a new dotfile means adding a `move <name>` line to `scripts/link.sh`.
-- **Machine-specific overrides**: on hosts whose name contains `uber`, `link.sh` links `files/bashrc_uber` → `~/.bashrc_local` and `files/gitconfig_uber` → `~/.gitconfig_local`, which `bashrc` and `gitconfig` include last.
+- **Machine-specific overrides**: on hosts whose name contains `uber` or that set `UBER_OWNER`, `link.sh` links `files/bashrc_uber` → `~/.bashrc_local` and `files/gitconfig_uber` → `~/.gitconfig_local`, which `bashrc` and `gitconfig` include last.
 - **Setup**: `scripts/link.sh`, then `scripts/install_ubuntu.sh` or `scripts/install_macos.sh` (plus `scripts/link_macos.sh` on macOS).
 - **Auto-sync consequences**: `sync-dotfiles.sh` only pulls when on `master` with a clean tree, so uncommitted work pauses syncing on that machine. Anything committed and pushed reaches every machine on its next login shell.
 - **Submodules**: vim plugins under `files/vim/pack/albertyw/start/` and the `git-browse`, `git-reviewers`, and `req-update` tools under `scripts/git/` are git submodules; don't edit them here.
