@@ -5,6 +5,10 @@ if [[ $(uname) == Darwin ]]; then
     export PATH="$PATH:$GOPATH/bin"
     export UBER_HOME="$HOME/Uber"
 fi
+if [[ $(uname) == Linux ]]; then
+    # Breaks rendering of Claude Code inside screen
+    unset COLORTERM
+fi
 export UBER_OWNER="albertyw@uber.com"
 export UBER_LDAP_UID="albertyw"
 
