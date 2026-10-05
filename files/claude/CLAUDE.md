@@ -28,6 +28,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - When doing complex work, split it into focused commits, one per logical change.
 - When there is ambiguity, ask me questions.
 - Clearly call out open questions and decisions that need my input, in a separate labeled section rather than buried in prose.  I may answer only some at a time; keep raising the unanswered ones in later responses until I explicitly answer or dismiss each.  Number each point and provide context for answering those questions.
+- When re-asking questions later in a conversation, keep the same numbering on the same question, even if it means skipping numbers; number new questions after the highest number used so far.
 - When there are multiple git commits on a related subject, use a separate branch.  When making single commits in personal repos, commit directly on the default branch.
 - Fold fixes for unpushed commits into the original commit with `git commit --fixup=<sha>` and `git rebase --autosquash`, instead of adding a separate fix commit.
 - Do file edits and state changes inline in the current session, never through a subagent, and don't ask which execution mode to use; if you would only wait on a subagent's result, do the work yourself.
