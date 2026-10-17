@@ -148,7 +148,7 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0xf72c-0x40000-0x74</key>
+		<key>0xf72c-0x40000-0x74-0x1</key>
 		<dict>
 			<key>Action</key>
 			<integer>31</integer>
@@ -175,7 +175,7 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0xf72d-0x40000-0x79</key>
+		<key>0xf72d-0x40000-0x79-0x1</key>
 		<dict>
 			<key>Action</key>
 			<integer>30</integer>
