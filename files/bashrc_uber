@@ -15,10 +15,6 @@ if [[ $(uname) == Darwin ]]; then
         PS1='$(show_virtual_env)'$PS1
     fi
 fi
-if [[ $(uname) == Linux ]]; then
-    # Breaks rendering of Claude Code inside screen
-    unset COLORTERM
-fi
 export UBER_OWNER="albertyw@uber.com"
 export UBER_LDAP_UID="albertyw"
 

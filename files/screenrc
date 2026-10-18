@@ -1,0 +1,2 @@
+# GNU screen <5 misparses truecolor escapes, breaking Claude Code colors
+unsetenv COLORTERM
