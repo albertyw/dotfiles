@@ -5,6 +5,7 @@ IFS=$'\n\t'
 
 cd "$HOME/.dotfiles"
 dotfiles=$HOME/.dotfiles/files
+linked=false
 
 move () {
     # shellcheck disable=SC2086
@@ -13,14 +14,20 @@ move () {
     else
         dest=$2
     fi
-    echo "$1"
-    if [ -L "$HOME/.$dest" ] ; then
+    path="$HOME/.$dest"
+    if [ "$(readlink "$path")" == "$dotfiles/$1" ] ; then
         return 0
     fi
-    if [ -f "$HOME/.$dest" ] || [ -d "$HOME/.$dest" ] ; then
-        mv "$HOME/.$dest" "$HOME/.$dest~"
+    if [ -e "$path" ] || [ -L "$path" ] ; then
+        if [ -e "$path~" ] || [ -L "$path~" ] ; then
+            echo "Cannot back up $path: $path~ already exists" >&2
+            exit 1
+        fi
+        mv "$path" "$path~"
     fi
-    ln -s "$dotfiles/$1" "$HOME/.$dest"
+    echo "$1"
+    ln -s "$dotfiles/$1" "$path"
+    linked=true
 }
 
 git submodule init
@@ -45,4 +52,6 @@ if [[ $(hostname) == *"uber"* ]] || [ -n "${UBER_OWNER:-}" ] ; then
     move bashrc_uber bashrc_local
 fi
 
-exec bash
+if [ "$linked" == true ] && [ -t 0 ] ; then
+    exec bash
+fi
