@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 if [[ -n "${1+x}" ]] && [[ "$1" == "-h" ]]; then
-    echo "Runs git status under each git repository underneath the current pwd and shows any unclean repositories"
+    echo "Runs git status under each git repository underneath the current pwd and shows any unclean repositories, along with any files under claude/ (except claude/archive/)"
     exit
 fi
 yellow='\e[1;33m'
@@ -15,14 +15,22 @@ for f in ./*; do
         continue
     fi
     result="$(git -C "$f" status || true)"
+    claude_files=""
+    if [ -d "$f/claude" ]; then
+        claude_files="$(cd "$f" && find claude -path claude/archive -prune -o -type f -print | sort)"
+    fi
     if [[ -n "$result" ]]; then
-        # Skip if clean and up to date on master or main
-        if [[ ${result} == *"working tree clean"* && ${result} == *"up to date"* && ( ${result} == *"master"* || ${result} == *"main"* ) ]]; then
+        # Skip if clean and up to date on master or main, with no claude working docs
+        if [[ ${result} == *"working tree clean"* && ${result} == *"up to date"* && ( ${result} == *"master"* || ${result} == *"main"* ) && -z "$claude_files" ]]; then
             continue
         fi
         echo -e "${yellow}$f${reset}"
         tput rmam  # Disable line wrapping in terminal
         echo "$result"
+        if [[ -n "$claude_files" ]]; then
+            echo "Claude files:"
+            echo "$claude_files"
+        fi
         tput smam  # Reenable line wrapping in terminal
     fi
 done
