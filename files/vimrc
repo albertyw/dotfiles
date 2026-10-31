@@ -54,18 +54,3 @@ set noerrorbells
 
 " Disable folding
 set nofoldenable
-
-imap <silent><script><expr> <C-space> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
-
-" Disable copilot strict SSL to deal with Uber zscaler
-let g:copilot_proxy_strict_ssl = v:false
-
-" Disable copilot for specific filetypes
-let g:copilot_filetypes = {
-    \ 'markdown': v:false,
-    \ 'restructuredtext': v:false,
-    \ 'text': v:false,
-    \ 'dotenv': v:false,
-    \ 'secret': v:false,
-    \ }
