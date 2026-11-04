@@ -53,6 +53,7 @@ Albert Wang (albertyw). Full-stack developer working primarily in Go, Python, an
 - Use `git grep` instead of `grep` when searching version-controlled files
 - Use `git ls-files | grep` instead of `find` when searching version-controlled file names
 - Prefer pre-approved shell commands over ones that require confirmation: use the Read/Edit/Write tools instead of shell commands that touch files; use `jq` for JSON parsing; use `awk` or `cut` instead of `python3 -c` for simple text processing.
+- Never use Claude artifacts: do not call the `Artifact` tool or publish pages to claude.ai, even when a skill suggests it.  For diagrams, write a local file (ASCII, or an SVG/PNG under `claude/`) and give me its path instead.
 
 ## Personal (Linux / Ubuntu / WSL)
 
